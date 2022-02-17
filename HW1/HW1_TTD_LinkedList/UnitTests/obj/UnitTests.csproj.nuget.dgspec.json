@@ -1,27 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jtdaf\\Documents\\School\\2021-2022\\Sem 2\\Intermediate Software Engineering\\StreamSpotter\\Repos\\MainRepo\\project\\HW1\\HW1_TTD_LinkedList\\UnitTests\\UnitTests.csproj": {}
+    "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\UnitTests\\UnitTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jtdaf\\Documents\\School\\2021-2022\\Sem 2\\Intermediate Software Engineering\\StreamSpotter\\Repos\\MainRepo\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj": {
+    "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jtdaf\\Documents\\School\\2021-2022\\Sem 2\\Intermediate Software Engineering\\StreamSpotter\\Repos\\MainRepo\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj",
+        "projectUniqueName": "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj",
         "projectName": "HW1_TTD_LinkedList",
-        "projectPath": "C:\\Users\\jtdaf\\Documents\\School\\2021-2022\\Sem 2\\Intermediate Software Engineering\\StreamSpotter\\Repos\\MainRepo\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj",
-        "packagesPath": "C:\\Users\\jtdaf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jtdaf\\Documents\\School\\2021-2022\\Sem 2\\Intermediate Software Engineering\\StreamSpotter\\Repos\\MainRepo\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\obj\\",
+        "projectPath": "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj",
+        "packagesPath": "C:\\Users\\jdmor\\.nuget\\packages\\",
+        "outputPath": "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jtdaf\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\jdmor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -32,7 +26,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -44,7 +37,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -60,28 +52,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jtdaf\\Documents\\School\\2021-2022\\Sem 2\\Intermediate Software Engineering\\StreamSpotter\\Repos\\MainRepo\\project\\HW1\\HW1_TTD_LinkedList\\UnitTests\\UnitTests.csproj": {
+    "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\UnitTests\\UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jtdaf\\Documents\\School\\2021-2022\\Sem 2\\Intermediate Software Engineering\\StreamSpotter\\Repos\\MainRepo\\project\\HW1\\HW1_TTD_LinkedList\\UnitTests\\UnitTests.csproj",
+        "projectUniqueName": "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\UnitTests\\UnitTests.csproj",
         "projectName": "UnitTests",
-        "projectPath": "C:\\Users\\jtdaf\\Documents\\School\\2021-2022\\Sem 2\\Intermediate Software Engineering\\StreamSpotter\\Repos\\MainRepo\\project\\HW1\\HW1_TTD_LinkedList\\UnitTests\\UnitTests.csproj",
-        "packagesPath": "C:\\Users\\jtdaf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jtdaf\\Documents\\School\\2021-2022\\Sem 2\\Intermediate Software Engineering\\StreamSpotter\\Repos\\MainRepo\\project\\HW1\\HW1_TTD_LinkedList\\UnitTests\\obj\\",
+        "projectPath": "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\UnitTests\\UnitTests.csproj",
+        "packagesPath": "C:\\Users\\jdmor\\.nuget\\packages\\",
+        "outputPath": "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\UnitTests\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jtdaf\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\jdmor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -92,10 +78,9 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\jtdaf\\Documents\\School\\2021-2022\\Sem 2\\Intermediate Software Engineering\\StreamSpotter\\Repos\\MainRepo\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj": {
-                "projectPath": "C:\\Users\\jtdaf\\Documents\\School\\2021-2022\\Sem 2\\Intermediate Software Engineering\\StreamSpotter\\Repos\\MainRepo\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj"
+              "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj": {
+                "projectPath": "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj"
               }
             }
           }
@@ -108,7 +93,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "MSTest.TestAdapter": {
               "target": "Package",
@@ -142,7 +126,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

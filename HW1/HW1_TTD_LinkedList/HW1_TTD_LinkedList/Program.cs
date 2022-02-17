@@ -26,6 +26,32 @@ namespace HW1_TTD_LinkedList
             head = null;
         }
 
+        public int getHeadData()
+		{
+            return head.data;
+		}
+
+        public bool AddToHead(int newData)
+		{
+            bool added = false;
+            Node add = new Node(newData);
+            if (add != null)
+            {
+                if (head == null)
+                {
+                    head = add;
+                    added = true;
+                }
+                else
+                {
+                    Node temp = head;
+                    head = add;
+                    head.next = temp;
+                    added = true;
+                }
+            }
+            return added;
+		}
 
     }
 }

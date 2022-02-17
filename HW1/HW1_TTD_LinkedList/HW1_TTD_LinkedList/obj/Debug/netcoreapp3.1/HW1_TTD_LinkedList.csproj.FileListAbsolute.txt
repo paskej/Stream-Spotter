@@ -12,3 +12,16 @@ C:\Users\jtdaf\Documents\School\2021-2022\Sem 2\Intermediate Software Engineerin
 C:\Users\jtdaf\Documents\School\2021-2022\Sem 2\Intermediate Software Engineering\StreamSpotter\Repos\MainRepo\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.dll
 C:\Users\jtdaf\Documents\School\2021-2022\Sem 2\Intermediate Software Engineering\StreamSpotter\Repos\MainRepo\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.pdb
 C:\Users\jtdaf\Documents\School\2021-2022\Sem 2\Intermediate Software Engineering\StreamSpotter\Repos\MainRepo\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.genruntimeconfig.cache
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\bin\Debug\netcoreapp3.1\HW1_TTD_LinkedList.exe
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\bin\Debug\netcoreapp3.1\HW1_TTD_LinkedList.deps.json
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\bin\Debug\netcoreapp3.1\HW1_TTD_LinkedList.runtimeconfig.json
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\bin\Debug\netcoreapp3.1\HW1_TTD_LinkedList.runtimeconfig.dev.json
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\bin\Debug\netcoreapp3.1\HW1_TTD_LinkedList.dll
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\bin\Debug\netcoreapp3.1\HW1_TTD_LinkedList.pdb
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.csprojAssemblyReference.cache
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.AssemblyInfoInputs.cache
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.AssemblyInfo.cs
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.csproj.CoreCompileInputs.cache
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.dll
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.pdb
+C:\StreamSpotterRepo\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.genruntimeconfig.cache
