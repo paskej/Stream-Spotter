@@ -2,7 +2,7 @@
 
 namespace HW1_TTD_LinkedList
 {
-    public class LinkedListt
+    public class LinkedList
     {
         static void Main(string[] args)
         {
@@ -21,7 +21,7 @@ namespace HW1_TTD_LinkedList
         }
 
         private Node head;
-        public LinkedListt()
+        public LinkedList()
         {
             head = null;
         }
