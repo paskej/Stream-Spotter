@@ -29,5 +29,15 @@ namespace UnitTests
             linkedList.AddToHead(10920);
             Assert.AreEqual(10920, linkedList.getHeadData(), "the newest element is the head of the linked list");
 		}
+
+        [TestMethod]
+        public void TestLength()
+        {
+            Console.WriteLine("Test: getting length of list");
+            LinkedList linkedList = new LinkedList();
+            linkedList.AddToHead(10);
+            int length = linkedList.Length();
+            Assert.AreEqual(1, length, "Length is wrong");
+        }
     }
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj": {}
+    "C:\\Users\\Bryce\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj": {}
   },
   "projects": {
-    "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj": {
+    "C:\\Users\\Bryce\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj",
+        "projectUniqueName": "C:\\Users\\Bryce\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj",
         "projectName": "HW1_TTD_LinkedList",
-        "projectPath": "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj",
-        "packagesPath": "C:\\Users\\jdmor\\.nuget\\packages\\",
-        "outputPath": "C:\\StreamSpotterRepo\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\obj\\",
+        "projectPath": "C:\\Users\\Bryce\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj",
+        "packagesPath": "C:\\Users\\Bryce\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bryce\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jdmor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Bryce\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

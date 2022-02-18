@@ -21,9 +21,11 @@ namespace HW1_TTD_LinkedList
         }
 
         private Node head;
+        private int length;
         public LinkedList()
         {
             head = null;
+            length = 0;
         }
 
         public int getHeadData()
@@ -49,9 +51,14 @@ namespace HW1_TTD_LinkedList
                     head.next = temp;
                     added = true;
                 }
+                length++;
             }
             return added;
 		}
 
+        public int Length()
+        {
+            return length;
+        }
     }
 }
