@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bryce\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj": {}
+    "C:\\Users\\jp092\\OneDrive\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bryce\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj": {
+    "C:\\Users\\jp092\\OneDrive\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bryce\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj",
+        "projectUniqueName": "C:\\Users\\jp092\\OneDrive\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj",
         "projectName": "HW1_TTD_LinkedList",
-        "projectPath": "C:\\Users\\Bryce\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj",
-        "packagesPath": "C:\\Users\\Bryce\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bryce\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\obj\\",
+        "projectPath": "C:\\Users\\jp092\\OneDrive\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList.csproj",
+        "packagesPath": "C:\\Users\\jp092\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jp092\\OneDrive\\Documents\\GitHub\\project\\HW1\\HW1_TTD_LinkedList\\HW1_TTD_LinkedList\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bryce\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jp092\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

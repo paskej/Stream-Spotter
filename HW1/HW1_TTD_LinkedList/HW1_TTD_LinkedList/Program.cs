@@ -60,5 +60,10 @@ namespace HW1_TTD_LinkedList
         {
             return length;
         }
+
+        public Boolean isEmpty()
+        {
+            return (length == 0);
+        }
     }
 }

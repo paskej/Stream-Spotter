@@ -38,3 +38,14 @@ C:\Users\Bryce\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedLis
 C:\Users\Bryce\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.dll
 C:\Users\Bryce\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.pdb
 C:\Users\Bryce\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.genruntimeconfig.cache
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\bin\Debug\netcoreapp3.1\HW1_TTD_LinkedList.exe
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\bin\Debug\netcoreapp3.1\HW1_TTD_LinkedList.deps.json
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\bin\Debug\netcoreapp3.1\HW1_TTD_LinkedList.runtimeconfig.json
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\bin\Debug\netcoreapp3.1\HW1_TTD_LinkedList.runtimeconfig.dev.json
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\bin\Debug\netcoreapp3.1\HW1_TTD_LinkedList.dll
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\bin\Debug\netcoreapp3.1\HW1_TTD_LinkedList.pdb
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.csprojAssemblyReference.cache
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.AssemblyInfoInputs.cache
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.AssemblyInfo.cs
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.dll
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\HW1_TTD_LinkedList\obj\Debug\netcoreapp3.1\HW1_TTD_LinkedList.pdb

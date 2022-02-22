@@ -1,0 +1,16 @@
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\UnitTests\Debug\netcoreapp3.1\HW1_TTD_LinkedList.exe
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\UnitTests\Debug\netcoreapp3.1\testhost.exe
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\UnitTests\Debug\netcoreapp3.1\testhost.dll
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\UnitTests\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\UnitTests\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\UnitTests\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\UnitTests\Debug\netcoreapp3.1\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\UnitTests\Debug\netcoreapp3.1\Microsoft.TestPlatform.PlatformAbstractions.dll
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\UnitTests\Debug\netcoreapp3.1\UnitTests.deps.json
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\UnitTests\Debug\netcoreapp3.1\UnitTests.runtimeconfig.json
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\UnitTests\Debug\netcoreapp3.1\UnitTests.runtimeconfig.dev.json
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\UnitTests\Debug\netcoreapp3.1\UnitTests.dll
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\i\UnitTests\Debug\netcoreapp3.1\UnitTests.AssemblyInfoInputs.cache
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\i\UnitTests\Debug\netcoreapp3.1\UnitTests.AssemblyInfo.cs
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\i\UnitTests\Debug\netcoreapp3.1\UnitTests.csproj.CopyComplete
+C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\i\UnitTests\Debug\netcoreapp3.1\UnitTests.dll

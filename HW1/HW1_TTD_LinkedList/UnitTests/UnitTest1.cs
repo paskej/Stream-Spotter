@@ -39,5 +39,24 @@ namespace UnitTests
             int length = linkedList.Length();
             Assert.AreEqual(1, length, "Length is wrong");
         }
+
+        [TestMethod]
+        public void TestIsEmpty_TRUE()
+        {
+            Console.WriteLine("Test: seeing if list is empty");
+            LinkedList linkedList = new LinkedList();
+            Boolean empty = linkedList.isEmpty();
+            Assert.AreEqual(true, empty, "False Positive.");
+        }
+
+        [TestMethod]
+        public void TestIsEmpty_FALSE()
+        {
+            Console.WriteLine("Test: seeing if list is not empty");
+            LinkedList linkedList = new LinkedList();
+            linkedList.AddToHead(10);
+            Boolean empty = linkedList.isEmpty();
+            Assert.AreEqual(false, empty, "False Negative.");
+        }
     }
 }
