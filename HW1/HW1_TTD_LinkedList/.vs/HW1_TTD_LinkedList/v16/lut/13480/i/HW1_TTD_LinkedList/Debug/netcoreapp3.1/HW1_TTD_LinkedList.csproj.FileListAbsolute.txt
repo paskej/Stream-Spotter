@@ -1,9 +1,0 @@
-C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\HW1_TTD_LinkedList\Debug\netcoreapp3.1\HW1_TTD_LinkedList.exe
-C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\HW1_TTD_LinkedList\Debug\netcoreapp3.1\HW1_TTD_LinkedList.deps.json
-C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\HW1_TTD_LinkedList\Debug\netcoreapp3.1\HW1_TTD_LinkedList.runtimeconfig.json
-C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\HW1_TTD_LinkedList\Debug\netcoreapp3.1\HW1_TTD_LinkedList.runtimeconfig.dev.json
-C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\b\HW1_TTD_LinkedList\Debug\netcoreapp3.1\HW1_TTD_LinkedList.dll
-C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\i\HW1_TTD_LinkedList\Debug\netcoreapp3.1\HW1_TTD_LinkedList.AssemblyInfoInputs.cache
-C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\i\HW1_TTD_LinkedList\Debug\netcoreapp3.1\HW1_TTD_LinkedList.AssemblyInfo.cs
-C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\i\HW1_TTD_LinkedList\Debug\netcoreapp3.1\HW1_TTD_LinkedList.csproj.CopyComplete
-C:\Users\jp092\OneDrive\Documents\GitHub\project\HW1\HW1_TTD_LinkedList\.vs\HW1_TTD_LinkedList\v16\lut\0\i\HW1_TTD_LinkedList\Debug\netcoreapp3.1\HW1_TTD_LinkedList.dll
