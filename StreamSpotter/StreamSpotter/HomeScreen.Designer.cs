@@ -43,8 +43,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.SearchBar = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -191,14 +191,6 @@
             this.label9.TabIndex = 15;
             this.label9.Text = "\"Show\"";
             // 
-            // richTextBox6
-            // 
-            this.richTextBox6.Location = new System.Drawing.Point(315, 254);
-            this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(215, 39);
-            this.richTextBox6.TabIndex = 17;
-            this.richTextBox6.Text = "";
-            // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -210,14 +202,24 @@
             this.button3.Text = "Menu";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // SearchBar
+            // 
+            this.SearchBar.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBar.Location = new System.Drawing.Point(296, 252);
+            this.SearchBar.Name = "SearchBar";
+            this.SearchBar.Size = new System.Drawing.Size(263, 35);
+            this.SearchBar.TabIndex = 25;
+            this.SearchBar.Text = "Search";
+            this.SearchBar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchBar_KeyPress);
+            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(850, 516);
+            this.Controls.Add(this.SearchBar);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.richTextBox6);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -257,8 +259,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RichTextBox richTextBox6;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox SearchBar;
     }
 }
 

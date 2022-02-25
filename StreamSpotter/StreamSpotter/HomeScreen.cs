@@ -31,5 +31,23 @@ namespace StreamSpotter
         {
 
         }
+
+        private void SearchBar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //probably should move to a windows controller
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+                if (SearchBar.TextLength == 0)
+                    MessageBox.Show("Please enter a search!");
+                else
+                {
+                    //search with the api
+                    //then we load the searhlistUI
+                    WindowsController windowsController = new WindowsController();
+                    windowsController.openSearchListUI(this);
+                }
+            }
+        }
     }
 }
