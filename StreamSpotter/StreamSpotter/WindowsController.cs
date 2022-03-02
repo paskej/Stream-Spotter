@@ -25,10 +25,13 @@ namespace StreamSpotter
             SearchListUI searchListUI = new SearchListUI();
             searchListUI.Show();
         }
-        public void openMovieScreen(Form currentForm)
+        public void openMovieScreen(Form currentForm)//, int loc)
         {
             currentForm.Hide();
-            MovieScreen movieScreen = new MovieScreen();
+
+            //int listIndex = loc / 160;
+
+            MovieScreen movieScreen = new MovieScreen();//listIndex);
             movieScreen.Show();
         }
     }

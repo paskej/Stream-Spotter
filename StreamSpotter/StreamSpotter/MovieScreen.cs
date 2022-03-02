@@ -12,7 +12,8 @@ namespace StreamSpotter
 {
     public partial class MovieScreen : Form
     {
-        public MovieScreen()
+        private Movie movie;
+        public MovieScreen()//Movie movie)
         {
             InitializeComponent();
         }

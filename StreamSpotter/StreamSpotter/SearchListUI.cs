@@ -12,10 +12,14 @@ namespace StreamSpotter
 {
     public partial class SearchListUI : Form
     {
+        MovieList movieList;
         //need to do show list upon start up somehow
         public SearchListUI()
         {
             InitializeComponent();
+            movieList = new MovieList(listPanel, this);
+            movieList.populateList();
+            movieList.printList();
         }
 
         private void HomeButton_Click(object sender, EventArgs e)

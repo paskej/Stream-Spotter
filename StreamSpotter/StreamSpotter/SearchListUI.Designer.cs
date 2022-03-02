@@ -35,9 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.SearchBar = new System.Windows.Forms.TextBox();
             this.listPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.listPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuButton
@@ -106,22 +104,11 @@
             // 
             this.listPanel.AutoScroll = true;
             this.listPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.listPanel.Controls.Add(this.label1);
             this.listPanel.Location = new System.Drawing.Point(0, 100);
             this.listPanel.Name = "listPanel";
             this.listPanel.Size = new System.Drawing.Size(850, 448);
             this.listPanel.TabIndex = 26;
             this.listPanel.Click += new System.EventHandler(this.listPanel_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(374, 231);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "click me";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // SearchListUI
             // 
@@ -139,8 +126,6 @@
             this.Text = "SearchListUI";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.listPanel.ResumeLayout(false);
-            this.listPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -154,6 +139,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel listPanel;
         private System.Windows.Forms.TextBox SearchBar;
-        private System.Windows.Forms.Label label1;
     }
 }
