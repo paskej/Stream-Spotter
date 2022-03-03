@@ -11,12 +11,12 @@ namespace StreamSpotter
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        ///[STAThread]
+        [STAThread]
         public static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new HomeScreen());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new HomeScreen());
 
             APIController apiController = new APIController();
             apiController.Change("series", "netflix", "witcher");
