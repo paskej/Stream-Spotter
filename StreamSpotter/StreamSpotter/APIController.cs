@@ -41,17 +41,22 @@ namespace StreamSpotter
 			request.RequestUri = new Uri(theUri);
 		}
 
-		public async System.Threading.Tasks.Task<string> MakeRequestAsync()
+		public async Task<string> MakeRequestAsync()
 		{
-			string results = "";
+			
 			using (var response = await client.SendAsync(request))
 			{
 				response.EnsureSuccessStatusCode();
 				var body = await response.Content.ReadAsStringAsync();
-				results = body;
-				//Console.Write(body);
+				return body;
 			}
-			return results;
+			
+		}
+
+		public string FindMovieSync()
+		{
+			string movieResults = Task.Run(async () => await MakeRequestAsync()).Result;
+			return movieResults;
 		}
 	}
 }
