@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIController.cs" />
+    <Compile Include="APIStorage.cs" />
     <Compile Include="MovieScreen.cs">
       <SubType>Form</SubType>
     </Compile>
