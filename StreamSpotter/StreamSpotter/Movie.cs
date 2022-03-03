@@ -8,14 +8,20 @@ namespace StreamSpotter
 {
     public class Movie
     {
-        private string title;
-        private string description;
+        private int age { get; set; }
+        private string backdropPath { get; set; }
+        private string imdbID { get; set; }
+        private int imdbRating { get; set; }
+        private string overview { get; set; }
+        private int runtime { get; set; }
+        private string title{ get; set; }
+        private int year { get; set; }
         private string streamService;
 
         public Movie(string title,string description,string streamService)
         {
             this.title = title;
-            this.description = description;
+            this.overview = description;
             this.streamService = streamService;
         }
 
@@ -23,9 +29,9 @@ namespace StreamSpotter
         {
             return title;
         }
-        public string getDescription()
+        public string getOverview()
         {
-            return description;
+            return overview;
         }
         public string getStreamService()
         {
