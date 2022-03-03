@@ -82,6 +82,7 @@ namespace StreamSpotter
             return false;
         }
 
+<<<<<<< Updated upstream
         public string getMovieUrl()
         {
             int i = getProfileIndex(profileName);
@@ -118,11 +119,41 @@ namespace StreamSpotter
             return movie.imdbRating;
         }
         private int getProfileIndex(string name)
+=======
+        class tempMovie
+        {
+            private int age { get; set; }
+            private string backdropPath { get; set; }
+            private string imdbID { get; set; }
+            private int imdbRating { get; set; }
+            private string overview { get; set; }
+            private int runtime { get; set; }
+            private string title { get; set; }
+            private int year { get; set; }
+        }
+        public string parseMovie()
+        {
+            int i = getProfileIndex();
+            string path = @"~/Wishlists/Profiles/" + profileNames[i];
+            var movie = JavaScriptSerializer().Deserialize<Movie>()
+        }
+
+        private object JavaScriptSerializer()
+        {
+            throw new NotImplementedException();
+        }
+
+        private int getProfileIndex()
+>>>>>>> Stashed changes
         {
             int ind = -1;
             for(int i = 0; i < profileNames.Count; i++)
             {
+<<<<<<< Updated upstream
                 if(profileNames[i] == name)
+=======
+                if(profileNames[i] == profileName)
+>>>>>>> Stashed changes
                 {
                     ind = i;
                 }
