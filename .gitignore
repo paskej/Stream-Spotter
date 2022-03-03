@@ -6,7 +6,10 @@ StreamSpotter/.vs/StreamSpotter/v16/Browse.VC.opendb
 StreamSpotter/.vs/StreamSpotter/v16/Browse.VC.db-wal
 /.vs
 /.bin
+/.obj
 .vs
 .bin
+.obj
 .vs/
 .bin/
+.obj/
