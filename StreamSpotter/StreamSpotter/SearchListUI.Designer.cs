@@ -108,7 +108,6 @@
             this.listPanel.Name = "listPanel";
             this.listPanel.Size = new System.Drawing.Size(850, 448);
             this.listPanel.TabIndex = 26;
-            this.listPanel.Click += new System.EventHandler(this.listPanel_Click);
             // 
             // SearchListUI
             // 

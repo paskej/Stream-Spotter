@@ -9,6 +9,7 @@ namespace StreamSpotter
 {
     class WindowsController
     {
+        MovieList movieList;
         public WindowsController()
         {
 
@@ -25,14 +26,20 @@ namespace StreamSpotter
             SearchListUI searchListUI = new SearchListUI();
             searchListUI.Show();
         }
-        public void openMovieScreen(Form currentForm)//, int loc)
+        public void openMovieScreen(Form currentForm, int loc)
         {
             currentForm.Hide();
 
-            //int listIndex = loc / 160;
+            int listIndex = loc / 160;
 
-            MovieScreen movieScreen = new MovieScreen();//listIndex);
+            MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex));
             movieScreen.Show();
+        }
+        public void showMovieList(Panel listPanel, Form form)
+        {
+            movieList = new MovieList(listPanel, form, this);
+            movieList.populateList();
+            movieList.printList();
         }
     }
 }

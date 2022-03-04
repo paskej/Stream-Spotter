@@ -16,12 +16,14 @@ namespace StreamSpotter
         private List<Movie> movieList;
         Panel panel;
         Form form;
+        WindowsController windowsController;
 
-        public MovieList(Panel panel, Form form)
+        public MovieList(Panel panel, Form form, WindowsController windowsController)
         {
             movieList = new List<Movie>();
             this.panel = panel;
             this.form = form;
+            this.windowsController = windowsController;
         }
 
         //gather all information from json file to put into the movieList
@@ -33,6 +35,10 @@ namespace StreamSpotter
             movieList.Add(ironMan);
             Movie hulk = new Movie("Hulk", "He big, strong and green. He smash a lot of stuff. His actual name is Bruce Banner.", "Disney+");
             movieList.Add(hulk);
+        }
+        public Movie getMovie(int index)
+        {
+            return movieList[index];
         }
 
         public void printList()
@@ -53,24 +59,24 @@ namespace StreamSpotter
                     background.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
                 else
                     background.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-                background.Click += new System.EventHandler(MovieSelect);
+                background.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 panel.Controls.Add(background);
 
                 Label title = new Label();
-                title.Text = movie.getTitle();
+                title.Text = movie.title;
                 title.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 point = new Point(140, 10);
                 title.Location = point;
-                title.Click += new System.EventHandler(MovieSelect);
+                title.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 background.Controls.Add(title);
 
                 Label description = new Label();
-                description.Text = movie.getDescription();
+                description.Text = movie.overview;
                 description.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 point = new Point(140, 40);
                 description.Location = point;
                 description.Size = new System.Drawing.Size(boxWidth - 400, boxHeight - 40);
-                description.Click += new System.EventHandler(MovieSelect);
+                description.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 background.Controls.Add(description);
 
                 Panel poster = new Panel();
@@ -78,17 +84,16 @@ namespace StreamSpotter
                 point = new Point(20, 10);
                 poster.Location = point;
                 poster.Size = new System.Drawing.Size(100, boxHeight - 20);
-                poster.Click += new System.EventHandler(MovieSelect);
+                poster.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 background.Controls.Add(poster);
 
                 num++;
             }
         }
 
-        private void MovieSelect(object sender, EventArgs e)
+        private void MovieSelect(object sender, MouseEventArgs e)
         {
-            WindowsController windowsController = new WindowsController();
-            windowsController.openMovieScreen(form);
+            windowsController.openMovieScreen(form, e.Location.Y);
         }
 
     }
