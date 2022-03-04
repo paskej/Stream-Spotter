@@ -25,3 +25,11 @@ spike 1/JSON test/JSON test/obj/Debug/netcoreapp3.1/JSON test.dll
 spike 1/JSON test/JSON test/obj/Debug/netcoreapp3.1/JSON test.pdb
 spike 1/JSON test/JSON test/Program.cs
 /.vs
+/.bin
+/.obj
+.vs
+.bin
+.obj
+.vs/
+.bin/
+.obj/
