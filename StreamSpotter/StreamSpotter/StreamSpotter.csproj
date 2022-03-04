@@ -92,6 +92,7 @@
     <EmbeddedResource Include="SearchListUI.resx">
       <DependentUpon>SearchListUI.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -102,6 +103,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="witcher.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

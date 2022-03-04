@@ -13,7 +13,6 @@ namespace StreamSpotter
     
     class DatabaseAccess
     {
-        private static int MAX_USERS = 4;
         private List<string> paths;
         private string profileName;
         private List<string> profileNames;
@@ -27,69 +26,41 @@ namespace StreamSpotter
             index = 0;
         }
 
-        public Boolean createJson(Movie movie)
+        public void addProfileDirectory(string profileName)
         {
-            string JSONresult = JsonConvert.SerializeObject(movie); 
-            string path = @"~\Wishlists\Profiles\" + profileName;
-            if (File.Exists(path))
+            if(!Directory.Exists(@"C:Wishlists\Profiles\" + profileName))
             {
-                return true;
+                Directory.CreateDirectory(@"C:Wishlists\Profiles\" + profileName);
             }
-            else if(!File.Exists(path))
+        }
+        public void addJson(string profileName, string fileName)
+        {
+            if(!File.Exists(@"C:Wishlists\Profiles\" + profileName + fileName + ".json"))
             {
-                using (var tw = new StreamWriter(path, true))
-                {
-                    tw.WriteLine(JSONresult.ToString());
-                    tw.Close();
-                    profileNames[index] = profileName;
-                    index++;
-                    return true;
-                }
+                File.Create(@"C:Wishlists\Profiles\" + profileName + fileName + ".json");
             }
-            return false;
         }
 
-        public Boolean createJson(List<Movie> wishlist)
+        public void addToWishlist(string profileName, Movie movie)
         {
-            List<string> results = new List<string>();
-            string path = @"~\Wishlists\Profiles\" + profileName;
-            if (File.Exists(path))
+            string path = @"C:Wishlists\Profiles\" + profileName + ".json";
+            using (var tw = new StreamWriter(path, true))
             {
-                File.Delete(path);
-                using (var tw = new StreamWriter(path, true))
-                {
-                    for (int i = 0; i < results.Count; i++)
-                    {
-                        tw.WriteLine(results[i].ToString());
-                    }
-                    tw.Close();
-                }
-                return true;
+                string text = JsonConvert.SerializeObject(movie);
+                tw.WriteLine(text);
+                tw.Close();
             }
-            else if(!File.Exists(path))
-            {
-                using (var tw = new StreamWriter(path, true))
-                {
-                    for (int i = 0; i < results.Count; i++)
-                    {
-                        tw.WriteLine(results[i].ToString());
-                    }
-                    tw.Close();
-                }
-                index++;
-                return true;
-            }
-            return false;
         }
-
+      
         public Movie getMovie(string profileName, string movieName)
         {
             int i = getProfileIndex(profileName);
-            string fileName = @"~/Wishlists/Profiles/" + profileNames[i];
+            string fileName = @"C:Wishlists\Profiles\" + profileNames[i];
             string json = File.ReadAllText(fileName);
             var wishlist = JsonConvert.DeserializeObject<Wishlist>(json);
             return wishlist.Movie.ElementAt(0);
         }
+        /*
         public string getMovieUrl()
         {
             int i = getProfileIndex(profileName);
@@ -143,6 +114,7 @@ namespace StreamSpotter
             var movie = JsonConvert.DeserializeObject<Movie>(json);
             return movie.year;
         }
+        */
         private int getProfileIndex(string name)
         {
             int ind = -1;
@@ -155,6 +127,17 @@ namespace StreamSpotter
                 }
             }
             return ind;
+        }
+        static void Main()
+        {
+            string json = File.ReadAllText("witcher.json");
+            var movie = JsonConvert.DeserializeObject<Movie>(json);
+            DatabaseAccess da = new DatabaseAccess("Joe");
+            da.addProfileDirectory("Joe");
+            da.addJson("Joe", "Joe");
+            da.addToWishlist("Joe",movie);
+            Movie back = JsonConvert.DeserializeObject<Movie>(@"Wishlists\Profiles\Joe.json");
+            Console.WriteLine(back.title);
         }
     }
 }

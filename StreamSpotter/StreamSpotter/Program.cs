@@ -11,6 +11,7 @@ namespace StreamSpotter
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /*
         [STAThread]
         static void Main()
         {
@@ -18,5 +19,6 @@ namespace StreamSpotter
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new HomeScreen());
         }
+        */
     }
 }
