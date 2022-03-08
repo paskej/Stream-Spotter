@@ -37,8 +37,19 @@ namespace StreamSpotter
 			entertainmentType = type;
 			service = theService;
 			title = theTitle;
-			string theUri = "https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=" + service + "&type=" + entertainmentType + "&genre=18&page=1&keyword=" + title + "&output_language=en&language=en";
-			request.RequestUri = new Uri(theUri);
+
+			title = title.Replace(" ", "%20");
+
+			request = new HttpRequestMessage
+			{
+				Method = HttpMethod.Get,
+				RequestUri = new Uri("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=" + service + "&type=" + entertainmentType + "&genre=18&page=1&keyword=" + title + "&output_language=en&language=en"),
+				Headers =
+	{
+		{ "x-rapidapi-host", "streaming-availability.p.rapidapi.com" },
+		{ "x-rapidapi-key", "e75519cffbmsh49f832e72968279p163a4bjsn8f381dfaa0ba" },
+	},
+			};
 		}
 
 		public async Task<string> MakeRequestAsync()
@@ -53,10 +64,12 @@ namespace StreamSpotter
 			
 		}
 
-		public string FindMovieSync()
+		public string FindMovieSync(string type, string theService, string theTitle)
 		{
+			Change(type, theService, theTitle);
 			string movieResults = Task.Run(async () => await MakeRequestAsync()).Result;
 			return movieResults;
+
 		}
 	}
 }

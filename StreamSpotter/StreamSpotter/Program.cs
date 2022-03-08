@@ -15,21 +15,25 @@ namespace StreamSpotter
         [STAThread]
         public static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeScreen());
+            // Application.EnableVisualStyles();
+            // Application.SetCompatibleTextRenderingDefault(false);
+            // Application.Run(new HomeScreen());
 
+            string movie;
             APIController apiController = new APIController();
-            apiController.Change("series", "netflix", "witcher");
-            string movie = apiController.FindMovieSync();
-            apiController.Change("Movie", "netflix", "the%20dark%20knight");
-            //FindMovieSync();
-            apiController.Change("series", "netflix", "seinfeld");
-            //FindMovieSync();
-            apiController.Change("Movie", "netflix", "top%20gun");
-            //FindMovieSync();
-
+            movie = apiController.FindMovieSync("series", "netflix", "witcher");
             Console.Write(movie);
+
+            movie = apiController.FindMovieSync("movie", "netflix", "the dark knight");
+            Console.Write(movie);
+
+            movie = apiController.FindMovieSync("series", "netflix", "seinfeld");
+            Console.Write(movie);
+
+            movie = apiController.FindMovieSync("movie", "netflix", "top%20gun");
+            Console.Write(movie);
+
+
 
         }
         
