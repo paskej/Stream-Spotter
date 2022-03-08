@@ -12,10 +12,14 @@ namespace StreamSpotter
 {
     public partial class MovieScreen : Form
     {
-        private Movie movie;
-        public MovieScreen()//Movie movie)
+        private Result movie;
+        public MovieScreen(Result movie)
         {
             InitializeComponent();
+            this.movie = movie;
+            titleLabel.Text = movie.title;
+            overviewLabel.Text = movie.overview;
+
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -28,6 +32,11 @@ namespace StreamSpotter
         {
             WindowsController windowsController = new WindowsController();
             windowsController.openSearchListUI(this);
+        }
+
+        private void titleLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
