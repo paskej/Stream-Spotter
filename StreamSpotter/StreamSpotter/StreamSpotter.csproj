@@ -63,7 +63,7 @@
     <Compile Include="HomeScreen.Designer.cs">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Movie.cs" />
+    <Compile Include="Result.cs" />
     <Compile Include="MovieList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,7 +103,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="witcher.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

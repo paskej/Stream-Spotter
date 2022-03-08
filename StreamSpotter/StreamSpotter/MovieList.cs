@@ -13,14 +13,14 @@ namespace StreamSpotter
         private const int boxHeight = 160;
         private const int boxWidth = 850;
 
-        private List<Movie> movieList;
+        private List<Result> movieList;
         Panel panel;
         Form form;
         WindowsController windowsController;
 
         public MovieList(Panel panel, Form form, WindowsController windowsController)
         {
-            movieList = new List<Movie>();
+            movieList = new List<Result>();
             this.panel = panel;
             this.form = form;
             this.windowsController = windowsController;
@@ -29,14 +29,14 @@ namespace StreamSpotter
         //gather all information from json file to put into the movieList
         public void populateList()
         {
-            Movie batman = new Movie("Batman", "Dude thats a bat who is also very rich. He hunts down criminals in gotham city. He could've defeated superman.", "Netflix");
+            Result batman = new Result("Batman", "Dude thats a bat who is also very rich. He hunts down criminals in gotham city. He could've defeated superman.", "Netflix");
             movieList.Add(batman);
-            Movie ironMan = new Movie("Iron Man", "Dude with high tech suit who is also very rich. He defends the world from enemies trying to destory it. He snapped thanos away.", "Disney+");
+            Result ironMan = new Result("Iron Man", "Dude with high tech suit who is also very rich. He defends the world from enemies trying to destory it. He snapped thanos away.", "Disney+");
             movieList.Add(ironMan);
-            Movie hulk = new Movie("Hulk", "He big, strong and green. He smash a lot of stuff. His actual name is Bruce Banner.", "Disney+");
+            Result hulk = new Result("Hulk", "He big, strong and green. He smash a lot of stuff. His actual name is Bruce Banner.", "Disney+");
             movieList.Add(hulk);
         }
-        public Movie getMovie(int index)
+        public Result getMovie(int index)
         {
             return movieList[index];
         }
@@ -49,7 +49,7 @@ namespace StreamSpotter
 
             //adds the list to the panel
             int num = 0;
-            foreach (Movie movie in movieList)
+            foreach (Result movie in movieList)
             {
                 Panel background = new Panel();
                 point = new Point(0, num * boxHeight);
