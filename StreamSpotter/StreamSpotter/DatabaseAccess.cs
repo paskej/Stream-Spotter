@@ -10,41 +10,36 @@ using System.Windows.Forms;
 
 namespace StreamSpotter
 {
-    
+
     class DatabaseAccess
     {
         private static string BASE_PATH = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\"));
-        private List<string> paths;
-        private string profileName;
         private List<string> profileNames;
-        private int index;
 
-        public DatabaseAccess(string profileName)
+        public DatabaseAccess()
         {
-            this.paths = new List<string>();
             this.profileNames = new List<string>();
-            this.profileName = profileName;
-            index = 0;
         }
 
         public void addProfileDirectory(string profileName)
         {
-            if(!Directory.Exists(BASE_PATH + "\\Wishlists\\Profiles\\" + profileName))
+            if (!Directory.Exists(BASE_PATH + "\\Wishlists\\Profiles\\" + profileName))
             {
                 Directory.CreateDirectory(BASE_PATH + "\\Wishlists\\Profiles\\" + profileName);
             }
         }
         public void addJson(string profileName, string fileName)
         {
-            if(!File.Exists(BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + fileName + ".json"))
+            if (!File.Exists(BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + fileName + ".json"))
             {
-                File.Create(BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + fileName + ".json");
+                FileStream file = File.Create(BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + fileName + ".json");
+                file.Close();
             }
         }
 
         public void addToWishlist(string profileName, Result movie)
         {
-            string path = BASE_PATH + "\\Wishlists\\Profiles\\Joe\\" + profileName + ".json";
+            string path = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + profileName + ".json";
             if (File.Exists(path))
             {
                 RootObject ro = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(path));
@@ -52,7 +47,7 @@ namespace StreamSpotter
                 {
                     int l = ro.results.Length;
                     Result[] temp = new Result[l + 1];
-                    ro.results.CopyTo(temp,0);
+                    ro.results.CopyTo(temp, 0);
                     temp[l] = movie;
                     ro.results = temp;
                     string text = JsonConvert.SerializeObject(ro);
@@ -75,14 +70,32 @@ namespace StreamSpotter
                 }
             }
         }
-      
+        public int getMovieIndex(RootObject ro, string movieName)
+        {
+            int temp = -1;
+            for (int i = 0; i < ro.results.Length; i++)
+            {
+                if (ro.results[i].title == movieName)
+                {
+                    temp = i;
+                }
+            }
+            return temp;
+        }
         public Result getMovie(string profileName, string movieName)
         {
-            int i = getProfileIndex(profileName);
-            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileNames[i];
+            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + profileName + ".json";
             string json = File.ReadAllText(fileName);
             var wishlist = JsonConvert.DeserializeObject<RootObject>(json);
-            return wishlist.results.ElementAt(0);
+            int i = getMovieIndex(wishlist, movieName);
+            if (i < 0)
+            {
+                return null;
+            }
+            else
+            {
+                return wishlist.results[0];
+            }
         }
         /*
         public string getMovieUrl()
@@ -142,10 +155,10 @@ namespace StreamSpotter
         private int getProfileIndex(string name)
         {
             int ind = -1;
-            for(int i = 0; i < profileNames.Count; i++)
+            for (int i = 0; i < profileNames.Count; i++)
             {
 
-                if(profileNames[i] == name)
+                if (profileNames[i] == name)
                 {
                     ind = i;
                 }
@@ -155,15 +168,15 @@ namespace StreamSpotter
         static void Main()
         {
             Console.WriteLine(BASE_PATH);
-            string json = File.ReadAllText("witcher.json");
+            string json = File.ReadAllText("breakingbad.json");
             Console.WriteLine(json);
             var movies = JsonConvert.DeserializeObject<RootObject>(json);
             //var movie = movies.Movie.ElementAt(0);
             Console.WriteLine(movies.results[0].title);
-            DatabaseAccess da = new DatabaseAccess("Joe");
+            DatabaseAccess da = new DatabaseAccess();
             da.addProfileDirectory("Joe");
             da.addJson("Joe", "Joe");
-            da.addToWishlist("Joe",movies.results[0]);
+            da.addToWishlist("Joe", movies.results[0]);
             string jsonBack = File.ReadAllText(BASE_PATH + "\\Wishlists\\Profiles\\Joe\\Joe.json");
             RootObject back = JsonConvert.DeserializeObject<RootObject>(jsonBack);
             Console.WriteLine(back.results[0].title);
