@@ -165,7 +165,7 @@ namespace StreamSpotter
             }
             return ind;
         }
-        static void Main()
+       /* static void Main()
         {
             Console.WriteLine(BASE_PATH);
             string json = File.ReadAllText("breakingbad.json");
@@ -181,5 +181,6 @@ namespace StreamSpotter
             RootObject back = JsonConvert.DeserializeObject<RootObject>(jsonBack);
             Console.WriteLine(back.results[0].title);
         }
+        */
     }
 }
