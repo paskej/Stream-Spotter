@@ -9,6 +9,7 @@ namespace StreamSpotter
 {
 	class APIStorage
 	{
+		private const int MOST_RECENT = 1;
 		private const int MAX_HISTORY_LENGTH = 5;
 		private ArrayList jsonlist;
 
@@ -30,5 +31,9 @@ namespace StreamSpotter
 			}
 		}
 
+		public string getMostRecent()
+		{
+			return (string)jsonlist[MOST_RECENT];
+		}
 	}
 }
