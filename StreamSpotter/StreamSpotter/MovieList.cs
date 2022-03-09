@@ -26,10 +26,17 @@ namespace StreamSpotter
             this.windowsController = windowsController;
         }
 
-        //gather all information from json file to put into the movieList
-        public void populateList()
+        private string[] GetRow(string[,] searchResults, int rowNumber)
         {
-            Result batman = new Result("Batman", "Dude thats a bat who is also very rich. He hunts down criminals in gotham city. He could've defeated superman.", "Netflix");
+            return Enumerable.Range(0, searchResults.GetLength(1))
+                    .Select(x => searchResults[rowNumber, x])
+                    .ToArray();
+        }
+
+        //gather all information from json file to put into the movieList
+        public void populateList(string [,] searchResults)
+        {
+            /*Result batman = new Result("Batman", "Dude thats a bat who is also very rich. He hunts down criminals in gotham city. He could've defeated superman.", "Netflix");
             batman.imdbRating = 1;
             movieList.Add(batman);
             Result ironMan = new Result("Iron Man", "Dude with high tech suit who is also very rich. He defends the world from enemies trying to destory it. He snapped thanos away.", "Disney+");
@@ -37,11 +44,18 @@ namespace StreamSpotter
             movieList.Add(ironMan);
             Result hulk = new Result("Hulk", "He big, strong and green. He smash a lot of stuff. His actual name is Bruce Banner.", "Disney+");
             hulk.imdbRating = 3;
-            movieList.Add(hulk);
+            movieList.Add(hulk);*/
+
+            for (int i = 0; i < 1; i++) //searchResults.Length / 2; i++)
+            {
+                movieList.Add(new Result(GetRow(searchResults, i)));
+            }
         }
         public Result getMovie(int index)
         {
-            return movieList[index];
+            if (movieList != null)
+                return movieList[index];
+            return null;
         }
 
         public void printList()
@@ -69,6 +83,7 @@ namespace StreamSpotter
                 title.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 point = new Point(140, num * boxHeight + 10);
                 title.Location = point;
+                title.Width = 200;
                 title.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 panel.Controls.Add(title);
 

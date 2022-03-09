@@ -66,7 +66,7 @@
             this.BackButton.TabIndex = 6;
             this.BackButton.Text = "<";
             this.BackButton.UseVisualStyleBackColor = true;
-            this.BackButton.Click += new System.EventHandler(this.button2_Click);
+            //this.BackButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // ratingLabel
             // 
@@ -136,7 +136,7 @@
             this.button3.Location = new System.Drawing.Point(272, 301);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(72, 22);
+            this.button3.Size = new System.Drawing.Size(72, 26);
             this.button3.TabIndex = 7;
             this.button3.Text = "Wishlist";
             this.button3.UseVisualStyleBackColor = true;

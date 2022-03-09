@@ -7,12 +7,14 @@ using System.Windows.Forms;
 
 namespace StreamSpotter
 {
-    class WindowsController
+    public class WindowsController
     {
-        MovieList movieList;
+        private MovieList movieList;
+        private APIController apiController;
+        private string[,] searchResults;
         public WindowsController()
         {
-
+            apiController = new APIController();
         }
         public void openHomeScreen(Form currentForm)
         {
@@ -20,10 +22,12 @@ namespace StreamSpotter
             HomeScreen homeScreen = new HomeScreen();
             homeScreen.Show();
         }
-        public void openSearchListUI(Form currentForm)
+        public void openSearchListUI(Form currentForm, string title)
         {
             currentForm.Hide();
-            SearchListUI searchListUI = new SearchListUI();
+            apiController.FindMovieSync("movie", "netflix", title);
+            searchResults = apiController.getSearchResult();
+            SearchListUI searchListUI = new SearchListUI(this);
             searchListUI.Show();
         }
         public void openMovieScreen(Form currentForm, int loc)
@@ -33,12 +37,15 @@ namespace StreamSpotter
             int listIndex = loc / 160;
 
             MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex));
-            movieScreen.Show();
+            if (movieScreen != null)
+                movieScreen.Show();
+            else
+                MessageBox.Show("No Results!");
         }
         public void showMovieList(Panel listPanel, Form form)
         {
             movieList = new MovieList(listPanel, form, this);
-            movieList.populateList();
+            movieList.populateList(searchResults);
             movieList.printList();
         }
     }

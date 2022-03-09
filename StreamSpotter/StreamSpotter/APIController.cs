@@ -12,7 +12,7 @@ namespace StreamSpotter
 {
 	public class APIController
 	{
-		const int MOVIE_DATA_TYPES = 4;
+		const int MOVIE_DATA_TYPES = 2;
 		public APIStorage storage;
 		private string entertainmentType;
 		private string service;
@@ -32,7 +32,7 @@ namespace StreamSpotter
 				Headers =
 	{
 		{ "x-rapidapi-host", "streaming-availability.p.rapidapi.com" },
-		{ "x-rapidapi-key", "e75519cffbmsh49f832e72968279p163a4bjsn8f381dfaa0ba" },
+		{ "x-rapidapi-key", "bc845cec13msh18fba8e190a0fd2p177163jsne160d9e55201" },
 	},
 			};
 		}
@@ -93,8 +93,8 @@ namespace StreamSpotter
 				int j = 0;
 				formattedSearchResults[i, j++] = ro.results[i].title;
 				formattedSearchResults[i, j++] = ro.results[i].overview;
-				formattedSearchResults[i, j++] = ro.results[i].posterURLs.original;
-				formattedSearchResults[i, j++] = ro.results[i].streamingInfo.netflix.us.link;
+				//formattedSearchResults[i, j++] = ro.results[i].posterURLs.original;
+				//formattedSearchResults[i, j++] = ro.results[i].streamingInfo.netflix.us.link;
 			}
 
 			return formattedSearchResults;

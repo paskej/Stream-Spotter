@@ -83,5 +83,13 @@ namespace StreamSpotter
             this.overview = description;
             //this.streamService = streamService;
         }
+        public Result(string[] searchResult)
+        {
+            this.title = searchResult[0];
+            this.overview = searchResult[1];
+            //this.posterURLs.original = searchResult[2];
+            //this.streamingInfo.netflix.us.link = searchResult[3];
+        }
+        public Result() { }
     }
 }

@@ -28,11 +28,11 @@ namespace StreamSpotter
             windowsController.openHomeScreen(this);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /*private void button2_Click(object sender, EventArgs e)
         {
             WindowsController windowsController = new WindowsController();
-            windowsController.openSearchListUI(this);
-        }
+            windowsController.openSearchListUI(this, titleLabel.Text);
+        }*/
 
         private void titleLabel_MouseDown(object sender, MouseEventArgs e)
         {
