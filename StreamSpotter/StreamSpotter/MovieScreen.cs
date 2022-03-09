@@ -19,7 +19,7 @@ namespace StreamSpotter
             this.movie = movie;
             titleLabel.Text = movie.title;
             overviewLabel.Text = movie.overview;
-
+            ratingLabel.Text = "IMDb Rating: " + movie.imdbRating + " / 10";
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -28,11 +28,11 @@ namespace StreamSpotter
             windowsController.openHomeScreen(this);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /*private void button2_Click(object sender, EventArgs e)
         {
             WindowsController windowsController = new WindowsController();
-            windowsController.openSearchListUI(this);
-        }
+            windowsController.openSearchListUI(this, titleLabel.Text);
+        }*/
 
         private void titleLabel_MouseDown(object sender, MouseEventArgs e)
         {

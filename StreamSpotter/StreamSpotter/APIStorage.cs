@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,18 +7,33 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
-	class APIStorage
+	public class APIStorage
 	{
-		private String jsonMovieFile;
+		private const int MOST_RECENT = 0;
+		private const int MAX_HISTORY_LENGTH = 5;
+		private ArrayList jsonlist;
 
-		public APIStorage(String jsonFile)
+		public APIStorage()
 		{
-			jsonMovieFile = jsonFile;
+			jsonlist = new ArrayList();
 		}
 
-		public void WriteJSONFile()
+		public void AddJsonFile(string file)
 		{
+			if(jsonlist.Count < MAX_HISTORY_LENGTH)
+			{
+				jsonlist.Add(file);
+			}
+			else if(jsonlist.Count <= MAX_HISTORY_LENGTH)
+			{
+				jsonlist.RemoveAt(MAX_HISTORY_LENGTH - 1);
+				jsonlist.Add(file);
+			}
 		}
 
+		public string getMostRecent()
+		{
+			return (string)jsonlist[MOST_RECENT];
+		}
 	}
 }

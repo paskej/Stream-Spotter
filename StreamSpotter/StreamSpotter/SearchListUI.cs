@@ -12,13 +12,14 @@ namespace StreamSpotter
 {
     public partial class SearchListUI : Form
     {
-        MovieList movieList;
-        WindowsController windowsController;
+        //private MovieList movieList;
+        private WindowsController windowsController;
+
         //need to do show list upon start up somehow
-        public SearchListUI()
+        public SearchListUI(WindowsController windowsController)
         {
             InitializeComponent();
-            windowsController = new WindowsController();
+            this.windowsController = windowsController;
             windowsController.showMovieList(listPanel, this);
         }
 
