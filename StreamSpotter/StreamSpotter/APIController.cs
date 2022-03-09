@@ -10,10 +10,10 @@ using System.Net.Http;
 
 namespace StreamSpotter
 {
-	class APIController
+	public class APIController
 	{
 		const int MOVIE_DATA_TYPES = 4;
-		private APIStorage storage;
+		public APIStorage storage;
 		private string entertainmentType;
 		private string service;
 		private string title;
@@ -23,6 +23,7 @@ namespace StreamSpotter
 
 		public APIController()
 		{
+			storage = new APIStorage();
 			client = new HttpClient();
 			request = new HttpRequestMessage
 			{
@@ -92,7 +93,7 @@ namespace StreamSpotter
 				int j = 0;
 				formattedSearchResults[i, j++] = ro.results[i].title;
 				formattedSearchResults[i, j++] = ro.results[i].overview;
-				formattedSearchResults[i, j++] = ro.results[i].posterURLs._185;
+				formattedSearchResults[i, j++] = ro.results[i].posterURLs.original;
 				formattedSearchResults[i, j++] = ro.results[i].streamingInfo.netflix.us.link;
 			}
 
