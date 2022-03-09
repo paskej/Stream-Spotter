@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{63F43243-C00B-45B9-AE8A-510E6056E878}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>StreamSpotter</RootNamespace>
     <AssemblyName>StreamSpotter</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
