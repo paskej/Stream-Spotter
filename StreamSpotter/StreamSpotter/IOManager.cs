@@ -57,7 +57,7 @@ namespace StreamSpotter
 							}
 							else if (input.Equals("S"))
 							{
-								entertainmentType = "service";
+								entertainmentType = "series";
 								typeChosen = true;
 							}
 							else
