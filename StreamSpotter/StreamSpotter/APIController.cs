@@ -12,8 +12,8 @@ namespace StreamSpotter
 {
 	public class APIController
 	{
-		const int MOVIE_DATA_TYPES = 2;
-		public APIStorage storage;
+		private const int MOVIE_DATA_TYPES = 2;
+		private APIStorage storage;
 		private string entertainmentType;
 		private string service;
 		private string title;
