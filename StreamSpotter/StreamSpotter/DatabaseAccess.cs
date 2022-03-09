@@ -115,8 +115,7 @@ namespace StreamSpotter
                 return ro.results[i].streamingInfo.netflix.us.link;
             }
         }
-        /*
-        public string getMovieTitle(string profileName, string listName, string movieName)
+        public string getPosterUrl(string profileName, string listName, string movieName)
         {
             string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
             string json = File.ReadAllText(fileName);
@@ -128,10 +127,32 @@ namespace StreamSpotter
             }
             else
             {
-                return ro.results[i].title;
+                return ro.results[i].posterURLs.original;
             }
         }
-        */
+        public int getImdbRating(string profileName, string listName, string movieName)
+        {
+            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
+            string json = File.ReadAllText(fileName);
+            RootObject ro = JsonConvert.DeserializeObject<RootObject>(json);
+            int i = getMovieIndex(ro, movieName);
+            if (i < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return ro.results[i].imdbRating;
+            }
+        }
+        public string getMovieTitle(string profileName, string listName, int index)
+        {
+            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
+            string json = File.ReadAllText(fileName);
+            RootObject ro = JsonConvert.DeserializeObject<RootObject>(json);
+            return ro.results[index].title;
+        }
+        
 
         public string getMovieOverview(string profileName, string listName, string movieName)
         {
@@ -149,15 +170,6 @@ namespace StreamSpotter
             }
         }
         /*
-        public int getMovieRating()
-        {
-            int i = getProfileIndex(profileName);
-            string fileName = @"~/Wishlists/Profiles/" + profileNames[i];
-            string json = File.ReadAllText(fileName);
-            var movie = JsonConvert.DeserializeObject<Movie>(json);
-            return movie.imdbRating;
-        }
-
         public string getMovieBackdropPath()
         {
             int i = getProfileIndex(profileName);
