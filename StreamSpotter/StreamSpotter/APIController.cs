@@ -1,24 +1,29 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 
+
+
 namespace StreamSpotter
 {
-	class APIController
+	public class APIController
 	{
-		private APIStorage storage;
+		const int MOVIE_DATA_TYPES = 4;
+		public APIStorage storage;
 		private string entertainmentType;
 		private string service;
 		private string title;
 		private HttpClient client;
 		private HttpRequestMessage request;
-		
+
 
 		public APIController()
 		{
+			storage = new APIStorage();
 			client = new HttpClient();
 			request = new HttpRequestMessage
 			{
@@ -54,14 +59,14 @@ namespace StreamSpotter
 
 		public async Task<string> MakeRequestAsync()
 		{
-			
+
 			using (var response = await client.SendAsync(request))
 			{
 				response.EnsureSuccessStatusCode();
 				var body = await response.Content.ReadAsStringAsync();
 				return body;
 			}
-			
+
 		}
 
 		public string FindMovieSync(string type, string theService, string theTitle)
@@ -72,5 +77,27 @@ namespace StreamSpotter
 			return movieResults;
 
 		}
+
+
+		//How data is returned:
+		//[title, description, poster url, netflix url]
+		public string[,] getSearchResult()
+        {
+			string searchResult = storage.getMostRecent();
+			RootObject ro = JsonConvert.DeserializeObject<RootObject>(searchResult);
+			int numOfResults = ro.results.Length;
+			string[,] formattedSearchResults = new string[numOfResults,MOVIE_DATA_TYPES];
+			
+			for(int i = 0; i < numOfResults; i++)
+            {
+				int j = 0;
+				formattedSearchResults[i, j++] = ro.results[i].title;
+				formattedSearchResults[i, j++] = ro.results[i].overview;
+				formattedSearchResults[i, j++] = ro.results[i].posterURLs.original;
+				formattedSearchResults[i, j++] = ro.results[i].streamingInfo.netflix.us.link;
+			}
+
+			return formattedSearchResults;
+        }
 	}
 }

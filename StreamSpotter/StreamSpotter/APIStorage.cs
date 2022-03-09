@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
-	class APIStorage
+	public class APIStorage
 	{
-		private const int MOST_RECENT = 1;
+		private const int MOST_RECENT = 0;
 		private const int MAX_HISTORY_LENGTH = 5;
 		private ArrayList jsonlist;
 
