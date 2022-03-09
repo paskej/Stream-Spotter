@@ -19,7 +19,7 @@ namespace StreamSpotter
             this.movie = movie;
             titleLabel.Text = movie.title;
             overviewLabel.Text = movie.overview;
-
+            ratingLabel.Text = "IMDb Rating: " + movie.imdbRating + " / 10";
         }
 
         private void HomeButton_Click(object sender, EventArgs e)

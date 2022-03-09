@@ -35,7 +35,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.HomeButton = new System.Windows.Forms.Button();
-            this.overviewLabel = new System.Windows.Forms.Label();
+            this.overviewLabel = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -123,9 +123,9 @@
             // overviewLabel
             // 
             this.overviewLabel.AutoSize = true;
-            this.overviewLabel.Location = new System.Drawing.Point(268, 156);
+            this.overviewLabel.Location = new System.Drawing.Point(271, 147);
             this.overviewLabel.Name = "overviewLabel";
-            this.overviewLabel.Size = new System.Drawing.Size(1012, 17);
+            this.overviewLabel.Size = new System.Drawing.Size(660, 90);
             this.overviewLabel.TabIndex = 23;
             this.overviewLabel.Text = "fsakd fijpasdn jipasdnfijn saidj fiasjd fjisad fijsa fhsdi fsad fdijs faksdflkjds" +
     "a fkjas dfkjsd afkj d safjk jkds fjks fspdi uivs fauvu ai vfu ai viuafia vfafvua" +
@@ -185,7 +185,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button HomeButton;
-        private System.Windows.Forms.Label overviewLabel;
+        private System.Windows.Forms.RichTextBox overviewLabel;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox2;
     }

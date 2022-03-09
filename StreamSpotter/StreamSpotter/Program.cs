@@ -15,9 +15,9 @@ namespace StreamSpotter
         [STAThread]
         public static void Main()
         {
-            // Application.EnableVisualStyles();
-            // Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new HomeScreen());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new HomeScreen());
 
             string movie;
             APIController apiController = new APIController();
