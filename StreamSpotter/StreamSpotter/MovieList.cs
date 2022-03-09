@@ -30,10 +30,13 @@ namespace StreamSpotter
         public void populateList()
         {
             Result batman = new Result("Batman", "Dude thats a bat who is also very rich. He hunts down criminals in gotham city. He could've defeated superman.", "Netflix");
+            batman.imdbRating = 1;
             movieList.Add(batman);
             Result ironMan = new Result("Iron Man", "Dude with high tech suit who is also very rich. He defends the world from enemies trying to destory it. He snapped thanos away.", "Disney+");
+            ironMan.imdbRating = 2;
             movieList.Add(ironMan);
             Result hulk = new Result("Hulk", "He big, strong and green. He smash a lot of stuff. His actual name is Bruce Banner.", "Disney+");
+            hulk.imdbRating = 3;
             movieList.Add(hulk);
         }
         public Result getMovie(int index)
@@ -53,17 +56,6 @@ namespace StreamSpotter
             int num = 0;
             foreach (Result movie in movieList)
             {
-                /*Panel background = new Panel();
-                point = new Point(0, num * boxHeight);
-                background.Location = point;
-                background.Size = new System.Drawing.Size(boxWidth, boxHeight);
-                if (num % 2 == 0)
-                    background.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-                else
-                    background.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-                background.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
-                panel.Controls.Add(background);*/
-
                 point = new Point(0, num * boxHeight);
                 Size size = new Size(boxWidth, boxHeight);
                 Rectangle rec = new Rectangle(point, size);
