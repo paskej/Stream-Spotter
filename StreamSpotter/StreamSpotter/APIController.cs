@@ -68,6 +68,7 @@ namespace StreamSpotter
 		{
 			Change(type, theService, theTitle);
 			string movieResults = Task.Run(async () => await MakeRequestAsync()).Result;
+			storage.AddJsonFile(movieResults);
 			return movieResults;
 
 		}
