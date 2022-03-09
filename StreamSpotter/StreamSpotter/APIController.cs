@@ -82,7 +82,7 @@ namespace StreamSpotter
 		//[title, description, poster url, netflix url]
 		public string[,] getSearchResult()
         {
-			string searchResult = "placeholder";
+			string searchResult = storage.getMostRecent();
 			RootObject ro = JsonConvert.DeserializeObject<RootObject>(searchResult);
 			int numOfResults = ro.results.Length;
 			string[,] formattedSearchResults = new string[numOfResults,MOVIE_DATA_TYPES];
