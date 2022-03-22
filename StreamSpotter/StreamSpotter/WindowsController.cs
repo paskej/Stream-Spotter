@@ -19,7 +19,7 @@ namespace StreamSpotter
         public void openHomeScreen(Form currentForm)
         {
             currentForm.Hide();
-            HomeScreen homeScreen = new HomeScreen();
+            HomeScreen homeScreen = new HomeScreen(this);
             homeScreen.Show();
         }
         public void openSearchListUI(Form currentForm, string title)
@@ -30,13 +30,25 @@ namespace StreamSpotter
             SearchListUI searchListUI = new SearchListUI(this);
             searchListUI.Show();
         }
+        public void goBackToSearchListUI(Form currentForm)
+        {
+            currentForm.Hide();
+            SearchListUI searchListUI = new SearchListUI(this);
+            searchListUI.Show();
+        }
+        public void openWishListUI(Form currentForm)
+        {
+            currentForm.Hide();
+            WishlistUI wishListUI = new WishlistUI(this);
+            wishListUI.Show();
+        }
         public void openMovieScreen(Form currentForm, int loc)
         {
             currentForm.Hide();
 
             int listIndex = loc / 160;
 
-            MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex));
+            MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex), this);
             if (movieScreen != null)
                 movieScreen.Show();
             else

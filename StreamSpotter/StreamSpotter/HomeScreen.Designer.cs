@@ -45,6 +45,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.SearchBar = new System.Windows.Forms.TextBox();
+            this.profilePanel = new System.Windows.Forms.Panel();
+            this.wishlistButton = new System.Windows.Forms.Button();
+            this.profilePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -79,19 +82,19 @@
             this.label3.Size = new System.Drawing.Size(265, 39);
             this.label3.TabIndex = 3;
             this.label3.Text = "Enter Movie/Show:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.button1.Location = new System.Drawing.Point(756, 2);
+            this.button1.Location = new System.Drawing.Point(747, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 39);
             this.button1.TabIndex = 4;
             this.button1.Text = "Profile";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
             // label4
             // 
@@ -102,7 +105,6 @@
             this.label4.Size = new System.Drawing.Size(252, 28);
             this.label4.TabIndex = 5;
             this.label4.Text = "Watchlist (Recommended)";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // richTextBox1
             // 
@@ -212,12 +214,37 @@
             this.SearchBar.Text = "Search";
             this.SearchBar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchBar_KeyPress);
             // 
+            // profilePanel
+            // 
+            this.profilePanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.profilePanel.Controls.Add(this.wishlistButton);
+            this.profilePanel.Location = new System.Drawing.Point(737, 41);
+            this.profilePanel.Name = "profilePanel";
+            this.profilePanel.Size = new System.Drawing.Size(111, 44);
+            this.profilePanel.TabIndex = 28;
+            this.profilePanel.Visible = false;
+            this.profilePanel.MouseLeave += new System.EventHandler(this.profilePanel_MouseLeave);
+            // 
+            // wishlistButton
+            // 
+            this.wishlistButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.wishlistButton.Location = new System.Drawing.Point(2, 2);
+            this.wishlistButton.Name = "wishlistButton";
+            this.wishlistButton.Size = new System.Drawing.Size(105, 39);
+            this.wishlistButton.TabIndex = 23;
+            this.wishlistButton.Text = "Wishlist";
+            this.wishlistButton.UseVisualStyleBackColor = false;
+            this.wishlistButton.Click += new System.EventHandler(this.wishlistButton_Click);
+            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(850, 516);
+            this.Controls.Add(this.profilePanel);
             this.Controls.Add(this.SearchBar);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label9);
@@ -237,6 +264,7 @@
             this.Controls.Add(this.label2);
             this.Name = "HomeScreen";
             this.Text = "HomeScreen";
+            this.profilePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,6 +289,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox SearchBar;
+        private System.Windows.Forms.Panel profilePanel;
+        private System.Windows.Forms.Button wishlistButton;
     }
 }
 
