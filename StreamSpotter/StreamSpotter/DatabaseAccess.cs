@@ -66,6 +66,27 @@ namespace StreamSpotter
                 }
             }
         }
+
+        public Result[] getWishlist(string profileName, string listName)
+        {
+            string path = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
+            if(File.Exists(path))
+            {
+                RootObject ro = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(path));
+                if (ro != null)
+                {
+                    return ro.results;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
         public int getMovieIndex(RootObject ro, string movieName)
         {
             int temp = -1;

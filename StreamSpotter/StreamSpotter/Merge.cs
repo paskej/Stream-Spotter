@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
-    class Merge
+    public class Merge
     {
         public RootObject mergeLists(RootObject ro1, RootObject ro2)
         {
@@ -20,6 +20,7 @@ namespace StreamSpotter
                     {
                         ro1.results[i] = combineStreamingInfo(ro1.results[i], ro2.results[j]);
                         ro2 = deleteResult(ro2, j);
+                        length2 = ro2.results.Length;
                     }
                 }
             }
