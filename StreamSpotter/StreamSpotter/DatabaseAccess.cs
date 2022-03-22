@@ -78,12 +78,6 @@ namespace StreamSpotter
             }
             return temp;
         }
-        /*
-        public int getMovieIndex(string profileName, string movieName)
-        {
-
-        }
-        */
         public Result getMovie(string profileName, string listName, string movieName)
         {
             string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
@@ -100,7 +94,7 @@ namespace StreamSpotter
             }
         }
         
-        public string getMovieUrl(string profileName, string listName, string movieName)
+        public string getNetflixUrl(string profileName, string listName, string movieName)
         {
             string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
             string json = File.ReadAllText(fileName);
@@ -113,6 +107,21 @@ namespace StreamSpotter
             else
             {
                 return ro.results[i].streamingInfo.netflix.us.link;
+            }
+        }
+        public string getDisneyUrl(string profileName, string listName, string movieName)
+        {
+            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
+            string json = File.ReadAllText(fileName);
+            RootObject ro = JsonConvert.DeserializeObject<RootObject>(json);
+            int i = getMovieIndex(ro, movieName);
+            if (i < 0)
+            {
+                return null;
+            }
+            else
+            {
+                return ro.results[i].streamingInfo.disney.us.link;
             }
         }
         public string getPosterUrl(string profileName, string listName, string movieName)
