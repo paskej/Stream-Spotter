@@ -15,9 +15,14 @@ namespace StreamSpotter
     public class Streaminginfo
     {
         public Netflix netflix { get; set; }
+        public Disney disney { get; set; }
     }
 
     public class Netflix
+    {
+        public Us us { get; set; }
+    }
+    public class Disney
     {
         public Us us { get; set; }
     }

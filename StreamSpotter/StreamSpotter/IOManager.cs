@@ -8,13 +8,13 @@ namespace StreamSpotter
 {
 	class IOManager
 	{
-		bool end;
-		string input;
+		private bool end;
+		private string input;
 		private const string SERVICE = "netflix";
-		string entertainmentType;
-		string title;
-		string searchResults;
-		APIController apiController;
+		private string entertainmentType;
+		private string title;
+		private string searchResults;
+		private APIController apiController;
 		public IOManager()
 		{
 			end = false;

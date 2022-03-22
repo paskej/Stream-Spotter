@@ -12,8 +12,6 @@ namespace StreamSpotter
 {
 	public class APIController
 	{
-		const int MOVIE_DATA_TYPES = 2;
-		public APIStorage storage;
 		private string entertainmentType;
 		private string service;
 		private string title;
@@ -23,7 +21,7 @@ namespace StreamSpotter
 
 		public APIController()
 		{
-			storage = new APIStorage();
+			
 			client = new HttpClient();
 			request = new HttpRequestMessage
 			{
@@ -73,31 +71,10 @@ namespace StreamSpotter
 		{
 			Change(type, theService, theTitle);
 			string movieResults = Task.Run(async () => await MakeRequestAsync()).Result;
-			storage.AddJsonFile(movieResults);
+			//storage.AddJsonFile(movieResults);
 			return movieResults;
 
 		}
-
-
-		//How data is returned:
-		//[title, description, poster url, netflix url]
-		public string[,] getSearchResult()
-        {
-			string searchResult = storage.getMostRecent();
-			RootObject ro = JsonConvert.DeserializeObject<RootObject>(searchResult);
-			int numOfResults = ro.results.Length;
-			string[,] formattedSearchResults = new string[numOfResults,MOVIE_DATA_TYPES];
-			
-			for(int i = 0; i < numOfResults; i++)
-            {
-				int j = 0;
-				formattedSearchResults[i, j++] = ro.results[i].title;
-				formattedSearchResults[i, j++] = ro.results[i].overview;
-				//formattedSearchResults[i, j++] = ro.results[i].posterURLs.original;
-				//formattedSearchResults[i, j++] = ro.results[i].streamingInfo.netflix.us.link;
-			}
-
-			return formattedSearchResults;
-        }
+		
 	}
 }
