@@ -55,16 +55,16 @@ namespace UnitTests
             Assert.AreEqual(r2.overview, "Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.");
         }
 
-        [TestMethod]
-        public void getSearchResult()
-        {
-            APIController testController = new APIController();
-            testController.storage.AddJsonFile(WITCHER);
-            string[,] searchResults = testController.getSearchResult();
-            Assert.AreEqual(searchResults[0, 0], "The Witcher");
-            Assert.AreEqual(searchResults[0, 1], "Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.");
-            Assert.AreEqual(searchResults[0, 2], "https://image.tmdb.org/t/p/original/7vjaCdMw15FEbXyLQTVa04URsPm.jpg");
-            Assert.AreEqual(searchResults[0, 3], "https://www.netflix.com/title/80189685/");
-        }
+        //[TestMethod]
+        //public void getSearchResult()
+        //{
+        //    APIController testController = new APIController();
+        //    testController.storage.AddJsonFile(WITCHER);
+        //    string[,] searchResults = testController.getSearchResult();
+        //    Assert.AreEqual(searchResults[0, 0], "The Witcher");
+        //    Assert.AreEqual(searchResults[0, 1], "Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.");
+        //    Assert.AreEqual(searchResults[0, 2], "https://image.tmdb.org/t/p/original/7vjaCdMw15FEbXyLQTVa04URsPm.jpg");
+        //    Assert.AreEqual(searchResults[0, 3], "https://www.netflix.com/title/80189685/");
+        //}
     }
 }

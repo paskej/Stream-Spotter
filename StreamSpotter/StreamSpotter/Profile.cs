@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
-	class Profile
+	public class Profile
 	{
-		private readonly string[] POSSIBLE_SERVICES = { "Nexflix", "Disney+" };
+		private readonly string[] POSSIBLE_SERVICES = { "netflix", "disney" };
 		private ArrayList services { get; set; }
 		private string profileName { get; set; }
 		private int id { get; set; }
@@ -19,6 +19,7 @@ namespace StreamSpotter
 		{
 			profileName = null;
 			id = 0;
+			services = new ArrayList();
 		}
 
 		//parameterized constructor
@@ -26,6 +27,7 @@ namespace StreamSpotter
 		{
 			this.profileName = profileName;
 			this.id = id;
+			services = new ArrayList();
 		}
 
 		//attempts to add a service and if the service is added then returns true
