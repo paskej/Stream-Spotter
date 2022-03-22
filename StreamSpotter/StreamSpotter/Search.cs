@@ -13,13 +13,14 @@ namespace StreamSpotter
 
         private APIStorage storage;
         private APIController apiController;
+        private Merge merge;
 
 
         public Search()
         {
             storage = new APIStorage();
             apiController = new APIController();
-
+            merge = new Merge();
         }
 
         //for searching results
@@ -28,8 +29,9 @@ namespace StreamSpotter
         {
             //TODO
             //get services from profile
-            string[] services = new string[1];
+            string[] services = new string[2];
             services[0] = "netflix";
+            services[1] = "disney";
 
             RootObject ro1;
             if (services.Length > 0)
@@ -37,8 +39,8 @@ namespace StreamSpotter
                 ro1 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(type, services[0], title));
                 for(int i = 1; i < services.Length; i++)
                 {
-                    RootObject ro2 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(type, services[0], title));
-                    //ro1 = merge.merge(r01, ro2);
+                    RootObject ro2 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(type, services[i], title));
+                    ro1 = merge.mergeLists(ro1, ro2);
                 }
             }
             else
