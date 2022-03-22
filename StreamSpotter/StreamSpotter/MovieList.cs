@@ -34,8 +34,9 @@ namespace StreamSpotter
         }
 
         //gather all information from json file to put into the movieList
-        public void populateList(string [,] searchResults)
+        public void populateSearchList(string [,] searchResults)
         {
+            movieList = null;
             /*Result batman = new Result("Batman", "Dude thats a bat who is also very rich. He hunts down criminals in gotham city. He could've defeated superman.", "Netflix");
             batman.imdbRating = 1;
             movieList.Add(batman);
@@ -50,6 +51,12 @@ namespace StreamSpotter
             {
                 movieList.Add(new Result(GetRow(searchResults, i)));
             }
+        }
+        public void populateWishlist()
+        {
+            movieList = null;
+            DatabaseAccess databaseAccess = new DatabaseAccess();
+
         }
         public Result getMovie(int index)
         {

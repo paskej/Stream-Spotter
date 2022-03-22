@@ -18,7 +18,7 @@ namespace StreamSpotter
         {
             InitializeComponent();
             this.windowsController = windowsController;
-            windowsController.showMovieList(listPanel, this);
+            windowsController.showSearchList(listPanel, this);
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
