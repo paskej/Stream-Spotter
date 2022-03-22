@@ -9,7 +9,7 @@ namespace StreamSpotter
 {
     class Search
     {
-        private const int MOVIE_DATA_TYPES = 2;
+        private const int MOVIE_DATA_TYPES = 4;
 
         private APIStorage storage;
         private APIController apiController;
@@ -50,6 +50,22 @@ namespace StreamSpotter
             storage.AddJsonFile(JsonConvert.SerializeObject(ro1));
         }
 
+        public string getStreamingLink(int index, RootObject ro)
+        {
+            if(ro.results[index].streamingInfo.netflix != null)
+            {
+                return ro.results[index].streamingInfo.netflix.us.link;
+            }
+            else if(ro.results[index].streamingInfo.disney != null)
+            {
+                return ro.results[index].streamingInfo.disney.us.link;
+            }
+            else
+            {
+                return "null";
+            }
+        }
+
         //for getting the searched item and send to the api
         //How data is returned:
         //[title, description, poster url, netflix url]
@@ -65,8 +81,18 @@ namespace StreamSpotter
                 int j = 0;
                 formattedSearchResults[i, j++] = ro.results[i].title;
                 formattedSearchResults[i, j++] = ro.results[i].overview;
-                //formattedSearchResults[i, j++] = ro.results[i].posterURLs.original;
-                //formattedSearchResults[i, j++] = ro.results[i].streamingInfo.netflix.us.link;
+
+                if(ro.results[i].posterURLs.original != null)
+                {
+                    formattedSearchResults[i, j++] = ro.results[i].posterURLs.original;
+
+                }
+                else
+                {
+                    formattedSearchResults[i, j++] = "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDk1MzYxOTUwMjk1NDAw/the-true-importance-of-tumbleweeds.jpg";
+                }
+
+                formattedSearchResults[i, j++] = getStreamingLink(i, ro);
             }
 
             return formattedSearchResults;
