@@ -62,6 +62,7 @@
     <Compile Include="MovieScreen.Designer.cs">
       <DependentUpon>MovieScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Profile.cs" />
     <Compile Include="WindowsController.cs" />
     <Compile Include="HomeScreen.cs">
       <SubType>Form</SubType>
