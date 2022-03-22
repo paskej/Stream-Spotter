@@ -81,6 +81,7 @@
     <Compile Include="SearchListUI.Designer.cs">
       <DependentUpon>SearchListUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="WishlistTracker.cs" />
     <EmbeddedResource Include="HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </EmbeddedResource>
