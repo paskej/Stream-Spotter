@@ -31,6 +31,7 @@ namespace StreamSpotter
         {
             int length = ro.results.Length;
             RootObject finish = new RootObject();
+            finish.results = new Result[length - 1];
             if(index < length - 1)
             {
                 for(int i = 0; i < index; i++)
@@ -58,6 +59,7 @@ namespace StreamSpotter
             int length2 = ro2.results.Length;
             int add = ro1.results.Length;
             RootObject temp = new RootObject();
+            temp.results = new Result[length1 + length2];
             for (int i = 0; i < length1; i++)
             {
                 temp.results[i] = ro1.results[i];
