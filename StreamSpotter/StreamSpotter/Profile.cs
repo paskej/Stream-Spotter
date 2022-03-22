@@ -20,6 +20,10 @@ namespace StreamSpotter
 			profileName = null;
 			id = 0;
 			services = new ArrayList();
+			for (int i = 0; i < POSSIBLE_SERVICES.Length; i++)
+			{
+				services[i] = POSSIBLE_SERVICES[i];
+			}
 		}
 
 		//parameterized constructor
