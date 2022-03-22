@@ -54,14 +54,21 @@ namespace StreamSpotter
         
         RootObject combineRoots(RootObject ro1, RootObject ro2)
         {
-            int length = ro2.results.Length;
+            int length1 = ro1.results.Length;
+            int length2 = ro2.results.Length;
             int add = ro1.results.Length;
-            for(int i = 0; i < length; i++)
+            RootObject temp = new RootObject();
+            for (int i = 0; i < length1; i++)
             {
-                ro1.results[add] = ro2.results[i];
+                temp.results[i] = ro1.results[i];
+            }
+
+            for(int i = 0; i < length2; i++)
+            {
+                temp.results[add] = ro2.results[i];
                 add++;
             }
-            return ro1;
+            return temp;
         }
 
         Result combineStreamingInfo(Result r1, Result r2)
