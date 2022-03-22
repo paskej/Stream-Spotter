@@ -1,0 +1,16 @@
+{
+  "people": [
+    {
+      "id": 123,
+      "firstName": "Joe",
+      "lastName": "Paske",
+      "city": "Platteville"
+    },
+    {
+      "id": 456,
+      "firstName": "Jack",
+      "lastName": "Morgan",
+      "city": "Platteville"
+    }
+  ]
+}

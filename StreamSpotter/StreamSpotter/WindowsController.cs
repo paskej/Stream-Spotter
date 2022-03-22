@@ -10,11 +10,11 @@ namespace StreamSpotter
     public class WindowsController
     {
         private MovieList movieList;
-        private APIController apiController;
+        private Search search;
         private string[,] searchResults;
         public WindowsController()
         {
-            apiController = new APIController();
+            search = new Search();
         }
         public void openHomeScreen(Form currentForm)
         {
@@ -25,8 +25,8 @@ namespace StreamSpotter
         public void openSearchListUI(Form currentForm, string title)
         {
             currentForm.Hide();
-            apiController.FindMovieSync("movie", "netflix", title);
-            searchResults = apiController.getSearchResult();
+            search.searchResult(title, "movie");
+            searchResults = search.getSearchResult();
             SearchListUI searchListUI = new SearchListUI(this);
             searchListUI.Show();
         }
