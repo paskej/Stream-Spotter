@@ -80,6 +80,13 @@
     <Compile Include="SearchListUI.Designer.cs">
       <DependentUpon>SearchListUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Wishlist.cs" />
+    <Compile Include="WishlistUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WishlistUI.Designer.cs">
+      <DependentUpon>WishlistUI.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="SearchListUI.resx">
       <DependentUpon>SearchListUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WishlistUI.resx">
+      <DependentUpon>WishlistUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
