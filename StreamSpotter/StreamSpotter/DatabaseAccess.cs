@@ -67,6 +67,41 @@ namespace StreamSpotter
             }
         }
 
+        public void removeFromWishlist(string profileName, string listName, string imdbID)
+        {
+            int i = 0;
+            RootObject tempRo = new RootObject();
+            string path = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
+            if (File.Exists(path))
+            {
+                RootObject ro = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(path));
+                while(i < ro.results.Length)
+                {
+                    if(ro.results[i].imdbID == imdbID)
+                    {
+                        tempRo.results = new Result[ro.results.Length - 1];
+                        for(int j = 0; j < i; j++)
+                        {
+                            tempRo.results[j] = ro.results[j];
+                        }
+                        for(int j = i; j < ro.results.Length-1; j++)
+                        {
+                            tempRo.results[j] = ro.results[j + 1];
+                        }
+                        tempRo.results.CopyTo(ro.results, 0);//changes ro.results.Length to the new size, so the while loop still checks to see if it is out of bounds
+                        i--;//checks the same index again, since it is actually a new movie
+                    }
+                    i++;
+                }
+                string text = JsonConvert.SerializeObject(ro);
+                using(var tw = new StreamWriter(path, false))
+                {
+                    tw.WriteLine(text);
+                    tw.Close();
+                }
+            }
+        }
+
         public Result[] getWishlist(string profileName, string listName)
         {
             string path = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
