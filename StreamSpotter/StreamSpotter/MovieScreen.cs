@@ -33,5 +33,10 @@ namespace StreamSpotter
         {
             windowsController.goBackToSearchListUI(this);
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://google.com");
+        }
     }
 }
