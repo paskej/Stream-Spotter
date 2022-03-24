@@ -39,6 +39,13 @@
             this.overviewLabel = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.profileButton = new System.Windows.Forms.Button();
+            this.profilePanel = new System.Windows.Forms.Panel();
+            this.wishlistButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.profilePanel.SuspendLayout();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -142,6 +149,7 @@
             this.button3.TabIndex = 7;
             this.button3.Text = "Add to Wishlist";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox2
             // 
@@ -152,6 +160,41 @@
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
+            // profileButton
+            // 
+            this.profileButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.profileButton.Location = new System.Drawing.Point(859, 5);
+            this.profileButton.Name = "profileButton";
+            this.profileButton.Size = new System.Drawing.Size(91, 39);
+            this.profileButton.TabIndex = 24;
+            this.profileButton.Text = "Profile";
+            this.profileButton.UseVisualStyleBackColor = true;
+            this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
+            // 
+            // profilePanel
+            // 
+            this.profilePanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.profilePanel.Controls.Add(this.wishlistButton);
+            this.profilePanel.Location = new System.Drawing.Point(849, 44);
+            this.profilePanel.Name = "profilePanel";
+            this.profilePanel.Size = new System.Drawing.Size(111, 46);
+            this.profilePanel.TabIndex = 28;
+            this.profilePanel.Visible = false;
+            this.profilePanel.MouseLeave += new System.EventHandler(this.profilePanel_MouseLeave);
+            // 
+            // wishlistButton
+            // 
+            this.wishlistButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.wishlistButton.Location = new System.Drawing.Point(2, 4);
+            this.wishlistButton.Name = "wishlistButton";
+            this.wishlistButton.Size = new System.Drawing.Size(105, 39);
+            this.wishlistButton.TabIndex = 23;
+            this.wishlistButton.Text = "Wishlist";
+            this.wishlistButton.UseVisualStyleBackColor = false;
+            this.wishlistButton.Click += new System.EventHandler(this.wishlistButton_Click);
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
@@ -171,6 +214,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(962, 545);
+            this.Controls.Add(this.profilePanel);
+            this.Controls.Add(this.profileButton);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.overviewLabel);
             this.Controls.Add(this.HomeButton);
@@ -188,6 +233,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.profilePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -206,6 +252,9 @@
         private System.Windows.Forms.RichTextBox overviewLabel;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button profileButton;
+        private System.Windows.Forms.Panel profilePanel;
+        private System.Windows.Forms.Button wishlistButton;
         private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

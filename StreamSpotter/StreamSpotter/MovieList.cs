@@ -17,25 +17,25 @@ namespace StreamSpotter
         Panel panel;
         Form form;
         WindowsController windowsController;
-
+        WishlistTracker wishlistTracker;
+        
         public MovieList(Panel panel, Form form, WindowsController windowsController)
         {
             movieList = new List<Result>();
             this.panel = panel;
             this.form = form;
             this.windowsController = windowsController;
-        }
-
-        private string[] GetRow(string[,] searchResults, int rowNumber)
-        {
-            return Enumerable.Range(0, searchResults.GetLength(1))
-                    .Select(x => searchResults[rowNumber, x])
-                    .ToArray();
+            DatabaseAccess databaseAccess = new DatabaseAccess();
+            databaseAccess.addProfileDirectory("byce");
+            databaseAccess.addJson("byce", "list");
+            wishlistTracker = new WishlistTracker();
+            wishlistTracker.changeCurrentWishlist("byce", "list");
         }
 
         //gather all information from json file to put into the movieList
-        public void populateList(Result[] searchResults)//(string [,] searchResults)
+        public bool populateSearchList(Result[] searchResults)//(string [,] searchResults)
         {
+            movieList = new List<Result>();
             /*Result batman = new Result("Batman", "Dude thats a bat who is also very rich. He hunts down criminals in gotham city. He could've defeated superman.", "Netflix");
             batman.imdbRating = 1;
             movieList.Add(batman);
@@ -46,23 +46,38 @@ namespace StreamSpotter
             hulk.imdbRating = 3;
             movieList.Add(hulk);*/
 
-            //int test = searchResults.Length;
-            ////for (int i = 0; i < 1; i++) //searchResults.Length / 2; i++)
-            //for (int i = 0; i < searchResults.GetLength(0); i++)
-            //{
-            //    movieList.Add(new Result(GetRow(searchResults, i)));
-            //}
             for (int i = 0; i < searchResults.GetLength(0); i++)
             {
                 movieList.Add(searchResults[i]);
             }
+            return movieList.Count != 0;
+        }
+        public bool populateWishlist()
+        {
+            movieList = new List<Result>();
 
+            Result[] list = wishlistTracker.getCurrentWishlist();
+            bool works = true;
+            try
+            {
+                for (int x = 0; x < list.Length; x++)
+                    movieList.Add(list[x]);
+            }
+            catch (NullReferenceException e)
+            {
+                works = false;
+            }
+            return works;
         }
         public Result getMovie(int index)
         {
             if (movieList != null)
                 return movieList[index];
             return null;
+        }
+        public void addToWishlist(Result result)
+        {
+            wishlistTracker.addToCurrentWishlist(result);
         }
 
         public void printList()
