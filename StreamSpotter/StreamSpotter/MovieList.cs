@@ -18,7 +18,7 @@ namespace StreamSpotter
         Form form;
         WindowsController windowsController;
         WishlistTracker wishlistTracker;
-
+        
         public MovieList(Panel panel, Form form, WindowsController windowsController)
         {
             movieList = new List<Result>();
