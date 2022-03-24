@@ -74,5 +74,11 @@ namespace StreamSpotter
         {
             movieList.addToWishlist(movie);
         }
+
+        public void showProfileScreen(Form currentForm)
+		{
+            ProfileSelectionScreen profileScreen = new ProfileSelectionScreen();
+            profileScreen.Show();
+		}
     }
 }

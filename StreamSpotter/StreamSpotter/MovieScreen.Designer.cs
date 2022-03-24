@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieScreen));
             this.titleLabel = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
             this.ratingLabel = new System.Windows.Forms.Label();
@@ -45,6 +46,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.profilePanel.SuspendLayout();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -147,7 +153,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(272, 381);
+            this.pictureBox2.Location = new System.Drawing.Point(713, 381);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(38, 39);
@@ -189,14 +195,28 @@
             this.wishlistButton.Text = "Wishlist";
             this.wishlistButton.UseVisualStyleBackColor = false;
             this.wishlistButton.Click += new System.EventHandler(this.wishlistButton_Click);
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.ImageLocation = "";
+            this.pictureBox4.Location = new System.Drawing.Point(271, 355);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 24;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // MovieScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(962, 545);
             this.Controls.Add(this.profilePanel);
             this.Controls.Add(this.profileButton);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.overviewLabel);
             this.Controls.Add(this.HomeButton);
             this.Controls.Add(this.button4);
@@ -214,6 +234,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.profilePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +255,6 @@
         private System.Windows.Forms.Button profileButton;
         private System.Windows.Forms.Panel profilePanel;
         private System.Windows.Forms.Button wishlistButton;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

@@ -16,7 +16,7 @@ namespace UnitTests
 		[TestMethod]
 		public void AddService_NULL_FALSE()
 		{
-			profile = new Profile("john", 1);
+			profile = new Profile("john");
 			string nullCase = null;
 			Assert.IsFalse(profile.AddService(nullCase));
 		}
@@ -26,7 +26,7 @@ namespace UnitTests
 		[TestMethod]
 		public void AddService_UNAVAILABLESERVICE_FALSE()
 		{
-			profile = new Profile("john", 1);
+			profile = new Profile("john");
 			string unavailableCase = "non-existantService";
 			Assert.IsFalse(profile.AddService(unavailableCase));
 		}
@@ -35,7 +35,7 @@ namespace UnitTests
 		[TestMethod]
 		public void AddService_NETFLIX_TRUE()
 		{
-			profile = new Profile("john", 1);
+			profile = new Profile("john");
 			string netflix = "netflix";
 			Assert.IsTrue(profile.AddService(netflix));
 		}
@@ -44,7 +44,7 @@ namespace UnitTests
 		[TestMethod]
 		public void AddService_DISNEYPLUS_TRUE()
 		{
-			profile = new Profile("john", 1);
+			profile = new Profile("john");
 			string disney = "disney";
 			Assert.IsTrue(profile.AddService(disney));
 		}
@@ -53,7 +53,7 @@ namespace UnitTests
 		[TestMethod]
 		public void RemoveService_NULL_FALSE()
 		{
-			profile = new Profile("john", 1);
+			profile = new Profile("john");
 			string nullCase = null;
 			Assert.IsFalse(profile.removeService(nullCase));
 		}
@@ -62,7 +62,7 @@ namespace UnitTests
 		[TestMethod]
 		public void RemoveService_NOTINLIST_FALSE()
 		{
-			profile = new Profile("john", 1);
+			profile = new Profile("john");
 			string notInListCase = "non-existantService";
 			Assert.IsFalse(profile.removeService(notInListCase));
 		}
@@ -71,7 +71,7 @@ namespace UnitTests
 		[TestMethod]
 		public void RemoveService_REMOVENETFLIX_TRUE()
 		{
-			profile = new Profile("john", 1);
+			profile = new Profile("john");
 			string netflix = "netflix";
 			string disney = "disney";
 			profile.AddService(netflix);
@@ -83,7 +83,7 @@ namespace UnitTests
 		[TestMethod]
 		public void RemoveService_REMOVEDISNEYPLUS_TRUE()
 		{
-			profile = new Profile("john", 1);
+			profile = new Profile("john");
 			string netflix = "netflix";
 			string disney = "disney";
 			profile.AddService(netflix);

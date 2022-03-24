@@ -59,6 +59,11 @@ namespace StreamSpotter
         private void wishlistButton_Click(object sender, EventArgs e)
         {
             windowsController.openWishListUI(this);
+		}
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://google.com");
         }
     }
 }

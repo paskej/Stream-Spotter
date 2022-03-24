@@ -33,8 +33,8 @@ namespace StreamSpotter
             //movie = apiController.FindMovieSync("movie", "netflix", "top%20gun");
             //Console.Write(movie);
 
-            IOManager io = new IOManager();
-            io.run();
+            //IOManager io = new IOManager();
+            //io.run();
             
 
 
