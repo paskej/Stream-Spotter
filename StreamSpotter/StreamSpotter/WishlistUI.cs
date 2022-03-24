@@ -10,28 +10,20 @@ using System.Windows.Forms;
 
 namespace StreamSpotter
 {
-    public partial class MovieScreen : Form
+    public partial class WishlistUI : Form
     {
-        private Result movie;
         private WindowsController windowsController;
-        public MovieScreen(Result movie, WindowsController windowsController)
+
+        public WishlistUI(WindowsController windowsController)
         {
             InitializeComponent();
-            this.movie = movie;
             this.windowsController = windowsController;
-            titleLabel.Text = movie.title;
-            overviewLabel.Text = movie.overview;
-            ratingLabel.Text = "IMDb Rating: " + movie.imdbRating + " / 10";
+            windowsController.showMovieList(listPanel, this);
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
             windowsController.openHomeScreen(this);
-        }
-
-        private void BackButton_Click(object sender, EventArgs e)
-        {
-            windowsController.goBackToSearchListUI(this);
         }
     }
 }

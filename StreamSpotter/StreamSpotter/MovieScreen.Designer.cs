@@ -53,7 +53,6 @@
             this.titleLabel.Size = new System.Drawing.Size(265, 55);
             this.titleLabel.TabIndex = 1;
             this.titleLabel.Text = "Movie Title";
-            this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
             // 
             // BackButton
             // 
@@ -66,7 +65,7 @@
             this.BackButton.TabIndex = 6;
             this.BackButton.Text = "<";
             this.BackButton.UseVisualStyleBackColor = true;
-            //this.BackButton.Click += new System.EventHandler(this.button2_Click);
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // ratingLabel
             // 
@@ -136,9 +135,9 @@
             this.button3.Location = new System.Drawing.Point(272, 301);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(72, 26);
+            this.button3.Size = new System.Drawing.Size(119, 26);
             this.button3.TabIndex = 7;
-            this.button3.Text = "Wishlist";
+            this.button3.Text = "Add to Wishlist";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // pictureBox2

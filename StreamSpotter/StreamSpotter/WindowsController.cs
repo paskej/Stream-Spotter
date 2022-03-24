@@ -11,7 +11,8 @@ namespace StreamSpotter
     {
         private MovieList movieList;
         private Search search;
-        private string[,] searchResults;
+        //private string[,] searchResults;
+        private Result[] searchResults;
         public WindowsController()
         {
             search = new Search();
@@ -19,16 +20,28 @@ namespace StreamSpotter
         public void openHomeScreen(Form currentForm)
         {
             currentForm.Hide();
-            HomeScreen homeScreen = new HomeScreen();
+            HomeScreen homeScreen = new HomeScreen(this);
             homeScreen.Show();
         }
         public void openSearchListUI(Form currentForm, string title)
         {
             currentForm.Hide();
             search.searchResult(title, "movie");
-            searchResults = search.getSearchResult();
+            searchResults = search.getSearchResults();
             SearchListUI searchListUI = new SearchListUI(this);
             searchListUI.Show();
+        }
+        public void goBackToSearchListUI(Form currentForm)
+        {
+            currentForm.Hide();
+            SearchListUI searchListUI = new SearchListUI(this);
+            searchListUI.Show();
+        }
+        public void openWishListUI(Form currentForm)
+        {
+            currentForm.Hide();
+            WishlistUI wishListUI = new WishlistUI(this);
+            wishListUI.Show();
         }
         public void openMovieScreen(Form currentForm, int loc)
         {
@@ -36,7 +49,7 @@ namespace StreamSpotter
 
             int listIndex = loc / 160;
 
-            MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex));
+            MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex), this);
             if (movieScreen != null)
                 movieScreen.Show();
             else
@@ -48,5 +61,11 @@ namespace StreamSpotter
             movieList.populateList(searchResults);
             movieList.printList();
         }
+
+        public void showProfileScreen(Form currentForm)
+		{
+            ProfileSelectionScreen profileScreen = new ProfileSelectionScreen();
+            profileScreen.Show();
+		}
     }
 }

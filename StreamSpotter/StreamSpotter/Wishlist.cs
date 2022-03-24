@@ -8,9 +8,9 @@ using System.Drawing;
 
 namespace StreamSpotter
 {
-    class MovieList
+    class Wishlist
     {
-        private const int boxHeight = 160;
+        /*private const int boxHeight = 160;
         private const int boxWidth = 850;
 
         private List<Result> movieList;
@@ -18,7 +18,7 @@ namespace StreamSpotter
         Form form;
         WindowsController windowsController;
 
-        public MovieList(Panel panel, Form form, WindowsController windowsController)
+        public Wishlist(Panel panel, Form form, WindowsController windowsController)
         {
             movieList = new List<Result>();
             this.panel = panel;
@@ -34,9 +34,9 @@ namespace StreamSpotter
         }
 
         //gather all information from json file to put into the movieList
-        public void populateList(Result[] searchResults)//(string [,] searchResults)
+        public void addToList()
         {
-            /*Result batman = new Result("Batman", "Dude thats a bat who is also very rich. He hunts down criminals in gotham city. He could've defeated superman.", "Netflix");
+            Result batman = new Result("Batman", "Dude thats a bat who is also very rich. He hunts down criminals in gotham city. He could've defeated superman.", "Netflix");
             batman.imdbRating = 1;
             movieList.Add(batman);
             Result ironMan = new Result("Iron Man", "Dude with high tech suit who is also very rich. He defends the world from enemies trying to destory it. He snapped thanos away.", "Disney+");
@@ -44,19 +44,12 @@ namespace StreamSpotter
             movieList.Add(ironMan);
             Result hulk = new Result("Hulk", "He big, strong and green. He smash a lot of stuff. His actual name is Bruce Banner.", "Disney+");
             hulk.imdbRating = 3;
-            movieList.Add(hulk);*/
+            movieList.Add(hulk);
 
-            //int test = searchResults.Length;
-            ////for (int i = 0; i < 1; i++) //searchResults.Length / 2; i++)
-            //for (int i = 0; i < searchResults.GetLength(0); i++)
-            //{
-            //    movieList.Add(new Result(GetRow(searchResults, i)));
-            //}
-            for (int i = 0; i < searchResults.GetLength(0); i++)
+            for (int i = 0; i < 1; i++) //searchResults.Length / 2; i++)
             {
-                movieList.Add(searchResults[i]);
+                movieList.Add(new Result(GetRow(searchResults, i)));
             }
-
         }
         public Result getMovie(int index)
         {
@@ -119,7 +112,6 @@ namespace StreamSpotter
         {
             Point formPoint = form.Location;
             windowsController.openMovieScreen(form, Control.MousePosition.Y - formPoint.Y - panel.AutoScrollPosition.Y - 100);
-        }
-
+        }*/
     }
 }

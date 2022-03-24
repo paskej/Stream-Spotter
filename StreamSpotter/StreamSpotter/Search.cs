@@ -9,7 +9,7 @@ namespace StreamSpotter
 {
     class Search
     {
-        private const int MOVIE_DATA_TYPES = 2;
+        private const int MOVIE_DATA_TYPES = 4;
 
         private APIStorage storage;
         private APIController apiController;
@@ -34,7 +34,7 @@ namespace StreamSpotter
             services[1] = "disney";
 
             RootObject ro1;
-            if (services.Length > 0)
+            if (services.GetLength(0) > 0)
             {
                 ro1 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(type, services[0], title));
                 for(int i = 1; i < services.Length; i++)
@@ -48,6 +48,30 @@ namespace StreamSpotter
                 ro1 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(type, "netflix", title));
             }
             storage.AddJsonFile(JsonConvert.SerializeObject(ro1));
+        }
+
+        public string getStreamingLink(int index, RootObject ro)
+        {
+            if(ro.results[index].streamingInfo.netflix != null)
+            {
+                return ro.results[index].streamingInfo.netflix.us.link;
+            }
+            else if(ro.results[index].streamingInfo.disney != null)
+            {
+                return ro.results[index].streamingInfo.disney.us.link;
+            }
+            else
+            {
+                return "null";
+            }
+        }
+
+        public Result[] getSearchResults()
+        {
+            string searchResult = storage.getMostRecent();
+            RootObject ro = JsonConvert.DeserializeObject<RootObject>(searchResult);
+            Result[] results = ro.results;
+            return results;
         }
 
         //for getting the searched item and send to the api
@@ -65,8 +89,18 @@ namespace StreamSpotter
                 int j = 0;
                 formattedSearchResults[i, j++] = ro.results[i].title;
                 formattedSearchResults[i, j++] = ro.results[i].overview;
-                //formattedSearchResults[i, j++] = ro.results[i].posterURLs.original;
-                //formattedSearchResults[i, j++] = ro.results[i].streamingInfo.netflix.us.link;
+
+                if(ro.results[i].posterURLs.original != null)
+                {
+                    formattedSearchResults[i, j++] = ro.results[i].posterURLs.original;
+
+                }
+                else
+                {
+                    formattedSearchResults[i, j++] = "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDk1MzYxOTUwMjk1NDAw/the-true-importance-of-tumbleweeds.jpg";
+                }
+
+                formattedSearchResults[i, j++] = getStreamingLink(i, ro);
             }
 
             return formattedSearchResults;
