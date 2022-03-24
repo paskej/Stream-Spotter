@@ -56,17 +56,23 @@ namespace StreamSpotter
             else
                 MessageBox.Show("No Results!");
         }
-        public void showSearchList(Panel listPanel, Form form)
+        public bool showSearchList(Panel listPanel, Form form)
         {
             movieList = new MovieList(listPanel, form, this);
-            movieList.populateSearchList(searchResults);
+            bool listNull = movieList.populateSearchList(searchResults);
             movieList.printList();
+            return listNull;
         }
-        public void showWishList(Panel listPanel, Form form)
+        public bool showWishList(Panel listPanel, Form form)
         {
             movieList = new MovieList(listPanel, form, this);
-            movieList.populateWishlist();
+            bool listNull = movieList.populateWishlist();
             movieList.printList();
+            return listNull;
+        }
+        public void addMovieToWishlist(Result movie)
+        {
+            movieList.addToWishlist(movie);
         }
     }
 }

@@ -82,6 +82,7 @@
     <Compile Include="SearchListUI.Designer.cs">
       <DependentUpon>SearchListUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="WishlistTracker.cs" />
     <Compile Include="WishlistUI.cs">
       <SubType>Form</SubType>
     </Compile>

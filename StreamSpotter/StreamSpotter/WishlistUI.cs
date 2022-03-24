@@ -18,7 +18,8 @@ namespace StreamSpotter
         {
             InitializeComponent();
             this.windowsController = windowsController;
-            windowsController.showSearchList(listPanel, this);
+            if (!windowsController.showWishList(listPanel, this))
+                listEmptyLabel.Visible = true;
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
