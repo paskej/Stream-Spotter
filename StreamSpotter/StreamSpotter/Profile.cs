@@ -12,13 +12,11 @@ namespace StreamSpotter
 		private readonly string[] POSSIBLE_SERVICES = { "netflix", "disney" };
 		private ArrayList services { get; set; }
 		private string profileName { get; set; }
-		private int id { get; set; }
 
 		//default constructor
 		public Profile()
 		{
 			profileName = null;
-			id = 0;
 			services = new ArrayList();
 			for (int i = 0; i < POSSIBLE_SERVICES.Length; i++)
 			{
@@ -26,12 +24,20 @@ namespace StreamSpotter
 			}
 		}
 
-		//parameterized constructor
-		public Profile(string profileName, int id)
+		public Profile(string profileName)
 		{
 			this.profileName = profileName;
-			this.id = id;
 			services = new ArrayList();
+		}
+
+		//parameterized constructor
+		public Profile(string profileName, ArrayList services)
+		{
+			this.profileName = profileName;
+			for(int i = 0; i < services.Count; i++)
+			{
+				this.services[i] = services[i];
+			}
 		}
 
 		//attempts to add a service and if the service is added then returns true
