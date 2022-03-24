@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+	public class ProfileList
+	{
+		public Profile[] list { get; set; }
+	}
 	public class Profile
 	{
 		private readonly string[] POSSIBLE_SERVICES = { "netflix", "disney" };
