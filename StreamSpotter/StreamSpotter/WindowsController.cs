@@ -61,5 +61,11 @@ namespace StreamSpotter
             movieList.populateList(searchResults);
             movieList.printList();
         }
+
+        public void showProfileScreen(Form currentForm)
+		{
+            ProfileSelectionScreen profileScreen = new ProfileSelectionScreen();
+            profileScreen.Show();
+		}
     }
 }

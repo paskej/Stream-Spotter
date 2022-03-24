@@ -24,9 +24,11 @@ namespace StreamSpotter
             this.windowsController = windowsController;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ProfileButton_Click(object sender, EventArgs e)
         {
             profilePanel.Visible = true;
+            WindowsController winController = new WindowsController();
+            winController.showProfileScreen(this);
         }
 
         private void SearchBar_KeyPress(object sender, KeyPressEventArgs e)
