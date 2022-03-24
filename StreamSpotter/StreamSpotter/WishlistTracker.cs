@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
-    class WishlistTracker
+    public class WishlistTracker
     {
         Result[] currentWishlist;
         DatabaseAccess da;
