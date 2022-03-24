@@ -37,7 +37,9 @@
             this.listPanel = new System.Windows.Forms.Panel();
             this.profilePanel = new System.Windows.Forms.Panel();
             this.wishlistButton = new System.Windows.Forms.Button();
+            this.listEmptyLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.listPanel.SuspendLayout();
             this.profilePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,6 +111,7 @@
             // 
             this.listPanel.AutoScroll = true;
             this.listPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.listPanel.Controls.Add(this.listEmptyLabel);
             this.listPanel.Location = new System.Drawing.Point(0, 100);
             this.listPanel.Name = "listPanel";
             this.listPanel.Size = new System.Drawing.Size(850, 448);
@@ -138,6 +141,17 @@
             this.wishlistButton.UseVisualStyleBackColor = false;
             this.wishlistButton.Click += new System.EventHandler(this.button2_Click);
             // 
+            // listEmptyLabel
+            // 
+            this.listEmptyLabel.AutoSize = true;
+            this.listEmptyLabel.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listEmptyLabel.Location = new System.Drawing.Point(209, 188);
+            this.listEmptyLabel.Name = "listEmptyLabel";
+            this.listEmptyLabel.Size = new System.Drawing.Size(417, 39);
+            this.listEmptyLabel.TabIndex = 4;
+            this.listEmptyLabel.Text = "Nothing Matched Your Search!";
+            this.listEmptyLabel.Visible = false;
+            // 
             // SearchListUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -155,6 +169,8 @@
             this.Text = "SearchListUI";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.listPanel.ResumeLayout(false);
+            this.listPanel.PerformLayout();
             this.profilePanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -171,5 +187,6 @@
         private System.Windows.Forms.TextBox SearchBar;
         private System.Windows.Forms.Panel profilePanel;
         private System.Windows.Forms.Button wishlistButton;
+        private System.Windows.Forms.Label listEmptyLabel;
     }
 }
