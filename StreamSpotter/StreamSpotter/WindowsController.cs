@@ -11,7 +11,8 @@ namespace StreamSpotter
     {
         private MovieList movieList;
         private Search search;
-        private string[,] searchResults;
+        //private string[,] searchResults;
+        private Result[] searchResults;
         public WindowsController()
         {
             search = new Search();
@@ -26,7 +27,7 @@ namespace StreamSpotter
         {
             currentForm.Hide();
             search.searchResult(title, "movie");
-            searchResults = search.getSearchResult();
+            searchResults = search.getSearchResults();
             SearchListUI searchListUI = new SearchListUI(this);
             searchListUI.Show();
         }
