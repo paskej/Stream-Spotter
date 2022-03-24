@@ -14,6 +14,7 @@ namespace StreamSpotter
 	public partial class ProfileSelectionScreen : Form
 	{
 		private ArrayList serviceArray = new ArrayList();
+		private ProfileController profileCon = new ProfileController();
 		public ProfileSelectionScreen()
 		{
 			InitializeComponent();
@@ -45,6 +46,16 @@ namespace StreamSpotter
 		private void button2_Click(object sender, EventArgs e)
 		{
 			this.Close();
+		}
+
+		private void CreateButton_Click(object sender, EventArgs e)
+		{
+			
+		}
+
+		private void SwitchButton_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

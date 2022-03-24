@@ -21,7 +21,7 @@ namespace StreamSpotter
             this.windowsController = windowsController;
             titleLabel.Text = movie.title;
             overviewLabel.Text = movie.overview;
-            ratingLabel.Text = "IMDb Rating: " + movie.imdbRating + " / 10";
+            ratingLabel.Text = "IMDb Rating: " + (float)movie.imdbRating/10 + " / 10";
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -32,6 +32,38 @@ namespace StreamSpotter
         private void BackButton_Click(object sender, EventArgs e)
         {
             windowsController.goBackToSearchListUI(this);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            windowsController.addMovieToWishlist(movie);
+        }
+
+        private void profilePanel_MouseLeave(object sender, EventArgs e)
+        {
+            Point formPoint = this.Location;
+            int mousePositionX = Control.MousePosition.X - formPoint.X - profilePanel.AutoScrollPosition.X;
+            int mousePositionY = Control.MousePosition.Y - formPoint.Y - profilePanel.AutoScrollPosition.Y;// - 100;
+            if (mousePositionX < profilePanel.Location.X || mousePositionY < profilePanel.Location.Y ||
+                mousePositionX > (profilePanel.Location.X + profilePanel.Width) || mousePositionY > (profilePanel.Location.Y + profilePanel.Height))
+            {
+                profilePanel.Visible = false;
+            }
+        }
+
+        private void profileButton_Click(object sender, EventArgs e)
+        {
+            profilePanel.Visible = true;
+        }
+
+        private void wishlistButton_Click(object sender, EventArgs e)
+        {
+            windowsController.openWishListUI(this);
+		}
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://google.com");
         }
     }
 }

@@ -158,3 +158,5 @@ StreamSpotter/UnitTests/obj/UnitTests.csproj.nuget.dgspec.json
 StreamSpotter/UnitTests/obj/UnitTests.csproj.nuget.g.props
 StreamSpotter/UnitTests/obj/UnitTests.csproj.nuget.g.targets
 StreamSpotter/StreamSpotter/obj/Debug/StreamSpotter.WishlistUI.resources
+StreamSpotter/UnitTests/obj/Debug/netcoreapp3.1/UnitTests.csprojAssemblyReference.cache
+StreamSpotter/StreamSpotter/obj/Debug/StreamSpotter.csprojAssemblyReference.cache

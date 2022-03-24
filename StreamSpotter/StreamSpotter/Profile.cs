@@ -79,5 +79,28 @@ namespace StreamSpotter
 			}
 			return false;
 		}
+
+		public string getProfileName()
+		{
+			return profileName;
+		}
+
+		public void setProfileName(string profileName)
+		{
+			this.profileName = profileName;
+		}
+
+		public ArrayList getServices()
+		{
+			return services;
+		}
+
+		public void setServies(ArrayList services)
+		{
+			for(int i = 0; i < services.Count; i++)
+			{
+				this.services[i] = services[i];
+			}
+		}
 	}
 }

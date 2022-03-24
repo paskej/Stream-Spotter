@@ -40,6 +40,7 @@ namespace StreamSpotter
         public void openWishListUI(Form currentForm)
         {
             currentForm.Hide();
+            //need to change searchResults here
             WishlistUI wishListUI = new WishlistUI(this);
             wishListUI.Show();
         }
@@ -55,11 +56,23 @@ namespace StreamSpotter
             else
                 MessageBox.Show("No Results!");
         }
-        public void showMovieList(Panel listPanel, Form form)
+        public bool showSearchList(Panel listPanel, Form form)
         {
             movieList = new MovieList(listPanel, form, this);
-            movieList.populateList(searchResults);
+            bool listNull = movieList.populateSearchList(searchResults);
             movieList.printList();
+            return listNull;
+        }
+        public bool showWishList(Panel listPanel, Form form)
+        {
+            movieList = new MovieList(listPanel, form, this);
+            bool listNull = movieList.populateWishlist();
+            movieList.printList();
+            return listNull;
+        }
+        public void addMovieToWishlist(Result movie)
+        {
+            movieList.addToWishlist(movie);
         }
 
         public void showProfileScreen(Form currentForm)
