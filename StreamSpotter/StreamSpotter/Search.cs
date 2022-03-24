@@ -34,7 +34,7 @@ namespace StreamSpotter
             services[1] = "disney";
 
             RootObject ro1;
-            if (services.Length > 0)
+            if (services.GetLength(0) > 0)
             {
                 ro1 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(type, services[0], title));
                 for(int i = 1; i < services.Length; i++)
@@ -64,6 +64,14 @@ namespace StreamSpotter
             {
                 return "null";
             }
+        }
+
+        public Result[] getSearchResults()
+        {
+            string searchResult = storage.getMostRecent();
+            RootObject ro = JsonConvert.DeserializeObject<RootObject>(searchResult);
+            Result[] results = ro.results;
+            return results;
         }
 
         //for getting the searched item and send to the api

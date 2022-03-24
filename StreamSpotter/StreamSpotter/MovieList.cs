@@ -34,7 +34,7 @@ namespace StreamSpotter
         }
 
         //gather all information from json file to put into the movieList
-        public void populateList(string [,] searchResults)
+        public void populateList(Result[] searchResults)//(string [,] searchResults)
         {
             /*Result batman = new Result("Batman", "Dude thats a bat who is also very rich. He hunts down criminals in gotham city. He could've defeated superman.", "Netflix");
             batman.imdbRating = 1;
@@ -46,10 +46,17 @@ namespace StreamSpotter
             hulk.imdbRating = 3;
             movieList.Add(hulk);*/
 
-            for (int i = 0; i < 1; i++) //searchResults.Length / 2; i++)
+            //int test = searchResults.Length;
+            ////for (int i = 0; i < 1; i++) //searchResults.Length / 2; i++)
+            //for (int i = 0; i < searchResults.GetLength(0); i++)
+            //{
+            //    movieList.Add(new Result(GetRow(searchResults, i)));
+            //}
+            for (int i = 0; i < searchResults.GetLength(0); i++)
             {
-                movieList.Add(new Result(GetRow(searchResults, i)));
+                movieList.Add(searchResults[i]);
             }
+
         }
         public Result getMovie(int index)
         {
