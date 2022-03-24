@@ -32,6 +32,8 @@
 			this.MyCancelButton = new System.Windows.Forms.Button();
 			this.NetflixCheckBox = new System.Windows.Forms.CheckBox();
 			this.DisneyCheckBox = new System.Windows.Forms.CheckBox();
+			this.SwitchButton = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// SaveButton
@@ -80,12 +82,34 @@
 			this.DisneyCheckBox.UseVisualStyleBackColor = true;
 			this.DisneyCheckBox.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
 			// 
+			// SwitchButton
+			// 
+			this.SwitchButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SwitchButton.Location = new System.Drawing.Point(585, 12);
+			this.SwitchButton.Name = "SwitchButton";
+			this.SwitchButton.Size = new System.Drawing.Size(203, 42);
+			this.SwitchButton.TabIndex = 4;
+			this.SwitchButton.Text = "Switch Profile";
+			this.SwitchButton.UseVisualStyleBackColor = true;
+			this.SwitchButton.Click += new System.EventHandler(this.SwitchButton_Click);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(227, 55);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(46, 17);
+			this.label1.TabIndex = 5;
+			this.label1.Text = "label1";
+			// 
 			// ProfileSelectionScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.SwitchButton);
 			this.Controls.Add(this.DisneyCheckBox);
 			this.Controls.Add(this.NetflixCheckBox);
 			this.Controls.Add(this.MyCancelButton);
@@ -104,5 +128,7 @@
 		private System.Windows.Forms.Button MyCancelButton;
 		private System.Windows.Forms.CheckBox NetflixCheckBox;
 		private System.Windows.Forms.CheckBox DisneyCheckBox;
+		private System.Windows.Forms.Button SwitchButton;
+		private System.Windows.Forms.Label label1;
 	}
 }
