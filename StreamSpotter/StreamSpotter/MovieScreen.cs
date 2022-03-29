@@ -15,6 +15,7 @@ namespace StreamSpotter
         private Result movie;
         private WindowsController windowsController;
         private bool inWishlist;
+        private static int BUTTON_CHANGE = 30;
         public MovieScreen(Result movie, WindowsController windowsController, bool inWishlist)
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace StreamSpotter
             ratingLabel.Text = "IMDb Rating: " + (float)movie.imdbRating/10 + " / 10";
             if(inWishlist)
             {
+                button3.Width = button3.Width + BUTTON_CHANGE;
                 button3.Text = "Remove from Wishlist";
             }
         }
@@ -45,12 +47,14 @@ namespace StreamSpotter
             if (inWishlist)
             {
                 windowsController.removeMovieFromWishlist(movie);
+                button3.Width = button3.Width - BUTTON_CHANGE;
                 button3.Text = "Add to Wishlist";
                 inWishlist = false;
             }
             else
             {
                 windowsController.addMovieToWishlist(movie);
+                button3.Width = button3.Width + BUTTON_CHANGE;
                 button3.Text = "Remove from Wishlist";
                 inWishlist = true;
             }
