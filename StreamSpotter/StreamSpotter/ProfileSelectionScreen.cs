@@ -16,6 +16,7 @@ namespace StreamSpotter
 		private ProfileController profileController = new ProfileController();
 		private ArrayList serviceArray = new ArrayList();
 		private ProfileController profileCon = new ProfileController();
+		private Profile currentProfile = new Profile();
 		private string NewName;
 		public ProfileSelectionScreen()
 		{
@@ -144,7 +145,10 @@ namespace StreamSpotter
 
 		private void SaveButton_Click(object sender, EventArgs e)
 		{
-
+			for(int i = 0; i < serviceArray.Count; i++)
+			{
+				currentProfile.AddService((string)serviceArray[i]);
+			}
 		}
 	}
 }
