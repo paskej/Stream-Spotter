@@ -64,6 +64,7 @@
       <DependentUpon>MovieScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Profile.cs" />
+    <Compile Include="ProfileController.cs" />
     <Compile Include="ProfileSelectionScreen.cs">
       <SubType>Form</SubType>
     </Compile>
