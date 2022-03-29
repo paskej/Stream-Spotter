@@ -23,7 +23,7 @@ namespace StreamSpotter
 		{
 			profileName = null;
 			services = new ArrayList();
-			id = 0;
+			id = -1;
 			for (int i = 0; i < POSSIBLE_SERVICES.Length; i++)
 			{
 				services[i] = POSSIBLE_SERVICES[i];
@@ -37,6 +37,16 @@ namespace StreamSpotter
 			for (int i = 0; i < POSSIBLE_SERVICES.Length; i++)
 			{
 				services[i] = POSSIBLE_SERVICES[i];
+			}
+		}
+
+		public Profile(string profileName, ArrayList services)
+		{
+			this.profileName = profileName;
+			id = -1;
+			for (int i = 0; i < services.Count; i++)
+			{
+				this.services[i] = services[i];
 			}
 		}
 
