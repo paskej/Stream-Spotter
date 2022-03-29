@@ -36,15 +36,6 @@ namespace StreamSpotter
         public bool populateSearchList(Result[] searchResults)//(string [,] searchResults)
         {
             movieList = new List<Result>();
-            /*Result batman = new Result("Batman", "Dude thats a bat who is also very rich. He hunts down criminals in gotham city. He could've defeated superman.", "Netflix");
-            batman.imdbRating = 1;
-            movieList.Add(batman);
-            Result ironMan = new Result("Iron Man", "Dude with high tech suit who is also very rich. He defends the world from enemies trying to destory it. He snapped thanos away.", "Disney+");
-            ironMan.imdbRating = 2;
-            movieList.Add(ironMan);
-            Result hulk = new Result("Hulk", "He big, strong and green. He smash a lot of stuff. His actual name is Bruce Banner.", "Disney+");
-            hulk.imdbRating = 3;
-            movieList.Add(hulk);*/
 
             for (int i = 0; i < searchResults.GetLength(0); i++)
             {
@@ -58,15 +49,13 @@ namespace StreamSpotter
 
             Result[] list = wishlistTracker.getCurrentWishlist();
             bool works = true;
-            try
+            if(list!=null)
             {
                 for (int x = 0; x < list.Length; x++)
                     movieList.Add(list[x]);
             }
-            catch (NullReferenceException e)
-            {
+            else
                 works = false;
-            }
             return works;
         }
         public Result getMovie(int index)
