@@ -139,6 +139,12 @@ namespace StreamSpotter
 			profileController.CreateProfile(NewName,serviceArray);
 			NewProfilePanel.Visible = false;
 			SwitchPanel.Visible = true;
+			NameTextBox.Text = "";
+		}
+
+		private void SaveButton_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

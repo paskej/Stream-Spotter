@@ -122,6 +122,7 @@
 			this.SaveButton.TabIndex = 5;
 			this.SaveButton.Text = "Save";
 			this.SaveButton.UseVisualStyleBackColor = true;
+			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
 			// 
 			// SwitchPanel
 			// 
@@ -141,7 +142,7 @@
 			this.SwitchPanel.Controls.Add(this.Profile1);
 			this.SwitchPanel.Location = new System.Drawing.Point(0, 1);
 			this.SwitchPanel.Name = "SwitchPanel";
-			this.SwitchPanel.Size = new System.Drawing.Size(800, 451);
+			this.SwitchPanel.Size = new System.Drawing.Size(800, 318);
 			this.SwitchPanel.TabIndex = 11;
 			// 
 			// NewProfilePanel
@@ -153,7 +154,7 @@
 			this.NewProfilePanel.Controls.Add(this.NameTextBox);
 			this.NewProfilePanel.Location = new System.Drawing.Point(0, 0);
 			this.NewProfilePanel.Name = "NewProfilePanel";
-			this.NewProfilePanel.Size = new System.Drawing.Size(800, 448);
+			this.NewProfilePanel.Size = new System.Drawing.Size(800, 299);
 			this.NewProfilePanel.TabIndex = 12;
 			// 
 			// CancelButton
