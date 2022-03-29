@@ -14,9 +14,9 @@ namespace StreamSpotter
 
 		}
 
-		public void CreateProfile(string profileName, ArrayList serviceList, int id)
+		public void CreateProfile(string profileName, ArrayList serviceList)
 		{
-			Profile newProfile = new Profile(profileName, serviceList, id);
+			Profile newProfile = new Profile(profileName, serviceList);
 			//this is where the profile will be added to the database
 		}
 
