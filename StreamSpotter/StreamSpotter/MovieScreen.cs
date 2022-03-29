@@ -63,7 +63,18 @@ namespace StreamSpotter
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://google.com");
+            if (movie.streamingInfo.netflix != null)
+            {
+                System.Diagnostics.Process.Start(movie.streamingInfo.netflix.us.link);
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (movie.streamingInfo.disney != null)
+            {
+                System.Diagnostics.Process.Start(movie.streamingInfo.disney.us.link);
+            }
         }
     }
 }
