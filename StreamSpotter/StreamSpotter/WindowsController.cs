@@ -40,7 +40,6 @@ namespace StreamSpotter
         public void openWishListUI(Form currentForm)
         {
             currentForm.Hide();
-            //need to change searchResults here
             WishlistUI wishListUI = new WishlistUI(this);
             wishListUI.Show();
         }
@@ -50,7 +49,20 @@ namespace StreamSpotter
 
             int listIndex = loc / 160;
 
-            MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex), this);
+            bool inList = false;
+            Result[] wishlist = movieList.getWishlist();
+            if (wishlist != null)
+            {
+                foreach (Result r in wishlist)
+                {
+                    if (r.imdbID == movieList.getMovie(listIndex).imdbID)
+                    {
+                        inList = true;
+                    }
+                }
+            }
+
+            MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex), this, inList);
             if (movieScreen != null)
                 movieScreen.Show();
             else
@@ -73,6 +85,11 @@ namespace StreamSpotter
         public void addMovieToWishlist(Result movie)
         {
             movieList.addToWishlist(movie);
+        }
+
+        public void removeMovieFromWishlist(Result movie)
+        {
+            movieList.removeFromWishlist(movie);
         }
 
         public void showProfileScreen(Form currentForm)
