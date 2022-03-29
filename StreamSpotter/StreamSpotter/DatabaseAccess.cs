@@ -94,6 +94,20 @@ namespace StreamSpotter
             }
         }
 
+        public ProfileList getProfileList()
+        {
+            string path = BASE_PATH + "\\Wishlists\\Profiles\\ListofProfiles.json";
+            if(File.Exists(path))
+            {
+                ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(File.ReadAllText(path));
+                return pl;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public void addToWishlist(string profileName, string listName, Result movie)
         {
             string path = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
