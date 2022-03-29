@@ -79,7 +79,14 @@ namespace StreamSpotter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //System.Diagnostics.Process.Start(movie.);
+            if (movie.streamingInfo.disney != null)
+            {
+                System.Diagnostics.Process.Start(movie.streamingInfo.disney.us.link);
+            }
+            else if (movie.streamingInfo.netflix != null)
+            {
+                System.Diagnostics.Process.Start(movie.streamingInfo.netflix.us.link);
+            }
         }
     }
 }
