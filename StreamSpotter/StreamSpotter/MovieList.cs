@@ -26,10 +26,10 @@ namespace StreamSpotter
             this.form = form;
             this.windowsController = windowsController;
             DatabaseAccess databaseAccess = new DatabaseAccess();
-            databaseAccess.addProfileDirectory("byce");
-            databaseAccess.addJson("byce", "list");
+            databaseAccess.addProfileDirectory(0);
+            databaseAccess.addJson(0, "list");
             wishlistTracker = new WishlistTracker();
-            wishlistTracker.changeCurrentWishlist("byce", "list");
+            wishlistTracker.changeCurrentWishlist(0, "list");
         }
 
         //gather all information from json file to put into the movieList

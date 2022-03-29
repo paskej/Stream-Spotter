@@ -17,18 +17,18 @@ namespace StreamSpotter
 
         public DatabaseAccess() {}
 
-        public void addProfileDirectory(string profileName)
+        public void addProfileDirectory(int profileID)
         {
-            if (!Directory.Exists(BASE_PATH + "\\Wishlists\\Profiles\\" + profileName))
+            if (!Directory.Exists(BASE_PATH + "\\Wishlists\\Profiles\\" + profileID))
             {
-                Directory.CreateDirectory(BASE_PATH + "\\Wishlists\\Profiles\\" + profileName);
+                Directory.CreateDirectory(BASE_PATH + "\\Wishlists\\Profiles\\" + profileID);
             }
         }
-        public void addJson(string profileName, string fileName)
+        public void addJson(int profileID, string fileName)
         {
-            if (!File.Exists(BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + fileName + ".json"))
+            if (!File.Exists(BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\" + fileName + ".json"))
             {
-                FileStream file = File.Create(BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + fileName + ".json");
+                FileStream file = File.Create(BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\" + fileName + ".json");
                 file.Close();
             }
         }
@@ -41,6 +41,10 @@ namespace StreamSpotter
                 FileStream file = File.Create(path);
                 file.Close();
                 ProfileList pl = new ProfileList();
+                if(p.getID() == -1)
+                {
+                    p.setID(generateID());
+                }
                 pl.list = new Profile[1];
                 pl.list[0] = p;
                 string text = JsonConvert.SerializeObject(pl);
@@ -93,7 +97,7 @@ namespace StreamSpotter
             }
         }
 
-        public void removeProfile(string profileName)
+        public void removeProfile(int profileID)
         {
             string path = BASE_PATH + "\\Wishlists\\Profiles\\ListofProfiles.json";
             if (File.Exists(path))
@@ -105,7 +109,7 @@ namespace StreamSpotter
                 {
                     while(i < l)
                     {
-                        if(pl.list[i].getProfileName() == profileName)
+                        if(pl.list[i].getID() == profileID)
                         {
                             Profile[] temp = new Profile[l - 1];
                             for(int j = i; j < l-1; j++)
@@ -136,9 +140,9 @@ namespace StreamSpotter
             }
         }
 
-        public void addToWishlist(string profileName, string listName, Result movie)
+        public void addToWishlist(int profileID, string listName, Result movie)
         {
-            string path = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
+            string path = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\" + listName + ".json";
             if (File.Exists(path))
             {
                 RootObject ro = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(path));
@@ -170,11 +174,11 @@ namespace StreamSpotter
             }
         }
 
-        public void removeFromWishlist(string profileName, string listName, string imdbID)
+        public void removeFromWishlist(int profileID, string listName, string imdbID)
         {
             int i = 0;
             RootObject tempRo = new RootObject();
-            string path = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
+            string path = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\" + listName + ".json";
             if (File.Exists(path))
             {
                 RootObject ro = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(path));
@@ -205,9 +209,9 @@ namespace StreamSpotter
             }
         }
 
-        public Result[] getWishlist(string profileName, string listName)
+        public Result[] getWishlist(int profileID, string listName)
         {
-            string path = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
+            string path = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\" + listName + ".json";
             if(File.Exists(path))
             {
                 RootObject ro = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(path));
@@ -237,9 +241,9 @@ namespace StreamSpotter
             }
             return temp;
         }
-        public Result getMovie(string profileName, string listName, string movieName)
+        public Result getMovie(int profileID, string listName, string movieName)
         {
-            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
+            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\" + listName + ".json";
             string json = File.ReadAllText(fileName);
             RootObject wishlist = JsonConvert.DeserializeObject<RootObject>(json);
             int i = getMovieIndex(wishlist, movieName);
@@ -252,89 +256,16 @@ namespace StreamSpotter
                 return wishlist.results[0];
             }
         }
-        
-        public string getNetflixUrl(string profileName, string listName, string movieName)
+        int generateID()
         {
-            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
-            string json = File.ReadAllText(fileName);
-            RootObject ro = JsonConvert.DeserializeObject<RootObject>(json);
-            int i = getMovieIndex(ro, movieName);
-            if (i < 0)
+            ProfileList profiles = getProfileList();
+            if (profiles == null)
             {
-                return null;
+                return 0;
             }
             else
             {
-                return ro.results[i].streamingInfo.netflix.us.link;
-            }
-        }
-        public string getDisneyUrl(string profileName, string listName, string movieName)
-        {
-            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
-            string json = File.ReadAllText(fileName);
-            RootObject ro = JsonConvert.DeserializeObject<RootObject>(json);
-            int i = getMovieIndex(ro, movieName);
-            if (i < 0)
-            {
-                return null;
-            }
-            else
-            {
-                return ro.results[i].streamingInfo.disney.us.link;
-            }
-        }
-        public string getPosterUrl(string profileName, string listName, string movieName)
-        {
-            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
-            string json = File.ReadAllText(fileName);
-            RootObject ro = JsonConvert.DeserializeObject<RootObject>(json);
-            int i = getMovieIndex(ro, movieName);
-            if (i < 0)
-            {
-                return null;
-            }
-            else
-            {
-                return ro.results[i].posterURLs.original;
-            }
-        }
-        public int getImdbRating(string profileName, string listName, string movieName)
-        {
-            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
-            string json = File.ReadAllText(fileName);
-            RootObject ro = JsonConvert.DeserializeObject<RootObject>(json);
-            int i = getMovieIndex(ro, movieName);
-            if (i < 0)
-            {
-                return -1;
-            }
-            else
-            {
-                return ro.results[i].imdbRating;
-            }
-        }
-        public string getMovieTitle(string profileName, string listName, int index)
-        {
-            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
-            string json = File.ReadAllText(fileName);
-            RootObject ro = JsonConvert.DeserializeObject<RootObject>(json);
-            return ro.results[index].title;
-        }
-        
-
-        public string getMovieOverview(string profileName, string listName, string movieName)
-        {
-            string fileName = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
-            string json = File.ReadAllText(fileName);
-            RootObject ro = JsonConvert.DeserializeObject<RootObject>(json);
-            int i = getMovieIndex(ro, movieName);
-            if(i < 0)
-            {
-                return null;
-            }
-            else
-            {
-                return ro.results[i].overview;
+                return profiles.list.Length;
             }
         }
     }
