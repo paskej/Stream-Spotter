@@ -41,5 +41,18 @@ namespace StreamSpotter
             da.addToWishlist(currentProfile, currentListName, movie);
         }
 
+        public bool isInCurrentWishlist(string imdbID)
+        {
+            bool isIn = false;
+            foreach(Result result in currentWishlist)
+            {
+                if(result.imdbID == imdbID)
+                {
+                    isIn = true;
+                }
+            }
+            return isIn;
+        }
+
     }
 }
