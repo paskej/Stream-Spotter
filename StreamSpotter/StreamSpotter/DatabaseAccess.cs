@@ -65,6 +65,34 @@ namespace StreamSpotter
             }
         }
 
+        public void updateProfile(Profile profile)
+        {
+            string path = BASE_PATH + "\\Wishlists\\Profiles\\ListofProfiles.json";
+            if(File.Exists(path))
+            {
+                ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(File.ReadAllText(path));
+                int i = -1;
+                for(int j = 0; j < pl.list.Length; i++)
+                {
+                    if(pl.list[j].getID() == profile.getID())
+                    {
+                        i = j;
+                    }
+                }
+                if(i >= 0)
+                {
+                    pl.list[i].setProfileName(profile.getProfileName());
+                    pl.list[i].setServies(profile.getServices());
+                    string text = JsonConvert.SerializeObject(pl);
+                    using (var tw = new StreamWriter(path, false))
+                    {
+                        tw.WriteLine(text);
+                        tw.Close();
+                    }
+                }
+            }
+        }
+
         public void removeProfile(string profileName)
         {
             string path = BASE_PATH + "\\Wishlists\\Profiles\\ListofProfiles.json";
