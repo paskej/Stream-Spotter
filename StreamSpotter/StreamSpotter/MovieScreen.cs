@@ -25,6 +25,17 @@ namespace StreamSpotter
             titleLabel.Text = movie.title;
             overviewLabel.Text = movie.overview;
             ratingLabel.Text = "IMDb Rating: " + (float)movie.imdbRating/10 + " / 10";
+
+
+            if (movie.streamingInfo.netflix == null)
+            {
+                pictureBox4.Visible = false;
+                pictureBox2.Location = new Point(203, 292);
+            }
+            if (movie.streamingInfo.disney == null)
+            {
+                pictureBox2.Visible = false;
+            }
             if(inWishlist)
             {
                 button3.Width = button3.Width + BUTTON_CHANGE;
@@ -95,6 +106,14 @@ namespace StreamSpotter
             if (movie.streamingInfo.disney != null)
             {
                 System.Diagnostics.Process.Start(movie.streamingInfo.disney.us.link);
+            }
+        }
+
+        private void pictureBox4_LoadCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (movie.streamingInfo.netflix == null)
+            {
+                pictureBox4.Visible = false;
             }
         }
 
