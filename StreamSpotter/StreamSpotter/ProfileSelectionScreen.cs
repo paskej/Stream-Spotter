@@ -15,9 +15,13 @@ namespace StreamSpotter
 	{
 		private ArrayList serviceArray = new ArrayList();
 		private ProfileController profileCon = new ProfileController();
+
 		public ProfileSelectionScreen()
 		{
 			InitializeComponent();
+			SwitchPanel.Visible = false;
+			NewProfilePanel.Visible = false;
+			
 		}
 
 		private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -55,7 +59,47 @@ namespace StreamSpotter
 
 		private void SwitchButton_Click(object sender, EventArgs e)
 		{
+			
+			
+		}
 
+		private void Profile1_Click(object sender, EventArgs e)
+		{
+			StreamSelectPanel.Visible = true;
+			SwitchPanel.Visible = false;
+		}
+
+		private void SwitchButton_Click_1(object sender, EventArgs e)
+		{
+			SwitchPanel.Visible = true;
+			StreamSelectPanel.Visible = false;
+			Profile1.Visible = true;
+		}
+
+		private void SwitchPanel_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void Profile1_Click_1(object sender, EventArgs e)
+		{
+		}
+
+		private void ExitButton_Click(object sender, EventArgs e)
+		{
+			StreamSelectPanel.Visible = true;
+			SwitchPanel.Visible = false;
+		}
+
+		private void CancelButton_Click(object sender, EventArgs e)
+		{
+			NewProfilePanel.Visible = false;
+			SwitchPanel.Visible = true;
+		}
+
+		private void NewProfileButton_Click(object sender, EventArgs e)
+		{
+			NewProfilePanel.Visible = true;
 		}
 	}
 }

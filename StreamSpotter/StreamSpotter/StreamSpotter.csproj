@@ -71,12 +71,6 @@
     <Compile Include="ProfileSelectionScreen.Designer.cs">
       <DependentUpon>ProfileSelectionScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Switch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Switch.Designer.cs">
-      <DependentUpon>Switch.cs</DependentUpon>
-    </Compile>
     <Compile Include="WindowsController.cs" />
     <Compile Include="HomeScreen.cs">
       <SubType>Form</SubType>
@@ -122,9 +116,6 @@
     </Compile>
     <EmbeddedResource Include="SearchListUI.resx">
       <DependentUpon>SearchListUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Switch.resx">
-      <DependentUpon>Switch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WishlistUI.resx">
       <DependentUpon>WishlistUI.cs</DependentUpon>
