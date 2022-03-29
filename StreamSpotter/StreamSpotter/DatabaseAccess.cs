@@ -191,7 +191,7 @@ namespace StreamSpotter
                         {
                             tempRo.results[j] = ro.results[j + 1];
                         }
-                        tempRo.results.CopyTo(ro.results, 0);//changes ro.results.Length to the new size, so the while loop still checks to see if it is out of bounds
+                        ro.results = tempRo.results;//changes ro.results.Length to the new size, so the while loop still checks to see if it is out of bounds
                         i--;//checks the same index again, since it is actually a new movie
                     }
                     i++;

@@ -18,7 +18,7 @@ namespace StreamSpotter
         Form form;
         WindowsController windowsController;
         WishlistTracker wishlistTracker;
-        
+
         public MovieList(Panel panel, Form form, WindowsController windowsController)
         {
             movieList = new List<Result>();
@@ -75,11 +75,18 @@ namespace StreamSpotter
                 return movieList[index];
             return null;
         }
+        public Result[] getWishlist()
+        {
+            return wishlistTracker.getCurrentWishlist();
+        }
         public void addToWishlist(Result result)
         {
             wishlistTracker.addToCurrentWishlist(result);
         }
-
+        public void removeFromWishlist(Result result)
+        {
+            wishlistTracker.removeFromCurrentWishlist(result.imdbID);
+        }
         public void printList()
         {
             panel.Invalidate();
