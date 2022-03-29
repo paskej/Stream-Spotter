@@ -35,6 +35,13 @@
 			this.MyCancelButton = new System.Windows.Forms.Button();
 			this.SaveButton = new System.Windows.Forms.Button();
 			this.SwitchPanel = new System.Windows.Forms.Panel();
+			this.NewProfilePanel = new System.Windows.Forms.Panel();
+			this.CancelButton = new System.Windows.Forms.Button();
+			this.SaveNewProfileButton = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.ProfileNameLabel = new System.Windows.Forms.Label();
+			this.NameTextBox = new System.Windows.Forms.TextBox();
+			this.ExitButton = new System.Windows.Forms.Button();
 			this.NewProfileButton = new System.Windows.Forms.Button();
 			this.Profile10 = new System.Windows.Forms.Button();
 			this.Profile9 = new System.Windows.Forms.Button();
@@ -46,13 +53,6 @@
 			this.Profile3 = new System.Windows.Forms.Button();
 			this.Profile2 = new System.Windows.Forms.Button();
 			this.Profile1 = new System.Windows.Forms.Button();
-			this.ExitButton = new System.Windows.Forms.Button();
-			this.NewProfilePanel = new System.Windows.Forms.Panel();
-			this.CancelButton = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.ProfileNameLabel = new System.Windows.Forms.Label();
-			this.NameTextBox = new System.Windows.Forms.TextBox();
 			this.StreamSelectPanel.SuspendLayout();
 			this.SwitchPanel.SuspendLayout();
 			this.NewProfilePanel.SuspendLayout();
@@ -143,6 +143,78 @@
 			this.SwitchPanel.Name = "SwitchPanel";
 			this.SwitchPanel.Size = new System.Drawing.Size(800, 451);
 			this.SwitchPanel.TabIndex = 11;
+			// 
+			// NewProfilePanel
+			// 
+			this.NewProfilePanel.Controls.Add(this.CancelButton);
+			this.NewProfilePanel.Controls.Add(this.SaveNewProfileButton);
+			this.NewProfilePanel.Controls.Add(this.label1);
+			this.NewProfilePanel.Controls.Add(this.ProfileNameLabel);
+			this.NewProfilePanel.Controls.Add(this.NameTextBox);
+			this.NewProfilePanel.Location = new System.Drawing.Point(0, 0);
+			this.NewProfilePanel.Name = "NewProfilePanel";
+			this.NewProfilePanel.Size = new System.Drawing.Size(800, 448);
+			this.NewProfilePanel.TabIndex = 12;
+			// 
+			// CancelButton
+			// 
+			this.CancelButton.Location = new System.Drawing.Point(454, 319);
+			this.CancelButton.Name = "CancelButton";
+			this.CancelButton.Size = new System.Drawing.Size(175, 57);
+			this.CancelButton.TabIndex = 9;
+			this.CancelButton.Text = "Cancel";
+			this.CancelButton.UseVisualStyleBackColor = true;
+			this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+			// 
+			// SaveNewProfileButton
+			// 
+			this.SaveNewProfileButton.Location = new System.Drawing.Point(213, 323);
+			this.SaveNewProfileButton.Name = "SaveNewProfileButton";
+			this.SaveNewProfileButton.Size = new System.Drawing.Size(159, 53);
+			this.SaveNewProfileButton.TabIndex = 8;
+			this.SaveNewProfileButton.Text = "Save";
+			this.SaveNewProfileButton.UseVisualStyleBackColor = true;
+			this.SaveNewProfileButton.Click += new System.EventHandler(this.button1_Click_1);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(173, 228);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(518, 25);
+			this.label1.TabIndex = 7;
+			this.label1.Text = "Choose which streaming services you own on the Profile page";
+			this.label1.Click += new System.EventHandler(this.label1_Click);
+			// 
+			// ProfileNameLabel
+			// 
+			this.ProfileNameLabel.AutoSize = true;
+			this.ProfileNameLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileNameLabel.Location = new System.Drawing.Point(259, 74);
+			this.ProfileNameLabel.Name = "ProfileNameLabel";
+			this.ProfileNameLabel.Size = new System.Drawing.Size(149, 29);
+			this.ProfileNameLabel.TabIndex = 6;
+			this.ProfileNameLabel.Text = "Profile Name:";
+			// 
+			// NameTextBox
+			// 
+			this.NameTextBox.Location = new System.Drawing.Point(264, 106);
+			this.NameTextBox.Multiline = true;
+			this.NameTextBox.Name = "NameTextBox";
+			this.NameTextBox.Size = new System.Drawing.Size(275, 45);
+			this.NameTextBox.TabIndex = 5;
+			this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
+			// 
+			// ExitButton
+			// 
+			this.ExitButton.Location = new System.Drawing.Point(712, 13);
+			this.ExitButton.Name = "ExitButton";
+			this.ExitButton.Size = new System.Drawing.Size(75, 31);
+			this.ExitButton.TabIndex = 22;
+			this.ExitButton.Text = "Exit";
+			this.ExitButton.UseVisualStyleBackColor = true;
+			this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
 			// 
 			// NewProfileButton
 			// 
@@ -245,75 +317,6 @@
 			this.Profile1.UseVisualStyleBackColor = true;
 			this.Profile1.Click += new System.EventHandler(this.Profile1_Click_1);
 			// 
-			// ExitButton
-			// 
-			this.ExitButton.Location = new System.Drawing.Point(712, 13);
-			this.ExitButton.Name = "ExitButton";
-			this.ExitButton.Size = new System.Drawing.Size(75, 31);
-			this.ExitButton.TabIndex = 22;
-			this.ExitButton.Text = "Exit";
-			this.ExitButton.UseVisualStyleBackColor = true;
-			this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
-			// 
-			// NewProfilePanel
-			// 
-			this.NewProfilePanel.Controls.Add(this.CancelButton);
-			this.NewProfilePanel.Controls.Add(this.button1);
-			this.NewProfilePanel.Controls.Add(this.label1);
-			this.NewProfilePanel.Controls.Add(this.ProfileNameLabel);
-			this.NewProfilePanel.Controls.Add(this.NameTextBox);
-			this.NewProfilePanel.Location = new System.Drawing.Point(0, 0);
-			this.NewProfilePanel.Name = "NewProfilePanel";
-			this.NewProfilePanel.Size = new System.Drawing.Size(800, 448);
-			this.NewProfilePanel.TabIndex = 12;
-			// 
-			// CancelButton
-			// 
-			this.CancelButton.Location = new System.Drawing.Point(454, 319);
-			this.CancelButton.Name = "CancelButton";
-			this.CancelButton.Size = new System.Drawing.Size(175, 57);
-			this.CancelButton.TabIndex = 9;
-			this.CancelButton.Text = "Cancel";
-			this.CancelButton.UseVisualStyleBackColor = true;
-			this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(213, 323);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(159, 53);
-			this.button1.TabIndex = 8;
-			this.button1.Text = "Save";
-			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(173, 228);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(518, 25);
-			this.label1.TabIndex = 7;
-			this.label1.Text = "Choose which streaming services you own on the Profile page";
-			// 
-			// ProfileNameLabel
-			// 
-			this.ProfileNameLabel.AutoSize = true;
-			this.ProfileNameLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ProfileNameLabel.Location = new System.Drawing.Point(269, 74);
-			this.ProfileNameLabel.Name = "ProfileNameLabel";
-			this.ProfileNameLabel.Size = new System.Drawing.Size(149, 29);
-			this.ProfileNameLabel.TabIndex = 6;
-			this.ProfileNameLabel.Text = "Profile Name:";
-			// 
-			// NameTextBox
-			// 
-			this.NameTextBox.Location = new System.Drawing.Point(274, 106);
-			this.NameTextBox.Multiline = true;
-			this.NameTextBox.Name = "NameTextBox";
-			this.NameTextBox.Size = new System.Drawing.Size(275, 45);
-			this.NameTextBox.TabIndex = 5;
-			// 
 			// ProfileSelectionScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -357,7 +360,7 @@
 		private System.Windows.Forms.Button ExitButton;
 		private System.Windows.Forms.Panel NewProfilePanel;
 		private System.Windows.Forms.Button CancelButton;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button SaveNewProfileButton;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label ProfileNameLabel;
 		private System.Windows.Forms.TextBox NameTextBox;

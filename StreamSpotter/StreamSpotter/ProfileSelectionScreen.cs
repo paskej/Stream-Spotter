@@ -13,9 +13,10 @@ namespace StreamSpotter
 {
 	public partial class ProfileSelectionScreen : Form
 	{
+		private ProfileController profileController = new ProfileController();
 		private ArrayList serviceArray = new ArrayList();
 		private ProfileController profileCon = new ProfileController();
-
+		private string NewName;
 		public ProfileSelectionScreen()
 		{
 			InitializeComponent();
@@ -43,6 +44,26 @@ namespace StreamSpotter
 			if (DisneyCheckBox.Checked == true)
 			{
 				serviceArray.Add("disney");
+			}
+			if(NetflixCheckBox.Checked == false)
+			{
+				for (int i = 0; i < serviceArray.Count; i++)
+				{
+					if (serviceArray[i] == "netflix")
+					{
+						serviceArray.Remove("netflix");
+					}
+				}
+			}
+			if (DisneyCheckBox.Checked == false)
+			{
+				for (int i = 0; i < serviceArray.Count; i++)
+				{
+					if (serviceArray[i] == "disney")
+					{
+						serviceArray.Remove("disney");
+					}
+				}
 			}
 			this.Close();
 		}
@@ -93,6 +114,7 @@ namespace StreamSpotter
 
 		private void CancelButton_Click(object sender, EventArgs e)
 		{
+			NameTextBox.Text = "";
 			NewProfilePanel.Visible = false;
 			SwitchPanel.Visible = true;
 		}
@@ -100,6 +122,23 @@ namespace StreamSpotter
 		private void NewProfileButton_Click(object sender, EventArgs e)
 		{
 			NewProfilePanel.Visible = true;
+		}
+
+		private void label1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void NameTextBox_TextChanged(object sender, EventArgs e)
+		{
+			NewName = (string)NameTextBox.Text;
+		}
+
+		private void button1_Click_1(object sender, EventArgs e)
+		{
+			profileController.CreateProfile(NewName,serviceArray);
+			NewProfilePanel.Visible = false;
+			SwitchPanel.Visible = true;
 		}
 	}
 }
