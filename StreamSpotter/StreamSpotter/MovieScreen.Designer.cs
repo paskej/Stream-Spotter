@@ -119,7 +119,7 @@
             this.HomeButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.HomeButton.Location = new System.Drawing.Point(38, 4);
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(2);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(58, 32);
             this.HomeButton.TabIndex = 22;
@@ -131,7 +131,7 @@
             // 
             this.overviewLabel.AutoSize = true;
             this.overviewLabel.Location = new System.Drawing.Point(203, 119);
-            this.overviewLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.overviewLabel.Margin = new System.Windows.Forms.Padding(2);
             this.overviewLabel.Name = "overviewLabel";
             this.overviewLabel.Size = new System.Drawing.Size(496, 74);
             this.overviewLabel.TabIndex = 23;
@@ -155,7 +155,7 @@
             this.profileButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.profileButton.Location = new System.Drawing.Point(644, 4);
-            this.profileButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.profileButton.Margin = new System.Windows.Forms.Padding(2);
             this.profileButton.Name = "profileButton";
             this.profileButton.Size = new System.Drawing.Size(68, 32);
             this.profileButton.TabIndex = 24;
@@ -168,7 +168,7 @@
             this.profilePanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.profilePanel.Controls.Add(this.wishlistButton);
             this.profilePanel.Location = new System.Drawing.Point(637, 36);
-            this.profilePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.profilePanel.Margin = new System.Windows.Forms.Padding(2);
             this.profilePanel.Name = "profilePanel";
             this.profilePanel.Size = new System.Drawing.Size(83, 37);
             this.profilePanel.TabIndex = 28;
@@ -181,7 +181,7 @@
             this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.wishlistButton.Location = new System.Drawing.Point(2, 3);
-            this.wishlistButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.wishlistButton.Margin = new System.Windows.Forms.Padding(2);
             this.wishlistButton.Name = "wishlistButton";
             this.wishlistButton.Size = new System.Drawing.Size(79, 32);
             this.wishlistButton.TabIndex = 23;
@@ -195,7 +195,7 @@
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.ImageLocation = "";
             this.pictureBox4.Location = new System.Drawing.Point(203, 288);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(49, 53);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -206,9 +206,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(267, 289);
+            this.pictureBox2.Location = new System.Drawing.Point(267, 292);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(43, 43);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 29;
             this.pictureBox2.TabStop = false;
