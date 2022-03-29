@@ -65,5 +65,10 @@ namespace StreamSpotter
         {
             System.Diagnostics.Process.Start("http://google.com");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //System.Diagnostics.Process.Start(movie.);
+        }
     }
 }

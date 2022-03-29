@@ -40,7 +40,6 @@ namespace StreamSpotter
         public void openWishListUI(Form currentForm)
         {
             currentForm.Hide();
-            //need to change searchResults here
             WishlistUI wishListUI = new WishlistUI(this);
             wishListUI.Show();
         }
