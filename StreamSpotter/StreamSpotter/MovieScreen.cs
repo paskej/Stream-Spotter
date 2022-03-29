@@ -128,5 +128,20 @@ namespace StreamSpotter
                 System.Diagnostics.Process.Start(movie.streamingInfo.netflix.us.link);
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            profilePanel.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            windowsController.showProfileScreen(this);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            windowsController.openWishListUI(this);
+        }
     }
 }
