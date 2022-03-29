@@ -19,5 +19,16 @@ namespace StreamSpotter
 			Profile newProfile = new Profile(profileName, serviceList);
 			//this is where the profile will be added to the database
 		}
+
+		public void RemoveProfile(string profileName)
+		{
+			//this is where the profile will be removed from the database
+		}
+
+		public Profile GetProfile(string profileName)
+		{
+			Profile found = new Profile();
+			return found;
+		}
 	}
 }
