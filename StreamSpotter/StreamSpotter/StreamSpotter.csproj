@@ -64,6 +64,13 @@
       <DependentUpon>MovieScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Profile.cs" />
+    <Compile Include="ProfileController.cs" />
+    <Compile Include="ProfileSelectionScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileSelectionScreen.Designer.cs">
+      <DependentUpon>ProfileSelectionScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowsController.cs" />
     <Compile Include="HomeScreen.cs">
       <SubType>Form</SubType>
@@ -82,7 +89,7 @@
     <Compile Include="SearchListUI.Designer.cs">
       <DependentUpon>SearchListUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wishlist.cs" />
+    <Compile Include="WishlistTracker.cs" />
     <Compile Include="WishlistUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MovieScreen.resx">
       <DependentUpon>MovieScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileSelectionScreen.resx">
+      <DependentUpon>ProfileSelectionScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -110,7 +120,6 @@
     <EmbeddedResource Include="WishlistUI.resx">
       <DependentUpon>WishlistUI.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

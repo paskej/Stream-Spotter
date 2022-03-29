@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
-    class WishlistTracker
+    public class WishlistTracker
     {
         Result[] currentWishlist;
         DatabaseAccess da;
@@ -39,6 +39,19 @@ namespace StreamSpotter
         public void addToCurrentWishlist(Result movie)
         {
             da.addToWishlist(currentProfile, currentListName, movie);
+        }
+
+        public bool isInCurrentWishlist(string imdbID)
+        {
+            bool isIn = false;
+            foreach(Result result in currentWishlist)
+            {
+                if(result.imdbID == imdbID)
+                {
+                    isIn = true;
+                }
+            }
+            return isIn;
         }
 
     }

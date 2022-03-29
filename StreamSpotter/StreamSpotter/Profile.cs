@@ -7,17 +7,23 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+	public class ProfileList
+	{
+		public Profile[] list { get; set; }
+	}
 	public class Profile
 	{
 		private readonly string[] POSSIBLE_SERVICES = { "netflix", "disney" };
-		private ArrayList services { get; set; }
-		private string profileName { get; set; }
+		private ArrayList services;
+		private string profileName;
+		private int id;
 
 		//default constructor
 		public Profile()
 		{
 			profileName = null;
 			services = new ArrayList();
+			id = 0;
 			for (int i = 0; i < POSSIBLE_SERVICES.Length; i++)
 			{
 				services[i] = POSSIBLE_SERVICES[i];
@@ -28,12 +34,17 @@ namespace StreamSpotter
 		{
 			this.profileName = profileName;
 			services = new ArrayList();
+			for (int i = 0; i < POSSIBLE_SERVICES.Length; i++)
+			{
+				services[i] = POSSIBLE_SERVICES[i];
+			}
 		}
 
 		//parameterized constructor
-		public Profile(string profileName, ArrayList services)
+		public Profile(string profileName, ArrayList services, int id)
 		{
 			this.profileName = profileName;
+			this.id = id;
 			for(int i = 0; i < services.Count; i++)
 			{
 				this.services[i] = services[i];
@@ -74,6 +85,39 @@ namespace StreamSpotter
 				}
 			}
 			return false;
+		}
+
+		public string getProfileName()
+		{
+			return profileName;
+		}
+
+		public void setProfileName(string profileName)
+		{
+			this.profileName = profileName;
+		}
+
+		public ArrayList getServices()
+		{
+			return services;
+		}
+
+		public void setServies(ArrayList services)
+		{
+			for(int i = 0; i < services.Count; i++)
+			{
+				this.services[i] = services[i];
+			}
+		}
+
+		public int getID()
+		{
+			return id;
+		}
+
+		public void setID(int id)
+		{
+			this.id = id;
 		}
 	}
 }

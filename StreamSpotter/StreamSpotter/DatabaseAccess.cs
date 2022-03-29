@@ -33,6 +33,109 @@ namespace StreamSpotter
             }
         }
 
+        public void addProfile(Profile p)
+        {
+            string path = BASE_PATH + "\\Wishlists\\Profiles\\ListofProfiles.json";
+            if (!File.Exists(path))
+            {
+                FileStream file = File.Create(path);
+                file.Close();
+                ProfileList pl = new ProfileList();
+                pl.list = new Profile[1];
+                pl.list[0] = p;
+                string text = JsonConvert.SerializeObject(pl);
+                using(var tw = new StreamWriter(path, false))
+                {
+                    tw.WriteLine(text);
+                    tw.Close();
+                }
+            }
+            else
+            {
+                ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(path);
+                ProfileList temp = new ProfileList();
+                temp.list = new Profile[pl.list.Length + 1];
+                temp.list[pl.list.Length] = p;
+                string text = JsonConvert.SerializeObject(temp);
+                using(var tw = new StreamWriter(path, false))
+                {
+                    tw.WriteLine(text);
+                    tw.Close();
+                }
+            }
+        }
+
+        public void updateProfile(Profile profile)
+        {
+            string path = BASE_PATH + "\\Wishlists\\Profiles\\ListofProfiles.json";
+            if(File.Exists(path))
+            {
+                ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(File.ReadAllText(path));
+                int i = -1;
+                for(int j = 0; j < pl.list.Length; i++)
+                {
+                    if(pl.list[j].getID() == profile.getID())
+                    {
+                        i = j;
+                    }
+                }
+                if(i >= 0)
+                {
+                    pl.list[i].setProfileName(profile.getProfileName());
+                    pl.list[i].setServies(profile.getServices());
+                    string text = JsonConvert.SerializeObject(pl);
+                    using (var tw = new StreamWriter(path, false))
+                    {
+                        tw.WriteLine(text);
+                        tw.Close();
+                    }
+                }
+            }
+        }
+
+        public void removeProfile(string profileName)
+        {
+            string path = BASE_PATH + "\\Wishlists\\Profiles\\ListofProfiles.json";
+            if (File.Exists(path))
+            {
+                ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(File.ReadAllText(path));
+                int l = pl.list.Length;
+                int i = 0;
+                if(l> 0)
+                {
+                    while(i < l)
+                    {
+                        if(pl.list[i].getProfileName() == profileName)
+                        {
+                            Profile[] temp = new Profile[l - 1];
+                            for(int j = i; j < l-1; j++)
+                            {
+                                temp[j] = pl.list[j + 1];
+                            }
+                            pl.list = temp;
+                            l--;
+                            i--;
+                        }
+                        i++;
+                    }
+                }
+            }
+        }
+
+        public ProfileList getProfileList()
+        {
+            string path = BASE_PATH + "\\Wishlists\\Profiles\\ListofProfiles.json";
+            if(File.Exists(path))
+            {
+                ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(File.ReadAllText(path));
+                return pl;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public void addToWishlist(string profileName, string listName, Result movie)
         {
             string path = BASE_PATH + "\\Wishlists\\Profiles\\" + profileName + "\\" + listName + ".json";
@@ -88,7 +191,7 @@ namespace StreamSpotter
                         {
                             tempRo.results[j] = ro.results[j + 1];
                         }
-                        tempRo.results.CopyTo(ro.results, 0);//changes ro.results.Length to the new size, so the while loop still checks to see if it is out of bounds
+                        ro.results = tempRo.results;//changes ro.results.Length to the new size, so the while loop still checks to see if it is out of bounds
                         i--;//checks the same index again, since it is actually a new movie
                     }
                     i++;
@@ -234,41 +337,5 @@ namespace StreamSpotter
                 return ro.results[i].overview;
             }
         }
-        /*
-        public string getMovieBackdropPath()
-        {
-            int i = getProfileIndex(profileName);
-            string fileName = @"~/Wishlists/Profiles/" + profileNames[i];
-            string json = File.ReadAllText(fileName);
-            var movie = JsonConvert.DeserializeObject<Movie>(json);
-            return movie.backdropPath;
-        }
-
-        public int getMovieYear()
-        {
-            int i = getProfileIndex(profileName);
-            string fileName = @"~/Wishlists/Profiles/" + profileNames[i];
-            string json = File.ReadAllText(fileName);
-            var movie = JsonConvert.DeserializeObject<Movie>(json);
-            return movie.year;
-        }
-        */
-       /* static void Main()
-        {
-            Console.WriteLine(BASE_PATH);
-            string json = File.ReadAllText("breakingbad.json");
-            Console.WriteLine(json);
-            var movies = JsonConvert.DeserializeObject<RootObject>(json);
-            //var movie = movies.Movie.ElementAt(0);
-            Console.WriteLine(movies.results[0].title);
-            DatabaseAccess da = new DatabaseAccess();
-            da.addProfileDirectory("Joe");
-            da.addJson("Joe", "Joe");
-            da.addToWishlist("Joe", movies.results[0]);
-            string jsonBack = File.ReadAllText(BASE_PATH + "\\Wishlists\\Profiles\\Joe\\Joe.json");
-            RootObject back = JsonConvert.DeserializeObject<RootObject>(jsonBack);
-            Console.WriteLine(back.results[0].title);
-        }
-        */
     }
 }
