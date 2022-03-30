@@ -211,6 +211,7 @@
             this.button3.Text = "Menu";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
             // SearchBar
             // 

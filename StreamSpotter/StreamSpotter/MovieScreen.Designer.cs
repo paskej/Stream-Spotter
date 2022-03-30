@@ -42,9 +42,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.playButton = new System.Windows.Forms.Button();
             this.profilePanel = new System.Windows.Forms.Panel();
+            this.wishlistButton = new System.Windows.Forms.Button();
+            this.ProfileButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -118,7 +118,7 @@
             // 
             this.HomeButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.HomeButton.Location = new System.Drawing.Point(51, 5);
+            this.HomeButton.Location = new System.Drawing.Point(164, 5);
             this.HomeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(77, 39);
@@ -191,54 +191,54 @@
             // profilePanel
             // 
             this.profilePanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.profilePanel.Controls.Add(this.button1);
-            this.profilePanel.Controls.Add(this.button2);
-            this.profilePanel.Location = new System.Drawing.Point(843, 48);
+            this.profilePanel.Controls.Add(this.wishlistButton);
+            this.profilePanel.Controls.Add(this.ProfileButton);
+            this.profilePanel.Location = new System.Drawing.Point(50, 46);
             this.profilePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.profilePanel.Name = "profilePanel";
             this.profilePanel.Size = new System.Drawing.Size(111, 90);
             this.profilePanel.TabIndex = 32;
             this.profilePanel.Visible = false;
             // 
+            // wishlistButton
+            // 
+            this.wishlistButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.wishlistButton.Location = new System.Drawing.Point(3, 45);
+            this.wishlistButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.wishlistButton.Name = "wishlistButton";
+            this.wishlistButton.Size = new System.Drawing.Size(105, 39);
+            this.wishlistButton.TabIndex = 23;
+            this.wishlistButton.Text = "Wishlist";
+            this.wishlistButton.UseVisualStyleBackColor = false;
+            this.wishlistButton.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // ProfileButton
+            // 
+            this.ProfileButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProfileButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.ProfileButton.Location = new System.Drawing.Point(3, 5);
+            this.ProfileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ProfileButton.Name = "ProfileButton";
+            this.ProfileButton.Size = new System.Drawing.Size(105, 39);
+            this.ProfileButton.TabIndex = 4;
+            this.ProfileButton.Text = "Profile";
+            this.ProfileButton.UseVisualStyleBackColor = true;
+            this.ProfileButton.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.button1.Location = new System.Drawing.Point(3, 45);
+            this.button1.Location = new System.Drawing.Point(53, 5);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 39);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Wishlist";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.button2.Location = new System.Drawing.Point(3, 5);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 39);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Profile";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.button5.Location = new System.Drawing.Point(846, 7);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(105, 39);
-            this.button5.TabIndex = 31;
-            this.button5.Text = "Menu";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Menu";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.profileButton_Click);
             // 
             // MovieScreen
             // 
@@ -247,7 +247,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(963, 545);
             this.Controls.Add(this.profilePanel);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox4);
@@ -288,8 +288,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Panel profilePanel;
+        private System.Windows.Forms.Button wishlistButton;
+        private System.Windows.Forms.Button ProfileButton;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button5;
     }
 }

@@ -143,5 +143,6 @@ namespace StreamSpotter
         {
             windowsController.openWishListUI(this);
         }
+
     }
 }

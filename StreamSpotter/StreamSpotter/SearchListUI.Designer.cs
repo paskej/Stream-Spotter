@@ -28,55 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MenuButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
-            this.profileButton = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.SearchBar = new System.Windows.Forms.TextBox();
             this.listPanel = new System.Windows.Forms.Panel();
-            this.profilePanel = new System.Windows.Forms.Panel();
-            this.wishlistButton = new System.Windows.Forms.Button();
             this.listEmptyLabel = new System.Windows.Forms.Label();
+            this.profilePanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.listPanel.SuspendLayout();
             this.profilePanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // MenuButton
-            // 
-            this.MenuButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.MenuButton.Location = new System.Drawing.Point(2, 10);
-            this.MenuButton.Name = "MenuButton";
-            this.MenuButton.Size = new System.Drawing.Size(76, 39);
-            this.MenuButton.TabIndex = 20;
-            this.MenuButton.Text = "Menu";
-            this.MenuButton.UseVisualStyleBackColor = true;
-            // 
             // HomeButton
             // 
             this.HomeButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.HomeButton.Location = new System.Drawing.Point(84, 10);
+            this.HomeButton.Location = new System.Drawing.Point(117, 10);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(79, 39);
             this.HomeButton.TabIndex = 21;
             this.HomeButton.Text = "Home";
             this.HomeButton.UseVisualStyleBackColor = true;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
-            // 
-            // profileButton
-            // 
-            this.profileButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.profileButton.Location = new System.Drawing.Point(747, 10);
-            this.profileButton.Name = "profileButton";
-            this.profileButton.Size = new System.Drawing.Size(91, 39);
-            this.profileButton.TabIndex = 22;
-            this.profileButton.Text = "Profile";
-            this.profileButton.UseVisualStyleBackColor = true;
-            this.profileButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
             // 
@@ -91,11 +68,26 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.HomeButton);
             this.panel1.Controls.Add(this.SearchBar);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(850, 60);
             this.panel1.TabIndex = 25;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.button3.Location = new System.Drawing.Point(6, 10);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(105, 39);
+            this.button3.TabIndex = 29;
+            this.button3.Text = "Menu";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // SearchBar
             // 
@@ -117,30 +109,6 @@
             this.listPanel.Size = new System.Drawing.Size(850, 448);
             this.listPanel.TabIndex = 26;
             // 
-            // profilePanel
-            // 
-            this.profilePanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.profilePanel.Controls.Add(this.wishlistButton);
-            this.profilePanel.Location = new System.Drawing.Point(739, 60);
-            this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Size = new System.Drawing.Size(111, 46);
-            this.profilePanel.TabIndex = 27;
-            this.profilePanel.Visible = false;
-            this.profilePanel.MouseLeave += new System.EventHandler(this.profilePanel_MouseLeave);
-            // 
-            // wishlistButton
-            // 
-            this.wishlistButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.wishlistButton.Location = new System.Drawing.Point(2, 4);
-            this.wishlistButton.Name = "wishlistButton";
-            this.wishlistButton.Size = new System.Drawing.Size(105, 39);
-            this.wishlistButton.TabIndex = 23;
-            this.wishlistButton.Text = "Wishlist";
-            this.wishlistButton.UseVisualStyleBackColor = false;
-            this.wishlistButton.Click += new System.EventHandler(this.button2_Click);
-            // 
             // listEmptyLabel
             // 
             this.listEmptyLabel.AutoSize = true;
@@ -152,6 +120,46 @@
             this.listEmptyLabel.Text = "Nothing Matched Your Search!";
             this.listEmptyLabel.Visible = false;
             // 
+            // profilePanel
+            // 
+            this.profilePanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.profilePanel.Controls.Add(this.button1);
+            this.profilePanel.Controls.Add(this.button2);
+            this.profilePanel.Location = new System.Drawing.Point(3, 60);
+            this.profilePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.profilePanel.Name = "profilePanel";
+            this.profilePanel.Size = new System.Drawing.Size(111, 90);
+            this.profilePanel.TabIndex = 31;
+            this.profilePanel.Visible = false;
+            this.profilePanel.MouseLeave += new System.EventHandler(this.profilePanel_MouseLeave);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.button1.Location = new System.Drawing.Point(3, 45);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 39);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Wishlist";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.button2.Location = new System.Drawing.Point(3, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(105, 39);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Profile";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // SearchListUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -159,9 +167,6 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(850, 548);
             this.Controls.Add(this.profilePanel);
-            this.Controls.Add(this.profileButton);
-            this.Controls.Add(this.HomeButton);
-            this.Controls.Add(this.MenuButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listPanel);
             this.Controls.Add(this.comboBox1);
@@ -177,16 +182,15 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button MenuButton;
         private System.Windows.Forms.Button HomeButton;
-        private System.Windows.Forms.Button profileButton;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel listPanel;
         private System.Windows.Forms.TextBox SearchBar;
-        private System.Windows.Forms.Panel profilePanel;
-        private System.Windows.Forms.Button wishlistButton;
         private System.Windows.Forms.Label listEmptyLabel;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel profilePanel;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
