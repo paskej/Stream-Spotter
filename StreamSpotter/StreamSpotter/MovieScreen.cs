@@ -41,6 +41,14 @@ namespace StreamSpotter
                 button3.Width = button3.Width + BUTTON_CHANGE;
                 button3.Text = "Remove from Wishlist";
             }
+            if (movie.posterURLs.original != null)
+            {
+                pictureBox1.ImageLocation = movie.posterURLs.original;
+            }
+            else if (movie.backdropURLs.original != null)
+            {
+                pictureBox1.ImageLocation = movie.backdropURLs.original;
+            }
         }
 
         private void HomeButton_Click(object sender, EventArgs e)

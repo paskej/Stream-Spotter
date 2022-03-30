@@ -142,7 +142,7 @@
 			this.SwitchPanel.Controls.Add(this.Profile1);
 			this.SwitchPanel.Location = new System.Drawing.Point(0, 1);
 			this.SwitchPanel.Name = "SwitchPanel";
-			this.SwitchPanel.Size = new System.Drawing.Size(800, 318);
+			this.SwitchPanel.Size = new System.Drawing.Size(800, 451);
 			this.SwitchPanel.TabIndex = 11;
 			// 
 			// NewProfilePanel
@@ -154,7 +154,7 @@
 			this.NewProfilePanel.Controls.Add(this.NameTextBox);
 			this.NewProfilePanel.Location = new System.Drawing.Point(0, 0);
 			this.NewProfilePanel.Name = "NewProfilePanel";
-			this.NewProfilePanel.Size = new System.Drawing.Size(800, 299);
+			this.NewProfilePanel.Size = new System.Drawing.Size(800, 448);
 			this.NewProfilePanel.TabIndex = 12;
 			// 
 			// CancelButton
@@ -181,7 +181,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(173, 228);
+			this.label1.Location = new System.Drawing.Point(137, 230);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(518, 25);
 			this.label1.TabIndex = 7;

@@ -10,20 +10,21 @@ namespace StreamSpotter
     {
         Result[] currentWishlist;
         DatabaseAccess da;
-        string currentProfile, currentListName;
+        string currentListName;
+        int currentProfile;
 
         public WishlistTracker()
         {
             this.currentWishlist = null;
             this.da = new DatabaseAccess();
-            this.currentProfile = null;
+            this.currentProfile = -1;
             this.currentListName = null;
         }
 
-        public void changeCurrentWishlist(string profileName, string listName)
+        public void changeCurrentWishlist(int profileID, string listName)
         {
-            currentWishlist = da.getWishlist(profileName, listName);
-            currentProfile = profileName;
+            currentWishlist = da.getWishlist(profileID, listName);
+            currentProfile = profileID;
             currentListName = listName;
         }
         public Result[] getCurrentWishlist()
