@@ -64,7 +64,7 @@ namespace StreamSpotter
             }
             else
             {
-                ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(path);
+                ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(File.ReadAllText(path));
                 ProfileList temp = new ProfileList();
                 temp.list = new Profile[pl.list.Length + 1];
                 for(int i = 0; i < pl.list.Length; i++)
@@ -75,6 +75,7 @@ namespace StreamSpotter
                 {
                     p.setID(generateID());
                 }
+                addProfileDirectory(p.getID());
                 addJson(p.getID(), p.getID().ToString());
                 temp.list[pl.list.Length] = p;
                 string text = JsonConvert.SerializeObject(temp);
