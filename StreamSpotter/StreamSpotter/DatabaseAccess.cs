@@ -61,6 +61,15 @@ namespace StreamSpotter
                 ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(path);
                 ProfileList temp = new ProfileList();
                 temp.list = new Profile[pl.list.Length + 1];
+                for(int i = 0; i < pl.list.Length; i++)
+                {
+                    temp.list[i] = pl.list[i];
+                }
+                if (p.getID() == -1)
+                {
+                    p.setID(generateID());
+                }
+                addJson(p.getID(), p.getID().ToString());
                 temp.list[pl.list.Length] = p;
                 string text = JsonConvert.SerializeObject(temp);
                 using(var tw = new StreamWriter(path, false))
