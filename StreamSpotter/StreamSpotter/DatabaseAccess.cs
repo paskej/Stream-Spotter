@@ -45,6 +45,8 @@ namespace StreamSpotter
                 {
                     p.setID(generateID());
                 }
+                addProfileDirectory(p.getID());
+                addJson(p.getID(), p.getID().ToString());
                 pl.list = new Profile[1];
                 pl.list[0] = p;
                 string text = JsonConvert.SerializeObject(pl);
