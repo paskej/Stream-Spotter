@@ -15,7 +15,13 @@ namespace StreamSpotter
     {
         private static string BASE_PATH = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\"));
 
-        public DatabaseAccess() {}
+        public DatabaseAccess()
+        {
+            if(!Directory.Exists(BASE_PATH + "\\Wishlists\\Profiles"))
+            {
+                Directory.CreateDirectory(BASE_PATH + "\\Wishlists\\Profiles");
+            }
+        }
 
         public void addProfileDirectory(int profileID)
         {
@@ -38,8 +44,6 @@ namespace StreamSpotter
             string path = BASE_PATH + "\\Wishlists\\Profiles\\ListofProfiles.json";
             if (!File.Exists(path))
             {
-                addProfileDirectory(p.getID());
-                
                 FileStream file = File.Create(path);
                 file.Close();
                 ProfileList pl = new ProfileList();
@@ -47,7 +51,7 @@ namespace StreamSpotter
                 {
                     p.setID(generateID());
                 }
-
+                addProfileDirectory(p.getID());
                 addJson(p.getID(), p.getID().ToString());
                 pl.list = new Profile[1];
                 pl.list[0] = p;

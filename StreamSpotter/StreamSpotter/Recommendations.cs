@@ -8,6 +8,6 @@ namespace StreamSpotter
 {
     class Recommendations
     {
-        public Result[] getRecomendations
+        public Result[] getRecommendations;
     }
 }
