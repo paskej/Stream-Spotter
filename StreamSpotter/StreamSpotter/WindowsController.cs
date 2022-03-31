@@ -11,11 +11,12 @@ namespace StreamSpotter
     {
         private MovieList movieList;
         private Search search;
-        //private string[,] searchResults;
         private Result[] searchResults;
+        bool searchScreenLast;
         public WindowsController()
         {
             search = new Search();
+            searchScreenLast = true;
         }
         public void openHomeScreen(Form currentForm)
         {
@@ -25,28 +26,36 @@ namespace StreamSpotter
         }
         public void openSearchListUI(Form currentForm, string title)
         {
+            searchScreenLast = true;
             currentForm.Hide();
             search.searchResult(title, "movie");
             searchResults = search.getSearchResults();
             SearchListUI searchListUI = new SearchListUI(this);
             searchListUI.Show();
         }
-        public void goBackToSearchListUI(Form currentForm)
+        public void goBack(Form currentForm)
         {
             currentForm.Hide();
-            SearchListUI searchListUI = new SearchListUI(this);
-            searchListUI.Show();
+            if(searchScreenLast)
+            {
+                SearchListUI searchListUI = new SearchListUI(this);
+                searchListUI.Show();
+            }
+            else
+            {
+                WishlistUI wishListUI = new WishlistUI(this);
+                wishListUI.Show();
+            }
         }
         public void openWishListUI(Form currentForm)
         {
+            searchScreenLast = false;
             currentForm.Hide();
             WishlistUI wishListUI = new WishlistUI(this);
             wishListUI.Show();
         }
         public void openMovieScreen(Form currentForm, int loc)
         {
-            currentForm.Hide();
-
             int listIndex = loc / 160;
 
             bool inList = false;
@@ -61,12 +70,12 @@ namespace StreamSpotter
                     }
                 }
             }
-
-            MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex), this, inList);
-            if (movieScreen != null)
+            if(movieList.getMovie(listIndex) != null)
+            {
+                currentForm.Hide();
+                MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex), this, inList);
                 movieScreen.Show();
-            else
-                MessageBox.Show("No Results!");
+            }
         }
         public bool showSearchList(Panel listPanel, Form form)
         {

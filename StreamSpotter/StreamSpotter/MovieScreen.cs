@@ -58,7 +58,7 @@ namespace StreamSpotter
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            windowsController.goBackToSearchListUI(this);
+            windowsController.goBack(this);
         }
 
         private void button3_Click(object sender, EventArgs e)

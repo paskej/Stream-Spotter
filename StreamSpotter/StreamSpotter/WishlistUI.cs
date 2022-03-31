@@ -18,8 +18,11 @@ namespace StreamSpotter
         {
             InitializeComponent();
             this.windowsController = windowsController;
-            if (!windowsController.showWishList(listPanel, this))
+            if (windowsController.showWishList(listPanel, this))
+            {
+                listPanel.Controls.Add(listEmptyLabel);
                 listEmptyLabel.Visible = true;
+            }
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -48,6 +51,35 @@ namespace StreamSpotter
         private void button1_Click(object sender, EventArgs e)
         {
             profilePanel.Visible = true;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listEmptyLabel.Visible = false;
+            if (comboBox2.SelectedIndex == 0)
+            {
+                if (!windowsController.unFilter())
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox2.SelectedIndex == 1)
+            {
+                if (!windowsController.filterByService((string)comboBox2.SelectedItem))
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox2.SelectedIndex == 2)
+            {
+                if (!windowsController.filterByService((string)comboBox2.SelectedItem))
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
         }
     }
 }

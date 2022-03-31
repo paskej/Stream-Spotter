@@ -31,11 +31,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.HomeButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.listPanel = new System.Windows.Forms.Panel();
             this.listEmptyLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.profilePanel = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.listPanel.SuspendLayout();
             this.profilePanel.SuspendLayout();
@@ -45,6 +46,8 @@
             // 
             this.comboBox1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "(None)"});
             this.comboBox1.Location = new System.Drawing.Point(728, 62);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 36);
@@ -73,6 +76,19 @@
             this.panel1.Size = new System.Drawing.Size(850, 60);
             this.panel1.TabIndex = 31;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.button1.Location = new System.Drawing.Point(6, 12);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 39);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Menu";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // listPanel
             // 
             this.listPanel.AutoScroll = true;
@@ -87,25 +103,12 @@
             // 
             this.listEmptyLabel.AutoSize = true;
             this.listEmptyLabel.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listEmptyLabel.Location = new System.Drawing.Point(241, 188);
+            this.listEmptyLabel.Location = new System.Drawing.Point(234, 192);
             this.listEmptyLabel.Name = "listEmptyLabel";
             this.listEmptyLabel.Size = new System.Drawing.Size(389, 39);
             this.listEmptyLabel.TabIndex = 5;
             this.listEmptyLabel.Text = "Nothing Is In Your Wishlist!";
             this.listEmptyLabel.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.button1.Location = new System.Drawing.Point(6, 12);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 39);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Menu";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // profilePanel
             // 
@@ -132,12 +135,29 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "(All Services)",
+            "Netflix",
+            "Disney+"});
+            this.comboBox2.Location = new System.Drawing.Point(577, 62);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(144, 36);
+            this.comboBox2.TabIndex = 34;
+            this.comboBox2.Text = "Service";
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
             // WishlistUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(850, 545);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.profilePanel);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.panel1);
@@ -162,5 +182,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel profilePanel;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

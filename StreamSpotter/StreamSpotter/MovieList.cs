@@ -68,7 +68,7 @@ namespace StreamSpotter
         }
         public Result getMovie(int index)
         {
-            if (filterList != null)
+            if (filterList != null && index < filterList.Count && index >= 0) 
                 return filterList[index];
             return null;
         }

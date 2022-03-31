@@ -196,10 +196,10 @@
             this.profilePanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.profilePanel.Controls.Add(this.wishlistButton);
             this.profilePanel.Controls.Add(this.ProfileButton);
-            this.profilePanel.Location = new System.Drawing.Point(53, 48);
+            this.profilePanel.Location = new System.Drawing.Point(49, 48);
             this.profilePanel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Size = new System.Drawing.Size(105, 111);
+            this.profilePanel.Size = new System.Drawing.Size(113, 103);
             this.profilePanel.TabIndex = 32;
             this.profilePanel.Visible = false;
             this.profilePanel.MouseLeave += new System.EventHandler(this.profilePanel_MouseLeave);
@@ -209,10 +209,10 @@
             this.wishlistButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.wishlistButton.Location = new System.Drawing.Point(4, 55);
+            this.wishlistButton.Location = new System.Drawing.Point(4, 52);
             this.wishlistButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.wishlistButton.Name = "wishlistButton";
-            this.wishlistButton.Size = new System.Drawing.Size(98, 48);
+            this.wishlistButton.Size = new System.Drawing.Size(105, 48);
             this.wishlistButton.TabIndex = 23;
             this.wishlistButton.Text = "Wishlist";
             this.wishlistButton.UseVisualStyleBackColor = false;
@@ -222,10 +222,10 @@
             // 
             this.ProfileButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.ProfileButton.Location = new System.Drawing.Point(4, 6);
+            this.ProfileButton.Location = new System.Drawing.Point(4, 3);
             this.ProfileButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.ProfileButton.Name = "ProfileButton";
-            this.ProfileButton.Size = new System.Drawing.Size(98, 48);
+            this.ProfileButton.Size = new System.Drawing.Size(105, 48);
             this.ProfileButton.TabIndex = 4;
             this.ProfileButton.Text = "Profile";
             this.ProfileButton.UseVisualStyleBackColor = true;
