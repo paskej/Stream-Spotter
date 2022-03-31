@@ -17,6 +17,7 @@ namespace StreamSpotter
         Panel panel;
         Form form;
         WindowsController windowsController;
+        WishlistTracker wishlistTracker;
 
         public MovieList(Panel panel, Form form, WindowsController windowsController)
         {
@@ -24,39 +25,38 @@ namespace StreamSpotter
             this.panel = panel;
             this.form = form;
             this.windowsController = windowsController;
-        }
-
-        private string[] GetRow(string[,] searchResults, int rowNumber)
-        {
-            return Enumerable.Range(0, searchResults.GetLength(1))
-                    .Select(x => searchResults[rowNumber, x])
-                    .ToArray();
+            DatabaseAccess databaseAccess = new DatabaseAccess();
+            databaseAccess.addProfileDirectory(0);
+            databaseAccess.addJson(0, "list");
+            wishlistTracker = new WishlistTracker();
+            wishlistTracker.changeCurrentWishlist(0, "list");
         }
 
         //gather all information from json file to put into the movieList
-        public void populateList(Result[] searchResults)//(string [,] searchResults)
+        public bool populateSearchList(Result[] searchResults)//(string [,] searchResults)
         {
-            /*Result batman = new Result("Batman", "Dude thats a bat who is also very rich. He hunts down criminals in gotham city. He could've defeated superman.", "Netflix");
-            batman.imdbRating = 1;
-            movieList.Add(batman);
-            Result ironMan = new Result("Iron Man", "Dude with high tech suit who is also very rich. He defends the world from enemies trying to destory it. He snapped thanos away.", "Disney+");
-            ironMan.imdbRating = 2;
-            movieList.Add(ironMan);
-            Result hulk = new Result("Hulk", "He big, strong and green. He smash a lot of stuff. His actual name is Bruce Banner.", "Disney+");
-            hulk.imdbRating = 3;
-            movieList.Add(hulk);*/
+            movieList = new List<Result>();
 
-            //int test = searchResults.Length;
-            ////for (int i = 0; i < 1; i++) //searchResults.Length / 2; i++)
-            //for (int i = 0; i < searchResults.GetLength(0); i++)
-            //{
-            //    movieList.Add(new Result(GetRow(searchResults, i)));
-            //}
             for (int i = 0; i < searchResults.GetLength(0); i++)
             {
                 movieList.Add(searchResults[i]);
             }
+            return movieList.Count != 0;
+        }
+        public bool populateWishlist()
+        {
+            movieList = new List<Result>();
 
+            Result[] list = wishlistTracker.getCurrentWishlist();
+            bool works = true;
+            if(list!=null)
+            {
+                for (int x = 0; x < list.Length; x++)
+                    movieList.Add(list[x]);
+            }
+            else
+                works = false;
+            return works;
         }
         public Result getMovie(int index)
         {
@@ -64,7 +64,18 @@ namespace StreamSpotter
                 return movieList[index];
             return null;
         }
-
+        public Result[] getWishlist()
+        {
+            return wishlistTracker.getCurrentWishlist();
+        }
+        public void addToWishlist(Result result)
+        {
+            wishlistTracker.addToCurrentWishlist(result);
+        }
+        public void removeFromWishlist(Result result)
+        {
+            wishlistTracker.removeFromCurrentWishlist(result.imdbID);
+        }
         public void printList()
         {
             panel.Invalidate();
@@ -103,12 +114,26 @@ namespace StreamSpotter
                 description.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 panel.Controls.Add(description);
 
-                Panel poster = new Panel();
+                //Panel poster = new Panel();
+                //poster.BackColor = System.Drawing.SystemColors.GrayText;
+                //point = new Point(20, num * boxHeight + 10);
+                //poster.Location = point;
+                //poster.Size = new System.Drawing.Size(100, boxHeight - 20);
+                //poster.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
+                //panel.Controls.Add(poster);
+
+                PictureBox poster = new PictureBox();
                 poster.BackColor = System.Drawing.SystemColors.GrayText;
                 point = new Point(20, num * boxHeight + 10);
                 poster.Location = point;
                 poster.Size = new System.Drawing.Size(100, boxHeight - 20);
                 poster.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
+                poster.ImageLocation = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png";
+                if(movie.posterURLs.original != null)
+                {
+                    poster.ImageLocation = movie.posterURLs.original;
+                }
+                poster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
                 panel.Controls.Add(poster);
 
                 num++;

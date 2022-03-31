@@ -6,24 +6,25 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
-    class WishlistTracker
+    public class WishlistTracker
     {
         Result[] currentWishlist;
         DatabaseAccess da;
-        string currentProfile, currentListName;
+        string currentListName;
+        int currentProfile;
 
         public WishlistTracker()
         {
             this.currentWishlist = null;
             this.da = new DatabaseAccess();
-            this.currentProfile = null;
+            this.currentProfile = -1;
             this.currentListName = null;
         }
 
-        public void changeCurrentWishlist(string profileName, string listName)
+        public void changeCurrentWishlist(int profileID, string listName)
         {
-            currentWishlist = da.getWishlist(profileName, listName);
-            currentProfile = profileName;
+            currentWishlist = da.getWishlist(profileID, listName);
+            currentProfile = profileID;
             currentListName = listName;
         }
         public Result[] getCurrentWishlist()
@@ -39,6 +40,19 @@ namespace StreamSpotter
         public void addToCurrentWishlist(Result movie)
         {
             da.addToWishlist(currentProfile, currentListName, movie);
+        }
+
+        public bool isInCurrentWishlist(string imdbID)
+        {
+            bool isIn = false;
+            foreach(Result result in currentWishlist)
+            {
+                if(result.imdbID == imdbID)
+                {
+                    isIn = true;
+                }
+            }
+            return isIn;
         }
 
     }

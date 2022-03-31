@@ -26,7 +26,6 @@ namespace StreamSpotter
 
         private void ProfileButton_Click(object sender, EventArgs e)
         {
-            profilePanel.Visible = true;
             WindowsController winController = new WindowsController();
             winController.showProfileScreen(this);
         }
@@ -75,6 +74,11 @@ namespace StreamSpotter
             {
                 profilePanel.Visible = false;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            profilePanel.Visible = true;
         }
     }
 }

@@ -20,7 +20,8 @@ namespace StreamSpotter
         {
             InitializeComponent();
             this.windowsController = windowsController;
-            windowsController.showMovieList(listPanel, this);
+            if (!windowsController.showSearchList(listPanel, this))
+                listEmptyLabel.Visible = true;
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -65,6 +66,22 @@ namespace StreamSpotter
             {
                 profilePanel.Visible = false;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            profilePanel.Visible = true;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            windowsController.openWishListUI(this);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            WindowsController winController = new WindowsController();
+            winController.showProfileScreen(this);
         }
     }
 }
