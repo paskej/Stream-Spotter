@@ -38,6 +38,8 @@ namespace StreamSpotter
             string path = BASE_PATH + "\\Wishlists\\Profiles\\ListofProfiles.json";
             if (!File.Exists(path))
             {
+                addProfileDirectory(p.getID());
+                
                 FileStream file = File.Create(path);
                 file.Close();
                 ProfileList pl = new ProfileList();
@@ -45,7 +47,7 @@ namespace StreamSpotter
                 {
                     p.setID(generateID());
                 }
-                addProfileDirectory(p.getID());
+
                 addJson(p.getID(), p.getID().ToString());
                 pl.list = new Profile[1];
                 pl.list[0] = p;

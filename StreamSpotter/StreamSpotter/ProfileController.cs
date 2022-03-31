@@ -10,6 +10,9 @@ namespace StreamSpotter
 	public class ProfileController
 	{
 		private DatabaseAccess db;
+		private bool listIsFull = false;
+		Profile[] fullProfileList;
+
 		public ProfileController()
 		{
 			db = new DatabaseAccess();
@@ -17,9 +20,25 @@ namespace StreamSpotter
 
 		public void CreateProfile(string profileName, ArrayList serviceList)
 		{
-			Profile newProfile = new Profile(profileName, serviceList);
-			//this is where the profile will be added to the database
-			db.addProfile(newProfile);
+			
+			ProfileList proList = db.getProfileList();
+			if (proList != null && proList.list != null)
+			{
+				Profile[] fullProfileList = proList.list;
+
+				if (fullProfileList.Length <= 10)
+				{
+					Profile newProfile = new Profile(profileName, serviceList);
+					//this is where the profile will be added to the database
+					db.addProfile(newProfile);
+				}
+			}
+			else
+			{
+				listIsFull = true;
+				Profile newProfile = new Profile(profileName, serviceList);
+				db.addProfile(newProfile);
+			}
 		}
 
 		public void RemoveProfile(int profileID)
@@ -51,6 +70,16 @@ namespace StreamSpotter
 				}
 			}
 			return found;
+		}
+
+		public bool getListIsFull()
+		{
+			return listIsFull;
+		}
+
+		public void setListIsFull(bool Full)
+		{
+			listIsFull = Full;
 		}
 	}
 }
