@@ -54,7 +54,7 @@ namespace StreamSpotter
 
             Result[] list = wishlistTracker.getCurrentWishlist();
             bool works = true;
-            if(list!=null)
+            if (list != null && list.Length != 0) 
             {
                 for (int x = 0; x < list.Length; x++)
                 {

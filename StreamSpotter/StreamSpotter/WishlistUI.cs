@@ -18,7 +18,7 @@ namespace StreamSpotter
         {
             InitializeComponent();
             this.windowsController = windowsController;
-            if (windowsController.showWishList(listPanel, this))
+            if (!windowsController.showWishList(listPanel, this))
             {
                 listPanel.Controls.Add(listEmptyLabel);
                 listEmptyLabel.Visible = true;
