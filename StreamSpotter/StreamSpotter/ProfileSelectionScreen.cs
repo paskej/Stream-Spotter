@@ -23,6 +23,7 @@ namespace StreamSpotter
 			InitializeComponent();
 			SwitchPanel.Visible = false;
 			NewProfilePanel.Visible = false;
+			TooManyProfilesLabel.Visible = false;
 			
 		}
 
@@ -105,6 +106,7 @@ namespace StreamSpotter
 
 		private void Profile1_Click_1(object sender, EventArgs e)
 		{
+
 		}
 
 		private void ExitButton_Click(object sender, EventArgs e)
@@ -137,9 +139,17 @@ namespace StreamSpotter
 
 		private void button1_Click_1(object sender, EventArgs e)
 		{
-			profileController.CreateProfile(NewName,serviceArray);
-			NewProfilePanel.Visible = false;
-			SwitchPanel.Visible = true;
+			if (profileController.getListIsFull() == false)
+			{
+				TooManyProfilesLabel.Visible = false;
+				profileController.CreateProfile(NewName, serviceArray);
+				NewProfilePanel.Visible = false;
+				SwitchPanel.Visible = true;
+			}
+			else
+			{
+				TooManyProfilesLabel.Visible = true;
+			}
 			NameTextBox.Text = "";
 		}
 

@@ -53,6 +53,7 @@
 			this.Profile3 = new System.Windows.Forms.Button();
 			this.Profile2 = new System.Windows.Forms.Button();
 			this.Profile1 = new System.Windows.Forms.Button();
+			this.TooManyProfilesLabel = new System.Windows.Forms.Label();
 			this.StreamSelectPanel.SuspendLayout();
 			this.SwitchPanel.SuspendLayout();
 			this.NewProfilePanel.SuspendLayout();
@@ -147,6 +148,7 @@
 			// 
 			// NewProfilePanel
 			// 
+			this.NewProfilePanel.Controls.Add(this.TooManyProfilesLabel);
 			this.NewProfilePanel.Controls.Add(this.CancelButton);
 			this.NewProfilePanel.Controls.Add(this.SaveNewProfileButton);
 			this.NewProfilePanel.Controls.Add(this.label1);
@@ -318,6 +320,17 @@
 			this.Profile1.UseVisualStyleBackColor = true;
 			this.Profile1.Click += new System.EventHandler(this.Profile1_Click_1);
 			// 
+			// TooManyProfilesLabel
+			// 
+			this.TooManyProfilesLabel.AutoSize = true;
+			this.TooManyProfilesLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TooManyProfilesLabel.ForeColor = System.Drawing.Color.Firebrick;
+			this.TooManyProfilesLabel.Location = new System.Drawing.Point(72, 171);
+			this.TooManyProfilesLabel.Name = "TooManyProfilesLabel";
+			this.TooManyProfilesLabel.Size = new System.Drawing.Size(662, 29);
+			this.TooManyProfilesLabel.TabIndex = 10;
+			this.TooManyProfilesLabel.Text = "Too many profiles, please remove an old profile to add a new one";
+			// 
 			// ProfileSelectionScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -365,5 +378,6 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label ProfileNameLabel;
 		private System.Windows.Forms.TextBox NameTextBox;
+		private System.Windows.Forms.Label TooManyProfilesLabel;
 	}
 }
