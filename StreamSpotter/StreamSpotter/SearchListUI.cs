@@ -83,5 +83,34 @@ namespace StreamSpotter
             WindowsController winController = new WindowsController();
             winController.showProfileScreen(this);
         }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listEmptyLabel.Visible = false;
+            if (comboBox2.SelectedIndex == 0)
+            {
+                if (!windowsController.unFilter())
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox2.SelectedIndex == 1)
+            {
+                if (!windowsController.filterByService((string)comboBox2.SelectedItem))
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox2.SelectedIndex == 2)
+            {
+                if(!windowsController.filterByService((string)comboBox2.SelectedItem))
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+        }
     }
 }

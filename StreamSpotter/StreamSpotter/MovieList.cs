@@ -14,6 +14,7 @@ namespace StreamSpotter
         private const int boxWidth = 850;
 
         private List<Result> movieList;
+        private List<Result> filterList;
         Panel panel;
         Form form;
         WindowsController windowsController;
@@ -22,6 +23,7 @@ namespace StreamSpotter
         public MovieList(Panel panel, Form form, WindowsController windowsController)
         {
             movieList = new List<Result>();
+            filterList = new List<Result>();
             this.panel = panel;
             this.form = form;
             this.windowsController = windowsController;
@@ -36,23 +38,29 @@ namespace StreamSpotter
         public bool populateSearchList(Result[] searchResults)//(string [,] searchResults)
         {
             movieList = new List<Result>();
+            filterList = new List<Result>();
 
             for (int i = 0; i < searchResults.GetLength(0); i++)
             {
                 movieList.Add(searchResults[i]);
+                filterList.Add(searchResults[i]);
             }
             return movieList.Count != 0;
         }
         public bool populateWishlist()
         {
             movieList = new List<Result>();
+            filterList = new List<Result>();
 
             Result[] list = wishlistTracker.getCurrentWishlist();
             bool works = true;
             if(list!=null)
             {
                 for (int x = 0; x < list.Length; x++)
+                {
                     movieList.Add(list[x]);
+                    filterList.Add(list[x]);
+                }
             }
             else
                 works = false;
@@ -60,8 +68,8 @@ namespace StreamSpotter
         }
         public Result getMovie(int index)
         {
-            if (movieList != null)
-                return movieList[index];
+            if (filterList != null)
+                return filterList[index];
             return null;
         }
         public Result[] getWishlist()
@@ -76,26 +84,38 @@ namespace StreamSpotter
         {
             wishlistTracker.removeFromCurrentWishlist(result.imdbID);
         }
+        public bool filterByStreamingService(String service)
+        {
+            filterList = new List<Result>();
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                if (movieList[x].streamingInfo.disney != null && service.Equals("Disney+"))
+                    filterList.Add(movieList[x]);
+                else if(movieList[x].streamingInfo.netflix != null && service.Equals("Netflix"))
+                    filterList.Add(movieList[x]);
+            }
+            return filterList.Count != 0;
+        }
+        public bool noFilter()
+        {
+            filterList = new List<Result>();
+            for (int x = 0; x < movieList.Count; x++) 
+            {
+                filterList.Add(movieList[x]);
+            }
+            return filterList.Count != 0;
+        }
         public void printList()
         {
-            panel.Invalidate();
-            Graphics g = panel.CreateGraphics();
+            panel.Controls.Clear();
             Point point;
 
             panel.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
 
             //adds the list to the panel
             int num = 0;
-            foreach (Result movie in movieList)
+            foreach (Result movie in filterList)
             {
-                point = new Point(0, num * boxHeight);
-                Size size = new Size(boxWidth, boxHeight);
-                Rectangle rec = new Rectangle(point, size);
-                if (num % 2 == 0)
-                    g.FillRectangle(System.Drawing.Brushes.LightBlue, rec);
-                else
-                    g.FillRectangle(System.Drawing.Brushes.White, rec);
-
                 Label title = new Label();
                 title.Text = movie.title;
                 title.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

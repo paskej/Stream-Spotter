@@ -50,7 +50,7 @@ namespace StreamSpotter
 				Headers =
 	{
 		{ "x-rapidapi-host", "streaming-availability.p.rapidapi.com" },
-		{ "x-rapidapi-key", "c59f8bd33amshfbc0ea2813f2495p12fdbajsneaf23d8c829a" },
+		{ "x-rapidapi-key", "bc845cec13msh18fba8e190a0fd2p177163jsne160d9e55201" },
 	},
 			};
 		}

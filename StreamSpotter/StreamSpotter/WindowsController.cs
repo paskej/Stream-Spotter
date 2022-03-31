@@ -97,5 +97,19 @@ namespace StreamSpotter
             ProfileSelectionScreen profileScreen = new ProfileSelectionScreen();
             profileScreen.Show();
 		}
+
+        public bool unFilter()
+        {
+            bool notEmpty = movieList.noFilter();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByService(string service)
+        {
+            bool notEmpty = movieList.filterByStreamingService(service);
+            movieList.printList();
+            return notEmpty;
+        }
     }
 }
