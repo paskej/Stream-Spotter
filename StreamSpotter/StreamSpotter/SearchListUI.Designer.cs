@@ -50,7 +50,7 @@
             this.HomeButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.HomeButton.Location = new System.Drawing.Point(117, 10);
             this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Size = new System.Drawing.Size(79, 39);
+            this.HomeButton.Size = new System.Drawing.Size(59, 32);
             this.HomeButton.TabIndex = 21;
             this.HomeButton.Text = "Home";
             this.HomeButton.UseVisualStyleBackColor = true;
@@ -63,8 +63,10 @@
             this.comboBox1.Items.AddRange(new object[] {
             "(None)"});
             this.comboBox1.Location = new System.Drawing.Point(728, 62);
+            this.comboBox1.Location = new System.Drawing.Point(546, 50);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 36);
+            this.comboBox1.Size = new System.Drawing.Size(92, 36);
             this.comboBox1.TabIndex = 24;
             this.comboBox1.Text = "Filter";
             // 
@@ -75,8 +77,9 @@
             this.panel1.Controls.Add(this.HomeButton);
             this.panel1.Controls.Add(this.SearchBar);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(850, 60);
+            this.panel1.Size = new System.Drawing.Size(638, 49);
             this.panel1.TabIndex = 25;
             // 
             // button3
@@ -95,9 +98,10 @@
             // SearchBar
             // 
             this.SearchBar.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBar.Location = new System.Drawing.Point(275, 12);
+            this.SearchBar.Location = new System.Drawing.Point(206, 10);
+            this.SearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SearchBar.Name = "SearchBar";
-            this.SearchBar.Size = new System.Drawing.Size(278, 35);
+            this.SearchBar.Size = new System.Drawing.Size(210, 35);
             this.SearchBar.TabIndex = 27;
             this.SearchBar.Text = "Search";
             this.SearchBar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchBar_KeyPress);
@@ -107,9 +111,10 @@
             this.listPanel.AutoScroll = true;
             this.listPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.listPanel.Controls.Add(this.listEmptyLabel);
-            this.listPanel.Location = new System.Drawing.Point(0, 100);
+            this.listPanel.Location = new System.Drawing.Point(0, 81);
+            this.listPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(850, 448);
+            this.listPanel.Size = new System.Drawing.Size(638, 364);
             this.listPanel.TabIndex = 26;
             // 
             // listEmptyLabel
@@ -180,15 +185,17 @@
             // 
             // SearchListUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(850, 548);
             this.Controls.Add(this.comboBox2);
+            this.ClientSize = new System.Drawing.Size(638, 445);
             this.Controls.Add(this.profilePanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listPanel);
             this.Controls.Add(this.comboBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SearchListUI";
             this.Text = "SearchListUI";
             this.panel1.ResumeLayout(false);

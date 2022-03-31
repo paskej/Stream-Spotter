@@ -14,9 +14,9 @@ namespace StreamSpotter
 	public class Profile
 	{
 		private readonly string[] POSSIBLE_SERVICES = { "netflix", "disney" };
-		private ArrayList services;
-		private string profileName;
-		private int id;
+		public ArrayList services { get; set; }
+		public string profileName { get; set; }
+		public int id { get; set; }
 
 		//default constructor
 		public Profile()

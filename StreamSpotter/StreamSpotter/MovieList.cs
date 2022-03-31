@@ -134,12 +134,26 @@ namespace StreamSpotter
                 description.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 panel.Controls.Add(description);
 
-                Panel poster = new Panel();
+                //Panel poster = new Panel();
+                //poster.BackColor = System.Drawing.SystemColors.GrayText;
+                //point = new Point(20, num * boxHeight + 10);
+                //poster.Location = point;
+                //poster.Size = new System.Drawing.Size(100, boxHeight - 20);
+                //poster.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
+                //panel.Controls.Add(poster);
+
+                PictureBox poster = new PictureBox();
                 poster.BackColor = System.Drawing.SystemColors.GrayText;
                 point = new Point(20, num * boxHeight + 10);
                 poster.Location = point;
                 poster.Size = new System.Drawing.Size(100, boxHeight - 20);
                 poster.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
+                poster.ImageLocation = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png";
+                if(movie.posterURLs.original != null)
+                {
+                    poster.ImageLocation = movie.posterURLs.original;
+                }
+                poster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
                 panel.Controls.Add(poster);
 
                 num++;

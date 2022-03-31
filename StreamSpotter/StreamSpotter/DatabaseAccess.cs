@@ -15,7 +15,13 @@ namespace StreamSpotter
     {
         private static string BASE_PATH = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\"));
 
-        public DatabaseAccess() {}
+        public DatabaseAccess()
+        {
+            if(!Directory.Exists(BASE_PATH + "\\Wishlists\\Profiles"))
+            {
+                Directory.CreateDirectory(BASE_PATH + "\\Wishlists\\Profiles");
+            }
+        }
 
         public void addProfileDirectory(int profileID)
         {
@@ -45,6 +51,8 @@ namespace StreamSpotter
                 {
                     p.setID(generateID());
                 }
+                addProfileDirectory(p.getID());
+                addJson(p.getID(), p.getID().ToString());
                 pl.list = new Profile[1];
                 pl.list[0] = p;
                 string text = JsonConvert.SerializeObject(pl);
@@ -56,9 +64,19 @@ namespace StreamSpotter
             }
             else
             {
-                ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(path);
+                ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(File.ReadAllText(path));
                 ProfileList temp = new ProfileList();
                 temp.list = new Profile[pl.list.Length + 1];
+                for(int i = 0; i < pl.list.Length; i++)
+                {
+                    temp.list[i] = pl.list[i];
+                }
+                if (p.getID() == -1)
+                {
+                    p.setID(generateID());
+                }
+                addProfileDirectory(p.getID());
+                addJson(p.getID(), p.getID().ToString());
                 temp.list[pl.list.Length] = p;
                 string text = JsonConvert.SerializeObject(temp);
                 using(var tw = new StreamWriter(path, false))

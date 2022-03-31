@@ -71,6 +71,7 @@
     <Compile Include="ProfileSelectionScreen.Designer.cs">
       <DependentUpon>ProfileSelectionScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recommendations.cs" />
     <Compile Include="WindowsController.cs" />
     <Compile Include="HomeScreen.cs">
       <SubType>Form</SubType>
