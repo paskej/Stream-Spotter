@@ -323,11 +323,11 @@
 			// TooManyProfilesLabel
 			// 
 			this.TooManyProfilesLabel.AutoSize = true;
-			this.TooManyProfilesLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TooManyProfilesLabel.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.TooManyProfilesLabel.ForeColor = System.Drawing.Color.Firebrick;
-			this.TooManyProfilesLabel.Location = new System.Drawing.Point(72, 171);
+			this.TooManyProfilesLabel.Location = new System.Drawing.Point(12, 177);
 			this.TooManyProfilesLabel.Name = "TooManyProfilesLabel";
-			this.TooManyProfilesLabel.Size = new System.Drawing.Size(662, 29);
+			this.TooManyProfilesLabel.Size = new System.Drawing.Size(784, 35);
 			this.TooManyProfilesLabel.TabIndex = 10;
 			this.TooManyProfilesLabel.Text = "Too many profiles, please remove an old profile to add a new one";
 			// 

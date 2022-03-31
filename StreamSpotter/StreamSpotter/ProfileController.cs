@@ -32,10 +32,14 @@ namespace StreamSpotter
 					//this is where the profile will be added to the database
 					db.addProfile(newProfile);
 				}
+				else
+				{
+					listIsFull = true;
+				}
 			}
 			else
 			{
-				listIsFull = true;
+				
 				Profile newProfile = new Profile(profileName, serviceList);
 				db.addProfile(newProfile);
 			}
