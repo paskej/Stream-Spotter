@@ -135,7 +135,7 @@ namespace StreamSpotter
                 title.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 point = new Point(140, num * boxHeight + 10);
                 title.Location = point;
-                title.Width = 200;
+                title.Width = 400;
                 title.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 panel.Controls.Add(title);
 
