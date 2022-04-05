@@ -12,6 +12,7 @@ namespace StreamSpotter
 		private DatabaseAccess db;
 		private bool listIsFull = false;
 		Profile[] fullProfileList;
+		private const int TOTAL_PROFILES = 10;
 
 		public ProfileController()
 		{
@@ -26,7 +27,7 @@ namespace StreamSpotter
 			{
 				Profile[] fullProfileList = proList.list;
 
-				if (fullProfileList.Length <= 10)
+				if (fullProfileList.Length <= TOTAL_PROFILES)
 				{
 					Profile newProfile = new Profile(profileName, serviceList);
 					//this is where the profile will be added to the database
