@@ -16,7 +16,7 @@ namespace StreamSpotter
 		private ProfileController profileController = new ProfileController();
 		private ArrayList serviceArray = new ArrayList();
 		private ProfileController profileCon = new ProfileController();
-		private Profile currentProfile = new Profile();
+		private Profile currentProfile = null;
 		private ArrayList buttonList = new ArrayList();
 		private string NewName;
 		public ProfileSelectionScreen()
@@ -25,17 +25,18 @@ namespace StreamSpotter
 			SwitchPanel.Visible = false;
 			NewProfilePanel.Visible = false;
 			TooManyProfilesLabel.Visible = false;
+			ProfileDeletedLabel.Visible = false;
 
-			Profile1.Visible = false;
-			Profile2.Visible = false;
-			Profile3.Visible = false;
-			Profile4.Visible = false;
-			Profile5.Visible = false;
-			Profile6.Visible = false;
-			Profile7.Visible = false;
-			Profile8.Visible = false;
-			Profile9.Visible = false;
-			Profile10.Visible = false;
+			Profile1.Visible = true;
+			Profile2.Visible = true;
+			Profile3.Visible = true;
+			Profile4.Visible = true;
+			Profile5.Visible = true;
+			Profile6.Visible = true;
+			Profile7.Visible = true;
+			Profile8.Visible = true;
+			Profile9.Visible = true;
+			Profile10.Visible = true;
 
 			buttonList.Add(Profile1);
 			buttonList.Add(Profile2);
@@ -48,6 +49,7 @@ namespace StreamSpotter
 			buttonList.Add(Profile9);
 			buttonList.Add(Profile10);
 
+			
 		}
 
 		private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -117,6 +119,7 @@ namespace StreamSpotter
 
 		private void SwitchButton_Click_1(object sender, EventArgs e)
 		{
+			updateProfileButtonName();
 			SwitchPanel.Visible = true;
 			StreamSelectPanel.Visible = false;
 			Profile1.Visible = true;
@@ -129,13 +132,15 @@ namespace StreamSpotter
 
 		private void Profile1_Click_1(object sender, EventArgs e)
 		{
-
+			currentProfile = profileController.GetProfile(0);
+			ProfileDeletedLabel.Visible = false;
 		}
 
 		private void ExitButton_Click(object sender, EventArgs e)
 		{
 			StreamSelectPanel.Visible = true;
 			SwitchPanel.Visible = false;
+			ProfileDeletedLabel.Visible = false;
 		}
 
 		private void CancelButton_Click(object sender, EventArgs e)
@@ -148,6 +153,7 @@ namespace StreamSpotter
 		private void NewProfileButton_Click(object sender, EventArgs e)
 		{
 			NewProfilePanel.Visible = true;
+			ProfileDeletedLabel.Visible = false;
 		}
 
 		private void label1_Click(object sender, EventArgs e)
@@ -162,40 +168,113 @@ namespace StreamSpotter
 
 		private void button1_Click_1(object sender, EventArgs e)
 		{
-			if (profileController.getListIsFull() == false)
+			if (currentProfile == null)
 			{
-				TooManyProfilesLabel.Visible = false;
-				profileController.CreateProfile(NewName, serviceArray);
-				NewProfilePanel.Visible = false;
-				SwitchPanel.Visible = true;
+				currentProfile = new Profile();
 			}
-			else
+			if (currentProfile.getID() < 9)
 			{
-				TooManyProfilesLabel.Visible = true;
+				if (profileController.getListIsFull() == false)
+				{
+					TooManyProfilesLabel.Visible = false;
+					currentProfile = profileController.CreateProfile(NewName, serviceArray);
+					NewProfilePanel.Visible = false;
+					SwitchPanel.Visible = true;
+				}
+				else
+				{
+					TooManyProfilesLabel.Visible = true;
+				}
+				NameTextBox.Text = "";
+				updateProfileButtonName();
 			}
-			NameTextBox.Text = "";
 		}
 
 		private void SaveButton_Click(object sender, EventArgs e)
 		{
-			for(int i = 0; i < serviceArray.Count; i++)
-			{
-				currentProfile.AddService((string)serviceArray[i]);
-			}
+				for (int i = 0; i < serviceArray.Count; i++)
+				{
+					currentProfile.AddService((string)serviceArray[i]);
+				}
+			
 		}
 
 		public void updateProfileButtonName()
 		{
 			for (int i = 0; i < buttonList.Count; i++)
 			{
-				if (profileController.GetProfile(i) != null)
+				Button temp = (Button)buttonList[i];
+				if(profileController.GetProfile(i) != null)
 				{
 					Button tempButton = (Button)buttonList[i];
 					tempButton.Text = profileController.GetProfile(i).profileName;
 				}
-				else
-					this.Profile1.Text = "Profile " + i;
 			}
+		}
+
+		private void DeleteProfileButton_Click(object sender, EventArgs e)
+		{
+			if (currentProfile != null)
+			{
+				profileController.RemoveProfile(currentProfile.getID());
+				ProfileDeletedLabel.Visible = true;
+				
+			}
+
+		}
+
+		private void Profile2_Click(object sender, EventArgs e)
+		{
+			currentProfile = profileController.GetProfile(1);
+			ProfileDeletedLabel.Visible = false;
+		}
+
+		private void Profile3_Click(object sender, EventArgs e)
+		{
+			currentProfile = profileController.GetProfile(2);
+			ProfileDeletedLabel.Visible = false;
+		}
+
+		private void Profile4_Click(object sender, EventArgs e)
+		{
+			currentProfile = profileController.GetProfile(3);
+			ProfileDeletedLabel.Visible = false;
+		}
+
+		private void Profile5_Click(object sender, EventArgs e)
+		{
+			currentProfile = profileController.GetProfile(4);
+			ProfileDeletedLabel.Visible = false;
+		}
+
+		private void Profile6_Click(object sender, EventArgs e)
+		{
+			currentProfile = profileController.GetProfile(5);
+			ProfileDeletedLabel.Visible = false;
+		}
+
+		private void Profile7_Click(object sender, EventArgs e)
+		{
+			currentProfile = profileController.GetProfile(6);
+			ProfileDeletedLabel.Visible = false;
+		}
+
+		private void Profile8_Click(object sender, EventArgs e)
+		{
+			currentProfile = profileController.GetProfile(7);
+			ProfileDeletedLabel.Visible = false;
+		}
+
+		private void Profile9_Click(object sender, EventArgs e)
+		{
+			currentProfile = profileController.GetProfile(8);
+			ProfileDeletedLabel.Visible = false;
+		}
+
+		private void Profile10_Click(object sender, EventArgs e)
+		{
+			currentProfile = profileController.GetProfile(9);
+			ProfileDeletedLabel.Visible = false;
 		}
 	}
 }

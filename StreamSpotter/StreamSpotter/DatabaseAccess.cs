@@ -137,6 +137,8 @@ namespace StreamSpotter
                             pl.list = temp;
                             l--;
                             i--;
+                            string profilePath = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID;
+                            File.Delete(profilePath);
                         }
                         i++;
                     }

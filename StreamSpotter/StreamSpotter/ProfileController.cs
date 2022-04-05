@@ -19,23 +19,25 @@ namespace StreamSpotter
 			db = new DatabaseAccess();
 		}
 
-		public void CreateProfile(string profileName, ArrayList serviceList)
+		public Profile CreateProfile(string profileName, ArrayList serviceList)
 		{
-			
+			Profile created;
 			ProfileList proList = db.getProfileList();
 			if (proList != null && proList.list != null)
 			{
 				Profile[] fullProfileList = proList.list;
 
-				if (fullProfileList.Length <= TOTAL_PROFILES)
+				if (fullProfileList.Length < TOTAL_PROFILES - 1)
 				{
 					Profile newProfile = new Profile(profileName, serviceList);
 					//this is where the profile will be added to the database
 					db.addProfile(newProfile);
+					created = newProfile;
 				}
 				else
 				{
 					listIsFull = true;
+					created = null;
 				}
 			}
 			else
@@ -43,7 +45,9 @@ namespace StreamSpotter
 				
 				Profile newProfile = new Profile(profileName, serviceList);
 				db.addProfile(newProfile);
+				created = newProfile;
 			}
+			return created;
 		}
 
 		public void RemoveProfile(int profileID)
