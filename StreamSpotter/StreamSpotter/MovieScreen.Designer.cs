@@ -47,8 +47,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.infoPanel = new System.Windows.Forms.Panel();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.titleBox = new System.Windows.Forms.RichTextBox();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -67,7 +67,7 @@
             this.titleLabel.Location = new System.Drawing.Point(241, 258);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(216, 44);
+            this.titleLabel.Size = new System.Drawing.Size(265, 55);
             this.titleLabel.TabIndex = 1;
             this.titleLabel.Text = "Movie Title";
             // 
@@ -91,7 +91,7 @@
             this.ratingLabel.Location = new System.Drawing.Point(79, 155);
             this.ratingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ratingLabel.Name = "ratingLabel";
-            this.ratingLabel.Size = new System.Drawing.Size(96, 13);
+            this.ratingLabel.Size = new System.Drawing.Size(106, 15);
             this.ratingLabel.TabIndex = 8;
             this.ratingLabel.Text = "IMDb Rating: 5/10";
             // 
@@ -293,15 +293,6 @@
             this.infoPanel.Size = new System.Drawing.Size(400, 350);
             this.infoPanel.TabIndex = 36;
             // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Location = new System.Drawing.Point(702, 42);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(23, 406);
-            this.vScrollBar1.TabIndex = 37;
-            this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar1_Scroll);
-            this.vScrollBar1.ValueChanged += new System.EventHandler(this.vScrollBar1_ValueChanged);
-            // 
             // titleBox
             // 
             this.titleBox.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -314,6 +305,15 @@
             this.titleBox.TabIndex = 31;
             this.titleBox.Text = "Example Title";
             this.titleBox.ZoomFactor = 4F;
+            // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Location = new System.Drawing.Point(702, 42);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(23, 406);
+            this.vScrollBar1.TabIndex = 37;
+            this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar1_Scroll);
+            this.vScrollBar1.ValueChanged += new System.EventHandler(this.vScrollBar1_ValueChanged);
             // 
             // MovieScreen
             // 
@@ -332,6 +332,7 @@
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.button4);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(740, 490);
             this.Name = "MovieScreen";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MovieScreen_Load);
