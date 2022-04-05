@@ -229,12 +229,12 @@
             // 
             // ProfileButton
             // 
-            this.ProfileButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProfileButton.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.ProfileButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.ProfileButton.Location = new System.Drawing.Point(3, 5);
-            this.ProfileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ProfileButton.Location = new System.Drawing.Point(4, 9);
+            this.ProfileButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.ProfileButton.Name = "ProfileButton";
-            this.ProfileButton.Size = new System.Drawing.Size(74, 39);
+            this.ProfileButton.Size = new System.Drawing.Size(73, 42);
             this.ProfileButton.TabIndex = 4;
             this.ProfileButton.Text = "Profile";
             this.ProfileButton.UseVisualStyleBackColor = true;
@@ -243,9 +243,9 @@
             // wishlistButton
             // 
             this.wishlistButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 9F);
             this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.wishlistButton.Location = new System.Drawing.Point(3, 45);
+            this.wishlistButton.Location = new System.Drawing.Point(3, 49);
             this.wishlistButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.wishlistButton.Name = "wishlistButton";
             this.wishlistButton.Size = new System.Drawing.Size(74, 39);
@@ -253,19 +253,6 @@
             this.wishlistButton.Text = "Wishlist";
             this.wishlistButton.UseVisualStyleBackColor = false;
             this.wishlistButton.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // ProfileButton
-            // 
-            this.ProfileButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProfileButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.ProfileButton.Location = new System.Drawing.Point(4, 3);
-            this.ProfileButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.ProfileButton.Name = "ProfileButton";
-            this.ProfileButton.Size = new System.Drawing.Size(105, 48);
-            this.ProfileButton.TabIndex = 4;
-            this.ProfileButton.Text = "Profile";
-            this.ProfileButton.UseVisualStyleBackColor = true;
-            this.ProfileButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
