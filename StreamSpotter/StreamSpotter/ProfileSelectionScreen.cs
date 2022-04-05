@@ -17,6 +17,7 @@ namespace StreamSpotter
 		private ArrayList serviceArray = new ArrayList();
 		private ProfileController profileCon = new ProfileController();
 		private Profile currentProfile = new Profile();
+		private ArrayList buttonList = new ArrayList();
 		private string NewName;
 		public ProfileSelectionScreen()
 		{
@@ -24,7 +25,29 @@ namespace StreamSpotter
 			SwitchPanel.Visible = false;
 			NewProfilePanel.Visible = false;
 			TooManyProfilesLabel.Visible = false;
-			
+
+			Profile1.Visible = false;
+			Profile2.Visible = false;
+			Profile3.Visible = false;
+			Profile4.Visible = false;
+			Profile5.Visible = false;
+			Profile6.Visible = false;
+			Profile7.Visible = false;
+			Profile8.Visible = false;
+			Profile9.Visible = false;
+			Profile10.Visible = false;
+
+			buttonList.Add(Profile1);
+			buttonList.Add(Profile2);
+			buttonList.Add(Profile3);
+			buttonList.Add(Profile4);
+			buttonList.Add(Profile5);
+			buttonList.Add(Profile6);
+			buttonList.Add(Profile7);
+			buttonList.Add(Profile8);
+			buttonList.Add(Profile9);
+			buttonList.Add(Profile10);
+
 		}
 
 		private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -158,6 +181,20 @@ namespace StreamSpotter
 			for(int i = 0; i < serviceArray.Count; i++)
 			{
 				currentProfile.AddService((string)serviceArray[i]);
+			}
+		}
+
+		public void updateProfileButtonName()
+		{
+			for (int i = 0; i < buttonList.Count; i++)
+			{
+				if (profileController.GetProfile(i) != null)
+				{
+					Button tempButton = (Button)buttonList[i];
+					tmepButton.Text = profileController.GetProfile(i).profileName;
+				}
+				else
+					this.Profile1.Text = "Profile " + i;
 			}
 		}
 	}
