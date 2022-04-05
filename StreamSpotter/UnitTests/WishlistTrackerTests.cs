@@ -19,14 +19,14 @@ namespace UnitTests
             DatabaseAccess db = new DatabaseAccess();
             WishlistTracker wt = new WishlistTracker();
             RootObject ro = JsonConvert.DeserializeObject<RootObject>(WITCHER);
-            db.addProfileDirectory("User1");
+            /*db.addProfileDirectory("User1");
             db.addJson("User1", "List1");
             db.addProfileDirectory("User2");
             db.addJson("User2", "List2");
             db.addToWishlist("User1", "List1", ro.results[0]);
             db.addToWishlist("User2", "List2", ro.results[1]);
             wt.changeCurrentWishlist("User1", "List1");
-            Assert.AreEqual(wt.getCurrentWishlist(), db.getWishlist("User1", "List1"), "Change wishlist failed");
+            Assert.AreEqual(wt.getCurrentWishlist(), db.getWishlist("User1", "List1"), "Change wishlist failed");*/
         }
 
         public void ChangeWishlistsTwice()
@@ -34,7 +34,7 @@ namespace UnitTests
             DatabaseAccess db = new DatabaseAccess();
             WishlistTracker wt = new WishlistTracker();
             RootObject ro = JsonConvert.DeserializeObject<RootObject>(WITCHER);
-            db.addProfileDirectory("User1");
+            /*db.addProfileDirectory("User1");
             db.addJson("User1", "List1");
             db.addProfileDirectory("User2");
             db.addJson("User2", "List2");
@@ -42,7 +42,7 @@ namespace UnitTests
             db.addToWishlist("User2", "List2", ro.results[1]);
             wt.changeCurrentWishlist("User1", "List1");
             wt.changeCurrentWishlist("User2", "List2");
-            Assert.AreEqual(wt.getCurrentWishlist(), db.getWishlist("User2", "List2"), "Change wishlist twice failed");
+            Assert.AreEqual(wt.getCurrentWishlist(), db.getWishlist("User2", "List2"), "Change wishlist twice failed");*/
         }
     }
 }

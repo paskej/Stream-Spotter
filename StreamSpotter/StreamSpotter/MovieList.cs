@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace StreamSpotter
 {
-    class MovieList
+    public class MovieList
     {
         private const int boxHeight = 160;
         private const int boxWidth = 850;
@@ -20,6 +20,16 @@ namespace StreamSpotter
         WindowsController windowsController;
         WishlistTracker wishlistTracker;
 
+        public MovieList()
+        {
+            movieList = new List<Result>();
+            filterList = new List<Result>();
+            DatabaseAccess databaseAccess = new DatabaseAccess();
+            databaseAccess.addProfileDirectory(0);
+            databaseAccess.addJson(0, "list");
+            wishlistTracker = new WishlistTracker();
+            wishlistTracker.changeCurrentWishlist(0, "list");
+        }
         public MovieList(Panel panel, Form form, WindowsController windowsController)
         {
             movieList = new List<Result>();
@@ -104,6 +114,10 @@ namespace StreamSpotter
                 filterList.Add(movieList[x]);
             }
             return filterList.Count != 0;
+        }
+        public int getListSize()
+        {
+            return filterList.Count;
         }
         public void printList()
         {

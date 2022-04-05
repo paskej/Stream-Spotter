@@ -191,7 +191,7 @@ namespace StreamSpotter
 				if (profileController.GetProfile(i) != null)
 				{
 					Button tempButton = (Button)buttonList[i];
-					tmepButton.Text = profileController.GetProfile(i).profileName;
+					tempButton.Text = profileController.GetProfile(i).profileName;
 				}
 				else
 					this.Profile1.Text = "Profile " + i;
