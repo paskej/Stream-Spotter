@@ -9,10 +9,10 @@ namespace StreamSpotter
 {
 	public class ProfileController
 	{
-		private DatabaseAccess db;
-		private bool listIsFull = false;
-		Profile[] fullProfileList;
-		private const int TOTAL_PROFILES = 10;
+		public DatabaseAccess db;
+		public bool listIsFull = false;
+		public Profile[] fullProfileList;
+		public const int TOTAL_PROFILES = 10;
 
 		public ProfileController()
 		{
@@ -52,8 +52,11 @@ namespace StreamSpotter
 
 		public void RemoveProfile(int profileID)
 		{
-			//this is where the profile will be removed from the database
-			db.removeProfile(profileID);
+			if (profileID > -1 && profileID < 10)
+			{
+				//this is where the profile will be removed from the database
+				db.removeProfile(profileID);
+			}
 		}
 
 		public void UpdateProfile(Profile profile)
