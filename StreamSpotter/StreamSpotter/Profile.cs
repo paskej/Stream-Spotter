@@ -30,6 +30,7 @@ namespace StreamSpotter
 		{
 			this.profileName = profileName;
 			services = new ArrayList();
+			id = -1;
 			for (int i = 0; i < POSSIBLE_SERVICES.Length; i++)
 			{
 				services[i] = POSSIBLE_SERVICES[i];
