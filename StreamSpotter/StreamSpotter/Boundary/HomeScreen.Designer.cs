@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeScreen));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,9 +56,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(403, 21);
+            this.label1.Location = new System.Drawing.Point(806, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 110);
+            this.label1.Size = new System.Drawing.Size(291, 222);
             this.label1.TabIndex = 0;
             this.label1.Text = "tream\r\npotter\r\n";
             // 
@@ -67,9 +69,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label2.Location = new System.Drawing.Point(283, -14);
+            this.label2.Location = new System.Drawing.Point(566, -27);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 168);
+            this.label2.Size = new System.Drawing.Size(306, 334);
             this.label2.TabIndex = 1;
             this.label2.Text = "S";
             // 
@@ -77,9 +80,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(296, 199);
+            this.label3.Location = new System.Drawing.Point(592, 386);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(265, 39);
+            this.label3.Size = new System.Drawing.Size(524, 77);
             this.label3.TabIndex = 3;
             this.label3.Text = "Enter Movie/Show:";
             // 
@@ -87,10 +91,10 @@
             // 
             this.ProfileButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.ProfileButton.Location = new System.Drawing.Point(3, 5);
-            this.ProfileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ProfileButton.Location = new System.Drawing.Point(6, 10);
+            this.ProfileButton.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.ProfileButton.Name = "ProfileButton";
-            this.ProfileButton.Size = new System.Drawing.Size(105, 39);
+            this.ProfileButton.Size = new System.Drawing.Size(210, 76);
             this.ProfileButton.TabIndex = 4;
             this.ProfileButton.Text = "Profile";
             this.ProfileButton.UseVisualStyleBackColor = true;
@@ -101,54 +105,55 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 368);
+            this.label4.Location = new System.Drawing.Point(42, 713);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(252, 28);
+            this.label4.Size = new System.Drawing.Size(515, 56);
             this.label4.TabIndex = 5;
             this.label4.Text = "Watchlist (Recommended)";
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(27, 409);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.richTextBox1.Location = new System.Drawing.Point(54, 792);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(153, 96);
+            this.richTextBox1.Size = new System.Drawing.Size(302, 182);
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "";
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(205, 409);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.richTextBox2.Location = new System.Drawing.Point(410, 792);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(153, 96);
+            this.richTextBox2.Size = new System.Drawing.Size(302, 182);
             this.richTextBox2.TabIndex = 7;
             this.richTextBox2.Text = "";
             // 
             // richTextBox3
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(385, 409);
-            this.richTextBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.richTextBox3.Location = new System.Drawing.Point(770, 792);
+            this.richTextBox3.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(153, 96);
+            this.richTextBox3.Size = new System.Drawing.Size(302, 182);
             this.richTextBox3.TabIndex = 8;
             this.richTextBox3.Text = "";
             // 
             // richTextBox4
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(560, 409);
-            this.richTextBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.richTextBox4.Location = new System.Drawing.Point(1120, 792);
+            this.richTextBox4.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(153, 96);
+            this.richTextBox4.Size = new System.Drawing.Size(302, 182);
             this.richTextBox4.TabIndex = 9;
             this.richTextBox4.Text = "";
             // 
             // richTextBox5
             // 
-            this.richTextBox5.Location = new System.Drawing.Point(733, 409);
-            this.richTextBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.richTextBox5.Location = new System.Drawing.Point(1466, 792);
+            this.richTextBox5.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(153, 96);
+            this.richTextBox5.Size = new System.Drawing.Size(302, 182);
             this.richTextBox5.TabIndex = 10;
             this.richTextBox5.Text = "";
             // 
@@ -157,45 +162,50 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(812, 427);
+            this.label5.Location = new System.Drawing.Point(1624, 827);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 55);
+            this.label5.Size = new System.Drawing.Size(96, 111);
             this.label5.TabIndex = 11;
             this.label5.Text = ">";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(68, 449);
+            this.label6.Location = new System.Drawing.Point(136, 870);
+            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 17);
+            this.label6.Size = new System.Drawing.Size(111, 32);
             this.label6.TabIndex = 12;
             this.label6.Text = "\"Movie\"";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(256, 449);
+            this.label7.Location = new System.Drawing.Point(512, 870);
+            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 17);
+            this.label7.Size = new System.Drawing.Size(111, 32);
             this.label7.TabIndex = 13;
             this.label7.Text = "\"Movie\"";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(435, 449);
+            this.label8.Location = new System.Drawing.Point(870, 870);
+            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 17);
+            this.label8.Size = new System.Drawing.Size(106, 32);
             this.label8.TabIndex = 14;
             this.label8.Text = "\"Show\"";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(608, 449);
+            this.label9.Location = new System.Drawing.Point(1216, 870);
+            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 17);
+            this.label9.Size = new System.Drawing.Size(106, 32);
             this.label9.TabIndex = 15;
             this.label9.Text = "\"Show\"";
             // 
@@ -203,10 +213,10 @@
             // 
             this.button3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.button3.Location = new System.Drawing.Point(4, 1);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Location = new System.Drawing.Point(8, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 39);
+            this.button3.Size = new System.Drawing.Size(210, 76);
             this.button3.TabIndex = 19;
             this.button3.Text = "Menu";
             this.button3.UseVisualStyleBackColor = true;
@@ -216,10 +226,10 @@
             // SearchBar
             // 
             this.SearchBar.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBar.Location = new System.Drawing.Point(296, 252);
-            this.SearchBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SearchBar.Location = new System.Drawing.Point(592, 488);
+            this.SearchBar.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.SearchBar.Name = "SearchBar";
-            this.SearchBar.Size = new System.Drawing.Size(263, 35);
+            this.SearchBar.Size = new System.Drawing.Size(522, 63);
             this.SearchBar.TabIndex = 25;
             this.SearchBar.Text = "Search";
             this.SearchBar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchBar_KeyPress);
@@ -229,10 +239,10 @@
             this.profilePanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.profilePanel.Controls.Add(this.wishlistButton);
             this.profilePanel.Controls.Add(this.ProfileButton);
-            this.profilePanel.Location = new System.Drawing.Point(1, 42);
-            this.profilePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.profilePanel.Location = new System.Drawing.Point(2, 81);
+            this.profilePanel.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Size = new System.Drawing.Size(111, 90);
+            this.profilePanel.Size = new System.Drawing.Size(222, 174);
             this.profilePanel.TabIndex = 28;
             this.profilePanel.Visible = false;
             this.profilePanel.MouseLeave += new System.EventHandler(this.profilePanel_MouseLeave);
@@ -242,10 +252,10 @@
             this.wishlistButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.wishlistButton.Location = new System.Drawing.Point(3, 45);
-            this.wishlistButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.wishlistButton.Location = new System.Drawing.Point(6, 87);
+            this.wishlistButton.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.wishlistButton.Name = "wishlistButton";
-            this.wishlistButton.Size = new System.Drawing.Size(105, 39);
+            this.wishlistButton.Size = new System.Drawing.Size(210, 76);
             this.wishlistButton.TabIndex = 23;
             this.wishlistButton.Text = "Wishlist";
             this.wishlistButton.UseVisualStyleBackColor = false;
@@ -253,10 +263,10 @@
             // 
             // HomeScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(851, 516);
+            this.ClientSize = new System.Drawing.Size(1702, 1000);
             this.Controls.Add(this.profilePanel);
             this.Controls.Add(this.SearchBar);
             this.Controls.Add(this.button3);
@@ -274,7 +284,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.Name = "HomeScreen";
             this.Text = "HomeScreen";
             this.profilePanel.ResumeLayout(false);

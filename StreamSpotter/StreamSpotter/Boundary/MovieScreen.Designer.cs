@@ -64,10 +64,10 @@
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.titleLabel.Location = new System.Drawing.Point(241, 258);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.titleLabel.Location = new System.Drawing.Point(643, 615);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(265, 55);
+            this.titleLabel.Size = new System.Drawing.Size(514, 108);
             this.titleLabel.TabIndex = 1;
             this.titleLabel.Text = "Movie Title";
             // 
@@ -75,10 +75,10 @@
             // 
             this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.BackButton.Location = new System.Drawing.Point(8, 4);
-            this.BackButton.Margin = new System.Windows.Forms.Padding(2);
+            this.BackButton.Location = new System.Drawing.Point(21, 10);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(27, 32);
+            this.BackButton.Size = new System.Drawing.Size(72, 76);
             this.BackButton.TabIndex = 6;
             this.BackButton.Text = "<";
             this.BackButton.UseVisualStyleBackColor = true;
@@ -88,10 +88,10 @@
             // 
             this.ratingLabel.AutoSize = true;
             this.ratingLabel.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.ratingLabel.Location = new System.Drawing.Point(79, 155);
-            this.ratingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ratingLabel.Location = new System.Drawing.Point(211, 370);
+            this.ratingLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.ratingLabel.Name = "ratingLabel";
-            this.ratingLabel.Size = new System.Drawing.Size(106, 15);
+            this.ratingLabel.Size = new System.Drawing.Size(242, 32);
             this.ratingLabel.TabIndex = 8;
             this.ratingLabel.Text = "IMDb Rating: 5/10";
             // 
@@ -100,20 +100,20 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox1.ImageLocation = "https://www.kindpng.com/picc/m/130-1300387_tumbleweed-drawing-clip-art-tumbleweed" +
     "-png-transparent-png.png";
-            this.pictureBox1.Location = new System.Drawing.Point(40, 87);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(107, 207);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(164, 278);
+            this.pictureBox1.Size = new System.Drawing.Size(437, 663);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(664, 11);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Location = new System.Drawing.Point(1771, 26);
+            this.button4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(40, 20);
+            this.button4.Size = new System.Drawing.Size(107, 48);
             this.button4.TabIndex = 10;
             this.button4.Text = "Profile";
             this.button4.UseVisualStyleBackColor = true;
@@ -121,10 +121,10 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox3.Location = new System.Drawing.Point(-8, -5);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Location = new System.Drawing.Point(-21, -12);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(734, 49);
+            this.pictureBox3.Size = new System.Drawing.Size(1957, 117);
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
             // 
@@ -132,10 +132,10 @@
             // 
             this.HomeButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.HomeButton.Location = new System.Drawing.Point(123, 4);
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(2);
+            this.HomeButton.Location = new System.Drawing.Point(328, 10);
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Size = new System.Drawing.Size(58, 32);
+            this.HomeButton.Size = new System.Drawing.Size(155, 76);
             this.HomeButton.TabIndex = 22;
             this.HomeButton.Text = "Home";
             this.HomeButton.UseVisualStyleBackColor = true;
@@ -148,12 +148,12 @@
             this.overviewLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.overviewLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.overviewLabel.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.overviewLabel.Location = new System.Drawing.Point(82, 67);
-            this.overviewLabel.Margin = new System.Windows.Forms.Padding(2);
+            this.overviewLabel.Location = new System.Drawing.Point(219, 160);
+            this.overviewLabel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.overviewLabel.Name = "overviewLabel";
             this.overviewLabel.ReadOnly = true;
             this.overviewLabel.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.overviewLabel.Size = new System.Drawing.Size(293, 47);
+            this.overviewLabel.Size = new System.Drawing.Size(781, 112);
             this.overviewLabel.TabIndex = 23;
             this.overviewLabel.Text = "fsakd fijpasdn jipasdnfijn saidj fiasjd fjisad fijsa fhsdi fsad fdijs faksdflkjds" +
     "a fkjas dfkjsd afkj d safjk jkds fjks fspdi uivs fauvu ai vfu ai viuafia vfafvua" +
@@ -163,10 +163,10 @@
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(195, 182);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Location = new System.Drawing.Point(520, 434);
+            this.button3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(89, 21);
+            this.button3.Size = new System.Drawing.Size(237, 50);
             this.button3.TabIndex = 7;
             this.button3.Text = "Add to Wishlist";
             this.button3.UseVisualStyleBackColor = false;
@@ -177,10 +177,10 @@
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.ImageLocation = "";
-            this.pictureBox4.Location = new System.Drawing.Point(82, 225);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox4.Location = new System.Drawing.Point(219, 537);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(49, 53);
+            this.pictureBox4.Size = new System.Drawing.Size(131, 126);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 24;
             this.pictureBox4.TabStop = false;
@@ -190,10 +190,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(142, 229);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Location = new System.Drawing.Point(379, 546);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(43, 43);
+            this.pictureBox2.Size = new System.Drawing.Size(115, 103);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 29;
             this.pictureBox2.TabStop = false;
@@ -205,10 +205,10 @@
             this.playButton.FlatAppearance.BorderSize = 0;
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.playButton.Location = new System.Drawing.Point(82, 182);
-            this.playButton.Margin = new System.Windows.Forms.Padding(2);
+            this.playButton.Location = new System.Drawing.Point(219, 434);
+            this.playButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(89, 21);
+            this.playButton.Size = new System.Drawing.Size(237, 50);
             this.playButton.TabIndex = 30;
             this.playButton.Text = "Play";
             this.playButton.UseVisualStyleBackColor = false;
@@ -219,10 +219,10 @@
             this.profilePanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.profilePanel.Controls.Add(this.ProfileButton);
             this.profilePanel.Controls.Add(this.wishlistButton);
-            this.profilePanel.Location = new System.Drawing.Point(40, 39);
-            this.profilePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.profilePanel.Location = new System.Drawing.Point(107, 93);
+            this.profilePanel.Margin = new System.Windows.Forms.Padding(8, 5, 8, 5);
             this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Size = new System.Drawing.Size(79, 90);
+            this.profilePanel.Size = new System.Drawing.Size(211, 215);
             this.profilePanel.TabIndex = 32;
             this.profilePanel.Visible = false;
             this.profilePanel.MouseLeave += new System.EventHandler(this.profilePanel_MouseLeave);
@@ -231,10 +231,10 @@
             // 
             this.ProfileButton.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.ProfileButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.ProfileButton.Location = new System.Drawing.Point(4, 9);
-            this.ProfileButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.ProfileButton.Location = new System.Drawing.Point(11, 21);
+            this.ProfileButton.Margin = new System.Windows.Forms.Padding(11, 5, 11, 5);
             this.ProfileButton.Name = "ProfileButton";
-            this.ProfileButton.Size = new System.Drawing.Size(73, 42);
+            this.ProfileButton.Size = new System.Drawing.Size(195, 100);
             this.ProfileButton.TabIndex = 4;
             this.ProfileButton.Text = "Profile";
             this.ProfileButton.UseVisualStyleBackColor = true;
@@ -245,10 +245,10 @@
             this.wishlistButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 9F);
             this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.wishlistButton.Location = new System.Drawing.Point(3, 49);
-            this.wishlistButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.wishlistButton.Location = new System.Drawing.Point(8, 117);
+            this.wishlistButton.Margin = new System.Windows.Forms.Padding(8, 5, 8, 5);
             this.wishlistButton.Name = "wishlistButton";
-            this.wishlistButton.Size = new System.Drawing.Size(74, 39);
+            this.wishlistButton.Size = new System.Drawing.Size(197, 93);
             this.wishlistButton.TabIndex = 23;
             this.wishlistButton.Text = "Wishlist";
             this.wishlistButton.UseVisualStyleBackColor = false;
@@ -258,10 +258,10 @@
             // 
             this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.button1.Location = new System.Drawing.Point(40, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(107, 10);
+            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 32);
+            this.button1.Size = new System.Drawing.Size(211, 76);
             this.button1.TabIndex = 33;
             this.button1.Text = "Menu";
             this.button1.UseVisualStyleBackColor = true;
@@ -271,9 +271,10 @@
             // 
             this.pictureBox5.ImageLocation = "https://media.nationalgeographic.org/assets/photos/186/480/0e077d4d-9209-40d5-9fd" +
     "5-4e51aeed7b37.jpg";
-            this.pictureBox5.Location = new System.Drawing.Point(-8, 42);
+            this.pictureBox5.Location = new System.Drawing.Point(-21, 100);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(734, 406);
+            this.pictureBox5.Size = new System.Drawing.Size(1957, 968);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 34;
             this.pictureBox5.TabStop = false;
@@ -288,9 +289,10 @@
             this.infoPanel.Controls.Add(this.overviewLabel);
             this.infoPanel.Controls.Add(this.button3);
             this.infoPanel.Controls.Add(this.titleLabel);
-            this.infoPanel.Location = new System.Drawing.Point(140, 63);
+            this.infoPanel.Location = new System.Drawing.Point(373, 150);
+            this.infoPanel.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.infoPanel.Name = "infoPanel";
-            this.infoPanel.Size = new System.Drawing.Size(400, 350);
+            this.infoPanel.Size = new System.Drawing.Size(1067, 835);
             this.infoPanel.TabIndex = 36;
             // 
             // titleBox
@@ -298,29 +300,30 @@
             this.titleBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.titleBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.titleBox.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.titleBox.Location = new System.Drawing.Point(82, 3);
+            this.titleBox.Location = new System.Drawing.Point(219, 7);
+            this.titleBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.titleBox.Name = "titleBox";
             this.titleBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.titleBox.Size = new System.Drawing.Size(283, 57);
+            this.titleBox.Size = new System.Drawing.Size(755, 136);
             this.titleBox.TabIndex = 31;
             this.titleBox.Text = "Example Title";
             this.titleBox.ZoomFactor = 4F;
             // 
             // vScrollBar1
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(702, 42);
+            this.vScrollBar1.Location = new System.Drawing.Point(1872, 100);
             this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(23, 406);
+            this.vScrollBar1.Size = new System.Drawing.Size(23, 968);
             this.vScrollBar1.TabIndex = 37;
             this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar1_Scroll);
             this.vScrollBar1.ValueChanged += new System.EventHandler(this.vScrollBar1_ValueChanged);
             // 
             // MovieScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(722, 443);
+            this.ClientSize = new System.Drawing.Size(1925, 1056);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.HomeButton);
             this.Controls.Add(this.BackButton);
@@ -331,8 +334,9 @@
             this.Controls.Add(this.infoPanel);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.button4);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(740, 490);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MinimumSize = new System.Drawing.Size(1920, 1047);
             this.Name = "MovieScreen";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MovieScreen_Load);
