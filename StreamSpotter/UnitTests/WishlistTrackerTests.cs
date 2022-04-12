@@ -19,31 +19,30 @@ namespace UnitTests
             DatabaseAccess db = new DatabaseAccess();
             WishlistTracker wt = new WishlistTracker();
             RootObject ro = JsonConvert.DeserializeObject<RootObject>(WITCHER);
-            db.addProfileDirectory(1);
-            db.addJson(1, "List1");
-            db.addProfileDirectory(2);
-            db.addJson(2, "List2");
-            db.addToWishlist(1, "List1", ro.results[0]);
-            db.addToWishlist(2, "List2", ro.results[1]);
-            wt.changeCurrentWishlist(1, "List1");
-            Assert.AreEqual(wt.getCurrentWishlist()[0].title, db.getWishlist(1, "List1")[0].title, "Change wishlist failed");
+            db.addProfileDirectory("User1");
+            db.addJson("User1", "List1");
+            db.addProfileDirectory("User2");
+            db.addJson("User2", "List2");
+            db.addToWishlist("User1", "List1", ro.results[0]);
+            db.addToWishlist("User2", "List2", ro.results[1]);
+            wt.changeCurrentWishlist("User1", "List1");
+            Assert.AreEqual(wt.getCurrentWishlist(), db.getWishlist("User1", "List1"), "Change wishlist failed");
         }
 
-        [TestMethod]
         public void ChangeWishlistsTwice()
         {
             DatabaseAccess db = new DatabaseAccess();
             WishlistTracker wt = new WishlistTracker();
             RootObject ro = JsonConvert.DeserializeObject<RootObject>(WITCHER);
-            db.addProfileDirectory(1);
-            db.addJson(1, "List1");
-            db.addProfileDirectory(2);
-            db.addJson(2, "List2");
-            db.addToWishlist(1, "List1", ro.results[0]);
-            db.addToWishlist(2, "List2", ro.results[1]);
-            wt.changeCurrentWishlist(1, "List1");
-            wt.changeCurrentWishlist(2, "List2");
-            Assert.AreEqual(wt.getCurrentWishlist()[0].title, db.getWishlist(2, "List2")[0].title, "Change wishlist twice failed");
+            db.addProfileDirectory("User1");
+            db.addJson("User1", "List1");
+            db.addProfileDirectory("User2");
+            db.addJson("User2", "List2");
+            db.addToWishlist("User1", "List1", ro.results[0]);
+            db.addToWishlist("User2", "List2", ro.results[1]);
+            wt.changeCurrentWishlist("User1", "List1");
+            wt.changeCurrentWishlist("User2", "List2");
+            Assert.AreEqual(wt.getCurrentWishlist(), db.getWishlist("User2", "List2"), "Change wishlist twice failed");
         }
     }
 }

@@ -40,9 +40,6 @@
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Collections.NonGeneric, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Collections.NonGeneric.4.3.0\lib\net46\System.Collections.NonGeneric.dll</HintPath>
-    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -55,58 +52,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\DatabaseAccess.cs" />
-    <Compile Include="Control\APIController.cs" />
-    <Compile Include="Entity\APIStorage.cs" />
-    <Compile Include="Boundary\IOManager.cs" />
-    <Compile Include="Control\Merge.cs" />
-    <Compile Include="Boundary\MovieScreen.cs">
+    <Compile Include="DatabaseAccess.cs" />
+    <Compile Include="APIController.cs" />
+    <Compile Include="APIStorage.cs" />
+    <Compile Include="IOManager.cs" />
+    <Compile Include="Merge.cs" />
+    <Compile Include="MovieScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boundary\MovieScreen.Designer.cs">
+    <Compile Include="MovieScreen.Designer.cs">
       <DependentUpon>MovieScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Profile.cs" />
-    <Compile Include="Control\ProfileController.cs" />
-    <Compile Include="Boundary\ProfileSelectionScreen.cs">
+    <Compile Include="Profile.cs" />
+    <Compile Include="ProfileController.cs" />
+    <Compile Include="ProfileSelectionScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boundary\ProfileSelectionScreen.Designer.cs">
+    <Compile Include="ProfileSelectionScreen.Designer.cs">
       <DependentUpon>ProfileSelectionScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\Recommendations.cs" />
-    <Compile Include="Boundary\WindowsController.cs" />
-    <Compile Include="Boundary\HomeScreen.cs">
+    <Compile Include="Recommendations.cs" />
+    <Compile Include="WindowsController.cs" />
+    <Compile Include="HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boundary\HomeScreen.Designer.cs">
+    <Compile Include="HomeScreen.Designer.cs">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Result.cs" />
-    <Compile Include="Control\MovieList.cs" />
+    <Compile Include="Result.cs" />
+    <Compile Include="MovieList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Control\Search.cs" />
-    <Compile Include="Boundary\SearchListUI.cs">
+    <Compile Include="Search.cs" />
+    <Compile Include="SearchListUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boundary\SearchListUI.Designer.cs">
+    <Compile Include="SearchListUI.Designer.cs">
       <DependentUpon>SearchListUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\WishlistTracker.cs" />
-    <Compile Include="Boundary\WishlistUI.cs">
+    <Compile Include="WishlistTracker.cs" />
+    <Compile Include="WishlistUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boundary\WishlistUI.Designer.cs">
+    <Compile Include="WishlistUI.Designer.cs">
       <DependentUpon>WishlistUI.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Boundary\HomeScreen.resx">
+    <EmbeddedResource Include="HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Boundary\MovieScreen.resx">
+    <EmbeddedResource Include="MovieScreen.resx">
       <DependentUpon>MovieScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Boundary\ProfileSelectionScreen.resx">
+    <EmbeddedResource Include="ProfileSelectionScreen.resx">
       <DependentUpon>ProfileSelectionScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -118,10 +115,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Boundary\SearchListUI.resx">
+    <EmbeddedResource Include="SearchListUI.resx">
       <DependentUpon>SearchListUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Boundary\WishlistUI.resx">
+    <EmbeddedResource Include="WishlistUI.resx">
       <DependentUpon>WishlistUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -134,15 +131,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="StreamSpotterClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Images\Logo.ico" />
-    <Content Include="Images\Logo.png" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

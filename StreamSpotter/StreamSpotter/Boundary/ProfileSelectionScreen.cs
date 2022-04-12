@@ -13,14 +13,15 @@ namespace StreamSpotter
 {
 	public partial class ProfileSelectionScreen : Form
 	{
-		private ProfileController profileController = new ProfileController();
+		private WindowsController winControl = new WindowsController();
+		private ProfileController profileCon;
 		private ArrayList serviceArray = new ArrayList();
-		private ProfileController profileCon = new ProfileController();
 		private Profile currentProfile = null;
 		private ArrayList buttonList = new ArrayList();
 		private string NewName;
 		public ProfileSelectionScreen()
 		{
+			profileCon = winControl.profileController;
 			InitializeComponent();
 			SwitchPanel.Visible = false;
 			NewProfilePanel.Visible = false;
@@ -132,7 +133,7 @@ namespace StreamSpotter
 
 		private void Profile1_Click_1(object sender, EventArgs e)
 		{
-			currentProfile = profileController.GetProfile(0);
+			currentProfile = profileCon.GetProfile(0);
 			ProfileDeletedLabel.Visible = false;
 		}
 
@@ -174,10 +175,10 @@ namespace StreamSpotter
 			}
 			if (currentProfile.getID() < 9)
 			{
-				if (profileController.getListIsFull() == false)
+				if (profileCon.getListIsFull() == false)
 				{
 					TooManyProfilesLabel.Visible = false;
-					currentProfile = profileController.CreateProfile(NewName, serviceArray);
+					currentProfile = profileCon.CreateProfile(NewName, serviceArray);
 					NewProfilePanel.Visible = false;
 					SwitchPanel.Visible = true;
 				}
@@ -196,6 +197,7 @@ namespace StreamSpotter
 				{
 					currentProfile.AddService((string)serviceArray[i]);
 				}
+			this.Close();
 			
 		}
 
@@ -204,10 +206,10 @@ namespace StreamSpotter
 			for (int i = 0; i < buttonList.Count; i++)
 			{
 				Button temp = (Button)buttonList[i];
-				if(profileController.GetProfile(i) != null)
+				if(profileCon.GetProfile(i) != null)
 				{
 					Button tempButton = (Button)buttonList[i];
-					tempButton.Text = profileController.GetProfile(i).profileName;
+					tempButton.Text = profileCon.GetProfile(i).profileName;
 				}
 			}
 		}
@@ -216,7 +218,7 @@ namespace StreamSpotter
 		{
 			if (currentProfile != null)
 			{
-				profileController.RemoveProfile(currentProfile.getID());
+				profileCon.RemoveProfile(currentProfile.getID());
 				ProfileDeletedLabel.Visible = true;
 				
 			}
@@ -225,56 +227,96 @@ namespace StreamSpotter
 
 		private void Profile2_Click(object sender, EventArgs e)
 		{
-			currentProfile = profileController.GetProfile(1);
+			currentProfile = profileCon.GetProfile(1);
 			ProfileDeletedLabel.Visible = false;
 		}
 
 		private void Profile3_Click(object sender, EventArgs e)
 		{
-			currentProfile = profileController.GetProfile(2);
+			currentProfile = profileCon.GetProfile(2);
 			ProfileDeletedLabel.Visible = false;
 		}
 
 		private void Profile4_Click(object sender, EventArgs e)
 		{
-			currentProfile = profileController.GetProfile(3);
+			currentProfile = profileCon.GetProfile(3);
 			ProfileDeletedLabel.Visible = false;
 		}
 
 		private void Profile5_Click(object sender, EventArgs e)
 		{
-			currentProfile = profileController.GetProfile(4);
+			currentProfile = profileCon.GetProfile(4);
 			ProfileDeletedLabel.Visible = false;
 		}
 
 		private void Profile6_Click(object sender, EventArgs e)
 		{
-			currentProfile = profileController.GetProfile(5);
+			currentProfile = profileCon.GetProfile(5);
 			ProfileDeletedLabel.Visible = false;
 		}
 
 		private void Profile7_Click(object sender, EventArgs e)
 		{
-			currentProfile = profileController.GetProfile(6);
+			currentProfile = profileCon.GetProfile(6);
 			ProfileDeletedLabel.Visible = false;
 		}
 
 		private void Profile8_Click(object sender, EventArgs e)
 		{
-			currentProfile = profileController.GetProfile(7);
+			currentProfile = profileCon.GetProfile(7);
 			ProfileDeletedLabel.Visible = false;
 		}
 
 		private void Profile9_Click(object sender, EventArgs e)
 		{
-			currentProfile = profileController.GetProfile(8);
+			currentProfile = profileCon.GetProfile(8);
 			ProfileDeletedLabel.Visible = false;
 		}
 
 		private void Profile10_Click(object sender, EventArgs e)
 		{
-			currentProfile = profileController.GetProfile(9);
+			currentProfile = profileCon.GetProfile(9);
 			ProfileDeletedLabel.Visible = false;
+		}
+
+		private void NewProfilePanel_Paint(object sender, PaintEventArgs e)
+		{
+		}
+
+		public Panel getNewProfilePanel()
+		{
+			return NewProfilePanel;
+		}
+
+		private void MyCancelButton_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void updateCheckBoxes()
+		{
+			NetflixCheckBox.Checked = false;
+			DisneyCheckBox.Checked = false;
+
+			Profile current = profileCon.GetProfile(profileCon.getCurrentProfile());
+			ArrayList proServices = current.getServices();
+
+			for(int i = 0; i < proServices.Count; i++)
+			{
+				if(proServices[i] == "netflix")
+				{
+					NetflixCheckBox.Checked = true;
+				}
+				if(proServices[i] == "disney")
+				{
+					DisneyCheckBox.Checked = true;
+				}
+			}
+		}
+
+		private void StreamSelectPanel_Paint(object sender, PaintEventArgs e)
+		{
+			this.updateCheckBoxes();
 		}
 	}
 }

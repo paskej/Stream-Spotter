@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileSelectionScreen));
 			this.StreamSelectPanel = new System.Windows.Forms.Panel();
 			this.SwitchButton = new System.Windows.Forms.Button();
 			this.DisneyCheckBox = new System.Windows.Forms.CheckBox();
@@ -37,7 +36,6 @@
 			this.SaveButton = new System.Windows.Forms.Button();
 			this.SwitchPanel = new System.Windows.Forms.Panel();
 			this.NewProfilePanel = new System.Windows.Forms.Panel();
-			this.TooManyProfilesLabel = new System.Windows.Forms.Label();
 			this.CancelButton = new System.Windows.Forms.Button();
 			this.SaveNewProfileButton = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
@@ -55,8 +53,7 @@
 			this.Profile3 = new System.Windows.Forms.Button();
 			this.Profile2 = new System.Windows.Forms.Button();
 			this.Profile1 = new System.Windows.Forms.Button();
-			this.DeleteProfileButton = new System.Windows.Forms.Button();
-			this.ProfileDeletedLabel = new System.Windows.Forms.Label();
+			this.TooManyProfilesLabel = new System.Windows.Forms.Label();
 			this.StreamSelectPanel.SuspendLayout();
 			this.SwitchPanel.SuspendLayout();
 			this.NewProfilePanel.SuspendLayout();
@@ -71,9 +68,8 @@
 			this.StreamSelectPanel.Controls.Add(this.SaveButton);
 			this.StreamSelectPanel.Location = new System.Drawing.Point(0, 1);
 			this.StreamSelectPanel.Name = "StreamSelectPanel";
-			this.StreamSelectPanel.Size = new System.Drawing.Size(832, 454);
+			this.StreamSelectPanel.Size = new System.Drawing.Size(800, 454);
 			this.StreamSelectPanel.TabIndex = 5;
-			this.StreamSelectPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.StreamSelectPanel_Paint);
 			// 
 			// SwitchButton
 			// 
@@ -117,7 +113,6 @@
 			this.MyCancelButton.TabIndex = 6;
 			this.MyCancelButton.Text = "Cancel";
 			this.MyCancelButton.UseVisualStyleBackColor = true;
-			this.MyCancelButton.Click += new System.EventHandler(this.MyCancelButton_Click);
 			// 
 			// SaveButton
 			// 
@@ -146,11 +141,9 @@
 			this.SwitchPanel.Controls.Add(this.Profile3);
 			this.SwitchPanel.Controls.Add(this.Profile2);
 			this.SwitchPanel.Controls.Add(this.Profile1);
-			this.SwitchPanel.Controls.Add(this.DeleteProfileButton);
-			this.SwitchPanel.Controls.Add(this.ProfileDeletedLabel);
 			this.SwitchPanel.Location = new System.Drawing.Point(0, 1);
 			this.SwitchPanel.Name = "SwitchPanel";
-			this.SwitchPanel.Size = new System.Drawing.Size(832, 451);
+			this.SwitchPanel.Size = new System.Drawing.Size(800, 451);
 			this.SwitchPanel.TabIndex = 11;
 			// 
 			// NewProfilePanel
@@ -163,20 +156,8 @@
 			this.NewProfilePanel.Controls.Add(this.NameTextBox);
 			this.NewProfilePanel.Location = new System.Drawing.Point(0, 0);
 			this.NewProfilePanel.Name = "NewProfilePanel";
-			this.NewProfilePanel.Size = new System.Drawing.Size(832, 448);
+			this.NewProfilePanel.Size = new System.Drawing.Size(800, 448);
 			this.NewProfilePanel.TabIndex = 12;
-			this.NewProfilePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.NewProfilePanel_Paint);
-			// 
-			// TooManyProfilesLabel
-			// 
-			this.TooManyProfilesLabel.AutoSize = true;
-			this.TooManyProfilesLabel.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TooManyProfilesLabel.ForeColor = System.Drawing.Color.Firebrick;
-			this.TooManyProfilesLabel.Location = new System.Drawing.Point(12, 177);
-			this.TooManyProfilesLabel.Name = "TooManyProfilesLabel";
-			this.TooManyProfilesLabel.Size = new System.Drawing.Size(784, 35);
-			this.TooManyProfilesLabel.TabIndex = 10;
-			this.TooManyProfilesLabel.Text = "Too many profiles, please remove an old profile to add a new one";
 			// 
 			// CancelButton
 			// 
@@ -254,9 +235,8 @@
 			this.Profile10.Name = "Profile10";
 			this.Profile10.Size = new System.Drawing.Size(98, 37);
 			this.Profile10.TabIndex = 20;
-			this.Profile10.Text = "empty";
+			this.Profile10.Text = "button10";
 			this.Profile10.UseVisualStyleBackColor = true;
-			this.Profile10.Click += new System.EventHandler(this.Profile10_Click);
 			// 
 			// Profile9
 			// 
@@ -264,9 +244,8 @@
 			this.Profile9.Name = "Profile9";
 			this.Profile9.Size = new System.Drawing.Size(98, 36);
 			this.Profile9.TabIndex = 19;
-			this.Profile9.Text = "empty";
+			this.Profile9.Text = "button9";
 			this.Profile9.UseVisualStyleBackColor = true;
-			this.Profile9.Click += new System.EventHandler(this.Profile9_Click);
 			// 
 			// Profile8
 			// 
@@ -274,9 +253,8 @@
 			this.Profile8.Name = "Profile8";
 			this.Profile8.Size = new System.Drawing.Size(98, 37);
 			this.Profile8.TabIndex = 18;
-			this.Profile8.Text = "empty";
+			this.Profile8.Text = "button8";
 			this.Profile8.UseVisualStyleBackColor = true;
-			this.Profile8.Click += new System.EventHandler(this.Profile8_Click);
 			// 
 			// Profile7
 			// 
@@ -284,9 +262,8 @@
 			this.Profile7.Name = "Profile7";
 			this.Profile7.Size = new System.Drawing.Size(98, 36);
 			this.Profile7.TabIndex = 17;
-			this.Profile7.Text = "empty";
+			this.Profile7.Text = "button7";
 			this.Profile7.UseVisualStyleBackColor = true;
-			this.Profile7.Click += new System.EventHandler(this.Profile7_Click);
 			// 
 			// Profile6
 			// 
@@ -294,9 +271,8 @@
 			this.Profile6.Name = "Profile6";
 			this.Profile6.Size = new System.Drawing.Size(98, 36);
 			this.Profile6.TabIndex = 16;
-			this.Profile6.Text = "empty";
+			this.Profile6.Text = "button6";
 			this.Profile6.UseVisualStyleBackColor = true;
-			this.Profile6.Click += new System.EventHandler(this.Profile6_Click);
 			// 
 			// Profile5
 			// 
@@ -304,9 +280,8 @@
 			this.Profile5.Name = "Profile5";
 			this.Profile5.Size = new System.Drawing.Size(98, 36);
 			this.Profile5.TabIndex = 15;
-			this.Profile5.Text = "empty";
+			this.Profile5.Text = "button5";
 			this.Profile5.UseVisualStyleBackColor = true;
-			this.Profile5.Click += new System.EventHandler(this.Profile5_Click);
 			// 
 			// Profile4
 			// 
@@ -314,9 +289,8 @@
 			this.Profile4.Name = "Profile4";
 			this.Profile4.Size = new System.Drawing.Size(98, 37);
 			this.Profile4.TabIndex = 14;
-			this.Profile4.Text = " empty";
+			this.Profile4.Text = "Profile 4";
 			this.Profile4.UseVisualStyleBackColor = true;
-			this.Profile4.Click += new System.EventHandler(this.Profile4_Click);
 			// 
 			// Profile3
 			// 
@@ -324,9 +298,8 @@
 			this.Profile3.Name = "Profile3";
 			this.Profile3.Size = new System.Drawing.Size(98, 36);
 			this.Profile3.TabIndex = 13;
-			this.Profile3.Text = "empty";
+			this.Profile3.Text = "Profile 3";
 			this.Profile3.UseVisualStyleBackColor = true;
-			this.Profile3.Click += new System.EventHandler(this.Profile3_Click);
 			// 
 			// Profile2
 			// 
@@ -334,9 +307,8 @@
 			this.Profile2.Name = "Profile2";
 			this.Profile2.Size = new System.Drawing.Size(98, 36);
 			this.Profile2.TabIndex = 12;
-			this.Profile2.Text = "empty";
+			this.Profile2.Text = "Profile 2";
 			this.Profile2.UseVisualStyleBackColor = true;
-			this.Profile2.Click += new System.EventHandler(this.Profile2_Click);
 			// 
 			// Profile1
 			// 
@@ -344,48 +316,35 @@
 			this.Profile1.Name = "Profile1";
 			this.Profile1.Size = new System.Drawing.Size(98, 37);
 			this.Profile1.TabIndex = 11;
-			this.Profile1.Text = "empty";
+			this.Profile1.Text = "Profile 1";
 			this.Profile1.UseVisualStyleBackColor = true;
 			this.Profile1.Click += new System.EventHandler(this.Profile1_Click_1);
 			// 
-			// DeleteProfileButton
+			// TooManyProfilesLabel
 			// 
-			this.DeleteProfileButton.Location = new System.Drawing.Point(12, 13);
-			this.DeleteProfileButton.Name = "DeleteProfileButton";
-			this.DeleteProfileButton.Size = new System.Drawing.Size(75, 31);
-			this.DeleteProfileButton.TabIndex = 23;
-			this.DeleteProfileButton.Text = "Delete";
-			this.DeleteProfileButton.UseVisualStyleBackColor = true;
-			this.DeleteProfileButton.Click += new System.EventHandler(this.DeleteProfileButton_Click);
-			// 
-			// ProfileDeletedLabel
-			// 
-			this.ProfileDeletedLabel.AutoSize = true;
-			this.ProfileDeletedLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ProfileDeletedLabel.ForeColor = System.Drawing.Color.Firebrick;
-			this.ProfileDeletedLabel.Location = new System.Drawing.Point(193, 21);
-			this.ProfileDeletedLabel.Name = "ProfileDeletedLabel";
-			this.ProfileDeletedLabel.Size = new System.Drawing.Size(405, 56);
-			this.ProfileDeletedLabel.TabIndex = 24;
-			this.ProfileDeletedLabel.Text = "The profile you were on has been deleted,\r\n please choose a new profile\r\n";
-			this.ProfileDeletedLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.TooManyProfilesLabel.AutoSize = true;
+			this.TooManyProfilesLabel.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TooManyProfilesLabel.ForeColor = System.Drawing.Color.Firebrick;
+			this.TooManyProfilesLabel.Location = new System.Drawing.Point(12, 177);
+			this.TooManyProfilesLabel.Name = "TooManyProfilesLabel";
+			this.TooManyProfilesLabel.Size = new System.Drawing.Size(784, 35);
+			this.TooManyProfilesLabel.TabIndex = 10;
+			this.TooManyProfilesLabel.Text = "Too many profiles, please remove an old profile to add a new one";
 			// 
 			// ProfileSelectionScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.ClientSize = new System.Drawing.Size(832, 450);
+			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.SwitchPanel);
 			this.Controls.Add(this.StreamSelectPanel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "ProfileSelectionScreen";
 			this.Text = "Profile Selection";
 			this.StreamSelectPanel.ResumeLayout(false);
 			this.StreamSelectPanel.PerformLayout();
 			this.SwitchPanel.ResumeLayout(false);
-			this.SwitchPanel.PerformLayout();
 			this.NewProfilePanel.ResumeLayout(false);
 			this.NewProfilePanel.PerformLayout();
 			this.ResumeLayout(false);
@@ -420,7 +379,5 @@
 		private System.Windows.Forms.Label ProfileNameLabel;
 		private System.Windows.Forms.TextBox NameTextBox;
 		private System.Windows.Forms.Label TooManyProfilesLabel;
-		private System.Windows.Forms.Button DeleteProfileButton;
-		private System.Windows.Forms.Label ProfileDeletedLabel;
 	}
 }
