@@ -26,7 +26,7 @@ namespace StreamSpotter
 			request = new HttpRequestMessage
 			{
 				Method = HttpMethod.Get,
-				RequestUri = new Uri("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&genre=18&page=1&keyword=Witcher&output_language=en&language=en"),
+				RequestUri = new Uri("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&keyword=shrek&page=1&output_language=en&language=en"),
 				Headers =
 	{
 		{ "x-rapidapi-host", "streaming-availability.p.rapidapi.com" },
@@ -46,11 +46,11 @@ namespace StreamSpotter
 			request = new HttpRequestMessage
 			{
 				Method = HttpMethod.Get,
-				RequestUri = new Uri("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=" + service + "&type=" + entertainmentType + "&genre=18&page=1&keyword=" + title + "&output_language=en&language=en"),
+				RequestUri = new Uri("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=" + service + "&type=" + entertainmentType + "&keyword=" + title + "&page=1&output_language=en&language=en"),
 				Headers =
 	{
 		{ "x-rapidapi-host", "streaming-availability.p.rapidapi.com" },
-		{ "x-rapidapi-key", "bc845cec13msh18fba8e190a0fd2p177163jsne160d9e55201" },
+		{ "x-rapidapi-key", "304c4fbc80msh73d17a1513320bfp14d0b6jsn1fe16b2c3fd5" },
 	},
 			};
 		}
