@@ -130,6 +130,10 @@ namespace StreamSpotter
                         if(pl.list[i].getID() == profileID)
                         {
                             Profile[] temp = new Profile[l - 1];
+                            for(int j = 0; j < i; j++)
+                            {
+                                temp[j] = pl.list[j];
+                            }
                             for (int j = i; j < l - 1; j++)
                             {
                                 temp[j] = pl.list[j + 1];
@@ -152,7 +156,7 @@ namespace StreamSpotter
                         tw.WriteLine(JsonConvert.SerializeObject(pl));
                     }
                 }
-                else
+                else if(profileID == pl.list[i].getID())
                 {
                     pl.list = new Profile[0];
                     string profilePath = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID;
@@ -326,6 +330,7 @@ namespace StreamSpotter
                         string fileName = f.Remove(0,pathLen);
                         File.Move(f,(n + fileName));
                     }
+                    Directory.Delete(old);
                     pl.list[i].setID(i);
                 }
             }
