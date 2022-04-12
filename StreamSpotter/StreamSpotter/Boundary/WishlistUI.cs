@@ -81,5 +81,74 @@ namespace StreamSpotter
                 }
             }
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listEmptyLabel.Visible = false;
+            if (comboBox1.SelectedIndex == 0)
+            {
+                if (!windowsController.unFilter())
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox1.SelectedIndex == 1)
+            {
+                if (!windowsController.filterByMovie())
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                if (!windowsController.filterByShow())
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox1.SelectedIndex == 3)
+            {
+                if (!windowsController.filterByRating())
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox1.SelectedIndex == 4)
+            {
+                if (!windowsController.filterByNewest())
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox1.SelectedIndex == 5)
+            {
+                if (!windowsController.filterByOldest())
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox1.SelectedIndex == 6)
+            {
+                if (!windowsController.filterByShorter())
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox1.SelectedIndex == 7)
+            {
+                if (!windowsController.filterByLonger())
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+        }
     }
 }

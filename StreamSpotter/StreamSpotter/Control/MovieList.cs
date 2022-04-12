@@ -106,6 +106,128 @@ namespace StreamSpotter
             }
             return filterList.Count != 0;
         }
+        public bool filterByMovie()
+        {
+            filterList = new List<Result>();
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                if (movieList[x].isMovie())
+                    filterList.Add(movieList[x]);
+            }
+            return filterList.Count != 0;
+        }
+
+        public bool filterByShow()
+        {
+            filterList = new List<Result>();
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                if (!movieList[x].isMovie())
+                    filterList.Add(movieList[x]);
+            }
+            return filterList.Count != 0;
+        }
+
+        public bool filterByRating()
+        {
+            filterList = new List<Result>();
+
+            List<Result> tempList = new List<Result>();
+            for (int x = 0; x < movieList.Count; x++) 
+            {
+                tempList.Add(movieList[x]);
+            }
+
+            for (int x = 0; x < tempList.Count - 1; x++)
+            {
+                int highIndex = 0;
+                for (int y = 1; y < tempList.Count; y++) 
+                {
+                    if (tempList[highIndex].imdbRating < tempList[y].imdbRating)
+                        highIndex = y;
+                }
+                filterList.Add(tempList[highIndex]);
+                tempList.RemoveAt(highIndex);
+            }
+            return filterList.Count != 0;
+        }
+
+        public bool filterByNewest()
+        {
+            filterList = new List<Result>();
+
+            List<Result> tempList = new List<Result>();
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                tempList.Add(movieList[x]);
+            }
+
+            for (int x = 0; x < tempList.Count - 1; x++)
+            {
+                int highIndex = 0;
+                for (int y = 1; y < tempList.Count; y++)
+                {
+                    if (tempList[highIndex].age > tempList[y].age)
+                        highIndex = y;
+                }
+                filterList.Add(tempList[highIndex]);
+                tempList.RemoveAt(highIndex);
+            }
+            return filterList.Count != 0;
+        }
+
+        public bool filterByOldest()
+        {
+            filterList = new List<Result>();
+
+            List<Result> tempList = new List<Result>();
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                tempList.Add(movieList[x]);
+            }
+
+            for (int x = 0; x < tempList.Count - 1; x++)
+            {
+                int highIndex = 0;
+                for (int y = 1; y < tempList.Count; y++)
+                {
+                    if (tempList[highIndex].age < tempList[y].age)
+                        highIndex = y;
+                }
+                filterList.Add(tempList[highIndex]);
+                tempList.RemoveAt(highIndex);
+            }
+            return filterList.Count != 0;
+        }
+
+        public bool filterByShorter()
+        {
+            filterList = new List<Result>();
+
+            List<Result> tempList = new List<Result>();
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                tempList.Add(movieList[x]);
+            }
+
+            for (int x = 0; x < tempList.Count - 1; x++)
+            {
+                int highIndex = 0;
+                for (int y = 1; y < tempList.Count; y++)
+                {
+                    if (tempList[highIndex].runtime < tempList[y].runtime)
+                        highIndex = y;
+                }
+                filterList.Add(tempList[highIndex]);
+                tempList.RemoveAt(highIndex);
+            }
+            return filterList.Count != 0;
+        }
+
+        public bool filterByLonger()
+        {
+            return true;
+        }
         public bool noFilter()
         {
             filterList = new List<Result>();

@@ -120,5 +120,54 @@ namespace StreamSpotter
             movieList.printList();
             return notEmpty;
         }
+
+        public bool filterByMovie()
+        {
+            bool notEmpty = movieList.filterByMovie();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByShow()
+        {
+            bool notEmpty = movieList.filterByShow();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByRating()
+        {
+            bool notEmpty = movieList.filterByRating();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByNewest()
+        {
+            bool notEmpty = movieList.filterByNewest();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByOldest()
+        {
+            bool notEmpty = movieList.filterByOldest();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByShorter()
+        {
+            bool notEmpty = movieList.filterByShorter();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByLonger()
+        {
+            bool notEmpty = movieList.filterByLonger();
+            movieList.printList();
+            return notEmpty;
+        }
     }
 }
