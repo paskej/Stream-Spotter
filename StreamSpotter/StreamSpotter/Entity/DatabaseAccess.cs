@@ -130,15 +130,26 @@ namespace StreamSpotter
                         if(pl.list[i].getID() == profileID)
                         {
                             Profile[] temp = new Profile[l - 1];
-                            for(int j = i; j < l-1; j++)
+                            if (l > 1)
                             {
-                                temp[j] = pl.list[j + 1];
+                                for (int j = i; j < l - 1; j++)
+                                {
+                                    temp[j] = pl.list[j + 1];
+                                }
+                            }
+                            else
+                            {
+                                temp = null;
                             }
                             pl.list = temp;
                             l--;
                             i--;
                             string profilePath = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID;
-                            File.Delete(profilePath);
+                            foreach(string f in Directory.GetFiles(profilePath))
+                            {
+                                File.Delete(f);
+                            }
+                            Directory.Delete(profilePath);
                         }
                         i++;
                     }

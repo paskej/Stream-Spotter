@@ -18,15 +18,13 @@ namespace StreamSpotter
         private static int BUTTON_CHANGE = 30;
         public MovieScreen(Result movie, WindowsController windowsController, bool inWishlist)
         {
-            InitializeComponent();
             this.movie = movie;
             this.windowsController = windowsController;
             this.inWishlist = inWishlist;
-            titleLabel.Text = "";
+            InitializeComponent();
             titleBox.Text = movie.title;
             overviewLabel.Text = movie.overview;
             ratingLabel.Text = "IMDb Rating: " + (float)movie.imdbRating/10 + " / 10";
-
 
             if (movie.streamingInfo.netflix == null)
             {
@@ -46,7 +44,6 @@ namespace StreamSpotter
             {
                 pictureBox1.ImageLocation = movie.posterURLs.original;
             }
-            
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
