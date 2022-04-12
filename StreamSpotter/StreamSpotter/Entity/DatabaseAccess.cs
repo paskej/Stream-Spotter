@@ -123,23 +123,16 @@ namespace StreamSpotter
                 ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(File.ReadAllText(path));
                 int l = pl.list.Length;
                 int i = 0;
-                if(l> 0)
+                if(l > 1)
                 {
                     while(i < l)
                     {
                         if(pl.list[i].getID() == profileID)
                         {
                             Profile[] temp = new Profile[l - 1];
-                            if (l > 1)
+                            for (int j = i; j < l - 1; j++)
                             {
-                                for (int j = i; j < l - 1; j++)
-                                {
-                                    temp[j] = pl.list[j + 1];
-                                }
-                            }
-                            else
-                            {
-                                temp = null;
+                                temp[j] = pl.list[j + 1];
                             }
                             pl.list = temp;
                             l--;
@@ -152,6 +145,25 @@ namespace StreamSpotter
                             Directory.Delete(profilePath);
                         }
                         i++;
+                    }
+                    updateIds(pl);
+                    using (StreamWriter tw = new StreamWriter(path, false))
+                    {
+                        tw.WriteLine(JsonConvert.SerializeObject(pl));
+                    }
+                }
+                else
+                {
+                    pl.list = new Profile[0];
+                    string profilePath = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID;
+                    foreach (string f in Directory.GetFiles(profilePath))
+                    {
+                        File.Delete(f);
+                    }
+                    Directory.Delete(profilePath);
+                    using (StreamWriter tw = new StreamWriter(path, false))
+                    {
+                        tw.WriteLine(JsonConvert.SerializeObject(pl));
                     }
                 }
             }
@@ -298,6 +310,26 @@ namespace StreamSpotter
             {
                 return profiles.list.Length;
             }
+        }
+        void updateIds(ProfileList pl)
+        {
+            for(int i = 0; i < pl.list.Length; i++)
+            {
+                if(pl.list[i].getID() != i)
+                {
+                    string old = BASE_PATH + "\\Wishlists\\Profiles\\" + pl.list[i].getID();
+                    string n = BASE_PATH + "\\Wishlists\\Profiles\\" + i;
+                    int pathLen = old.Length;
+                    Directory.CreateDirectory(n);
+                    foreach(string f in Directory.GetFiles(old))
+                    {
+                        string fileName = f.Remove(0,pathLen);
+                        File.Move(f,(n + fileName));
+                    }
+                    pl.list[i].setID(i);
+                }
+            }
+
         }
     }
 }

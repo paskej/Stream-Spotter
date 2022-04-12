@@ -66,6 +66,7 @@ namespace StreamSpotter
         public int year { get; set; }
         public int firstAirYear { get; set; }
         public int lastAirYear { get; set; }
+        public int runtime { get; set; }
         public int[] episodeRuntimes { get; set; }
         public string[] cast { get; set; }
         public string[] significants { get; set; }
