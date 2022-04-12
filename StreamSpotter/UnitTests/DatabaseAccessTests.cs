@@ -17,29 +17,29 @@ namespace UnitTests
         public void CreatingDirectory()
         {
             DatabaseAccess db = new DatabaseAccess();
-            db.addProfileDirectory("Test");
-            Assert.IsTrue(Directory.Exists(BASE_PATH + "\\Wishlists\\Profiles\\Test"));
+            db.addProfileDirectory(0);
+            Assert.IsTrue(Directory.Exists(BASE_PATH + "\\Wishlists\\Profiles\\0"));
         }
 
         [TestMethod]
         public void CreatingJson()
         {
             DatabaseAccess db = new DatabaseAccess();
-            db.addProfileDirectory("TestD");
-            db.addJson("TestD", "TestJ");
-            Assert.IsTrue(File.Exists(BASE_PATH + "\\Wishlists\\Profiles\\TestD\\TestJ.json"));
+            db.addProfileDirectory(0);
+            db.addJson(0, "TestJ");
+            Assert.IsTrue(File.Exists(BASE_PATH + "\\Wishlists\\Profiles\\0\\TestJ.json"));
         }
 
         [TestMethod]
         public void addAndReturnWishlist()
         {
             DatabaseAccess db = new DatabaseAccess();
-            db.addProfileDirectory("TestD");
-            db.addJson("TestD", "TestJ");
+            db.addProfileDirectory(0);
+            db.addJson(0, "TestJ");
             string s = WITCHER;
             RootObject r = JsonConvert.DeserializeObject<RootObject>(s);
-            db.addToWishlist("TestD", "TestJ", r.results[0]);
-            Result r2 = db.getMovie("TestD", "TestJ", r.results[0].title);
+            db.addToWishlist(0, "TestJ", r.results[0]);
+            Result r2 = db.getMovie(0, "TestJ", r.results[0].title);
             Assert.AreEqual(r.results[0].title, r2.title);
         }
 
@@ -47,12 +47,12 @@ namespace UnitTests
         public void getMovieOverview()
         {
             DatabaseAccess db = new DatabaseAccess();
-            db.addProfileDirectory("TestD");
-            db.addJson("TestD", "TestJ");
+            db.addProfileDirectory(0);
+            db.addJson(0, "TestJ");
             string s = WITCHER;
             RootObject r = JsonConvert.DeserializeObject<RootObject>(s);
-            db.addToWishlist("TestD", "TestJ", r.results[0]);
-            Result r2 = db.getMovie("TestD", "TestJ", r.results[0].title);
+            db.addToWishlist(0, "TestJ", r.results[0]);
+            Result r2 = db.getMovie(0, "TestJ", r.results[0].title);
             Assert.AreEqual(r2.overview, "Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.");
         }
     }
