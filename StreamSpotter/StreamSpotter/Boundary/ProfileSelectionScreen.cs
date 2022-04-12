@@ -13,19 +13,25 @@ namespace StreamSpotter
 {
 	public partial class ProfileSelectionScreen : Form
 	{
+		private WindowsController winControl = new WindowsController();
 		private ProfileController profileController = new ProfileController();
 		private ArrayList serviceArray = new ArrayList();
-		private ProfileController profileCon = new ProfileController();
-		private Profile currentProfile = null;
+		private ProfileController profileCon;
+
+		private Profile currentProfile;
 		private ArrayList buttonList = new ArrayList();
 		private string NewName;
 		public ProfileSelectionScreen()
 		{
+			profileCon = winControl.profileController;
+			currentProfile = profileCon.GetProfile(profileCon.getCurrentProfile());
+
 			InitializeComponent();
 			SwitchPanel.Visible = false;
 			NewProfilePanel.Visible = false;
 			TooManyProfilesLabel.Visible = false;
 			ProfileDeletedLabel.Visible = false;
+			ProfileSavedLabel.Visible = false;
 
 			Profile1.Visible = true;
 			Profile2.Visible = true;
@@ -119,6 +125,7 @@ namespace StreamSpotter
 
 		private void SwitchButton_Click_1(object sender, EventArgs e)
 		{
+			ProfileSavedLabel.Visible = false;
 			updateProfileButtonName();
 			SwitchPanel.Visible = true;
 			StreamSelectPanel.Visible = false;
@@ -196,7 +203,7 @@ namespace StreamSpotter
 				{
 					currentProfile.AddService((string)serviceArray[i]);
 				}
-			
+			ProfileSavedLabel.Visible = true;
 		}
 
 		public void updateProfileButtonName()
@@ -275,6 +282,22 @@ namespace StreamSpotter
 		{
 			currentProfile = profileController.GetProfile(9);
 			ProfileDeletedLabel.Visible = false;
+		}
+
+		private void MyCancelButton_Click(object sender, EventArgs e)
+		{
+			ProfileSavedLabel.Visible = false;
+			this.Close();
+		}
+
+		public void updateServiceBoxes()
+		{
+
+		}
+
+		private void label2_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
