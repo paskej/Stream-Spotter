@@ -96,5 +96,22 @@ namespace StreamSpotter
             //this.streamingInfo.netflix.us.link = searchResult[3];
         }
         public Result() { }
+
+        public bool isMovie()
+        {
+            bool movie = false;
+            try
+            {
+                if (seasons >= 1)
+                {
+
+                }
+            }
+            catch(Exception e)
+            {
+                movie = true;
+            }
+            return movie;
+        }
     }
 }
