@@ -13,6 +13,7 @@ namespace StreamSpotter
     public partial class HomeScreen : Form
     {
         private WindowsController windowsController;
+        private Result[] recommendations;
         public HomeScreen()
         {
             InitializeComponent();
