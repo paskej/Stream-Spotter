@@ -59,33 +59,49 @@ namespace StreamSpotter
             windowsController.openWishListUI(this);
         }
 
-        private void profilePanel_MouseLeave(object sender, EventArgs e)
+        public void formatPage()
         {
-            Point formPoint = this.Location;
-            int mousePositionX = Control.MousePosition.X - formPoint.X - profilePanel.AutoScrollPosition.X;
-            int mousePositionY = Control.MousePosition.Y - formPoint.Y - profilePanel.AutoScrollPosition.Y;// - 100;
-            if (mousePositionX < profilePanel.Location.X || mousePositionY < profilePanel.Location.Y ||
-                mousePositionX > (profilePanel.Location.X + profilePanel.Width) || mousePositionY > (profilePanel.Location.Y + profilePanel.Height)) 
-            {
-                profilePanel.Visible = false;
-            }
+            //
+            //Profile Button
+            //
+            ProfileButton.Location = new Point((this.Width - ProfileButton.Width - 5 - 15), (10));
+
+
+            //
+            //wishlist button
+            //
+            wishlistButton.Location = new Point(5, 10);
+
+
+            //
+            //logoPictureBox
+            //
+            logoPictureBox.Height = (int)(this.Height / 2.5);
+            logoPictureBox.Width = logoPictureBox.Height;
+            logoPictureBox.Location = new Point((this.Width / 2) - (logoPictureBox.Width / 2), -10);
+
+
+            //
+            //label3
+            //
+            label3.Location = new Point((this.Width / 2) - (label3.Width / 2), (this.Height / 2) + 20);
+
+
+            //
+            //searchBar
+            //
+            SearchBar.Location = new Point((this.Width / 2) - (SearchBar.Width / 2), (this.Height / 2) - 20);
+
         }
 
-        private void button1_MouseLeave(object sender, EventArgs e)
+        private void HomeScreen_ResizeEnd(object sender, EventArgs e)
         {
-            Point formPoint = this.Location;
-            int mousePositionX = Control.MousePosition.X - formPoint.X - profilePanel.AutoScrollPosition.X;
-            int mousePositionY = Control.MousePosition.Y - formPoint.Y - profilePanel.AutoScrollPosition.Y;// - 100;
-            if (mousePositionX < profilePanel.Location.X || mousePositionY < profilePanel.Location.Y ||
-                mousePositionX > (profilePanel.Location.X + profilePanel.Width) || mousePositionY > (profilePanel.Location.Y + profilePanel.Height))
-            {
-                profilePanel.Visible = false;
-            }
+            formatPage();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void HomeScreen_Load(object sender, EventArgs e)
         {
-            profilePanel.Visible = true;
+            formatPage();
         }
     }
 }
