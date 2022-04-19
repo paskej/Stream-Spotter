@@ -15,7 +15,7 @@ namespace StreamSpotter
         bool searchScreenLast;
         public ProfileController profileController;
         public Profile currentProfile;
-        private ProfileSelectionScreen profileScreen;
+        public ProfileSelectionScreen profileScreen;
         public WindowsController()
         {
             search = new Search();
