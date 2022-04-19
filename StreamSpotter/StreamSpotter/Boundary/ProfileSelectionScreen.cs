@@ -159,6 +159,7 @@ namespace StreamSpotter
 			StreamSelectPanel.Visible = true;
 			SwitchPanel.Visible = false;
 			ProfileDeletedLabel.Visible = false;
+			updateCheckedBoxes();
 		}
 
 		private void CancelButton_Click(object sender, EventArgs e)
@@ -394,6 +395,26 @@ namespace StreamSpotter
 		public void createNewProfileOnStart()
 		{
 			NewProfilePanel.Visible = true;
+			//add a boolean to check if it is first time starting
+			//Then make it so that the user cannot exit until they have created a profile.
+		}
+
+		public void updateCheckedBoxes()
+		{
+			if (currentProfile.getServices() != null)
+			{
+				for (int i = 0; i < currentProfile.getServices().Count; i++)
+				{
+					if (currentProfile.getServices()[i] == "netflix")
+					{
+						NetflixCheckBox.Checked = true;
+					}
+					if (currentProfile.getServices()[i] == "disney")
+					{
+						DisneyCheckBox.Checked = true;
+					}
+				}
+			}
 		}
 	}
 }

@@ -34,6 +34,7 @@ namespace StreamSpotter
         {
             WindowsController winController = new WindowsController();
             winController.showProfileScreen();
+            winController.profileScreen.updateCheckedBoxes();
         }
 
         private void SearchBar_KeyPress(object sender, KeyPressEventArgs e)
