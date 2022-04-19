@@ -52,6 +52,24 @@ namespace StreamSpotter
             searchScreenLast = false;
             currentForm.Hide();
             WishlistUI wishListUI = new WishlistUI(this);
+            wishListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+            if(currentForm.Height < wishListUI.MinimumSize.Height)
+            {
+                wishListUI.Height = wishListUI.MinimumSize.Height;
+            }
+            else
+            {
+                wishListUI.Height = currentForm.Height;
+            }
+            if (currentForm.Width < wishListUI.MinimumSize.Width)
+            {
+                wishListUI.Width = wishListUI.MinimumSize.Width;
+            }
+            else
+            {
+                wishListUI.Width = currentForm.Width;
+            }
+
             wishListUI.Show();
         }
         public void openMovieScreen(Form currentForm, int loc)
