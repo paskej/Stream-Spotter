@@ -173,5 +173,10 @@ namespace StreamSpotter
             movieList.printList();
             return notEmpty;
         }
+
+        public void createProfileOnStartup(Form FormShown)
+		{
+
+		}
     }
 }

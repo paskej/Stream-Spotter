@@ -58,6 +58,7 @@
 			this.Profile1 = new System.Windows.Forms.Button();
 			this.DeleteProfileButton = new System.Windows.Forms.Button();
 			this.ProfileDeletedLabel = new System.Windows.Forms.Label();
+			this.ProfileNotCreatedLabel = new System.Windows.Forms.Label();
 			this.StreamSelectPanel.SuspendLayout();
 			this.SwitchPanel.SuspendLayout();
 			this.NewProfilePanel.SuspendLayout();
@@ -146,6 +147,7 @@
 			// SwitchPanel
 			// 
 			this.SwitchPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.SwitchPanel.Controls.Add(this.ProfileNotCreatedLabel);
 			this.SwitchPanel.Controls.Add(this.NewProfilePanel);
 			this.SwitchPanel.Controls.Add(this.ExitButton);
 			this.SwitchPanel.Controls.Add(this.NewProfileButton);
@@ -174,9 +176,9 @@
 			this.NewProfilePanel.Controls.Add(this.label1);
 			this.NewProfilePanel.Controls.Add(this.ProfileNameLabel);
 			this.NewProfilePanel.Controls.Add(this.NameTextBox);
-			this.NewProfilePanel.Location = new System.Drawing.Point(0, 0);
+			this.NewProfilePanel.Location = new System.Drawing.Point(0, 397);
 			this.NewProfilePanel.Name = "NewProfilePanel";
-			this.NewProfilePanel.Size = new System.Drawing.Size(832, 467);
+			this.NewProfilePanel.Size = new System.Drawing.Size(832, 70);
 			this.NewProfilePanel.TabIndex = 12;
 			// 
 			// TooManyProfilesLabel
@@ -382,6 +384,18 @@
 			this.ProfileDeletedLabel.Text = "The profile you were on has been deleted,\r\n please choose a new profile\r\n";
 			this.ProfileDeletedLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
+			// ProfileNotCreatedLabel
+			// 
+			this.ProfileNotCreatedLabel.AutoSize = true;
+			this.ProfileNotCreatedLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileNotCreatedLabel.ForeColor = System.Drawing.Color.Firebrick;
+			this.ProfileNotCreatedLabel.Location = new System.Drawing.Point(152, 27);
+			this.ProfileNotCreatedLabel.Name = "ProfileNotCreatedLabel";
+			this.ProfileNotCreatedLabel.Size = new System.Drawing.Size(503, 28);
+			this.ProfileNotCreatedLabel.TabIndex = 25;
+			this.ProfileNotCreatedLabel.Text = "The profile you have clicked hasn\'t been created yet";
+			this.ProfileNotCreatedLabel.Click += new System.EventHandler(this.label2_Click_1);
+			// 
 			// ProfileSelectionScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -435,5 +449,6 @@
 		private System.Windows.Forms.Button DeleteProfileButton;
 		private System.Windows.Forms.Label ProfileDeletedLabel;
 		private System.Windows.Forms.Label ProfileSavedLabel;
+		private System.Windows.Forms.Label ProfileNotCreatedLabel;
 	}
 }
