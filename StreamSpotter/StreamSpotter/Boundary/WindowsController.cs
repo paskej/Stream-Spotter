@@ -13,15 +13,38 @@ namespace StreamSpotter
         private Search search;
         private Result[] searchResults;
         bool searchScreenLast;
+        public ProfileController profileController;
+        public Profile currentProfile;
+        public ProfileSelectionScreen profileScreen;
         public WindowsController()
         {
             search = new Search();
             searchScreenLast = true;
+            profileController = new ProfileController();
+            currentProfile = profileController.GetProfile(profileController.getCurrentProfile());
         }
         public void openHomeScreen(Form currentForm)
         {
             currentForm.Hide();
             HomeScreen homeScreen = new HomeScreen(this);
+            homeScreen.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+            if (currentForm.Height < homeScreen.MinimumSize.Height)
+            {
+                homeScreen.Height = homeScreen.MinimumSize.Height;
+            }
+            else
+            {
+                homeScreen.Height = currentForm.Height;
+            }
+            if (currentForm.Width < homeScreen.MinimumSize.Width)
+            {
+                homeScreen.Width = homeScreen.MinimumSize.Width;
+            }
+            else
+            {
+                homeScreen.Width = currentForm.Width;
+            }
+
             homeScreen.Show();
         }
         public void openSearchListUI(Form currentForm, string title)
@@ -31,6 +54,24 @@ namespace StreamSpotter
             search.searchResult(title, "movie");
             searchResults = search.getSearchResults();
             SearchListUI searchListUI = new SearchListUI(this);
+            searchListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+            if (currentForm.Height < searchListUI.MinimumSize.Height)
+            {
+                searchListUI.Height = searchListUI.MinimumSize.Height;
+            }
+            else
+            {
+                searchListUI.Height = currentForm.Height;
+            }
+            if (currentForm.Width < searchListUI.MinimumSize.Width)
+            {
+                searchListUI.Width = searchListUI.MinimumSize.Width;
+            }
+            else
+            {
+                searchListUI.Width = currentForm.Width;
+            }
+
             searchListUI.Show();
         }
         public void goBack(Form currentForm)
@@ -39,11 +80,46 @@ namespace StreamSpotter
             if(searchScreenLast)
             {
                 SearchListUI searchListUI = new SearchListUI(this);
+                searchListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+                if (currentForm.Height < searchListUI.MinimumSize.Height)
+                {
+                    searchListUI.Height = searchListUI.MinimumSize.Height;
+                }
+                else
+                {
+                    searchListUI.Height = currentForm.Height;
+                }
+                if (currentForm.Width < searchListUI.MinimumSize.Width)
+                {
+                    searchListUI.Width = searchListUI.MinimumSize.Width;
+                }
+                else
+                {
+                    searchListUI.Width = currentForm.Width;
+                }
+
                 searchListUI.Show();
             }
             else
             {
                 WishlistUI wishListUI = new WishlistUI(this);
+                wishListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+                if (currentForm.Height < wishListUI.MinimumSize.Height)
+                {
+                    wishListUI.Height = wishListUI.MinimumSize.Height;
+                }
+                else
+                {
+                    wishListUI.Height = currentForm.Height;
+                }
+                if (currentForm.Width < wishListUI.MinimumSize.Width)
+                {
+                    wishListUI.Width = wishListUI.MinimumSize.Width;
+                }
+                else
+                {
+                    wishListUI.Width = currentForm.Width;
+                }
                 wishListUI.Show();
             }
         }
@@ -52,6 +128,24 @@ namespace StreamSpotter
             searchScreenLast = false;
             currentForm.Hide();
             WishlistUI wishListUI = new WishlistUI(this);
+            wishListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+            if(currentForm.Height < wishListUI.MinimumSize.Height)
+            {
+                wishListUI.Height = wishListUI.MinimumSize.Height;
+            }
+            else
+            {
+                wishListUI.Height = currentForm.Height;
+            }
+            if (currentForm.Width < wishListUI.MinimumSize.Width)
+            {
+                wishListUI.Width = wishListUI.MinimumSize.Width;
+            }
+            else
+            {
+                wishListUI.Width = currentForm.Width;
+            }
+
             wishListUI.Show();
         }
         public void openMovieScreen(Form currentForm, int loc)
@@ -74,6 +168,24 @@ namespace StreamSpotter
             {
                 currentForm.Hide();
                 MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex), this, inList);
+                movieScreen.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+                if (currentForm.Height < movieScreen.MinimumSize.Height)
+                {
+                    movieScreen.Height = movieScreen.MinimumSize.Height;
+                }
+                else
+                {
+                    movieScreen.Height = currentForm.Height;
+                }
+                if (currentForm.Width < movieScreen.MinimumSize.Width)
+                {
+                    movieScreen.Width = movieScreen.MinimumSize.Width;
+                }
+                else
+                {
+                    movieScreen.Width = currentForm.Width;
+                }
+
                 movieScreen.Show();
             }
         }
@@ -101,9 +213,9 @@ namespace StreamSpotter
             movieList.removeFromWishlist(movie);
         }
 
-        public void showProfileScreen(Form currentForm)
+        public void showProfileScreen()
 		{
-            ProfileSelectionScreen profileScreen = new ProfileSelectionScreen();
+            profileScreen = new ProfileSelectionScreen();
             profileScreen.Show();
 		}
 
@@ -119,6 +231,62 @@ namespace StreamSpotter
             bool notEmpty = movieList.filterByStreamingService(service);
             movieList.printList();
             return notEmpty;
+        }
+
+        public bool filterByMovie()
+        {
+            bool notEmpty = movieList.filterByMovie();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByShow()
+        {
+            bool notEmpty = movieList.filterByShow();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByRating()
+        {
+            bool notEmpty = movieList.filterByRating();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByNewest()
+        {
+            bool notEmpty = movieList.filterByNewest();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByOldest()
+        {
+            bool notEmpty = movieList.filterByOldest();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByShorter()
+        {
+            bool notEmpty = movieList.filterByShorter();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public bool filterByLonger()
+        {
+            bool notEmpty = movieList.filterByLonger();
+            movieList.printList();
+            return notEmpty;
+        }
+
+        public void createProfileOnStartup()
+		{
+            //need to check if this is the first time starting on the machine.
+            showProfileScreen();
+            profileScreen.createNewProfileOnStart();
         }
     }
 }

@@ -106,6 +106,153 @@ namespace StreamSpotter
             }
             return filterList.Count != 0;
         }
+        public bool filterByMovie()
+        {
+            filterList = new List<Result>();
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                if (!movieList[x].isMovie())
+                    filterList.Add(movieList[x]);
+            }
+            return filterList.Count != 0;
+        }
+
+        public bool filterByShow()
+        {
+            filterList = new List<Result>();
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                if (movieList[x].isMovie())
+                    filterList.Add(movieList[x]);
+            }
+            return filterList.Count != 0;
+        }
+
+        public bool filterByRating()
+        {
+            filterList = new List<Result>();
+
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                filterList.Add(movieList[x]);
+            }
+
+            int n = filterList.Count;
+            for (int i = 1; i < n; ++i)
+            {
+                Result key = filterList[i];
+                int j = i - 1;
+
+                while (j >= 0 && filterList[j].imdbRating < key.imdbRating)
+                {
+                    filterList[j + 1] = filterList[j];
+                    j = j - 1;
+                }
+                filterList[j + 1] = key;
+            }
+            return filterList.Count != 0;
+        }
+
+        public bool filterByNewest()
+        {
+            filterList = new List<Result>();
+
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                filterList.Add(movieList[x]);
+            }
+
+            int n = filterList.Count;
+            for (int i = 1; i < n; ++i)
+            {
+                Result key = filterList[i];
+                int j = i - 1;
+
+                while (j >= 0 && filterList[j].year < key.year)
+                {
+                    filterList[j + 1] = filterList[j];
+                    j = j - 1;
+                }
+                filterList[j + 1] = key;
+            }
+            return filterList.Count != 0;
+        }
+
+        public bool filterByOldest()
+        {
+            filterList = new List<Result>();
+
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                filterList.Add(movieList[x]);
+            }
+
+            int n = filterList.Count;
+            for (int i = 1; i < n; ++i)
+            {
+                Result key = filterList[i];
+                int j = i - 1;
+
+                while (j >= 0 && filterList[j].year > key.year)
+                {
+                    filterList[j + 1] = filterList[j];
+                    j = j - 1;
+                }
+                filterList[j + 1] = key;
+            }
+            return filterList.Count != 0;
+        }
+
+        public bool filterByShorter()
+        {
+            filterList = new List<Result>();
+
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                filterList.Add(movieList[x]);
+            }
+
+            int n = filterList.Count;
+            for (int i = 1; i < n; ++i)
+            {
+                Result key = filterList[i];
+                int j = i - 1;
+
+                while (j >= 0 && filterList[j].runtime > key.runtime)
+                {
+                    filterList[j + 1] = filterList[j];
+                    j = j - 1;
+                }
+                filterList[j + 1] = key;
+            }
+            return filterList.Count != 0;
+        }
+
+        public bool filterByLonger()
+        {
+            filterList = new List<Result>();
+
+            for (int x = 0; x < movieList.Count; x++)
+            {
+                filterList.Add(movieList[x]);
+            }
+
+            int n = filterList.Count;
+            for (int i = 1; i < n; ++i)
+            {
+                Result key = filterList[i];
+                int j = i - 1;
+
+                while (j >= 0 && filterList[j].runtime < key.runtime)
+                {
+                    filterList[j + 1] = filterList[j];
+                    j = j - 1;
+                }
+                filterList[j + 1] = key;
+            }
+            return filterList.Count != 0;
+        }
+
         public bool noFilter()
         {
             filterList = new List<Result>();

@@ -66,6 +66,7 @@ namespace StreamSpotter
         public int year { get; set; }
         public int firstAirYear { get; set; }
         public int lastAirYear { get; set; }
+        public int runtime { get; set; }
         public int[] episodeRuntimes { get; set; }
         public string[] cast { get; set; }
         public string[] significants { get; set; }
@@ -96,5 +97,22 @@ namespace StreamSpotter
             //this.streamingInfo.netflix.us.link = searchResult[3];
         }
         public Result() { }
+
+        public bool isMovie()
+        {
+            bool movie = false;
+            try
+            {
+                if (seasons >= 1)
+                {
+
+                }
+            }
+            catch(Exception e)
+            {
+                movie = true;
+            }
+            return movie;
+        }
     }
 }
