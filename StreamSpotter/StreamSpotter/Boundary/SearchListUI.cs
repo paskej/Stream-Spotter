@@ -14,6 +14,7 @@ namespace StreamSpotter
     {
         //private MovieList movieList;
         private WindowsController windowsController;
+        private Handler handler;
 
         //need to do show list upon start up somehow
         public SearchListUI(WindowsController windowsController)
@@ -183,6 +184,18 @@ namespace StreamSpotter
                     listEmptyLabel.Visible = true;
                 }
             }
+        }
+
+        private void redoButton_Click(object sender, EventArgs e)
+        {
+            //handler.Redo();
+            windowsController.printList();
+        }
+
+        private void undoButton_Click(object sender, EventArgs e)
+        {
+            //handler.Undo();
+            windowsController.printList();
         }
     }
 }

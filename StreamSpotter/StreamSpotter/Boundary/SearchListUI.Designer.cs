@@ -40,6 +40,8 @@
             this.profilePanel = new System.Windows.Forms.Panel();
             this.wishlistButton = new System.Windows.Forms.Button();
             this.ProfileButton = new System.Windows.Forms.Button();
+            this.redoButton = new System.Windows.Forms.Button();
+            this.undoButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.listPanel.SuspendLayout();
             this.profilePanel.SuspendLayout();
@@ -50,7 +52,7 @@
             this.HomeButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.HomeButton.Location = new System.Drawing.Point(124, 12);
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(4);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(79, 39);
             this.HomeButton.TabIndex = 21;
@@ -147,7 +149,7 @@
             "Netflix",
             "Disney+"});
             this.comboBox2.Location = new System.Drawing.Point(560, 62);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(144, 36);
             this.comboBox2.TabIndex = 32;
@@ -194,6 +196,32 @@
             this.ProfileButton.UseVisualStyleBackColor = true;
             this.ProfileButton.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // redoButton
+            // 
+            this.redoButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.redoButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.redoButton.Location = new System.Drawing.Point(67, 62);
+            this.redoButton.Margin = new System.Windows.Forms.Padding(4);
+            this.redoButton.Name = "redoButton";
+            this.redoButton.Size = new System.Drawing.Size(65, 36);
+            this.redoButton.TabIndex = 34;
+            this.redoButton.Text = "Redo";
+            this.redoButton.UseVisualStyleBackColor = true;
+            this.redoButton.Click += new System.EventHandler(this.redoButton_Click);
+            // 
+            // undoButton
+            // 
+            this.undoButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.undoButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.undoButton.Location = new System.Drawing.Point(0, 62);
+            this.undoButton.Margin = new System.Windows.Forms.Padding(4);
+            this.undoButton.Name = "undoButton";
+            this.undoButton.Size = new System.Drawing.Size(66, 36);
+            this.undoButton.TabIndex = 35;
+            this.undoButton.Text = "Undo";
+            this.undoButton.UseVisualStyleBackColor = true;
+            this.undoButton.Click += new System.EventHandler(this.undoButton_Click);
+            // 
             // SearchListUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -205,6 +233,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listPanel);
             this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.undoButton);
+            this.Controls.Add(this.redoButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SearchListUI";
@@ -230,5 +260,7 @@
         private System.Windows.Forms.Panel profilePanel;
         private System.Windows.Forms.Button wishlistButton;
         private System.Windows.Forms.Button ProfileButton;
+        private System.Windows.Forms.Button redoButton;
+        private System.Windows.Forms.Button undoButton;
     }
 }

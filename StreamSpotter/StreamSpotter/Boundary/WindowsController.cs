@@ -193,6 +193,11 @@ namespace StreamSpotter
             return notEmpty;
         }
 
+        public void printList()
+        {
+            movieList.printList();
+        }
+
         public void createProfileOnStartup()
 		{
             //need to check if this is the first time starting on the machine.
