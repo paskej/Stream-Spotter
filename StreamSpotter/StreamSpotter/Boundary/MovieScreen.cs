@@ -139,7 +139,7 @@ namespace StreamSpotter
 
         private void button2_Click(object sender, EventArgs e)
         {
-            windowsController.showProfileScreen();
+            windowsController.showProfileScreen(this);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
