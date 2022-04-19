@@ -15,6 +15,7 @@ namespace StreamSpotter
         bool searchScreenLast;
         public ProfileController profileController;
         public Profile currentProfile;
+        private ProfileSelectionScreen profileScreen;
         public WindowsController()
         {
             search = new Search();
@@ -105,9 +106,9 @@ namespace StreamSpotter
             movieList.removeFromWishlist(movie);
         }
 
-        public void showProfileScreen(Form currentForm)
+        public void showProfileScreen()
 		{
-            ProfileSelectionScreen profileScreen = new ProfileSelectionScreen();
+            profileScreen = new ProfileSelectionScreen();
             profileScreen.Show();
 		}
 
@@ -174,9 +175,11 @@ namespace StreamSpotter
             return notEmpty;
         }
 
-        public void createProfileOnStartup(Form FormShown)
+        public void createProfileOnStartup()
 		{
-
-		}
+            //need to check if this is the first time starting on the machine.
+            showProfileScreen();
+            profileScreen.createNewProfileOnStart();
+        }
     }
 }

@@ -84,7 +84,7 @@ namespace StreamSpotter
         private void button2_Click_1(object sender, EventArgs e)
         {
             WindowsController winController = new WindowsController();
-            winController.showProfileScreen(this);
+            winController.showProfileScreen();
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)

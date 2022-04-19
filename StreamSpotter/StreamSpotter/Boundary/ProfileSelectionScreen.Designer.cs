@@ -176,9 +176,9 @@
 			this.NewProfilePanel.Controls.Add(this.label1);
 			this.NewProfilePanel.Controls.Add(this.ProfileNameLabel);
 			this.NewProfilePanel.Controls.Add(this.NameTextBox);
-			this.NewProfilePanel.Location = new System.Drawing.Point(0, 397);
+			this.NewProfilePanel.Location = new System.Drawing.Point(0, 0);
 			this.NewProfilePanel.Name = "NewProfilePanel";
-			this.NewProfilePanel.Size = new System.Drawing.Size(832, 70);
+			this.NewProfilePanel.Size = new System.Drawing.Size(832, 467);
 			this.NewProfilePanel.TabIndex = 12;
 			// 
 			// TooManyProfilesLabel

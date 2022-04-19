@@ -391,5 +391,9 @@ namespace StreamSpotter
 
 		}
 
+		public void createNewProfileOnStart()
+		{
+			NewProfilePanel.Visible = true;
+		}
 	}
 }

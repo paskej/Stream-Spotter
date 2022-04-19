@@ -18,6 +18,11 @@ namespace StreamSpotter
         {
             InitializeComponent();
             windowsController = new WindowsController();
+
+            if(windowsController.profileController.GetProfile(0) == null)
+			{
+                windowsController.createProfileOnStartup();
+			}
         }
         public HomeScreen(WindowsController windowsController)
         {
@@ -28,7 +33,7 @@ namespace StreamSpotter
         private void ProfileButton_Click(object sender, EventArgs e)
         {
             WindowsController winController = new WindowsController();
-            winController.showProfileScreen(this);
+            winController.showProfileScreen();
         }
 
         private void SearchBar_KeyPress(object sender, KeyPressEventArgs e)
