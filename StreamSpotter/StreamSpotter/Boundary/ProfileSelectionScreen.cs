@@ -14,7 +14,7 @@ namespace StreamSpotter
 {
 	public partial class ProfileSelectionScreen : Form
 	{
-		private WindowsController winControl = new WindowsController();
+		private WindowsController winControl = WindowsController.getInstance();
 		private ProfileController profileController = new ProfileController();
 		private ArrayList serviceArray = new ArrayList();
 		private ProfileController profileCon;
@@ -144,6 +144,7 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(0) != null)
 			{
 				currentProfile = profileController.GetProfile(0);
+				winControl.changeCurrentProfile(0);
 				ProfileDeletedLabel.Visible = false;
 			}
 			else
@@ -251,6 +252,7 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(1) != null)
 			{
 				currentProfile = profileController.GetProfile(1);
+				winControl.changeCurrentProfile(1);
 				ProfileDeletedLabel.Visible = false;
 			}
 			else
@@ -265,6 +267,7 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(2) != null)
 			{
 				currentProfile = profileController.GetProfile(2);
+				winControl.changeCurrentProfile(2);
 				ProfileDeletedLabel.Visible = false;
 			}
 			else

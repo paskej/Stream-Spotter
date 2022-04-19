@@ -16,12 +16,21 @@ namespace StreamSpotter
         public ProfileController profileController;
         public Profile currentProfile;
         public ProfileSelectionScreen profileScreen;
-        public WindowsController()
+        private static WindowsController instance;
+        private WindowsController()
         {
             search = new Search();
             searchScreenLast = true;
             profileController = new ProfileController();
             currentProfile = profileController.GetProfile(profileController.getCurrentProfile());
+        }
+        public static WindowsController getInstance()
+        {
+            if(instance == null)
+            {
+                instance = new WindowsController();
+            }
+            return instance;
         }
         public void openHomeScreen(Form currentForm)
         {
@@ -205,12 +214,28 @@ namespace StreamSpotter
         }
         public void addMovieToWishlist(Result movie)
         {
+            int currentID = currentProfile.getID();
+            movieList.changeCurrentWishlist(currentID, currentID.ToString());
             movieList.addToWishlist(movie);
         }
 
         public void removeMovieFromWishlist(Result movie)
         {
+            int currentID = currentProfile.getID();
+            movieList.changeCurrentWishlist(currentID, currentID.ToString());
             movieList.removeFromWishlist(movie);
+        }
+        public void changeCurrentWishlist(int profileID, string listName)
+        {
+            if (movieList != null)
+            {
+                movieList.changeCurrentWishlist(profileID, listName);
+            }
+        }
+        public void changeCurrentProfile(int profileID)
+        {
+            profileController.setCurrentProfile(profileID);
+            currentProfile = profileController.GetProfile(profileID);
         }
 
         public void showProfileScreen(Form currentForm)

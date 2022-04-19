@@ -17,9 +17,9 @@ namespace StreamSpotter
         public HomeScreen()
         {
             InitializeComponent();
-            windowsController = new WindowsController();
+            windowsController = WindowsController.getInstance();
 
-            if(windowsController.profileController.GetProfile(0) == null)
+            if (windowsController.profileController.GetProfile(0) == null)
 			{
                 windowsController.createProfileOnStartup();
 			}
@@ -32,7 +32,8 @@ namespace StreamSpotter
 
         private void ProfileButton_Click(object sender, EventArgs e)
         {
-            WindowsController winController = new WindowsController();
+
+            WindowsController winController = WindowsController.getInstance();
             winController.showProfileScreen(this);
             winController.profileScreen.updateCheckedBoxes();
         }
@@ -48,7 +49,7 @@ namespace StreamSpotter
                 {
                     //search with the api
                     //then we load the searhlistUI
-                    windowsController = new WindowsController();
+                    windowsController = WindowsController.getInstance();
                     windowsController.openSearchListUI(this, SearchBar.Text);
                 }
             }

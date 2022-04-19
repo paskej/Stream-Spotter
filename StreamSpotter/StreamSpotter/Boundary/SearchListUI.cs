@@ -44,7 +44,7 @@ namespace StreamSpotter
                 {
                     //search with the api
                     //then we load the searhlistUI
-                    windowsController = new WindowsController();
+                    windowsController = WindowsController.getInstance();
                     windowsController.openSearchListUI(this, SearchBar.Text);
                 }
             }
@@ -63,7 +63,7 @@ namespace StreamSpotter
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            WindowsController winController = new WindowsController();
+            WindowsController winController = WindowsController.getInstance();
             winController.showProfileScreen(this);
         }
 
