@@ -167,13 +167,13 @@ namespace StreamSpotter
 
         private void redoButton_Click(object sender, EventArgs e)
         {
-            //handler.Redo();
+            handler.Redo();
             windowsController.printList();
         }
 
         private void undoButton_Click(object sender, EventArgs e)
         {
-            //handler.Undo();
+            handler.Undo();
             windowsController.printList();
         }
 			

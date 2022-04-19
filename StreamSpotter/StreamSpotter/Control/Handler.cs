@@ -18,13 +18,13 @@ namespace StreamSpotter
             movieList = new MovieList();
             com_history = new History();
         }
-        public void AddEntry(string fn, string ln, string phone)
+        public void AddEntry(List<Result> movies)
         {
-            //com_history.Do();
+            com_history.Do(new AddCommand(new MovieList(), movies));
         }
-        public void RemoveEntry(string phone)
+        public void RemoveEntry(List<Result> movies)
         {
-            // To do: invoker.Do(...)
+            com_history.Do(new RemoveCommand(movieList, movies));
         }
         public void Undo()
         {
