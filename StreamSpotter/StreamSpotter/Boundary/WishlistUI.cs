@@ -23,6 +23,7 @@ namespace StreamSpotter
                 listPanel.Controls.Add(listEmptyLabel);
                 listEmptyLabel.Visible = true;
             }
+            //Location = new Point(0, 0);
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -30,17 +31,6 @@ namespace StreamSpotter
             windowsController.openHomeScreen(this);
         }
 
-        private void profilePanel_MouseLeave(object sender, EventArgs e)
-        {
-            Point formPoint = this.Location;
-            int mousePositionX = Control.MousePosition.X - formPoint.X - profilePanel.AutoScrollPosition.X;
-            int mousePositionY = Control.MousePosition.Y - formPoint.Y - profilePanel.AutoScrollPosition.Y;// - 100;
-            if (mousePositionX < profilePanel.Location.X || mousePositionY < profilePanel.Location.Y ||
-                mousePositionX > (profilePanel.Location.X + profilePanel.Width) || mousePositionY > (profilePanel.Location.Y + profilePanel.Height))
-            {
-                profilePanel.Visible = false;
-            }
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -48,10 +38,6 @@ namespace StreamSpotter
             winController.showProfileScreen(this);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            profilePanel.Visible = true;
-        }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -81,6 +67,7 @@ namespace StreamSpotter
                 }
             }
         }
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -150,5 +137,75 @@ namespace StreamSpotter
                 }
             }
         }
+
+        public void formatPage()
+        {
+            //
+            //comboBox1 filter
+            //
+            comboBox1.Location = new Point((this.Width - comboBox1.Width - 15), (panel1.Height + 1));
+
+
+            //
+            //Button HomeButton
+            //
+            HomeButton.Location = new Point(5, 10);
+
+
+            //
+            //Panel panel1 top bar
+            //
+            panel1.Width = this.Width;
+
+
+            //
+            //Panel listPanel
+            //
+            listPanel.Location = new Point(0, 81);
+            listPanel.Width = this.Width;
+            listPanel.Height = this.Height - listPanel.Location.Y - 35;
+
+
+            //
+            //Label listEmptyLabel
+            //
+            listEmptyLabel.Location = new Point((int)((listPanel.Width / 2) - (listEmptyLabel.Width / 2)), (int)((listPanel.Height / 2) - (listEmptyLabel.Height / 2)) - 40);
+
+
+            //
+            //Button button1 menu
+            //
+
+
+            //
+            //Panel profilePanel
+            //
+
+
+            //
+            //Button button3 profile
+            //
+            button3.Location = new Point((this.Width - button3.Width - 5 - 15),(10));
+
+
+            //
+            //ComboBox comboBox2 service
+            //
+            comboBox2.Location = new Point((this.Width - comboBox1.Width - comboBox2.Width - 15), (panel1.Height + 1));
+
+        }
+
+        private void WishlistUI_Load(object sender, EventArgs e)
+        {
+            formatPage();
+        }
+
+        private void WishlistUI_ResizeEnd(object sender, EventArgs e)
+        {
+            formatPage();
+        }
+
+
+
     }
 }
