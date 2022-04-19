@@ -14,6 +14,7 @@ namespace StreamSpotter
     {
         //private MovieList movieList;
         private WindowsController windowsController;
+        private Handler handler;
 
         //need to do show list upon start up somehow
         public SearchListUI(WindowsController windowsController)
@@ -49,31 +50,10 @@ namespace StreamSpotter
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            profilePanel.Visible = true;
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             windowsController.openWishListUI(this);
-        }
-
-        private void profilePanel_MouseLeave(object sender, EventArgs e)
-        {
-            Point formPoint = this.Location;
-            int mousePositionX = Control.MousePosition.X - formPoint.X - profilePanel.AutoScrollPosition.X;
-            int mousePositionY = Control.MousePosition.Y - formPoint.Y - profilePanel.AutoScrollPosition.Y;// - 100;
-            if (mousePositionX < profilePanel.Location.X || mousePositionY < profilePanel.Location.Y ||
-                mousePositionX > (profilePanel.Location.X + profilePanel.Width) || mousePositionY > (profilePanel.Location.Y + profilePanel.Height))
-            {
-                profilePanel.Visible = false;
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            profilePanel.Visible = true;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -183,6 +163,103 @@ namespace StreamSpotter
                     listEmptyLabel.Visible = true;
                 }
             }
+        }
+
+        private void redoButton_Click(object sender, EventArgs e)
+        {
+            //handler.Redo();
+            windowsController.printList();
+        }
+
+        private void undoButton_Click(object sender, EventArgs e)
+        {
+            //handler.Undo();
+            windowsController.printList();
+        }
+			
+        public void formatPage()
+        {
+            //
+            //Button HomeButton;
+            //
+            HomeButton.Location = new Point(5, 10);
+
+
+            //
+            //ComboBox comboBox1;
+            //
+            comboBox1.Location = new Point((this.Width - comboBox1.Width - 15), (panel1.Height + 1));
+
+
+            //
+            //Panel panel1;
+            //
+            panel1.Width = this.Width;
+
+
+            //
+            //Panel listPanel;
+            //
+            listPanel.Location = new Point(0, 81);
+            listPanel.Width = this.Width;
+            listPanel.Height = this.Height - listPanel.Location.Y - 35;
+
+
+            //
+            //TextBox SearchBar;
+            //
+            SearchBar.Width = (int)(this.Width / 3);
+            if(SearchBar.Width > 400)
+            {
+                SearchBar.Width = 400;
+            }
+            SearchBar.Location = new Point((int)((this.Width / 2) - (SearchBar.Width / 2)), 10);
+
+
+            //
+            //Label listEmptyLabel;
+            //
+            listEmptyLabel.Location = new Point((int)((listPanel.Width / 2) - (listEmptyLabel.Width / 2)), (int)((listPanel.Height / 2) - (listEmptyLabel.Height / 2)) - 40);
+
+
+            //
+            //ComboBox comboBox2;
+            //
+            comboBox2.Location = new Point((this.Width - comboBox1.Width - comboBox2.Width - 15), (panel1.Height + 1));
+
+
+            //
+            //Button menuButton;
+            //
+
+
+            //
+            //Panel profilePanel;
+            //
+
+
+            //
+            //Button wishlistButton;
+            //
+            wishlistButton.Location = new Point(65, 10);
+
+
+            //
+            //Button ProfileButton;
+            //
+            ProfileButton.Location = new Point((this.Width - ProfileButton.Width - 5 - 15), (10));
+
+
+        }
+
+        private void SearchListUI_Load(object sender, EventArgs e)
+        {
+            formatPage();
+        }
+
+        private void SearchListUI_ResizeEnd(object sender, EventArgs e)
+        {
+            formatPage();
         }
     }
 }

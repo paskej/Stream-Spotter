@@ -27,6 +27,24 @@ namespace StreamSpotter
         {
             currentForm.Hide();
             HomeScreen homeScreen = new HomeScreen(this);
+            homeScreen.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+            if (currentForm.Height < homeScreen.MinimumSize.Height)
+            {
+                homeScreen.Height = homeScreen.MinimumSize.Height;
+            }
+            else
+            {
+                homeScreen.Height = currentForm.Height;
+            }
+            if (currentForm.Width < homeScreen.MinimumSize.Width)
+            {
+                homeScreen.Width = homeScreen.MinimumSize.Width;
+            }
+            else
+            {
+                homeScreen.Width = currentForm.Width;
+            }
+
             homeScreen.Show();
         }
         public void openSearchListUI(Form currentForm, string title)
@@ -36,6 +54,24 @@ namespace StreamSpotter
             search.searchResult(title, "movie");
             searchResults = search.getSearchResults();
             SearchListUI searchListUI = new SearchListUI(this);
+            searchListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+            if (currentForm.Height < searchListUI.MinimumSize.Height)
+            {
+                searchListUI.Height = searchListUI.MinimumSize.Height;
+            }
+            else
+            {
+                searchListUI.Height = currentForm.Height;
+            }
+            if (currentForm.Width < searchListUI.MinimumSize.Width)
+            {
+                searchListUI.Width = searchListUI.MinimumSize.Width;
+            }
+            else
+            {
+                searchListUI.Width = currentForm.Width;
+            }
+
             searchListUI.Show();
         }
         public void goBack(Form currentForm)
@@ -44,11 +80,46 @@ namespace StreamSpotter
             if(searchScreenLast)
             {
                 SearchListUI searchListUI = new SearchListUI(this);
+                searchListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+                if (currentForm.Height < searchListUI.MinimumSize.Height)
+                {
+                    searchListUI.Height = searchListUI.MinimumSize.Height;
+                }
+                else
+                {
+                    searchListUI.Height = currentForm.Height;
+                }
+                if (currentForm.Width < searchListUI.MinimumSize.Width)
+                {
+                    searchListUI.Width = searchListUI.MinimumSize.Width;
+                }
+                else
+                {
+                    searchListUI.Width = currentForm.Width;
+                }
+
                 searchListUI.Show();
             }
             else
             {
                 WishlistUI wishListUI = new WishlistUI(this);
+                wishListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+                if (currentForm.Height < wishListUI.MinimumSize.Height)
+                {
+                    wishListUI.Height = wishListUI.MinimumSize.Height;
+                }
+                else
+                {
+                    wishListUI.Height = currentForm.Height;
+                }
+                if (currentForm.Width < wishListUI.MinimumSize.Width)
+                {
+                    wishListUI.Width = wishListUI.MinimumSize.Width;
+                }
+                else
+                {
+                    wishListUI.Width = currentForm.Width;
+                }
                 wishListUI.Show();
             }
         }
@@ -97,6 +168,24 @@ namespace StreamSpotter
             {
                 currentForm.Hide();
                 MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex), this, inList);
+                movieScreen.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+                if (currentForm.Height < movieScreen.MinimumSize.Height)
+                {
+                    movieScreen.Height = movieScreen.MinimumSize.Height;
+                }
+                else
+                {
+                    movieScreen.Height = currentForm.Height;
+                }
+                if (currentForm.Width < movieScreen.MinimumSize.Width)
+                {
+                    movieScreen.Width = movieScreen.MinimumSize.Width;
+                }
+                else
+                {
+                    movieScreen.Width = currentForm.Width;
+                }
+
                 movieScreen.Show();
             }
         }
@@ -193,6 +282,11 @@ namespace StreamSpotter
             bool notEmpty = movieList.filterByLonger();
             movieList.printList();
             return notEmpty;
+        }
+
+        public void printList()
+        {
+            movieList.printList();
         }
 
         public void createProfileOnStartup()

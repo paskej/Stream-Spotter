@@ -9,14 +9,14 @@ namespace StreamSpotter
     class Handler
     {
         // Invoker
-        public Entity.History com_history;
+        public History com_history;
         // Receiver
         public MovieList movieList { get; set; }
 
         public Handler()
         {
             movieList = new MovieList();
-            com_history = new Entity.History();
+            com_history = new History();
         }
         public void AddEntry(string fn, string ln, string phone)
         {

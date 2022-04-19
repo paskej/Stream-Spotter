@@ -32,25 +32,24 @@
             this.HomeButton = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.menuButton = new System.Windows.Forms.Button();
+            this.ProfileButton = new System.Windows.Forms.Button();
+            this.wishlistButton = new System.Windows.Forms.Button();
             this.SearchBar = new System.Windows.Forms.TextBox();
             this.listPanel = new System.Windows.Forms.Panel();
             this.listEmptyLabel = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.profilePanel = new System.Windows.Forms.Panel();
-            this.wishlistButton = new System.Windows.Forms.Button();
-            this.ProfileButton = new System.Windows.Forms.Button();
+            this.redoButton = new System.Windows.Forms.Button();
+            this.undoButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.listPanel.SuspendLayout();
-            this.profilePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // HomeButton
             // 
             this.HomeButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.HomeButton.Location = new System.Drawing.Point(124, 12);
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HomeButton.Location = new System.Drawing.Point(121, 9);
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(79, 39);
             this.HomeButton.TabIndex = 21;
@@ -82,7 +81,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.menuButton);
+            this.panel1.Controls.Add(this.ProfileButton);
+            this.panel1.Controls.Add(this.wishlistButton);
             this.panel1.Controls.Add(this.HomeButton);
             this.panel1.Controls.Add(this.SearchBar);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -91,18 +91,32 @@
             this.panel1.Size = new System.Drawing.Size(851, 60);
             this.panel1.TabIndex = 25;
             // 
-            // menuButton
+            // ProfileButton
             // 
-            this.menuButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.menuButton.Location = new System.Drawing.Point(12, 12);
-            this.menuButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(105, 39);
-            this.menuButton.TabIndex = 30;
-            this.menuButton.Text = "Menu";
-            this.menuButton.UseVisualStyleBackColor = true;
-            this.menuButton.Click += new System.EventHandler(this.button3_Click);
+            this.ProfileButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProfileButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.ProfileButton.Location = new System.Drawing.Point(729, 9);
+            this.ProfileButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.ProfileButton.Name = "ProfileButton";
+            this.ProfileButton.Size = new System.Drawing.Size(105, 39);
+            this.ProfileButton.TabIndex = 4;
+            this.ProfileButton.Text = "Profile";
+            this.ProfileButton.UseVisualStyleBackColor = true;
+            this.ProfileButton.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // wishlistButton
+            // 
+            this.wishlistButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.wishlistButton.Location = new System.Drawing.Point(8, 9);
+            this.wishlistButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.wishlistButton.Name = "wishlistButton";
+            this.wishlistButton.Size = new System.Drawing.Size(105, 39);
+            this.wishlistButton.TabIndex = 23;
+            this.wishlistButton.Text = "Wishlist";
+            this.wishlistButton.UseVisualStyleBackColor = false;
+            this.wishlistButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // SearchBar
             // 
@@ -147,73 +161,63 @@
             "Netflix",
             "Disney+"});
             this.comboBox2.Location = new System.Drawing.Point(560, 62);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(144, 36);
             this.comboBox2.TabIndex = 32;
             this.comboBox2.Text = "Service";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // profilePanel
+            // redoButton
             // 
-            this.profilePanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.profilePanel.Controls.Add(this.wishlistButton);
-            this.profilePanel.Controls.Add(this.ProfileButton);
-            this.profilePanel.Location = new System.Drawing.Point(8, 60);
-            this.profilePanel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Size = new System.Drawing.Size(113, 105);
-            this.profilePanel.TabIndex = 33;
-            this.profilePanel.Visible = false;
-            this.profilePanel.MouseLeave += new System.EventHandler(this.profilePanel_MouseLeave);
+            this.redoButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.redoButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.redoButton.Location = new System.Drawing.Point(76, 64);
+            this.redoButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.redoButton.Name = "redoButton";
+            this.redoButton.Size = new System.Drawing.Size(65, 32);
+            this.redoButton.TabIndex = 34;
+            this.redoButton.Text = "Redo";
+            this.redoButton.UseVisualStyleBackColor = true;
+            this.redoButton.Click += new System.EventHandler(this.redoButton_Click);
             // 
-            // wishlistButton
+            // undoButton
             // 
-            this.wishlistButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.wishlistButton.Location = new System.Drawing.Point(4, 54);
-            this.wishlistButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.wishlistButton.Name = "wishlistButton";
-            this.wishlistButton.Size = new System.Drawing.Size(105, 48);
-            this.wishlistButton.TabIndex = 23;
-            this.wishlistButton.Text = "Wishlist";
-            this.wishlistButton.UseVisualStyleBackColor = false;
-            this.wishlistButton.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // ProfileButton
-            // 
-            this.ProfileButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProfileButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.ProfileButton.Location = new System.Drawing.Point(4, 2);
-            this.ProfileButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.ProfileButton.Name = "ProfileButton";
-            this.ProfileButton.Size = new System.Drawing.Size(105, 48);
-            this.ProfileButton.TabIndex = 4;
-            this.ProfileButton.Text = "Profile";
-            this.ProfileButton.UseVisualStyleBackColor = true;
-            this.ProfileButton.Click += new System.EventHandler(this.button2_Click_1);
+            this.undoButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.undoButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.undoButton.Location = new System.Drawing.Point(8, 64);
+            this.undoButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.undoButton.Name = "undoButton";
+            this.undoButton.Size = new System.Drawing.Size(66, 32);
+            this.undoButton.TabIndex = 35;
+            this.undoButton.Text = "Undo";
+            this.undoButton.UseVisualStyleBackColor = true;
+            this.undoButton.Click += new System.EventHandler(this.undoButton_Click);
             // 
             // SearchListUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(851, 545);
-            this.Controls.Add(this.profilePanel);
+            this.ClientSize = new System.Drawing.Size(909, 558);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listPanel);
             this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.undoButton);
+            this.Controls.Add(this.redoButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(927, 605);
             this.Name = "SearchListUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "SearchListUI";
+            this.Load += new System.EventHandler(this.SearchListUI_Load);
+            this.ResizeEnd += new System.EventHandler(this.SearchListUI_ResizeEnd);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.listPanel.ResumeLayout(false);
             this.listPanel.PerformLayout();
-            this.profilePanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -226,9 +230,9 @@
         private System.Windows.Forms.TextBox SearchBar;
         private System.Windows.Forms.Label listEmptyLabel;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button menuButton;
-        private System.Windows.Forms.Panel profilePanel;
         private System.Windows.Forms.Button wishlistButton;
         private System.Windows.Forms.Button ProfileButton;
+        private System.Windows.Forms.Button redoButton;
+        private System.Windows.Forms.Button undoButton;
     }
 }

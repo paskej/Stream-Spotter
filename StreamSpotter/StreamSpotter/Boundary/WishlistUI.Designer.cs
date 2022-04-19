@@ -45,21 +45,13 @@
             this.comboBox1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "(None)",
-            "Movies Only",
-            "Shows Only",
-            "Highest Rating",
-            "Newest First",
-            "Oldest First",
-            "Shortest First",
-            "Longest First"});
+            "(None)"});
             this.comboBox1.Location = new System.Drawing.Point(546, 50);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(92, 36);
             this.comboBox1.TabIndex = 30;
             this.comboBox1.Text = "Filter";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // HomeButton
             // 
