@@ -30,6 +30,7 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileSelectionScreen));
 			this.StreamSelectPanel = new System.Windows.Forms.Panel();
+			this.ProfileSavedLabel = new System.Windows.Forms.Label();
 			this.SwitchButton = new System.Windows.Forms.Button();
 			this.DisneyCheckBox = new System.Windows.Forms.CheckBox();
 			this.NetflixCheckBox = new System.Windows.Forms.CheckBox();
@@ -57,7 +58,6 @@
 			this.Profile1 = new System.Windows.Forms.Button();
 			this.DeleteProfileButton = new System.Windows.Forms.Button();
 			this.ProfileDeletedLabel = new System.Windows.Forms.Label();
-			this.ProfileSavedLabel = new System.Windows.Forms.Label();
 			this.StreamSelectPanel.SuspendLayout();
 			this.SwitchPanel.SuspendLayout();
 			this.NewProfilePanel.SuspendLayout();
@@ -73,8 +73,20 @@
 			this.StreamSelectPanel.Controls.Add(this.SaveButton);
 			this.StreamSelectPanel.Location = new System.Drawing.Point(0, 1);
 			this.StreamSelectPanel.Name = "StreamSelectPanel";
-			this.StreamSelectPanel.Size = new System.Drawing.Size(832, 454);
+			this.StreamSelectPanel.Size = new System.Drawing.Size(832, 464);
 			this.StreamSelectPanel.TabIndex = 5;
+			// 
+			// ProfileSavedLabel
+			// 
+			this.ProfileSavedLabel.AutoSize = true;
+			this.ProfileSavedLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileSavedLabel.ForeColor = System.Drawing.Color.Green;
+			this.ProfileSavedLabel.Location = new System.Drawing.Point(270, 231);
+			this.ProfileSavedLabel.Name = "ProfileSavedLabel";
+			this.ProfileSavedLabel.Size = new System.Drawing.Size(269, 29);
+			this.ProfileSavedLabel.TabIndex = 10;
+			this.ProfileSavedLabel.Text = "Services have been saved!";
+			this.ProfileSavedLabel.Click += new System.EventHandler(this.label2_Click);
 			// 
 			// SwitchButton
 			// 
@@ -151,7 +163,7 @@
 			this.SwitchPanel.Controls.Add(this.ProfileDeletedLabel);
 			this.SwitchPanel.Location = new System.Drawing.Point(0, 1);
 			this.SwitchPanel.Name = "SwitchPanel";
-			this.SwitchPanel.Size = new System.Drawing.Size(832, 41);
+			this.SwitchPanel.Size = new System.Drawing.Size(832, 467);
 			this.SwitchPanel.TabIndex = 11;
 			// 
 			// NewProfilePanel
@@ -164,7 +176,7 @@
 			this.NewProfilePanel.Controls.Add(this.NameTextBox);
 			this.NewProfilePanel.Location = new System.Drawing.Point(0, 0);
 			this.NewProfilePanel.Name = "NewProfilePanel";
-			this.NewProfilePanel.Size = new System.Drawing.Size(832, 44);
+			this.NewProfilePanel.Size = new System.Drawing.Size(832, 467);
 			this.NewProfilePanel.TabIndex = 12;
 			// 
 			// TooManyProfilesLabel
@@ -369,18 +381,6 @@
 			this.ProfileDeletedLabel.TabIndex = 24;
 			this.ProfileDeletedLabel.Text = "The profile you were on has been deleted,\r\n please choose a new profile\r\n";
 			this.ProfileDeletedLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// ProfileSavedLabel
-			// 
-			this.ProfileSavedLabel.AutoSize = true;
-			this.ProfileSavedLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ProfileSavedLabel.ForeColor = System.Drawing.Color.Green;
-			this.ProfileSavedLabel.Location = new System.Drawing.Point(270, 231);
-			this.ProfileSavedLabel.Name = "ProfileSavedLabel";
-			this.ProfileSavedLabel.Size = new System.Drawing.Size(269, 29);
-			this.ProfileSavedLabel.TabIndex = 10;
-			this.ProfileSavedLabel.Text = "Services have been saved!";
-			this.ProfileSavedLabel.Click += new System.EventHandler(this.label2_Click);
 			// 
 			// ProfileSelectionScreen
 			// 
