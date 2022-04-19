@@ -175,6 +175,7 @@ namespace StreamSpotter
         {
             //handler.Undo();
             windowsController.printList();
+        }
 			
         public void formatPage()
         {
