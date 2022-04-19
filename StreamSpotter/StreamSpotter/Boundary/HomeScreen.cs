@@ -33,7 +33,7 @@ namespace StreamSpotter
         private void ProfileButton_Click(object sender, EventArgs e)
         {
             WindowsController winController = new WindowsController();
-            winController.showProfileScreen();
+            winController.showProfileScreen(this);
             winController.profileScreen.updateCheckedBoxes();
         }
 

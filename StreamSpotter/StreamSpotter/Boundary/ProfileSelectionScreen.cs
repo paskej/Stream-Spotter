@@ -416,5 +416,10 @@ namespace StreamSpotter
 				}
 			}
 		}
+
+		public void updateFormPosition(Form lastForm)
+		{
+			//lastForm.
+		}
 	}
 }

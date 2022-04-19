@@ -35,7 +35,7 @@ namespace StreamSpotter
         private void button3_Click(object sender, EventArgs e)
         {
             WindowsController winController = new WindowsController();
-            winController.showProfileScreen();
+            winController.showProfileScreen(this);
         }
 
 

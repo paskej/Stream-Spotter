@@ -124,11 +124,13 @@ namespace StreamSpotter
             movieList.removeFromWishlist(movie);
         }
 
-        public void showProfileScreen()
+        public void showProfileScreen(Form currentForm)
 		{
             profileScreen = new ProfileSelectionScreen();
+            profileScreen.updateFormPosition(currentForm);
             profileScreen.Show();
-		}
+
+        }
 
         public bool unFilter()
         {
@@ -196,7 +198,8 @@ namespace StreamSpotter
         public void createProfileOnStartup()
 		{
             //need to check if this is the first time starting on the machine.
-            showProfileScreen();
+            profileScreen = new ProfileSelectionScreen();
+            profileScreen.Show();
             profileScreen.createNewProfileOnStart();
         }
     }
