@@ -14,6 +14,7 @@ namespace StreamSpotter
     public class DatabaseAccess
     {
         private static string BASE_PATH = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\"));
+        private Recommendations recommendations;
 
         public DatabaseAccess()
         {
@@ -21,6 +22,7 @@ namespace StreamSpotter
             {
                 Directory.CreateDirectory(BASE_PATH + "\\Wishlists\\Profiles");
             }
+            recommendations = new Recommendations();
         }
 
         public void addProfileDirectory(int profileID)
@@ -37,11 +39,17 @@ namespace StreamSpotter
                 FileStream file = File.Create(BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\" + fileName + ".json");
                 file.Close();
             }
+            if (!File.Exists(BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\recommendations.json"))
+            {
+                FileStream r = File.Create(BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\recommendations.json");
+                r.Close();
+            }
         }
 
         public void addProfile(Profile p)
         {
             string path = BASE_PATH + "\\Wishlists\\Profiles\\ListofProfiles.json";
+            
             if (!File.Exists(path))
             {
                 FileStream file = File.Create(path);
@@ -52,7 +60,7 @@ namespace StreamSpotter
                     p.setID(generateID());
                 }
                 addProfileDirectory(p.getID());
-                addJson(p.getID(), p.getID().ToString());
+                addJson(p.getID(), p.getID().ToString());              
                 pl.list = new Profile[1];
                 pl.list[0] = p;
                 string text = JsonConvert.SerializeObject(pl);
@@ -130,6 +138,10 @@ namespace StreamSpotter
                         if(pl.list[i].getID() == profileID)
                         {
                             Profile[] temp = new Profile[l - 1];
+                            for(int j = 0; j < i; j++)
+                            {
+                                temp[j] = pl.list[j];
+                            }
                             for (int j = i; j < l - 1; j++)
                             {
                                 temp[j] = pl.list[j + 1];
@@ -152,7 +164,7 @@ namespace StreamSpotter
                         tw.WriteLine(JsonConvert.SerializeObject(pl));
                     }
                 }
-                else
+                else if(profileID == pl.list[i].getID())
                 {
                     pl.list = new Profile[0];
                     string profilePath = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID;
@@ -272,6 +284,36 @@ namespace StreamSpotter
                 return null;
             }
         }
+
+        public void updateRecommendations(int profileID)
+        {
+            string recPath = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\recommendations.json";
+            if (File.Exists(recPath))
+            {
+                Result[] wishlist = getWishlist(profileID, profileID.ToString());
+                Result[] recs = recommendations.getRecommendations(wishlist);
+                RootObject ro = new RootObject();
+                ro.results = recs;
+                string text = JsonConvert.SerializeObject(ro);
+                using (StreamWriter tw = new StreamWriter(recPath, false))
+                {
+                    tw.WriteLine(text);
+                    tw.Close();
+                }
+            }
+        }
+
+        public Result[] getRecommendations(int profileID)
+        {
+            string recPath = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\recommendations.json";
+            Result[] results = null;
+            if (File.Exists(recPath))
+            {
+                RootObject ro = JsonConvert.DeserializeObject<RootObject>(recPath);
+                results = ro.results;
+            }
+            return results;
+        }
         public int getMovieIndex(RootObject ro, string movieName)
         {
             int temp = -1;
@@ -326,6 +368,7 @@ namespace StreamSpotter
                         string fileName = f.Remove(0,pathLen);
                         File.Move(f,(n + fileName));
                     }
+                    Directory.Delete(old);
                     pl.list[i].setID(i);
                 }
             }

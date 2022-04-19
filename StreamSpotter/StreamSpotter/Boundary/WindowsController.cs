@@ -13,10 +13,14 @@ namespace StreamSpotter
         private Search search;
         private Result[] searchResults;
         bool searchScreenLast;
+        public ProfileController profileController;
+        public Profile currentProfile;
         public WindowsController()
         {
             search = new Search();
             searchScreenLast = true;
+            profileController = new ProfileController();
+            currentProfile = profileController.GetProfile(profileController.getCurrentProfile());
         }
         public void openHomeScreen(Form currentForm)
         {

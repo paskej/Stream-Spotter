@@ -13,7 +13,7 @@ namespace StreamSpotter
 		public bool listIsFull = false;
 		public Profile[] fullProfileList;
 		public const int TOTAL_PROFILES = 10;
-		public int currentProfileID = -1;
+		public int currentProfileID = 0;
 
 		public ProfileController()
 		{
