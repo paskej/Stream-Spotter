@@ -143,10 +143,6 @@ namespace StreamSpotter
                 Result key = filterList[i];
                 int j = i - 1;
 
-                // Move elements of arr[0..i-1],
-                // that are greater than key,
-                // to one position ahead of
-                // their current position
                 while (j >= 0 && filterList[j].imdbRating < key.imdbRating)
                 {
                     filterList[j + 1] = filterList[j];
@@ -172,11 +168,7 @@ namespace StreamSpotter
                 Result key = filterList[i];
                 int j = i - 1;
 
-                // Move elements of arr[0..i-1],
-                // that are greater than key,
-                // to one position ahead of
-                // their current position
-                while (j >= 0 && filterList[j].age > key.age)
+                while (j >= 0 && filterList[j].year < key.year)
                 {
                     filterList[j + 1] = filterList[j];
                     j = j - 1;
@@ -190,22 +182,23 @@ namespace StreamSpotter
         {
             filterList = new List<Result>();
 
-            List<Result> tempList = new List<Result>();
             for (int x = 0; x < movieList.Count; x++)
             {
-                tempList.Add(movieList[x]);
+                filterList.Add(movieList[x]);
             }
 
-            for (int x = 0; x < tempList.Count - 1; x++)
+            int n = filterList.Count;
+            for (int i = 1; i < n; ++i)
             {
-                int highIndex = 0;
-                for (int y = 1; y < tempList.Count; y++)
+                Result key = filterList[i];
+                int j = i - 1;
+
+                while (j >= 0 && filterList[j].year > key.year)
                 {
-                    if (tempList[highIndex].age < tempList[y].age)
-                        highIndex = y;
+                    filterList[j + 1] = filterList[j];
+                    j = j - 1;
                 }
-                filterList.Add(tempList[highIndex]);
-                tempList.RemoveAt(highIndex);
+                filterList[j + 1] = key;
             }
             return filterList.Count != 0;
         }
@@ -214,22 +207,23 @@ namespace StreamSpotter
         {
             filterList = new List<Result>();
 
-            List<Result> tempList = new List<Result>();
             for (int x = 0; x < movieList.Count; x++)
             {
-                tempList.Add(movieList[x]);
+                filterList.Add(movieList[x]);
             }
 
-            for (int x = 0; x < tempList.Count - 1; x++)
+            int n = filterList.Count;
+            for (int i = 1; i < n; ++i)
             {
-                int highIndex = 0;
-                for (int y = 1; y < tempList.Count; y++)
+                Result key = filterList[i];
+                int j = i - 1;
+
+                while (j >= 0 && filterList[j].runtime > key.runtime)
                 {
-                    if (tempList[highIndex].runtime > tempList[y].runtime)
-                        highIndex = y;
+                    filterList[j + 1] = filterList[j];
+                    j = j - 1;
                 }
-                filterList.Add(tempList[highIndex]);
-                tempList.RemoveAt(highIndex);
+                filterList[j + 1] = key;
             }
             return filterList.Count != 0;
         }
@@ -238,22 +232,23 @@ namespace StreamSpotter
         {
             filterList = new List<Result>();
 
-            List<Result> tempList = new List<Result>();
             for (int x = 0; x < movieList.Count; x++)
             {
-                tempList.Add(movieList[x]);
+                filterList.Add(movieList[x]);
             }
 
-            for (int x = 0; x < tempList.Count - 1; x++)
+            int n = filterList.Count;
+            for (int i = 1; i < n; ++i)
             {
-                int highIndex = 0;
-                for (int y = 1; y < tempList.Count; y++)
+                Result key = filterList[i];
+                int j = i - 1;
+
+                while (j >= 0 && filterList[j].runtime < key.runtime)
                 {
-                    if (tempList[highIndex].runtime < tempList[y].runtime)
-                        highIndex = y;
+                    filterList[j + 1] = filterList[j];
+                    j = j - 1;
                 }
-                filterList.Add(tempList[highIndex]);
-                tempList.RemoveAt(highIndex);
+                filterList[j + 1] = key;
             }
             return filterList.Count != 0;
         }
