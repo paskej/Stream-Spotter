@@ -28,6 +28,11 @@ namespace StreamSpotter
         {
             InitializeComponent();
             this.windowsController = windowsController;
+            if(windowsController.wishlistChanged == true)
+            {
+                windowsController.updateRecommendations();
+                windowsController.wishlistChanged = false;
+            }
         }
 
         private void ProfileButton_Click(object sender, EventArgs e)

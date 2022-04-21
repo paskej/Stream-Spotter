@@ -17,12 +17,14 @@ namespace StreamSpotter
         public Profile currentProfile;
         public ProfileSelectionScreen profileScreen;
         private static WindowsController instance;
+        public bool wishlistChanged;
         private WindowsController()
         {
             search = new Search();
             searchScreenLast = true;
             profileController = new ProfileController();
             currentProfile = profileController.GetProfile(profileController.getCurrentProfile());
+            wishlistChanged = false;
         }
         public static WindowsController getInstance()
         {
@@ -322,6 +324,11 @@ namespace StreamSpotter
             profileScreen = new ProfileSelectionScreen();
             profileScreen.Show();
             profileScreen.createNewProfileOnStart();
+        }
+
+        public void updateRecommendations()
+        {
+            movieList.updateRecommendations(profileController.currentProfileID);
         }
     }
 }
