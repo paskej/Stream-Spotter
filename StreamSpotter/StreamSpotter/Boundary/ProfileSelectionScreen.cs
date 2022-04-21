@@ -59,6 +59,7 @@ namespace StreamSpotter
 			buttonList.Add(Profile10);
 
 			updateProfileButtonName();
+			noCurrentProfile();
 		}
 
 		private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -128,6 +129,7 @@ namespace StreamSpotter
 
 		private void SwitchButton_Click_1(object sender, EventArgs e)
 		{
+			noCurrentProfile();
 			ProfileSavedLabel.Visible = false;
 			updateProfileButtonName();
 			SwitchPanel.Visible = true;
@@ -164,6 +166,7 @@ namespace StreamSpotter
 
 		private void CancelButton_Click(object sender, EventArgs e)
 		{
+			noCurrentProfile();
 			NameTextBox.Text = "";
 			NewProfilePanel.Visible = false;
 			SwitchPanel.Visible = true;
@@ -208,10 +211,12 @@ namespace StreamSpotter
 				NameTextBox.Text = "";
 				updateProfileButtonName();
 			}
+			noCurrentProfile();
 		}
 
 		private void SaveButton_Click(object sender, EventArgs e)
 		{
+			noCurrentProfile();
 			for (int i = 0; i < serviceArray.Count; i++)
 			{
 				currentProfile.AddService((string)serviceArray[i]);
@@ -392,6 +397,7 @@ namespace StreamSpotter
 
 		private void MyCancelButton_Click(object sender, EventArgs e)
 		{
+			noCurrentProfile();
 			SwitchPanel.Visible = true;
 			StreamSelectPanel.Visible = false;
 			NewProfilePanel.Visible = false;
@@ -471,6 +477,22 @@ namespace StreamSpotter
 			StreamSelectPanel.Visible = true;
 			NewProfilePanel.Visible = false;
 			updateCheckedBoxes();
+		}
+
+		private void noCurrentProfile()
+		{
+			if(currentProfile == null)
+			{
+				ExitButton.Enabled = false;
+				serviceButton.Enabled = false;
+				DeleteProfileButton.Enabled = false;
+			}
+			else
+			{
+				ExitButton.Enabled = true;
+				serviceButton.Enabled = true;
+				DeleteProfileButton.Enabled = true;
+			}
 		}
 	}
 }

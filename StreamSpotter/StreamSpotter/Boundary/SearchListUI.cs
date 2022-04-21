@@ -26,6 +26,8 @@ namespace StreamSpotter
                 listPanel.Controls.Add(listEmptyLabel);
                 listEmptyLabel.Visible = true;
             }
+
+            ProfileButton.Text = (string)windowsController.currentProfile.getProfileName();
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
