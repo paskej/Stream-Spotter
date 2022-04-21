@@ -316,7 +316,8 @@ namespace StreamSpotter
 
         public void createProfileOnStartup()
 		{
-            //need to check if this is the first time starting on the machine.
+            //change to start in program.cs.
+            //first check if there is a profile and if there isnt then dont let the user close the form.
             profileScreen = new ProfileSelectionScreen();
             profileScreen.Show();
             profileScreen.createNewProfileOnStart();
