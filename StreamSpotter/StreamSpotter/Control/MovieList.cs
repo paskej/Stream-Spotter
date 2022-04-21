@@ -95,6 +95,15 @@ namespace StreamSpotter
         {
             wishlistTracker.changeCurrentWishlist(profileID, listName);
         }
+        public void updateRecommendations(int profileID)
+        {
+            wishlistTracker.updateRecommendations(profileID);
+        }
+
+        public Result[] getRecommendations(int profileID)
+        {
+            return wishlistTracker.getRecommendations(profileID);
+        }
         public bool filterByStreamingService(String service)
         {
             filterList = new List<Result>();

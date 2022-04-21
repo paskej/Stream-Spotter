@@ -37,6 +37,7 @@
 			this.MyCancelButton = new System.Windows.Forms.Button();
 			this.SaveButton = new System.Windows.Forms.Button();
 			this.SwitchPanel = new System.Windows.Forms.Panel();
+			this.ProfileNotCreatedLabel = new System.Windows.Forms.Label();
 			this.NewProfilePanel = new System.Windows.Forms.Panel();
 			this.TooManyProfilesLabel = new System.Windows.Forms.Label();
 			this.CancelButton = new System.Windows.Forms.Button();
@@ -58,7 +59,7 @@
 			this.Profile1 = new System.Windows.Forms.Button();
 			this.DeleteProfileButton = new System.Windows.Forms.Button();
 			this.ProfileDeletedLabel = new System.Windows.Forms.Label();
-			this.ProfileNotCreatedLabel = new System.Windows.Forms.Label();
+			this.serviceButton = new System.Windows.Forms.Button();
 			this.StreamSelectPanel.SuspendLayout();
 			this.SwitchPanel.SuspendLayout();
 			this.NewProfilePanel.SuspendLayout();
@@ -72,9 +73,9 @@
 			this.StreamSelectPanel.Controls.Add(this.NetflixCheckBox);
 			this.StreamSelectPanel.Controls.Add(this.MyCancelButton);
 			this.StreamSelectPanel.Controls.Add(this.SaveButton);
-			this.StreamSelectPanel.Location = new System.Drawing.Point(0, 1);
+			this.StreamSelectPanel.Location = new System.Drawing.Point(0, 0);
 			this.StreamSelectPanel.Name = "StreamSelectPanel";
-			this.StreamSelectPanel.Size = new System.Drawing.Size(832, 464);
+			this.StreamSelectPanel.Size = new System.Drawing.Size(832, 446);
 			this.StreamSelectPanel.TabIndex = 5;
 			// 
 			// ProfileSavedLabel
@@ -147,14 +148,16 @@
 			// SwitchPanel
 			// 
 			this.SwitchPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.SwitchPanel.Controls.Add(this.ProfileNotCreatedLabel);
 			this.SwitchPanel.Controls.Add(this.NewProfilePanel);
+			this.SwitchPanel.Controls.Add(this.StreamSelectPanel);
+			this.SwitchPanel.Controls.Add(this.ProfileNotCreatedLabel);
 			this.SwitchPanel.Controls.Add(this.ExitButton);
 			this.SwitchPanel.Controls.Add(this.NewProfileButton);
 			this.SwitchPanel.Controls.Add(this.Profile10);
 			this.SwitchPanel.Controls.Add(this.Profile9);
 			this.SwitchPanel.Controls.Add(this.Profile8);
 			this.SwitchPanel.Controls.Add(this.Profile7);
+			this.SwitchPanel.Controls.Add(this.ProfileDeletedLabel);
 			this.SwitchPanel.Controls.Add(this.Profile6);
 			this.SwitchPanel.Controls.Add(this.Profile5);
 			this.SwitchPanel.Controls.Add(this.Profile4);
@@ -162,11 +165,24 @@
 			this.SwitchPanel.Controls.Add(this.Profile2);
 			this.SwitchPanel.Controls.Add(this.Profile1);
 			this.SwitchPanel.Controls.Add(this.DeleteProfileButton);
-			this.SwitchPanel.Controls.Add(this.ProfileDeletedLabel);
-			this.SwitchPanel.Location = new System.Drawing.Point(0, 1);
+			this.SwitchPanel.Controls.Add(this.serviceButton);
+			this.SwitchPanel.Location = new System.Drawing.Point(1, 1);
 			this.SwitchPanel.Name = "SwitchPanel";
-			this.SwitchPanel.Size = new System.Drawing.Size(832, 467);
+			this.SwitchPanel.Size = new System.Drawing.Size(833, 446);
 			this.SwitchPanel.TabIndex = 11;
+			this.SwitchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SwitchPanel_Paint_1);
+			// 
+			// ProfileNotCreatedLabel
+			// 
+			this.ProfileNotCreatedLabel.AutoSize = true;
+			this.ProfileNotCreatedLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileNotCreatedLabel.ForeColor = System.Drawing.Color.Firebrick;
+			this.ProfileNotCreatedLabel.Location = new System.Drawing.Point(152, 27);
+			this.ProfileNotCreatedLabel.Name = "ProfileNotCreatedLabel";
+			this.ProfileNotCreatedLabel.Size = new System.Drawing.Size(503, 28);
+			this.ProfileNotCreatedLabel.TabIndex = 25;
+			this.ProfileNotCreatedLabel.Text = "The profile you have clicked hasn\'t been created yet";
+			this.ProfileNotCreatedLabel.Click += new System.EventHandler(this.label2_Click_1);
 			// 
 			// NewProfilePanel
 			// 
@@ -178,8 +194,9 @@
 			this.NewProfilePanel.Controls.Add(this.NameTextBox);
 			this.NewProfilePanel.Location = new System.Drawing.Point(0, 0);
 			this.NewProfilePanel.Name = "NewProfilePanel";
-			this.NewProfilePanel.Size = new System.Drawing.Size(832, 467);
+			this.NewProfilePanel.Size = new System.Drawing.Size(830, 446);
 			this.NewProfilePanel.TabIndex = 12;
+			this.NewProfilePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.NewProfilePanel_Paint);
 			// 
 			// TooManyProfilesLabel
 			// 
@@ -377,33 +394,31 @@
 			this.ProfileDeletedLabel.AutoSize = true;
 			this.ProfileDeletedLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ProfileDeletedLabel.ForeColor = System.Drawing.Color.Firebrick;
-			this.ProfileDeletedLabel.Location = new System.Drawing.Point(193, 21);
+			this.ProfileDeletedLabel.Location = new System.Drawing.Point(197, 27);
 			this.ProfileDeletedLabel.Name = "ProfileDeletedLabel";
 			this.ProfileDeletedLabel.Size = new System.Drawing.Size(405, 56);
 			this.ProfileDeletedLabel.TabIndex = 24;
 			this.ProfileDeletedLabel.Text = "The profile you were on has been deleted,\r\n please choose a new profile\r\n";
 			this.ProfileDeletedLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.ProfileDeletedLabel.Click += new System.EventHandler(this.ProfileDeletedLabel_Click);
 			// 
-			// ProfileNotCreatedLabel
+			// serviceButton
 			// 
-			this.ProfileNotCreatedLabel.AutoSize = true;
-			this.ProfileNotCreatedLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ProfileNotCreatedLabel.ForeColor = System.Drawing.Color.Firebrick;
-			this.ProfileNotCreatedLabel.Location = new System.Drawing.Point(152, 27);
-			this.ProfileNotCreatedLabel.Name = "ProfileNotCreatedLabel";
-			this.ProfileNotCreatedLabel.Size = new System.Drawing.Size(503, 28);
-			this.ProfileNotCreatedLabel.TabIndex = 25;
-			this.ProfileNotCreatedLabel.Text = "The profile you have clicked hasn\'t been created yet";
-			this.ProfileNotCreatedLabel.Click += new System.EventHandler(this.label2_Click_1);
+			this.serviceButton.Location = new System.Drawing.Point(712, 50);
+			this.serviceButton.Name = "serviceButton";
+			this.serviceButton.Size = new System.Drawing.Size(76, 29);
+			this.serviceButton.TabIndex = 26;
+			this.serviceButton.Text = "Services";
+			this.serviceButton.UseVisualStyleBackColor = true;
+			this.serviceButton.Click += new System.EventHandler(this.serviceButton_Click);
 			// 
 			// ProfileSelectionScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.ClientSize = new System.Drawing.Size(832, 468);
+			this.ClientSize = new System.Drawing.Size(832, 448);
 			this.Controls.Add(this.SwitchPanel);
-			this.Controls.Add(this.StreamSelectPanel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "ProfileSelectionScreen";
@@ -450,5 +465,6 @@
 		private System.Windows.Forms.Label ProfileDeletedLabel;
 		private System.Windows.Forms.Label ProfileSavedLabel;
 		private System.Windows.Forms.Label ProfileNotCreatedLabel;
+		private System.Windows.Forms.Button serviceButton;
 	}
 }

@@ -61,6 +61,7 @@ namespace StreamSpotter
             if (inWishlist)
             {
                 windowsController.removeMovieFromWishlist(movie);
+                windowsController.wishlistChanged = true;
                 button3.Width = button3.Width - BUTTON_CHANGE;
                 button3.Text = "Add to Wishlist";
                 inWishlist = false;
@@ -68,6 +69,7 @@ namespace StreamSpotter
             else
             {
                 windowsController.addMovieToWishlist(movie);
+                windowsController.wishlistChanged = true;
                 button3.Width = button3.Width + BUTTON_CHANGE;
                 button3.Text = "Remove from Wishlist";
                 inWishlist = true;

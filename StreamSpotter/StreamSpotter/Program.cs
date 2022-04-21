@@ -17,7 +17,10 @@ namespace StreamSpotter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeScreen());
+            //check if there are any profiles made
+            //if no profiles are stored then open the create profile form
+
+            Application.Run(new ProfileSelectionScreen());
 
             //string movie;
             //APIController apiController = new APIController();

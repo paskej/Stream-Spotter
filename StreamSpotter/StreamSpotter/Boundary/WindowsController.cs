@@ -19,6 +19,7 @@ namespace StreamSpotter
         private static WindowsController instance;
         private String currSearch;
         private Stack<String> prevSearch;
+        public bool wishlistChanged;
         private WindowsController()
         {
             search = new Search();
@@ -27,6 +28,7 @@ namespace StreamSpotter
             currentProfile = profileController.GetProfile(profileController.getCurrentProfile());
             currSearch = null;
             prevSearch = new Stack<String>();
+            wishlistChanged = false;
         }
         public static WindowsController getInstance()
         {
@@ -267,6 +269,7 @@ namespace StreamSpotter
             profileScreen = new ProfileSelectionScreen();
             profileScreen.updateFormPosition(currentForm);
             profileScreen.Show();
+            currentForm.Close();
 
         }
 
@@ -345,6 +348,16 @@ namespace StreamSpotter
             profileScreen = new ProfileSelectionScreen();
             profileScreen.Show();
             profileScreen.createNewProfileOnStart();
+        }
+
+        public void updateRecommendations()
+        {
+            movieList.updateRecommendations(profileController.currentProfileID);
+        }
+
+        public Result[] getRecommendations()
+        {
+            return movieList.getRecommendations(profileController.currentProfileID);
         }
     }
 }
