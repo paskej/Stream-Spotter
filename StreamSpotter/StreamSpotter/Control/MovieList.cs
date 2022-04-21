@@ -99,6 +99,11 @@ namespace StreamSpotter
         {
             wishlistTracker.updateRecommendations(profileID);
         }
+
+        public Result[] getRecommendations(int profileID)
+        {
+            return wishlistTracker.getRecommendations(profileID);
+        }
         public bool filterByStreamingService(String service)
         {
             filterList = new List<Result>();

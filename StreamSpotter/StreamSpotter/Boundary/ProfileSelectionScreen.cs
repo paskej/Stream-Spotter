@@ -418,9 +418,17 @@ namespace StreamSpotter
 					{
 						NetflixCheckBox.Checked = true;
 					}
+					else
+					{
+						NetflixCheckBox.Checked = false;
+					}
 					if (currentProfile.getServices()[i] == "disney")
 					{
 						DisneyCheckBox.Checked = true;
+					}
+					else
+					{
+						DisneyCheckBox.Checked = false;
 					}
 				}
 			}
