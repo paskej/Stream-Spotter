@@ -58,6 +58,7 @@ namespace StreamSpotter
         }
         public void openSearchListUI(Form currentForm, string title)
         {
+            search = new Search();
             searchScreenLast = true;
             currentForm.Hide();
             search.searchResult(title, "movie");
