@@ -330,5 +330,10 @@ namespace StreamSpotter
         {
             movieList.updateRecommendations(profileController.currentProfileID);
         }
+
+        public Result[] getRecommendations()
+        {
+            return movieList.getRecommendations(profileController.currentProfileID);
+        }
     }
 }
