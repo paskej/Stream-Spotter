@@ -16,12 +16,23 @@ namespace StreamSpotter
         public ProfileController profileController;
         public Profile currentProfile;
         public ProfileSelectionScreen profileScreen;
-        public WindowsController()
+        private static WindowsController instance;
+        public bool wishlistChanged;
+        private WindowsController()
         {
             search = new Search();
             searchScreenLast = true;
             profileController = new ProfileController();
             currentProfile = profileController.GetProfile(profileController.getCurrentProfile());
+            wishlistChanged = false;
+        }
+        public static WindowsController getInstance()
+        {
+            if(instance == null)
+            {
+                instance = new WindowsController();
+            }
+            return instance;
         }
         public void openHomeScreen(Form currentForm)
         {
@@ -49,6 +60,7 @@ namespace StreamSpotter
         }
         public void openSearchListUI(Form currentForm, string title)
         {
+            search = new Search();
             searchScreenLast = true;
             currentForm.Hide();
             search.searchResult(title, "movie");
@@ -205,19 +217,38 @@ namespace StreamSpotter
         }
         public void addMovieToWishlist(Result movie)
         {
+            int currentID = currentProfile.getID();
+            movieList.changeCurrentWishlist(currentID, currentID.ToString());
             movieList.addToWishlist(movie);
         }
 
         public void removeMovieFromWishlist(Result movie)
         {
+            int currentID = currentProfile.getID();
+            movieList.changeCurrentWishlist(currentID, currentID.ToString());
             movieList.removeFromWishlist(movie);
         }
+        public void changeCurrentWishlist(int profileID, string listName)
+        {
+            if (movieList != null)
+            {
+                movieList.changeCurrentWishlist(profileID, listName);
+            }
+        }
+        public void changeCurrentProfile(int profileID)
+        {
+            profileController.setCurrentProfile(profileID);
+            currentProfile = profileController.GetProfile(profileID);
+        }
 
-        public void showProfileScreen()
+        public void showProfileScreen(Form currentForm)
 		{
             profileScreen = new ProfileSelectionScreen();
+            profileScreen.updateFormPosition(currentForm);
             profileScreen.Show();
-		}
+            currentForm.Close();
+
+        }
 
         public bool unFilter()
         {
@@ -282,11 +313,28 @@ namespace StreamSpotter
             return notEmpty;
         }
 
+        public void printList()
+        {
+            movieList.printList();
+        }
+
         public void createProfileOnStartup()
 		{
-            //need to check if this is the first time starting on the machine.
-            showProfileScreen();
+            //change to start in program.cs.
+            //first check if there is a profile and if there isnt then dont let the user close the form.
+            profileScreen = new ProfileSelectionScreen();
+            profileScreen.Show();
             profileScreen.createNewProfileOnStart();
+        }
+
+        public void updateRecommendations()
+        {
+            movieList.updateRecommendations(profileController.currentProfileID);
+        }
+
+        public Result[] getRecommendations()
+        {
+            return movieList.getRecommendations(profileController.currentProfileID);
         }
     }
 }

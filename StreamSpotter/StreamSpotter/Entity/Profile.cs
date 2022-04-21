@@ -40,6 +40,7 @@ namespace StreamSpotter
 		public Profile(string profileName, ArrayList services)
 		{
 			this.profileName = profileName;
+			services = new ArrayList();
 			id = -1;
 			for (int i = 0; i < services.Count; i++)
 			{
@@ -51,6 +52,7 @@ namespace StreamSpotter
 		public Profile(string profileName, ArrayList services, int id)
 		{
 			this.profileName = profileName;
+			services = new ArrayList();
 			this.id = id;
 			for(int i = 0; i < services.Count; i++)
 			{
@@ -109,12 +111,17 @@ namespace StreamSpotter
 			return services;
 		}
 
-		public void setServies(ArrayList services)
+		public void setServies(ArrayList services2)
 		{
-			for(int i = 0; i < services.Count; i++)
-			{
-				this.services[i] = services[i];
-			}
+			//if (services2 != null)
+			//{
+				services = new ArrayList();
+				for (int i = 0; i < services2.Count; i++)
+				{
+
+					this.services.Add(services2[i]);
+				}
+			//}
 		}
 
 		public int getID()

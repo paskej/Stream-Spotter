@@ -25,10 +25,8 @@ namespace StreamSpotter
             movieList = new List<Result>();
             filterList = new List<Result>();
             DatabaseAccess databaseAccess = new DatabaseAccess();
-            databaseAccess.addProfileDirectory(0);
-            databaseAccess.addJson(0, "list");
             wishlistTracker = new WishlistTracker();
-            wishlistTracker.changeCurrentWishlist(0, "list");
+            wishlistTracker.changeCurrentWishlist(0, "0");
         }
         public MovieList(Panel panel, Form form, WindowsController windowsController)
         {
@@ -38,10 +36,9 @@ namespace StreamSpotter
             this.form = form;
             this.windowsController = windowsController;
             DatabaseAccess databaseAccess = new DatabaseAccess();
-            databaseAccess.addProfileDirectory(0);
-            databaseAccess.addJson(0, "list");
             wishlistTracker = new WishlistTracker();
-            wishlistTracker.changeCurrentWishlist(0, "list");
+            int id = windowsController.currentProfile.getID();
+            wishlistTracker.changeCurrentWishlist(id, id.ToString());
         }
 
         //gather all information from json file to put into the movieList
@@ -102,6 +99,19 @@ namespace StreamSpotter
         public void removeFromWishlist(Result result)
         {
             wishlistTracker.removeFromCurrentWishlist(result.imdbID);
+        }
+        public void changeCurrentWishlist(int profileID, string listName)
+        {
+            wishlistTracker.changeCurrentWishlist(profileID, listName);
+        }
+        public void updateRecommendations(int profileID)
+        {
+            wishlistTracker.updateRecommendations(profileID);
+        }
+
+        public Result[] getRecommendations(int profileID)
+        {
+            return wishlistTracker.getRecommendations(profileID);
         }
         public bool filterByStreamingService(String service)
         {

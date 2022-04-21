@@ -14,6 +14,7 @@ namespace StreamSpotter
     {
         //private MovieList movieList;
         private WindowsController windowsController;
+        private Handler handler;
 
         //need to do show list upon start up somehow
         public SearchListUI(WindowsController windowsController)
@@ -43,7 +44,7 @@ namespace StreamSpotter
                 {
                     //search with the api
                     //then we load the searhlistUI
-                    windowsController = new WindowsController();
+                    windowsController = WindowsController.getInstance();
                     windowsController.openSearchListUI(this, SearchBar.Text);
                 }
             }
@@ -62,8 +63,8 @@ namespace StreamSpotter
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            WindowsController winController = new WindowsController();
-            winController.showProfileScreen();
+            WindowsController winController = WindowsController.getInstance();
+            winController.showProfileScreen(this);
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -164,6 +165,18 @@ namespace StreamSpotter
             }
         }
 
+        private void redoButton_Click(object sender, EventArgs e)
+        {
+            handler.Redo();
+            windowsController.printList();
+        }
+
+        private void undoButton_Click(object sender, EventArgs e)
+        {
+            handler.Undo();
+            windowsController.printList();
+        }
+			
         public void formatPage()
         {
             //
