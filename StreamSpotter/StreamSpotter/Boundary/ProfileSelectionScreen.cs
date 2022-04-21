@@ -149,6 +149,7 @@ namespace StreamSpotter
 			{
 				currentProfile = profileCon.GetProfile(0);
 				winControl.changeCurrentProfile(0);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
 			}
 			else
@@ -194,7 +195,7 @@ namespace StreamSpotter
 			{
 				currentProfile = new Profile();
 			}
-			if (currentProfile.getID() < 9)
+			if (currentProfile.getID() <= 9)
 			{
 				if (profileCon.getListIsFull() == false)
 				{
@@ -257,6 +258,7 @@ namespace StreamSpotter
 			{
 				currentProfile = profileCon.GetProfile(1);
 				winControl.changeCurrentProfile(1);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
 			}
 			else
@@ -272,6 +274,7 @@ namespace StreamSpotter
 			{
 				currentProfile = profileCon.GetProfile(2);
 				winControl.changeCurrentProfile(2);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
 			}
 			else
@@ -286,6 +289,8 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(3) != null)
 			{
 				currentProfile = profileCon.GetProfile(3);
+				winControl.changeCurrentProfile(3);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
 			}
 			else
@@ -300,6 +305,8 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(4) != null)
 			{
 				currentProfile = profileCon.GetProfile(4);
+				winControl.changeCurrentProfile(4);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
 			}
 			else
@@ -314,6 +321,8 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(5) != null)
 			{
 				currentProfile = profileCon.GetProfile(5);
+				winControl.changeCurrentProfile(5);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
 			}
 			else
@@ -328,6 +337,8 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(6) != null)
 			{
 				currentProfile = profileCon.GetProfile(6);
+				winControl.changeCurrentProfile(6);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
 			}
 			else
@@ -342,6 +353,8 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(7) != null)
 			{
 				currentProfile = profileCon.GetProfile(7);
+				winControl.changeCurrentProfile(7);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
 			}
 			else
@@ -356,6 +369,8 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(8) != null)
 			{
 				currentProfile = profileCon.GetProfile(8);
+				winControl.changeCurrentProfile(8);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
 			}
 			else
@@ -370,6 +385,8 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(9) != null)
 			{
 				currentProfile = profileCon.GetProfile(9);
+				winControl.changeCurrentProfile(9);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
 			}
 			else
