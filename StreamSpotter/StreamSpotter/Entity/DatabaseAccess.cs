@@ -102,7 +102,7 @@ namespace StreamSpotter
             {
                 ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(File.ReadAllText(path));
                 int i = -1;
-                for(int j = 0; j < pl.list.Length; i++)
+                for(int j = 0; j < pl.list.Length; j++)
                 {
                     if(pl.list[j].getID() == profile.getID())
                     {

@@ -243,6 +243,7 @@ namespace StreamSpotter
             profileScreen = new ProfileSelectionScreen();
             profileScreen.updateFormPosition(currentForm);
             profileScreen.Show();
+            currentForm.Close();
 
         }
 
