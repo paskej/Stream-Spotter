@@ -76,6 +76,15 @@ namespace StreamSpotter
                 works = false;
             return works;
         }
+
+        public bool populateRecommendedList()
+        {
+            movieList = new List<Result>();
+
+            Result[] list = 
+
+            return false;
+        }
         public Result getMovie(int index)
         {
             if (filterList != null && index < filterList.Count && index >= 0) 
