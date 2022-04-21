@@ -42,6 +42,7 @@ namespace StreamSpotter
                     MessageBox.Show("Please enter a search!");
                 else
                 {
+                    windowsController.setPrevSearch(windowsController.getCurrSearch());
                     //search with the api
                     //then we load the searhlistUI
                     windowsController = WindowsController.getInstance();
@@ -182,7 +183,7 @@ namespace StreamSpotter
             //
             //Button HomeButton;
             //
-            HomeButton.Location = new Point(5, 10);
+            HomeButton.Location = new Point(36, 10);
 
 
             //
@@ -241,7 +242,7 @@ namespace StreamSpotter
             //
             //Button wishlistButton;
             //
-            wishlistButton.Location = new Point(65, 10);
+            wishlistButton.Location = new Point((this.Width - ProfileButton.Width - 102), (10));
 
 
             //
@@ -249,6 +250,14 @@ namespace StreamSpotter
             //
             ProfileButton.Location = new Point((this.Width - ProfileButton.Width - 5 - 15), (10));
 
+            //
+            //Button ProfileButton;
+            //
+
+
+            //
+            //Button ProfileButton;
+            //
 
         }
 
@@ -260,6 +269,14 @@ namespace StreamSpotter
         private void SearchListUI_ResizeEnd(object sender, EventArgs e)
         {
             formatPage();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            if(windowsController.peekPrevSearch() != null)
+            {
+                windowsController.openSearchListUI(this, windowsController.getPrevSearch());
+            }
         }
     }
 }

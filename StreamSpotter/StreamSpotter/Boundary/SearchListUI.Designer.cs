@@ -40,6 +40,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.redoButton = new System.Windows.Forms.Button();
             this.undoButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.listPanel.SuspendLayout();
             this.SuspendLayout();
@@ -48,8 +49,8 @@
             // 
             this.HomeButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.HomeButton.Location = new System.Drawing.Point(121, 9);
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.HomeButton.Location = new System.Drawing.Point(52, 9);
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(5);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(79, 39);
             this.HomeButton.TabIndex = 21;
@@ -81,6 +82,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.BackButton);
             this.panel1.Controls.Add(this.ProfileButton);
             this.panel1.Controls.Add(this.wishlistButton);
             this.panel1.Controls.Add(this.HomeButton);
@@ -95,7 +97,7 @@
             // 
             this.ProfileButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.ProfileButton.Location = new System.Drawing.Point(729, 9);
+            this.ProfileButton.Location = new System.Drawing.Point(738, 9);
             this.ProfileButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.ProfileButton.Name = "ProfileButton";
             this.ProfileButton.Size = new System.Drawing.Size(105, 39);
@@ -109,7 +111,7 @@
             this.wishlistButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.wishlistButton.Location = new System.Drawing.Point(8, 9);
+            this.wishlistButton.Location = new System.Drawing.Point(631, 9);
             this.wishlistButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.wishlistButton.Name = "wishlistButton";
             this.wishlistButton.Size = new System.Drawing.Size(105, 39);
@@ -161,7 +163,7 @@
             "Netflix",
             "Disney+"});
             this.comboBox2.Location = new System.Drawing.Point(560, 62);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(5);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(144, 36);
             this.comboBox2.TabIndex = 32;
@@ -173,7 +175,7 @@
             this.redoButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.redoButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.redoButton.Location = new System.Drawing.Point(76, 64);
-            this.redoButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.redoButton.Margin = new System.Windows.Forms.Padding(5);
             this.redoButton.Name = "redoButton";
             this.redoButton.Size = new System.Drawing.Size(65, 32);
             this.redoButton.TabIndex = 34;
@@ -186,13 +188,26 @@
             this.undoButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.undoButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.undoButton.Location = new System.Drawing.Point(8, 64);
-            this.undoButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.undoButton.Margin = new System.Windows.Forms.Padding(5);
             this.undoButton.Name = "undoButton";
             this.undoButton.Size = new System.Drawing.Size(66, 32);
             this.undoButton.TabIndex = 35;
             this.undoButton.Text = "Undo";
             this.undoButton.UseVisualStyleBackColor = true;
             this.undoButton.Click += new System.EventHandler(this.undoButton_Click);
+            // 
+            // BackButton
+            // 
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.BackButton.Location = new System.Drawing.Point(8, 12);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(36, 39);
+            this.BackButton.TabIndex = 28;
+            this.BackButton.Text = "<";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // SearchListUI
             // 
@@ -234,5 +249,6 @@
         private System.Windows.Forms.Button ProfileButton;
         private System.Windows.Forms.Button redoButton;
         private System.Windows.Forms.Button undoButton;
+        private System.Windows.Forms.Button BackButton;
     }
 }

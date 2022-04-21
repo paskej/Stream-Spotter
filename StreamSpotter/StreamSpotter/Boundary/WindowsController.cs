@@ -17,12 +17,16 @@ namespace StreamSpotter
         public Profile currentProfile;
         public ProfileSelectionScreen profileScreen;
         private static WindowsController instance;
+        private String currSearch;
+        private Stack<String> prevSearch;
         private WindowsController()
         {
             search = new Search();
             searchScreenLast = true;
             profileController = new ProfileController();
             currentProfile = profileController.GetProfile(profileController.getCurrentProfile());
+            currSearch = null;
+            prevSearch = new Stack<String>();
         }
         public static WindowsController getInstance()
         {
@@ -56,8 +60,27 @@ namespace StreamSpotter
 
             homeScreen.Show();
         }
+        public String peekPrevSearch()
+        {
+            if(prevSearch.Count() != 0)
+                return prevSearch.Peek();
+            return null;
+        }
+        public String getPrevSearch()
+        {
+            return prevSearch.Pop();
+        }
+        public void setPrevSearch(String previousSearch)
+        {
+            prevSearch.Push(previousSearch);
+        }
+        public String getCurrSearch()
+        {
+            return currSearch;
+        }
         public void openSearchListUI(Form currentForm, string title)
         {
+            currSearch = title;
             search = new Search();
             searchScreenLast = true;
             currentForm.Hide();
