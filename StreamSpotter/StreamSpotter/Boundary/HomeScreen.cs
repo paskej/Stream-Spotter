@@ -22,7 +22,10 @@ namespace StreamSpotter
             if (windowsController.profileController.GetProfile(0) == null)
 			{
                 windowsController.createProfileOnStartup();
+
 			}
+            windowsController.showRecommendedList(recommendedPanel, this);
+
         }
         public HomeScreen(WindowsController windowsController)
         {
@@ -34,6 +37,7 @@ namespace StreamSpotter
                 windowsController.updateRecommendations();
                 windowsController.wishlistChanged = false;
             }
+            windowsController.showRecommendedList(recommendedPanel, this);
         }
 
         private void ProfileButton_Click(object sender, EventArgs e)

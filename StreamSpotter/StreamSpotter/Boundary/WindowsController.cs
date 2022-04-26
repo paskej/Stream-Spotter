@@ -86,6 +86,11 @@ namespace StreamSpotter
 
             searchListUI.Show();
         }
+
+        public void populateRecommendedList()
+        {
+
+        }
         public void goBack(Form currentForm)
         {
             currentForm.Hide();
@@ -206,6 +211,13 @@ namespace StreamSpotter
             movieList = new MovieList(listPanel, form, this);
             bool listNull = movieList.populateSearchList(searchResults);
             movieList.printList();
+            return listNull;
+        }
+        public bool showRecommendedList(Panel listPanel, Form form)
+        {
+            movieList = new MovieList(listPanel, form, this);
+            bool listNull = movieList.populateRecommendedList();
+            movieList.printRecommendedList();
             return listNull;
         }
         public bool showWishList(Panel listPanel, Form form)

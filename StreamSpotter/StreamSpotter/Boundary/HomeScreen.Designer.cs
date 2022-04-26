@@ -36,8 +36,6 @@
             this.wishlistButton = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.recommendedPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.recommendedPanel.SuspendLayout();
@@ -107,7 +105,7 @@
             this.logoPictureBox.BackgroundImage = global::StreamSpotter.Properties.Resources.Logo;
             this.logoPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logoPictureBox.Location = new System.Drawing.Point(320, -26);
-            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.logoPictureBox.Name = "logoPictureBox";
             this.logoPictureBox.Size = new System.Drawing.Size(240, 222);
             this.logoPictureBox.TabIndex = 26;
@@ -117,30 +115,10 @@
             // 
             this.recommendedPanel.BackColor = System.Drawing.SystemColors.Highlight;
             this.recommendedPanel.Controls.Add(this.hScrollBar1);
-            this.recommendedPanel.Controls.Add(this.label2);
-            this.recommendedPanel.Controls.Add(this.label1);
             this.recommendedPanel.Location = new System.Drawing.Point(0, 400);
             this.recommendedPanel.Name = "recommendedPanel";
             this.recommendedPanel.Size = new System.Drawing.Size(900, 150);
             this.recommendedPanel.TabIndex = 27;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(214, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "test1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(862, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(668, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "test 2 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
             // 
             // hScrollBar1
             // 
@@ -172,7 +150,6 @@
             this.ResizeEnd += new System.EventHandler(this.HomeScreen_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.recommendedPanel.ResumeLayout(false);
-            this.recommendedPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,8 +163,6 @@
         private System.Windows.Forms.Button wishlistButton;
         private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.Panel recommendedPanel;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.HScrollBar hScrollBar1;
     }
 }

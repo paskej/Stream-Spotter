@@ -11,7 +11,7 @@ namespace StreamSpotter
     public class MovieList
     {
         private const int boxHeight = 160;
-        private const int boxWidth = 850;
+        private const int boxWidth = 80;
 
         private List<Result> movieList;
         private List<Result> filterList;
@@ -78,9 +78,21 @@ namespace StreamSpotter
         {
             movieList = new List<Result>();
 
-            Result[] list = 
+            Result[] list = windowsController.getRecommendations();
 
-            return false;
+
+            bool works = true;
+            if (list != null && list.Length != 0)
+            {
+                for (int x = 0; x < list.Length; x++)
+                {
+                    movieList.Add(list[x]);
+                    filterList.Add(list[x]);
+                }
+            }
+            else
+                works = false;
+            return works;
         }
         public Result getMovie(int index)
         {
@@ -330,6 +342,35 @@ namespace StreamSpotter
                 poster.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 poster.ImageLocation = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png";
                 if(movie.posterURLs.original != null)
+                {
+                    poster.ImageLocation = movie.posterURLs.original;
+                }
+                poster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                panel.Controls.Add(poster);
+
+                num++;
+            }
+        }
+
+        public void printRecommendedList()
+        {
+            panel.Controls.Clear();
+            Point point;
+
+            panel.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
+
+            //adds the list to the panel
+            int num = 0;
+            foreach (Result movie in movieList)
+            {
+                PictureBox poster = new PictureBox();
+                poster.BackColor = System.Drawing.SystemColors.GrayText;
+                point = new Point(num * boxWidth + 20, 10);
+                poster.Location = point;
+                poster.Size = new System.Drawing.Size(100, boxHeight - 20);
+                poster.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
+                poster.ImageLocation = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png";
+                if (movie.posterURLs.original != null)
                 {
                     poster.ImageLocation = movie.posterURLs.original;
                 }
