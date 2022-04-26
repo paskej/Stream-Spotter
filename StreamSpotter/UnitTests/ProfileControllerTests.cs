@@ -17,9 +17,9 @@ namespace UnitTests
 		public void CreateProfile_True()
 		{
 			string name = "theName";
-			ArrayList serv = new ArrayList();
-			serv.Add("netflix");
-			serv.Add("disney");
+			string[] serv = new string[2];
+			serv[0] = "netflix";
+			serv[1] = "disney";
 			profileController = new ProfileController();
 
 			pro1 = profileController.CreateProfile(name, serv);
@@ -47,9 +47,9 @@ namespace UnitTests
 		public void RemoveProfile_True()
 		{
 			string name = "theName";
-			ArrayList serv = new ArrayList();
-			serv.Add("netflix");
-			serv.Add("disney");
+			string[] serv = new string[2];
+			serv[0] = "netflix";
+			serv[1] = "disney";
 
 			profileController.CreateProfile(name, serv);
 			profileController.RemoveProfile(0);
@@ -60,9 +60,9 @@ namespace UnitTests
 		public void GetProfile_True()
 		{
 			string name = "theName";
-			ArrayList serv = new ArrayList();
-			serv.Add("netflix");
-			serv.Add("disney");
+			string[] serv = new string[2];
+			serv[0] = "netflix";
+			serv[1] = "disney";
 
 			pro1 = profileController.CreateProfile(name, serv);
 

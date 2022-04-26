@@ -31,7 +31,14 @@ namespace StreamSpotter
         {
             return currentWishlist;
         }
-
+        public void updateRecommendations(int profileID)
+        {
+            da.updateRecommendations(profileID);
+        }
+        public Result[] getRecommendations(int profileID)
+        {
+            return da.getRecommendations(profileID);
+        }
         public void removeFromCurrentWishlist(string imdbID)
         {
             da.removeFromWishlist(currentProfile, currentListName, imdbID);

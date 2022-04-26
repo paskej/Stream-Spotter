@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Command.cs" />
     <Compile Include="Entity\DatabaseAccess.cs" />
     <Compile Include="Control\APIController.cs" />
     <Compile Include="Entity\APIStorage.cs" />
@@ -84,6 +85,8 @@
     </Compile>
     <Compile Include="Entity\Result.cs" />
     <Compile Include="Control\MovieList.cs" />
+    <Compile Include="Control\Handler.cs" />
+    <Compile Include="Entity\History.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Control\Search.cs" />
@@ -117,6 +120,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Boundary\SearchListUI.resx">
       <DependentUpon>SearchListUI.cs</DependentUpon>

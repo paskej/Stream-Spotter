@@ -10,6 +10,8 @@ namespace StreamSpotter
     class Search
     {
         private const int MOVIE_DATA_TYPES = 4;
+        private const string MOVIE = "movie";
+        private const string SERIES = "series";
 
         private APIStorage storage;
         private APIController apiController;
@@ -25,27 +27,25 @@ namespace StreamSpotter
 
         //for searching results
 
-        public void searchResult(string title, string type)
+        public void searchResult(string title, string[] services)
         {
-            //TODO
-            //get services from profile
-            string[] services = new string[2];
-            services[0] = "netflix";
-            services[1] = "disney";
-
-            RootObject ro1;
+            RootObject ro1, ro2;
             if (services.GetLength(0) > 0)
             {
-                ro1 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(type, services[0], title));
+                ro1 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(MOVIE, services[0], title));
                 for(int i = 1; i < services.Length; i++)
                 {
-                    RootObject ro2 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(type, services[i], title));
+                    ro2 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(MOVIE, services[i], title));
+                    ro1 = merge.mergeLists(ro1, ro2);
+                    ro2 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(SERIES, services[i], title));
                     ro1 = merge.mergeLists(ro1, ro2);
                 }
             }
             else
             {
-                ro1 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(type, "netflix", title));
+                ro1 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(MOVIE, "netflix", title));
+                ro2 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(SERIES, "netflix", title));
+                ro1 = merge.mergeLists(ro1, ro2);
             }
             storage.AddJsonFile(JsonConvert.SerializeObject(ro1));
         }

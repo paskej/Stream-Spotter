@@ -24,6 +24,7 @@ namespace StreamSpotter
                 listEmptyLabel.Visible = true;
             }
             //Location = new Point(0, 0);
+            button3.Text = (string)windowsController.currentProfile.getProfileName();
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -34,8 +35,8 @@ namespace StreamSpotter
 
         private void button3_Click(object sender, EventArgs e)
         {
-            WindowsController winController = new WindowsController();
-            winController.showProfileScreen();
+            WindowsController winController = WindowsController.getInstance();
+            winController.showProfileScreen(this);
         }
 
 

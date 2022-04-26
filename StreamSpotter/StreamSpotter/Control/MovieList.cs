@@ -11,7 +11,7 @@ namespace StreamSpotter
     public class MovieList
     {
         private const int boxHeight = 160;
-        private const int boxWidth = 850;
+        private const int boxWidth = 80;
 
         private List<Result> movieList;
         private List<Result> filterList;
@@ -25,10 +25,8 @@ namespace StreamSpotter
             movieList = new List<Result>();
             filterList = new List<Result>();
             DatabaseAccess databaseAccess = new DatabaseAccess();
-            databaseAccess.addProfileDirectory(0);
-            databaseAccess.addJson(0, "list");
             wishlistTracker = new WishlistTracker();
-            wishlistTracker.changeCurrentWishlist(0, "list");
+            wishlistTracker.changeCurrentWishlist(0, "0");
         }
         public MovieList(Panel panel, Form form, WindowsController windowsController)
         {
@@ -38,10 +36,9 @@ namespace StreamSpotter
             this.form = form;
             this.windowsController = windowsController;
             DatabaseAccess databaseAccess = new DatabaseAccess();
-            databaseAccess.addProfileDirectory(0);
-            databaseAccess.addJson(0, "list");
             wishlistTracker = new WishlistTracker();
-            wishlistTracker.changeCurrentWishlist(0, "list");
+            int id = windowsController.currentProfile.getID();
+            wishlistTracker.changeCurrentWishlist(id, id.ToString());
         }
 
         //gather all information from json file to put into the movieList
@@ -76,6 +73,27 @@ namespace StreamSpotter
                 works = false;
             return works;
         }
+
+        public bool populateRecommendedList()
+        {
+            movieList = new List<Result>();
+
+            Result[] list = windowsController.getRecommendations();
+
+
+            bool works = true;
+            if (list != null && list.Length != 0)
+            {
+                for (int x = 0; x < list.Length; x++)
+                {
+                    movieList.Add(list[x]);
+                    filterList.Add(list[x]);
+                }
+            }
+            else
+                works = false;
+            return works;
+        }
         public Result getMovie(int index)
         {
             if (filterList != null && index < filterList.Count && index >= 0) 
@@ -93,6 +111,19 @@ namespace StreamSpotter
         public void removeFromWishlist(Result result)
         {
             wishlistTracker.removeFromCurrentWishlist(result.imdbID);
+        }
+        public void changeCurrentWishlist(int profileID, string listName)
+        {
+            wishlistTracker.changeCurrentWishlist(profileID, listName);
+        }
+        public void updateRecommendations(int profileID)
+        {
+            wishlistTracker.updateRecommendations(profileID);
+        }
+
+        public Result[] getRecommendations(int profileID)
+        {
+            return wishlistTracker.getRecommendations(profileID);
         }
         public bool filterByStreamingService(String service)
         {
@@ -291,7 +322,7 @@ namespace StreamSpotter
                 description.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 point = new Point(140, num * boxHeight + 40);
                 description.Location = point;
-                description.Size = new System.Drawing.Size(boxWidth - 400, boxHeight - 40);
+                description.Size = new System.Drawing.Size(400, boxHeight - 40);
                 description.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 panel.Controls.Add(description);
 
@@ -321,11 +352,46 @@ namespace StreamSpotter
             }
         }
 
+        public void printRecommendedList()
+        {
+            panel.Controls.Clear();
+            Point point;
+
+            panel.MouseDown += new System.Windows.Forms.MouseEventHandler(RecommendedMovieSelect);
+
+            //adds the list to the panel
+            int num = 0;
+            foreach (Result movie in movieList)
+            {
+                PictureBox poster = new PictureBox();
+                poster.BackColor = System.Drawing.SystemColors.GrayText;
+                point = new Point(num * ((int)(panel.Height / 1.5)), 0);
+                poster.Location = point;
+                poster.Size = new System.Drawing.Size((int)(panel.Height / 1.5), panel.Height - 17);// ((int)(panel.Height / 10)));
+                poster.MouseDown += new System.Windows.Forms.MouseEventHandler(RecommendedMovieSelect);
+                poster.ImageLocation = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png";
+                if (movie.posterURLs.original != null)
+                {
+                    poster.ImageLocation = movie.posterURLs.original;
+                }
+                poster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                panel.Controls.Add(poster);
+
+                num++;
+            }
+        }
+
         private void MovieSelect(object sender, MouseEventArgs e)
         {
             Point formPoint = form.Location;
             windowsController.openMovieScreen(form, Control.MousePosition.Y - formPoint.Y - panel.AutoScrollPosition.Y - 100);
         }
 
+
+        private void RecommendedMovieSelect(object sender, MouseEventArgs e)
+        {
+            Point formPoint = form.Location;
+            windowsController.openRecMovieScreen(form, panel, Control.MousePosition.X - formPoint.X - panel.AutoScrollPosition.X);
+        }
     }
 }

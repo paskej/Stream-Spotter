@@ -107,6 +107,10 @@ namespace StreamSpotter
                 {
 
                 }
+                else
+                {
+                    movie = true;
+                }
             }
             catch(Exception e)
             {

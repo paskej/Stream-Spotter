@@ -102,7 +102,7 @@ namespace StreamSpotter
             {
                 ProfileList pl = JsonConvert.DeserializeObject<ProfileList>(File.ReadAllText(path));
                 int i = -1;
-                for(int j = 0; j < pl.list.Length; i++)
+                for(int j = 0; j < pl.list.Length; j++)
                 {
                     if(pl.list[j].getID() == profile.getID())
                     {
@@ -291,7 +291,7 @@ namespace StreamSpotter
             if (File.Exists(recPath))
             {
                 Result[] wishlist = getWishlist(profileID, profileID.ToString());
-                Result[] recs = recommendations.getRecommendations(wishlist);
+                Result[] recs = recommendations.getRecommendations(wishlist, getProfileList().list[profileID].services);
                 RootObject ro = new RootObject();
                 ro.results = recs;
                 string text = JsonConvert.SerializeObject(ro);
@@ -309,8 +309,12 @@ namespace StreamSpotter
             Result[] results = null;
             if (File.Exists(recPath))
             {
-                RootObject ro = JsonConvert.DeserializeObject<RootObject>(recPath);
-                results = ro.results;
+                if (File.ReadAllText(recPath) != "")
+                {
+
+                    RootObject ro = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(recPath));
+                    results = ro.results;
+                }
             }
             return results;
         }

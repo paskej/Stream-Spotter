@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
-    class Recommendations
+    public class Recommendations
     {
         private static int LIST_LENGTH = 27;
         private APIController apic;
@@ -19,7 +19,7 @@ namespace StreamSpotter
             apic = new APIController();
             merge = new Merge();
         }
-        public Result[] getRecommendations(Result[] wishlist)
+        public Result[] getRecommendations(Result[] wishlist, string[] services)
         {
             Result[] recommendations = null;
             if(wishlist == null)
@@ -32,12 +32,18 @@ namespace StreamSpotter
                 int genreInt = getFavoriteGenre(wishlist);
                 favoriteGenre = translateGenre(genreInt);
                 favoriteType = getFavoriteType(wishlist);
-                string text = apic.FindMovieSync(favoriteType, "netflix", favoriteGenre);
-                RootObject ro = JsonConvert.DeserializeObject<RootObject>(text);
-                text = apic.FindMovieSync(favoriteType, "disney", favoriteGenre);
-                RootObject tempRo = JsonConvert.DeserializeObject<RootObject>(text);
-                ro = merge.mergeLists(ro, tempRo);
-                recommendations = ro.results;
+                if (services.Length > 0)
+                {
+                    string text = apic.FindMovieSync(favoriteType, services[0], favoriteGenre);
+                    RootObject ro = JsonConvert.DeserializeObject<RootObject>(text);
+                    for (int i = 1; i < services.Length; i++)
+                    {
+                        text = apic.FindMovieSync(favoriteType, services[i], favoriteGenre);
+                        RootObject tempRo = JsonConvert.DeserializeObject<RootObject>(text);
+                        ro = merge.mergeLists(ro, tempRo);
+                    }
+                    recommendations = ro.results;
+                }                
             }
             return recommendations;
         }
@@ -217,8 +223,3 @@ namespace StreamSpotter
         }
     }
 }
-/*{
-"14":"Fantasy","16":"Animation","18":"Drama",,"27":"Horror","28":"Action",
-"3":"Game Show","35":"Comedy","36":"History","37":"Western","4":"Musical","5":"Sport",
-"53":"Thriller","6":"Short","7":"Adult","80":"Crime","878":"Science Fiction","9648":"Mystery",
-"99":"Documentary"}*/

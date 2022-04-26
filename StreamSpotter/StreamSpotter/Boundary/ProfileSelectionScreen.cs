@@ -14,8 +14,7 @@ namespace StreamSpotter
 {
 	public partial class ProfileSelectionScreen : Form
 	{
-		private WindowsController winControl = new WindowsController();
-		private ProfileController profileController = new ProfileController();
+		private WindowsController winControl = WindowsController.getInstance();
 		private ArrayList serviceArray = new ArrayList();
 		private ProfileController profileCon;
 		private Profile currentProfile;
@@ -27,8 +26,11 @@ namespace StreamSpotter
 			currentProfile = profileCon.GetProfile(profileCon.getCurrentProfile());
 
 			InitializeComponent();
-			SwitchPanel.Visible = false;
+			
+			SwitchPanel.Visible = true;
+			StreamSelectPanel.Visible = false;
 			NewProfilePanel.Visible = false;
+
 			TooManyProfilesLabel.Visible = false;
 			ProfileDeletedLabel.Visible = false;
 			ProfileSavedLabel.Visible = false;
@@ -56,7 +58,8 @@ namespace StreamSpotter
 			buttonList.Add(Profile9);
 			buttonList.Add(Profile10);
 
-
+			updateProfileButtonName();
+			noCurrentProfile();
 		}
 
 		private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -83,7 +86,7 @@ namespace StreamSpotter
 			{
 				for (int i = 0; i < serviceArray.Count; i++)
 				{
-					if (serviceArray[i] == "netflix")
+					if ((string)serviceArray[i] == "netflix")
 					{
 						serviceArray.Remove("netflix");
 					}
@@ -93,7 +96,7 @@ namespace StreamSpotter
 			{
 				for (int i = 0; i < serviceArray.Count; i++)
 				{
-					if (serviceArray[i] == "disney")
+					if ((string)serviceArray[i] == "disney")
 					{
 						serviceArray.Remove("disney");
 					}
@@ -126,6 +129,7 @@ namespace StreamSpotter
 
 		private void SwitchButton_Click_1(object sender, EventArgs e)
 		{
+			noCurrentProfile();
 			ProfileSavedLabel.Visible = false;
 			updateProfileButtonName();
 			SwitchPanel.Visible = true;
@@ -143,8 +147,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(0) != null)
 			{
-				currentProfile = profileController.GetProfile(0);
+				changeSelectedProfileButton(0);
+				currentProfile = profileCon.GetProfile(0);
+				winControl.changeCurrentProfile(0);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -155,15 +163,13 @@ namespace StreamSpotter
 
 		private void ExitButton_Click(object sender, EventArgs e)
 		{
-			ProfileNotCreatedLabel.Visible = false;
-			StreamSelectPanel.Visible = true;
-			SwitchPanel.Visible = false;
-			ProfileDeletedLabel.Visible = false;
-			updateCheckedBoxes();
+			winControl.currentProfile = currentProfile;
+			winControl.openHomeScreen(this);
 		}
 
 		private void CancelButton_Click(object sender, EventArgs e)
 		{
+			noCurrentProfile();
 			NameTextBox.Text = "";
 			NewProfilePanel.Visible = false;
 			SwitchPanel.Visible = true;
@@ -188,16 +194,25 @@ namespace StreamSpotter
 
 		private void button1_Click_1(object sender, EventArgs e)
 		{
+			int oldID = 0;
 			if (currentProfile == null)
 			{
 				currentProfile = new Profile();
 			}
-			if (currentProfile.getID() < 9)
+			else
 			{
-				if (profileController.getListIsFull() == false)
-				{
-					TooManyProfilesLabel.Visible = false;
-					currentProfile = profileController.CreateProfile(NewName, serviceArray);
+				oldID = currentProfile.id;
+			}
+			if (currentProfile.getID() <= 9)
+			{
+				if (profileCon.getListIsFull() == false)
+                {
+                    string[] services = new string[serviceArray.Count];
+					serviceArray.CopyTo(services);
+                    TooManyProfilesLabel.Visible = false;
+					currentProfile = profileCon.CreateProfile(NewName, services);
+					profileCon.setCurrentProfile(currentProfile.getID());
+					winControl.currentProfile = currentProfile;
 					NewProfilePanel.Visible = false;
 					SwitchPanel.Visible = true;
 				}
@@ -208,15 +223,55 @@ namespace StreamSpotter
 				NameTextBox.Text = "";
 				updateProfileButtonName();
 			}
+			noCurrentProfile();
+			changeSelectedProfileButton(currentProfile.id, oldID);
 		}
 
 		private void SaveButton_Click(object sender, EventArgs e)
 		{
+			noCurrentProfile();
+			if (NetflixCheckBox.Checked == true)
+			{
+				if (!serviceArray.Contains("netflix"))
+				{
+					serviceArray.Add("netflix");
+				}
+			}
+			if (DisneyCheckBox.Checked == true)
+			{
+				if (!serviceArray.Contains("disney"))
+				{
+					serviceArray.Add("disney");
+				}
+			}
+			if (NetflixCheckBox.Checked == false)
+			{
+				for (int i = 0; i < serviceArray.Count; i++)
+				{
+					if ((string)serviceArray[i] == "netflix")
+					{
+						serviceArray.Remove("netflix");
+					}
+				}
+				currentProfile.removeService("netflix");
+			}
+			if (DisneyCheckBox.Checked == false)
+			{
+				for (int i = 0; i < serviceArray.Count; i++)
+				{
+					if ((string)serviceArray[i] == "disney")
+					{
+						serviceArray.Remove("disney");
+					}
+				}
+				currentProfile.removeService("disney");
+			}
 			for (int i = 0; i < serviceArray.Count; i++)
 			{
 				currentProfile.AddService((string)serviceArray[i]);
 			}
 			ProfileSavedLabel.Visible = true;
+			profileCon.UpdateProfile(currentProfile);
 		}
 
 		public void updateProfileButtonName()
@@ -224,10 +279,10 @@ namespace StreamSpotter
 			for (int i = 0; i < buttonList.Count; i++)
 			{
 				Button temp = (Button)buttonList[i];
-				if (profileController.GetProfile(i) != null)
+				if (profileCon.GetProfile(i) != null)
 				{
 					Button tempButton = (Button)buttonList[i];
-					tempButton.Text = profileController.GetProfile(i).profileName;
+					tempButton.Text = profileCon.GetProfile(i).profileName;
 				}
 			}
 		}
@@ -237,10 +292,11 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (currentProfile != null)
 			{
-				profileController.RemoveProfile(currentProfile.getID());
+				profileCon.RemoveProfile(currentProfile.getID());
 				ProfileDeletedLabel.Visible = true;
-
 			}
+			currentProfile = profileCon.GetProfile(profileCon.currentProfileID - 1);
+			profileCon.setCurrentProfile(currentProfile.id);
 
 		}
 
@@ -250,8 +306,12 @@ namespace StreamSpotter
 			//check to see if this profile is in the database and if not show a label saying "Profile not Created"
 			if (profileCon.GetProfile(1) != null)
 			{
-				currentProfile = profileController.GetProfile(1);
+				changeSelectedProfileButton(1);
+				currentProfile = profileCon.GetProfile(1);
+				winControl.changeCurrentProfile(1);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -264,8 +324,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(2) != null)
 			{
-				currentProfile = profileController.GetProfile(2);
+				changeSelectedProfileButton(2);
+				currentProfile = profileCon.GetProfile(2);
+				winControl.changeCurrentProfile(2);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -278,8 +342,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(3) != null)
 			{
-				currentProfile = profileController.GetProfile(3);
+				changeSelectedProfileButton(3);
+				currentProfile = profileCon.GetProfile(3);
+				winControl.changeCurrentProfile(3);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -292,8 +360,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(4) != null)
 			{
-				currentProfile = profileController.GetProfile(4);
+				changeSelectedProfileButton(4);
+				currentProfile = profileCon.GetProfile(4);
+				winControl.changeCurrentProfile(4);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -306,8 +378,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(5) != null)
 			{
-				currentProfile = profileController.GetProfile(5);
+				changeSelectedProfileButton(5);
+				currentProfile = profileCon.GetProfile(5);
+				winControl.changeCurrentProfile(5);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -320,8 +396,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(6) != null)
 			{
-				currentProfile = profileController.GetProfile(6);
+				changeSelectedProfileButton(6);
+				currentProfile = profileCon.GetProfile(6);
+				winControl.changeCurrentProfile(6);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -334,8 +414,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(7) != null)
 			{
-				currentProfile = profileController.GetProfile(7);
+				changeSelectedProfileButton(7);
+				currentProfile = profileCon.GetProfile(7);
+				winControl.changeCurrentProfile(7);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -348,8 +432,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(8) != null)
 			{
-				currentProfile = profileController.GetProfile(8);
+				changeSelectedProfileButton(8);
+				currentProfile = profileCon.GetProfile(8);
+				winControl.changeCurrentProfile(8);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -362,8 +450,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(9) != null)
 			{
-				currentProfile = profileController.GetProfile(9);
+				changeSelectedProfileButton(9);
+				currentProfile = profileCon.GetProfile(9);
+				winControl.changeCurrentProfile(9);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -373,8 +465,10 @@ namespace StreamSpotter
 
 		private void MyCancelButton_Click(object sender, EventArgs e)
 		{
-			ProfileSavedLabel.Visible = false;
-			this.Close();
+			noCurrentProfile();
+			SwitchPanel.Visible = true;
+			StreamSelectPanel.Visible = false;
+			NewProfilePanel.Visible = false;
 		}
 
 		public void updateServiceBoxes()
@@ -403,18 +497,94 @@ namespace StreamSpotter
 		{
 			if (currentProfile.getServices() != null)
 			{
-				for (int i = 0; i < currentProfile.getServices().Count; i++)
+				bool netflix = false, disney = false;
+				for (int i = 0; i < currentProfile.getServices().Length; i++)
 				{
 					if (currentProfile.getServices()[i] == "netflix")
 					{
-						NetflixCheckBox.Checked = true;
+						netflix = true;
 					}
 					if (currentProfile.getServices()[i] == "disney")
 					{
-						DisneyCheckBox.Checked = true;
+						disney = true;
 					}
 				}
+				NetflixCheckBox.Checked = netflix;
+				DisneyCheckBox.Checked = disney;
 			}
+		}
+
+		public void updateFormPosition(Form lastForm)
+		{
+			//lastForm.
+		}
+
+		private void SwitchPanel_Paint_1(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void NewProfilePanel_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void ProfileDeletedLabel_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void serviceButton_Click(object sender, EventArgs e)
+		{
+			SwitchPanel.Visible = true;
+			StreamSelectPanel.Visible = true;
+			NewProfilePanel.Visible = false;
+			updateCheckedBoxes();
+		}
+
+		private void noCurrentProfile()
+		{
+			if(currentProfile == null)
+			{
+				ExitButton.Enabled = false;
+				serviceButton.Enabled = false;
+				DeleteProfileButton.Enabled = false;
+			}
+			else if (currentProfile.services == null || currentProfile.services.Length == 0)
+			{
+				serviceButton.Enabled = true;
+				serviceButton.BackColor = Color.Red;
+				DeleteProfileButton.Enabled = true;
+				ExitButton.Enabled = false;
+				changeSelectedProfileButton(currentProfile.id);
+			}
+			else
+            {
+				serviceButton.Enabled = true;
+				serviceButton.BackColor = default(Color);
+				serviceButton.UseVisualStyleBackColor = true;
+				DeleteProfileButton.Enabled = true;
+				ExitButton.Enabled = true;
+				changeSelectedProfileButton(currentProfile.id);
+			}
+		}
+		private void changeSelectedProfileButton(int selected)
+		{
+			Button[] buttons = new Button[10];
+			buttonList.CopyTo(buttons);
+			buttons[currentProfile.getID()].BackColor = default(Color);
+			buttons[currentProfile.getID()].UseVisualStyleBackColor = true;
+			buttons[selected].BackColor = Color.Green;
+
+		}
+		private void changeSelectedProfileButton(int selected, int old)
+		{
+			Button[] buttons = new Button[10];
+			buttonList.CopyTo(buttons);
+			buttons[old].BackColor = default(Color);
+			buttons[old].UseVisualStyleBackColor = true;
+			buttons[selected].BackColor = Color.Green;
+
 		}
 	}
 }

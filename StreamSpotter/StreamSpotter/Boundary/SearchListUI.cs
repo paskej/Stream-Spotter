@@ -14,6 +14,7 @@ namespace StreamSpotter
     {
         //private MovieList movieList;
         private WindowsController windowsController;
+        private Handler handler;
 
         //need to do show list upon start up somehow
         public SearchListUI(WindowsController windowsController)
@@ -25,6 +26,8 @@ namespace StreamSpotter
                 listPanel.Controls.Add(listEmptyLabel);
                 listEmptyLabel.Visible = true;
             }
+
+            ProfileButton.Text = (string)windowsController.currentProfile.getProfileName();
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -41,9 +44,10 @@ namespace StreamSpotter
                     MessageBox.Show("Please enter a search!");
                 else
                 {
+                    windowsController.setPrevSearch(windowsController.getCurrSearch());
                     //search with the api
                     //then we load the searhlistUI
-                    windowsController = new WindowsController();
+                    windowsController = WindowsController.getInstance();
                     windowsController.openSearchListUI(this, SearchBar.Text);
                 }
             }
@@ -62,8 +66,8 @@ namespace StreamSpotter
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            WindowsController winController = new WindowsController();
-            winController.showProfileScreen();
+            WindowsController winController = WindowsController.getInstance();
+            winController.showProfileScreen(this);
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -164,12 +168,24 @@ namespace StreamSpotter
             }
         }
 
+        private void redoButton_Click(object sender, EventArgs e)
+        {
+            handler.Redo();
+            windowsController.printList();
+        }
+
+        private void undoButton_Click(object sender, EventArgs e)
+        {
+            handler.Undo();
+            windowsController.printList();
+        }
+			
         public void formatPage()
         {
             //
             //Button HomeButton;
             //
-            HomeButton.Location = new Point(5, 10);
+            HomeButton.Location = new Point(36, 10);
 
 
             //
@@ -228,7 +244,7 @@ namespace StreamSpotter
             //
             //Button wishlistButton;
             //
-            wishlistButton.Location = new Point(65, 10);
+            wishlistButton.Location = new Point((this.Width - ProfileButton.Width - 102), (10));
 
 
             //
@@ -236,6 +252,14 @@ namespace StreamSpotter
             //
             ProfileButton.Location = new Point((this.Width - ProfileButton.Width - 5 - 15), (10));
 
+            //
+            //Button ProfileButton;
+            //
+
+
+            //
+            //Button ProfileButton;
+            //
 
         }
 
@@ -247,6 +271,14 @@ namespace StreamSpotter
         private void SearchListUI_ResizeEnd(object sender, EventArgs e)
         {
             formatPage();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            if(windowsController.peekPrevSearch() != null)
+            {
+                windowsController.openSearchListUI(this, windowsController.getPrevSearch());
+            }
         }
     }
 }
