@@ -262,7 +262,7 @@ namespace StreamSpotter
 
             bool inList = false;
             Result[] wishlist = movieList.getWishlist();
-            if (wishlist != null)
+            if (wishlist != null && movieList.getMovie(0)!=null)
             {
                 foreach (Result r in wishlist)
                 {
