@@ -194,9 +194,14 @@ namespace StreamSpotter
 
 		private void button1_Click_1(object sender, EventArgs e)
 		{
+			int oldID = 0;
 			if (currentProfile == null)
 			{
 				currentProfile = new Profile();
+			}
+			else
+			{
+				oldID = currentProfile.id;
 			}
 			if (currentProfile.getID() <= 9)
 			{
@@ -219,6 +224,7 @@ namespace StreamSpotter
 				updateProfileButtonName();
 			}
 			noCurrentProfile();
+			changeSelectedProfileButton(currentProfile.id, oldID);
 		}
 
 		private void SaveButton_Click(object sender, EventArgs e)
@@ -550,6 +556,7 @@ namespace StreamSpotter
 				serviceButton.BackColor = Color.Red;
 				DeleteProfileButton.Enabled = true;
 				ExitButton.Enabled = false;
+				changeSelectedProfileButton(currentProfile.id);
 			}
 			else
             {
@@ -558,7 +565,8 @@ namespace StreamSpotter
 				serviceButton.UseVisualStyleBackColor = true;
 				DeleteProfileButton.Enabled = true;
 				ExitButton.Enabled = true;
-            }
+				changeSelectedProfileButton(currentProfile.id);
+			}
 		}
 		private void changeSelectedProfileButton(int selected)
 		{
@@ -566,6 +574,15 @@ namespace StreamSpotter
 			buttonList.CopyTo(buttons);
 			buttons[currentProfile.getID()].BackColor = default(Color);
 			buttons[currentProfile.getID()].UseVisualStyleBackColor = true;
+			buttons[selected].BackColor = Color.Green;
+
+		}
+		private void changeSelectedProfileButton(int selected, int old)
+		{
+			Button[] buttons = new Button[10];
+			buttonList.CopyTo(buttons);
+			buttons[old].BackColor = default(Color);
+			buttons[old].UseVisualStyleBackColor = true;
 			buttons[selected].BackColor = Color.Green;
 
 		}

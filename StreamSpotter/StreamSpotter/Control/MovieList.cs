@@ -11,7 +11,7 @@ namespace StreamSpotter
     public class MovieList
     {
         private const int boxHeight = 160;
-        private const int boxWidth = 850;
+        private const int boxWidth = 80;
 
         private List<Result> movieList;
         private List<Result> filterList;
@@ -62,6 +62,27 @@ namespace StreamSpotter
             Result[] list = wishlistTracker.getCurrentWishlist();
             bool works = true;
             if (list != null && list.Length != 0) 
+            {
+                for (int x = 0; x < list.Length; x++)
+                {
+                    movieList.Add(list[x]);
+                    filterList.Add(list[x]);
+                }
+            }
+            else
+                works = false;
+            return works;
+        }
+
+        public bool populateRecommendedList()
+        {
+            movieList = new List<Result>();
+
+            Result[] list = windowsController.getRecommendations();
+
+
+            bool works = true;
+            if (list != null && list.Length != 0)
             {
                 for (int x = 0; x < list.Length; x++)
                 {
@@ -331,11 +352,46 @@ namespace StreamSpotter
             }
         }
 
+        public void printRecommendedList()
+        {
+            panel.Controls.Clear();
+            Point point;
+
+            panel.MouseDown += new System.Windows.Forms.MouseEventHandler(RecommendedMovieSelect);
+
+            //adds the list to the panel
+            int num = 0;
+            foreach (Result movie in movieList)
+            {
+                PictureBox poster = new PictureBox();
+                poster.BackColor = System.Drawing.SystemColors.GrayText;
+                point = new Point(num * ((int)(panel.Height / 1.5)), 0);
+                poster.Location = point;
+                poster.Size = new System.Drawing.Size((int)(panel.Height / 1.5), panel.Height - 17);// ((int)(panel.Height / 10)));
+                poster.MouseDown += new System.Windows.Forms.MouseEventHandler(RecommendedMovieSelect);
+                poster.ImageLocation = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png";
+                if (movie.posterURLs.original != null)
+                {
+                    poster.ImageLocation = movie.posterURLs.original;
+                }
+                poster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                panel.Controls.Add(poster);
+
+                num++;
+            }
+        }
+
         private void MovieSelect(object sender, MouseEventArgs e)
         {
             Point formPoint = form.Location;
             windowsController.openMovieScreen(form, Control.MousePosition.Y - formPoint.Y - panel.AutoScrollPosition.Y - 100);
         }
 
+
+        private void RecommendedMovieSelect(object sender, MouseEventArgs e)
+        {
+            Point formPoint = form.Location;
+            windowsController.openRecMovieScreen(form, panel, Control.MousePosition.X - formPoint.X - panel.AutoScrollPosition.X);
+        }
     }
 }
