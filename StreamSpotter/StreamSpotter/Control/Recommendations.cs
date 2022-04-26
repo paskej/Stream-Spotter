@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
-    class Recommendations
+    public class Recommendations
     {
         private static int LIST_LENGTH = 27;
         private APIController apic;
