@@ -309,8 +309,12 @@ namespace StreamSpotter
             Result[] results = null;
             if (File.Exists(recPath))
             {
-                RootObject ro = JsonConvert.DeserializeObject<RootObject>(recPath);
-                results = ro.results;
+                if (File.ReadAllText(recPath) != "")
+                {
+
+                    RootObject ro = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(recPath));
+                    results = ro.results;
+                }
             }
             return results;
         }

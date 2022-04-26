@@ -130,11 +130,13 @@ namespace StreamSpotter
         private void HomeScreen_ResizeEnd(object sender, EventArgs e)
         {
             formatPage();
+            windowsController.showRecommendedList(recommendedPanel, this);
         }
 
         private void HomeScreen_Load(object sender, EventArgs e)
         {
             formatPage();
+            windowsController.showRecommendedList(recommendedPanel, this);
         }
     }
 }

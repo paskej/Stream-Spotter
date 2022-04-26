@@ -13,6 +13,7 @@ namespace StreamSpotter
         private Search search;
         private Result[] searchResults;
         bool searchScreenLast;
+        bool homeScreenLast;
         public ProfileController profileController;
         public Profile currentProfile;
         public ProfileSelectionScreen profileScreen;
@@ -23,7 +24,8 @@ namespace StreamSpotter
         private WindowsController()
         {
             search = new Search();
-            searchScreenLast = true;
+            searchScreenLast = false;
+            homeScreenLast = true;
             profileController = new ProfileController();
             currentProfile = profileController.GetProfile(profileController.getCurrentProfile());
             currSearch = null;
@@ -40,6 +42,8 @@ namespace StreamSpotter
         }
         public void openHomeScreen(Form currentForm)
         {
+            homeScreenLast = true;
+            searchScreenLast = false;
             currentForm.Hide();
             HomeScreen homeScreen = new HomeScreen(this);
             homeScreen.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
@@ -85,6 +89,7 @@ namespace StreamSpotter
             currSearch = title;
             search = new Search();
             searchScreenLast = true;
+            homeScreenLast = false;
             currentForm.Hide();
             search.searchResult(title, "movie", currentProfile.services);
             searchResults = search.getSearchResults();
@@ -140,6 +145,30 @@ namespace StreamSpotter
 
                 searchListUI.Show();
             }
+            else if (homeScreenLast)
+            {
+                HomeScreen homeScreen = new HomeScreen(this);
+                homeScreen.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+
+                if (currentForm.Height < homeScreen.MinimumSize.Height)
+                {
+                    homeScreen.Height = homeScreen.MinimumSize.Height;
+                }
+                else
+                {
+                    homeScreen.Height = currentForm.Height;
+                }
+                if (currentForm.Width < homeScreen.MinimumSize.Width)
+                {
+                    homeScreen.Width = homeScreen.MinimumSize.Width;
+                }
+                else
+                {
+                    homeScreen.Width = currentForm.Width;
+                }
+
+                homeScreen.Show();
+            }
             else
             {
                 WishlistUI wishListUI = new WishlistUI(this);
@@ -166,6 +195,7 @@ namespace StreamSpotter
         public void openWishListUI(Form currentForm)
         {
             searchScreenLast = false;
+            homeScreenLast = false;
             currentForm.Hide();
             WishlistUI wishListUI = new WishlistUI(this);
             wishListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
@@ -205,6 +235,48 @@ namespace StreamSpotter
                 }
             }
             if(movieList.getMovie(listIndex) != null)
+            {
+                currentForm.Hide();
+                MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex), this, inList);
+                movieScreen.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+                if (currentForm.Height < movieScreen.MinimumSize.Height)
+                {
+                    movieScreen.Height = movieScreen.MinimumSize.Height;
+                }
+                else
+                {
+                    movieScreen.Height = currentForm.Height;
+                }
+                if (currentForm.Width < movieScreen.MinimumSize.Width)
+                {
+                    movieScreen.Width = movieScreen.MinimumSize.Width;
+                }
+                else
+                {
+                    movieScreen.Width = currentForm.Width;
+                }
+
+                movieScreen.Show();
+            }
+        }
+
+        public void openRecMovieScreen(Form currentForm, Panel panel, int loc)
+        {
+            int listIndex = loc / ((int)(panel.Height / 1.5));
+
+            bool inList = false;
+            Result[] wishlist = movieList.getWishlist();
+            if (wishlist != null)
+            {
+                foreach (Result r in wishlist)
+                {
+                    if (r.imdbID == movieList.getMovie(listIndex).imdbID)
+                    {
+                        inList = true;
+                    }
+                }
+            }
+            if (movieList.getMovie(listIndex) != null)
             {
                 currentForm.Hide();
                 MovieScreen movieScreen = new MovieScreen(movieList.getMovie(listIndex), this, inList);

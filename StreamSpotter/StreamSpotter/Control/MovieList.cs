@@ -357,7 +357,7 @@ namespace StreamSpotter
             panel.Controls.Clear();
             Point point;
 
-            panel.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
+            panel.MouseDown += new System.Windows.Forms.MouseEventHandler(RecommendedMovieSelect);
 
             //adds the list to the panel
             int num = 0;
@@ -365,10 +365,10 @@ namespace StreamSpotter
             {
                 PictureBox poster = new PictureBox();
                 poster.BackColor = System.Drawing.SystemColors.GrayText;
-                point = new Point(num * boxWidth + 20, 10);
+                point = new Point(num * ((int)(panel.Height / 1.5)), 0);
                 poster.Location = point;
-                poster.Size = new System.Drawing.Size(100, boxHeight - 20);
-                poster.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
+                poster.Size = new System.Drawing.Size((int)(panel.Height / 1.5), panel.Height - 17);// ((int)(panel.Height / 10)));
+                poster.MouseDown += new System.Windows.Forms.MouseEventHandler(RecommendedMovieSelect);
                 poster.ImageLocation = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png";
                 if (movie.posterURLs.original != null)
                 {
@@ -387,5 +387,11 @@ namespace StreamSpotter
             windowsController.openMovieScreen(form, Control.MousePosition.Y - formPoint.Y - panel.AutoScrollPosition.Y - 100);
         }
 
+
+        private void RecommendedMovieSelect(object sender, MouseEventArgs e)
+        {
+            Point formPoint = form.Location;
+            windowsController.openRecMovieScreen(form, panel, Control.MousePosition.X - formPoint.X - panel.AutoScrollPosition.X);
+        }
     }
 }
