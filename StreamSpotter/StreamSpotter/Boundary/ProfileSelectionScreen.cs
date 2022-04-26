@@ -147,11 +147,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(0) != null)
 			{
+				changeSelectedProfileButton(0);
 				currentProfile = profileCon.GetProfile(0);
 				winControl.changeCurrentProfile(0);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
-				noCurrentProfile();
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -299,11 +300,12 @@ namespace StreamSpotter
 			//check to see if this profile is in the database and if not show a label saying "Profile not Created"
 			if (profileCon.GetProfile(1) != null)
 			{
+				changeSelectedProfileButton(1);
 				currentProfile = profileCon.GetProfile(1);
 				winControl.changeCurrentProfile(1);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
-				noCurrentProfile();
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -316,11 +318,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(2) != null)
 			{
+				changeSelectedProfileButton(2);
 				currentProfile = profileCon.GetProfile(2);
 				winControl.changeCurrentProfile(2);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
-				noCurrentProfile();
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -333,11 +336,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(3) != null)
 			{
+				changeSelectedProfileButton(3);
 				currentProfile = profileCon.GetProfile(3);
 				winControl.changeCurrentProfile(3);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
-				noCurrentProfile();
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -350,11 +354,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(4) != null)
 			{
+				changeSelectedProfileButton(4);
 				currentProfile = profileCon.GetProfile(4);
 				winControl.changeCurrentProfile(4);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
-				noCurrentProfile();
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -367,11 +372,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(5) != null)
 			{
+				changeSelectedProfileButton(5);
 				currentProfile = profileCon.GetProfile(5);
 				winControl.changeCurrentProfile(5);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
-				noCurrentProfile();
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -384,11 +390,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(6) != null)
 			{
+				changeSelectedProfileButton(6);
 				currentProfile = profileCon.GetProfile(6);
 				winControl.changeCurrentProfile(6);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
-				noCurrentProfile();
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -401,11 +408,12 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(7) != null)
 			{
+				changeSelectedProfileButton(7);
 				currentProfile = profileCon.GetProfile(7);
 				winControl.changeCurrentProfile(7);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
-				noCurrentProfile();
+				noCurrentProfile();				
 			}
 			else
 			{
@@ -418,6 +426,7 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(8) != null)
 			{
+				changeSelectedProfileButton(8);
 				currentProfile = profileCon.GetProfile(8);
 				winControl.changeCurrentProfile(8);
 				winControl.wishlistChanged = false;
@@ -435,6 +444,7 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (profileCon.GetProfile(9) != null)
 			{
+				changeSelectedProfileButton(9);
 				currentProfile = profileCon.GetProfile(9);
 				winControl.changeCurrentProfile(9);
 				winControl.wishlistChanged = false;
@@ -549,6 +559,15 @@ namespace StreamSpotter
 				DeleteProfileButton.Enabled = true;
 				ExitButton.Enabled = true;
             }
+		}
+		private void changeSelectedProfileButton(int selected)
+		{
+			Button[] buttons = new Button[10];
+			buttonList.CopyTo(buttons);
+			buttons[currentProfile.getID()].BackColor = default(Color);
+			buttons[currentProfile.getID()].UseVisualStyleBackColor = true;
+			buttons[selected].BackColor = Color.Green;
+
 		}
 	}
 }
