@@ -151,6 +151,7 @@ namespace StreamSpotter
 				winControl.changeCurrentProfile(0);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -161,6 +162,7 @@ namespace StreamSpotter
 
 		private void ExitButton_Click(object sender, EventArgs e)
 		{
+			winControl.currentProfile = currentProfile;
 			winControl.openHomeScreen(this);
 		}
 
@@ -203,6 +205,8 @@ namespace StreamSpotter
 					serviceArray.CopyTo(services);
                     TooManyProfilesLabel.Visible = false;
 					currentProfile = profileCon.CreateProfile(NewName, services);
+					profileCon.setCurrentProfile(currentProfile.getID());
+					winControl.currentProfile = currentProfile;
 					NewProfilePanel.Visible = false;
 					SwitchPanel.Visible = true;
 				}
@@ -283,8 +287,9 @@ namespace StreamSpotter
 			{
 				profileCon.RemoveProfile(currentProfile.getID());
 				ProfileDeletedLabel.Visible = true;
-
 			}
+			currentProfile = profileCon.GetProfile(profileCon.currentProfileID - 1);
+			profileCon.setCurrentProfile(currentProfile.id);
 
 		}
 
@@ -298,6 +303,7 @@ namespace StreamSpotter
 				winControl.changeCurrentProfile(1);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -314,6 +320,7 @@ namespace StreamSpotter
 				winControl.changeCurrentProfile(2);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -330,6 +337,7 @@ namespace StreamSpotter
 				winControl.changeCurrentProfile(3);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -346,6 +354,7 @@ namespace StreamSpotter
 				winControl.changeCurrentProfile(4);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -362,6 +371,7 @@ namespace StreamSpotter
 				winControl.changeCurrentProfile(5);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -378,6 +388,7 @@ namespace StreamSpotter
 				winControl.changeCurrentProfile(6);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -394,6 +405,7 @@ namespace StreamSpotter
 				winControl.changeCurrentProfile(7);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -410,6 +422,7 @@ namespace StreamSpotter
 				winControl.changeCurrentProfile(8);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -426,6 +439,7 @@ namespace StreamSpotter
 				winControl.changeCurrentProfile(9);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -520,12 +534,21 @@ namespace StreamSpotter
 				serviceButton.Enabled = false;
 				DeleteProfileButton.Enabled = false;
 			}
-			else
+			else if (currentProfile.services == null || currentProfile.services.Length == 0)
 			{
-				ExitButton.Enabled = true;
 				serviceButton.Enabled = true;
+				serviceButton.BackColor = Color.Red;
 				DeleteProfileButton.Enabled = true;
+				ExitButton.Enabled = false;
 			}
+			else
+            {
+				serviceButton.Enabled = true;
+				serviceButton.BackColor = default(Color);
+				serviceButton.UseVisualStyleBackColor = true;
+				DeleteProfileButton.Enabled = true;
+				ExitButton.Enabled = true;
+            }
 		}
 	}
 }

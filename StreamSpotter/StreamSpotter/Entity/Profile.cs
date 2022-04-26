@@ -40,7 +40,7 @@ namespace StreamSpotter
 		public Profile(string profileName, string[] services)
 		{
 			this.profileName = profileName;
-			services = new string[services.Length];
+			this.services = new string[services.Length];
 			id = -1;
 			for (int i = 0; i < services.Length; i++)
 			{
