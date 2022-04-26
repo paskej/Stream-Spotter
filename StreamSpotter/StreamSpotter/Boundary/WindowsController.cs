@@ -86,7 +86,7 @@ namespace StreamSpotter
             search = new Search();
             searchScreenLast = true;
             currentForm.Hide();
-            search.searchResult(title, "movie");
+            search.searchResult(title, "movie", currentProfile.services);
             searchResults = search.getSearchResults();
             SearchListUI searchListUI = new SearchListUI(this);
             searchListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);

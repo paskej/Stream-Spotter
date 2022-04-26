@@ -108,7 +108,7 @@ namespace StreamSpotter
 		//if service is not in services then it returns false
 		public bool removeService(string serviceName)
 		{
-			if (serviceName != null)
+			if (serviceName != null && services != null)
 			{
 				for (int i = 0; i < services.Length; i++)
 				{
