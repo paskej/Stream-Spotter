@@ -322,7 +322,7 @@ namespace StreamSpotter
                 description.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 point = new Point(140, num * boxHeight + 40);
                 description.Location = point;
-                description.Size = new System.Drawing.Size(boxWidth - 400, boxHeight - 40);
+                description.Size = new System.Drawing.Size(400, boxHeight - 40);
                 description.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 panel.Controls.Add(description);
 
