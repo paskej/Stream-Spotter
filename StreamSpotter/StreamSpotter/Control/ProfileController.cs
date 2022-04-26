@@ -20,7 +20,7 @@ namespace StreamSpotter
 			db = new DatabaseAccess();
 		}
 
-		public Profile CreateProfile(string profileName, ArrayList serviceList)
+		public Profile CreateProfile(string profileName, string[] serviceList)
 		{
 			Profile created;
 			ProfileList proList = db.getProfileList();
