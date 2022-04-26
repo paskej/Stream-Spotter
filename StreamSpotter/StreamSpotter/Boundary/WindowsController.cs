@@ -115,10 +115,6 @@ namespace StreamSpotter
             searchListUI.Show();
         }
 
-        public void populateRecommendedList()
-        {
-
-        }
         public void goBack(Form currentForm)
         {
             currentForm.Hide();
