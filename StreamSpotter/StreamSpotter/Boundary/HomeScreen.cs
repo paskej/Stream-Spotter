@@ -22,17 +22,22 @@ namespace StreamSpotter
             if (windowsController.profileController.GetProfile(0) == null)
 			{
                 windowsController.createProfileOnStartup();
+
 			}
+            windowsController.showRecommendedList(recommendedPanel, this);
+
         }
         public HomeScreen(WindowsController windowsController)
         {
             InitializeComponent();
             this.windowsController = windowsController;
+            recommendedPanel.AutoScroll = true;
             if(windowsController.wishlistChanged == true)
             {
                 windowsController.updateRecommendations();
                 windowsController.wishlistChanged = false;
             }
+            windowsController.showRecommendedList(recommendedPanel, this);
             ProfileButton.Text = (string)windowsController.currentProfile.getProfileName();
         }
 
@@ -91,24 +96,47 @@ namespace StreamSpotter
             //
             //label3
             //
-            label3.Location = new Point((this.Width / 2) - (label3.Width / 2), (this.Height / 2) + 20);
+            label3.Location = new Point((this.Width / 2) - (label3.Width / 2), (this.Height / 2) - 20);
 
 
             //
             //searchBar
             //
-            SearchBar.Location = new Point((this.Width / 2) - (SearchBar.Width / 2), (this.Height / 2) - 20);
+            SearchBar.Location = new Point((this.Width / 2) - (SearchBar.Width / 2), (this.Height / 2) + 20);
 
+
+            //
+            //recommendedPanel
+            //
+            recommendedPanel.Location = new Point(0, (this.Height / 2) + 75);
+            recommendedPanel.Width = this.Width - 15;
+            recommendedPanel.Height = this.Height - recommendedPanel.Location.Y - 40;//change back to 28
+
+
+            //
+            //recommended scrollbar
+            //
+            hScrollBar1.Location = new Point(0, recommendedPanel.Height - 10);
+            hScrollBar1.Height = 10;
+            hScrollBar1.Width = recommendedPanel.Width;
+
+
+            //
+            //label4 recommended
+            //
+            label4.Location = new Point(10, (this.Height / 2) + 50);
         }
 
         private void HomeScreen_ResizeEnd(object sender, EventArgs e)
         {
             formatPage();
+            windowsController.showRecommendedList(recommendedPanel, this);
         }
 
         private void HomeScreen_Load(object sender, EventArgs e)
         {
             formatPage();
+            windowsController.showRecommendedList(recommendedPanel, this);
         }
     }
 }
