@@ -38,6 +38,7 @@ namespace StreamSpotter
                 windowsController.wishlistChanged = false;
             }
             windowsController.showRecommendedList(recommendedPanel, this);
+            ProfileButton.Text = (string)windowsController.currentProfile.getProfileName();
         }
 
         private void ProfileButton_Click(object sender, EventArgs e)

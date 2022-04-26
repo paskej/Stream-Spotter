@@ -19,7 +19,7 @@ namespace StreamSpotter
             apic = new APIController();
             merge = new Merge();
         }
-        public Result[] getRecommendations(Result[] wishlist)
+        public Result[] getRecommendations(Result[] wishlist, string[] services)
         {
             Result[] recommendations = null;
             if(wishlist == null)
@@ -32,12 +32,18 @@ namespace StreamSpotter
                 int genreInt = getFavoriteGenre(wishlist);
                 favoriteGenre = translateGenre(genreInt);
                 favoriteType = getFavoriteType(wishlist);
-                string text = apic.FindMovieSync(favoriteType, "netflix", favoriteGenre);
-                RootObject ro = JsonConvert.DeserializeObject<RootObject>(text);
-                text = apic.FindMovieSync(favoriteType, "disney", favoriteGenre);
-                RootObject tempRo = JsonConvert.DeserializeObject<RootObject>(text);
-                ro = merge.mergeLists(ro, tempRo);
-                recommendations = ro.results;
+                if (services.Length > 0)
+                {
+                    string text = apic.FindMovieSync(favoriteType, services[0], favoriteGenre);
+                    RootObject ro = JsonConvert.DeserializeObject<RootObject>(text);
+                    for (int i = 1; i < services.Length; i++)
+                    {
+                        text = apic.FindMovieSync(favoriteType, services[i], favoriteGenre);
+                        RootObject tempRo = JsonConvert.DeserializeObject<RootObject>(text);
+                        ro = merge.mergeLists(ro, tempRo);
+                    }
+                    recommendations = ro.results;
+                }                
             }
             return recommendations;
         }

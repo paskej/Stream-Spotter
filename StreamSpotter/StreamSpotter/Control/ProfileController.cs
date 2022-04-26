@@ -20,7 +20,7 @@ namespace StreamSpotter
 			db = new DatabaseAccess();
 		}
 
-		public Profile CreateProfile(string profileName, ArrayList serviceList)
+		public Profile CreateProfile(string profileName, string[] serviceList)
 		{
 			Profile created;
 			ProfileList proList = db.getProfileList();
@@ -28,9 +28,9 @@ namespace StreamSpotter
 			{
 				Profile[] fullProfileList = proList.list;
 
-				if (fullProfileList.Length < TOTAL_PROFILES - 1)
+				if (fullProfileList.Length < TOTAL_PROFILES)
 				{
-					Profile newProfile = new Profile(profileName, serviceList);
+					Profile newProfile = new Profile(profileName, new string[0]);
 					//this is where the profile will be added to the database
 					db.addProfile(newProfile);
 					created = newProfile;

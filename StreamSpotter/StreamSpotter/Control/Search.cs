@@ -25,14 +25,8 @@ namespace StreamSpotter
 
         //for searching results
 
-        public void searchResult(string title, string type)
+        public void searchResult(string title, string type, string[] services)
         {
-            //TODO
-            //get services from profile
-            string[] services = new string[2];
-            services[0] = "netflix";
-            services[1] = "disney";
-
             RootObject ro1;
             if (services.GetLength(0) > 0)
             {

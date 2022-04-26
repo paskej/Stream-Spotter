@@ -59,6 +59,7 @@ namespace StreamSpotter
 			buttonList.Add(Profile10);
 
 			updateProfileButtonName();
+			noCurrentProfile();
 		}
 
 		private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -85,7 +86,7 @@ namespace StreamSpotter
 			{
 				for (int i = 0; i < serviceArray.Count; i++)
 				{
-					if (serviceArray[i] == "netflix")
+					if ((string)serviceArray[i] == "netflix")
 					{
 						serviceArray.Remove("netflix");
 					}
@@ -95,7 +96,7 @@ namespace StreamSpotter
 			{
 				for (int i = 0; i < serviceArray.Count; i++)
 				{
-					if (serviceArray[i] == "disney")
+					if ((string)serviceArray[i] == "disney")
 					{
 						serviceArray.Remove("disney");
 					}
@@ -128,6 +129,7 @@ namespace StreamSpotter
 
 		private void SwitchButton_Click_1(object sender, EventArgs e)
 		{
+			noCurrentProfile();
 			ProfileSavedLabel.Visible = false;
 			updateProfileButtonName();
 			SwitchPanel.Visible = true;
@@ -147,7 +149,9 @@ namespace StreamSpotter
 			{
 				currentProfile = profileCon.GetProfile(0);
 				winControl.changeCurrentProfile(0);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -158,11 +162,13 @@ namespace StreamSpotter
 
 		private void ExitButton_Click(object sender, EventArgs e)
 		{
+			winControl.currentProfile = currentProfile;
 			winControl.openHomeScreen(this);
 		}
 
 		private void CancelButton_Click(object sender, EventArgs e)
 		{
+			noCurrentProfile();
 			NameTextBox.Text = "";
 			NewProfilePanel.Visible = false;
 			SwitchPanel.Visible = true;
@@ -191,12 +197,16 @@ namespace StreamSpotter
 			{
 				currentProfile = new Profile();
 			}
-			if (currentProfile.getID() < 9)
+			if (currentProfile.getID() <= 9)
 			{
 				if (profileCon.getListIsFull() == false)
-				{
-					TooManyProfilesLabel.Visible = false;
-					currentProfile = profileCon.CreateProfile(NewName, serviceArray);
+                {
+                    string[] services = new string[serviceArray.Count];
+					serviceArray.CopyTo(services);
+                    TooManyProfilesLabel.Visible = false;
+					currentProfile = profileCon.CreateProfile(NewName, services);
+					profileCon.setCurrentProfile(currentProfile.getID());
+					winControl.currentProfile = currentProfile;
 					NewProfilePanel.Visible = false;
 					SwitchPanel.Visible = true;
 				}
@@ -207,10 +217,48 @@ namespace StreamSpotter
 				NameTextBox.Text = "";
 				updateProfileButtonName();
 			}
+			noCurrentProfile();
 		}
 
 		private void SaveButton_Click(object sender, EventArgs e)
 		{
+			noCurrentProfile();
+			if (NetflixCheckBox.Checked == true)
+			{
+				if (!serviceArray.Contains("netflix"))
+				{
+					serviceArray.Add("netflix");
+				}
+			}
+			if (DisneyCheckBox.Checked == true)
+			{
+				if (!serviceArray.Contains("disney"))
+				{
+					serviceArray.Add("disney");
+				}
+			}
+			if (NetflixCheckBox.Checked == false)
+			{
+				for (int i = 0; i < serviceArray.Count; i++)
+				{
+					if ((string)serviceArray[i] == "netflix")
+					{
+						serviceArray.Remove("netflix");
+					}
+				}
+				currentProfile.removeService("netflix");
+			}
+			if (DisneyCheckBox.Checked == false)
+			{
+				for (int i = 0; i < serviceArray.Count; i++)
+				{
+					if ((string)serviceArray[i] == "disney")
+					{
+						serviceArray.Remove("disney");
+					}
+				}
+				currentProfile.removeService("disney");
+			}
 			for (int i = 0; i < serviceArray.Count; i++)
 			{
 				currentProfile.AddService((string)serviceArray[i]);
@@ -239,8 +287,9 @@ namespace StreamSpotter
 			{
 				profileCon.RemoveProfile(currentProfile.getID());
 				ProfileDeletedLabel.Visible = true;
-
 			}
+			currentProfile = profileCon.GetProfile(profileCon.currentProfileID - 1);
+			profileCon.setCurrentProfile(currentProfile.id);
 
 		}
 
@@ -252,7 +301,9 @@ namespace StreamSpotter
 			{
 				currentProfile = profileCon.GetProfile(1);
 				winControl.changeCurrentProfile(1);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -267,7 +318,9 @@ namespace StreamSpotter
 			{
 				currentProfile = profileCon.GetProfile(2);
 				winControl.changeCurrentProfile(2);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -281,7 +334,10 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(3) != null)
 			{
 				currentProfile = profileCon.GetProfile(3);
+				winControl.changeCurrentProfile(3);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -295,7 +351,10 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(4) != null)
 			{
 				currentProfile = profileCon.GetProfile(4);
+				winControl.changeCurrentProfile(4);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -309,7 +368,10 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(5) != null)
 			{
 				currentProfile = profileCon.GetProfile(5);
+				winControl.changeCurrentProfile(5);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -323,7 +385,10 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(6) != null)
 			{
 				currentProfile = profileCon.GetProfile(6);
+				winControl.changeCurrentProfile(6);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -337,7 +402,10 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(7) != null)
 			{
 				currentProfile = profileCon.GetProfile(7);
+				winControl.changeCurrentProfile(7);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -351,7 +419,10 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(8) != null)
 			{
 				currentProfile = profileCon.GetProfile(8);
+				winControl.changeCurrentProfile(8);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -365,7 +436,10 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(9) != null)
 			{
 				currentProfile = profileCon.GetProfile(9);
+				winControl.changeCurrentProfile(9);
+				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
+				noCurrentProfile();
 			}
 			else
 			{
@@ -375,6 +449,7 @@ namespace StreamSpotter
 
 		private void MyCancelButton_Click(object sender, EventArgs e)
 		{
+			noCurrentProfile();
 			SwitchPanel.Visible = true;
 			StreamSelectPanel.Visible = false;
 			NewProfilePanel.Visible = false;
@@ -406,25 +481,20 @@ namespace StreamSpotter
 		{
 			if (currentProfile.getServices() != null)
 			{
-				for (int i = 0; i < currentProfile.getServices().Count; i++)
+				bool netflix = false, disney = false;
+				for (int i = 0; i < currentProfile.getServices().Length; i++)
 				{
 					if (currentProfile.getServices()[i] == "netflix")
 					{
-						NetflixCheckBox.Checked = true;
-					}
-					else
-					{
-						NetflixCheckBox.Checked = false;
+						netflix = true;
 					}
 					if (currentProfile.getServices()[i] == "disney")
 					{
-						DisneyCheckBox.Checked = true;
-					}
-					else
-					{
-						DisneyCheckBox.Checked = false;
+						disney = true;
 					}
 				}
+				NetflixCheckBox.Checked = netflix;
+				DisneyCheckBox.Checked = disney;
 			}
 		}
 
@@ -454,6 +524,31 @@ namespace StreamSpotter
 			StreamSelectPanel.Visible = true;
 			NewProfilePanel.Visible = false;
 			updateCheckedBoxes();
+		}
+
+		private void noCurrentProfile()
+		{
+			if(currentProfile == null)
+			{
+				ExitButton.Enabled = false;
+				serviceButton.Enabled = false;
+				DeleteProfileButton.Enabled = false;
+			}
+			else if (currentProfile.services == null || currentProfile.services.Length == 0)
+			{
+				serviceButton.Enabled = true;
+				serviceButton.BackColor = Color.Red;
+				DeleteProfileButton.Enabled = true;
+				ExitButton.Enabled = false;
+			}
+			else
+            {
+				serviceButton.Enabled = true;
+				serviceButton.BackColor = default(Color);
+				serviceButton.UseVisualStyleBackColor = true;
+				DeleteProfileButton.Enabled = true;
+				ExitButton.Enabled = true;
+            }
 		}
 	}
 }

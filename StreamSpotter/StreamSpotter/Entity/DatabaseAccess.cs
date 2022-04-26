@@ -291,7 +291,7 @@ namespace StreamSpotter
             if (File.Exists(recPath))
             {
                 Result[] wishlist = getWishlist(profileID, profileID.ToString());
-                Result[] recs = recommendations.getRecommendations(wishlist);
+                Result[] recs = recommendations.getRecommendations(wishlist, getProfileList().list[profileID].services);
                 RootObject ro = new RootObject();
                 ro.results = recs;
                 string text = JsonConvert.SerializeObject(ro);
