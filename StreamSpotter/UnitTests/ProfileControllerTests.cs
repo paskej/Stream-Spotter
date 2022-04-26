@@ -22,7 +22,7 @@ namespace UnitTests
 			serv.Add("disney");
 			profileController = new ProfileController();
 
-			pro1 = profileController.CreateProfile(name, serv);
+			//pro1 = profileController.CreateProfile(name, serv);
 			ProfileList list = profileController.db.getProfileList();
 			Profile found = null;
 			if (list != null)
@@ -51,7 +51,7 @@ namespace UnitTests
 			serv.Add("netflix");
 			serv.Add("disney");
 
-			profileController.CreateProfile(name, serv);
+			//profileController.CreateProfile(name, serv);
 			profileController.RemoveProfile(0);
 			Assert.IsNull(profileController.GetProfile(0));
 		}
@@ -64,7 +64,7 @@ namespace UnitTests
 			serv.Add("netflix");
 			serv.Add("disney");
 
-			pro1 = profileController.CreateProfile(name, serv);
+			//pro1 = profileController.CreateProfile(name, serv);
 
 			Assert.Equals(pro1, profileController.GetProfile(0));
 		}

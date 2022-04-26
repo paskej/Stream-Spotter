@@ -32,6 +32,7 @@
             this.HomeButton = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BackButton = new System.Windows.Forms.Button();
             this.ProfileButton = new System.Windows.Forms.Button();
             this.wishlistButton = new System.Windows.Forms.Button();
             this.SearchBar = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.redoButton = new System.Windows.Forms.Button();
             this.undoButton = new System.Windows.Forms.Button();
-            this.BackButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.listPanel.SuspendLayout();
             this.SuspendLayout();
@@ -71,10 +71,10 @@
             "Oldest First",
             "Shortest First",
             "Longest First"});
-            this.comboBox1.Location = new System.Drawing.Point(708, 62);
+            this.comboBox1.Location = new System.Drawing.Point(692, 62);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 36);
+            this.comboBox1.Size = new System.Drawing.Size(150, 36);
             this.comboBox1.TabIndex = 24;
             this.comboBox1.Text = "Filter";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -92,6 +92,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(851, 60);
             this.panel1.TabIndex = 25;
+            // 
+            // BackButton
+            // 
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackButton.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.BackButton.Location = new System.Drawing.Point(8, 12);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(36, 39);
+            this.BackButton.TabIndex = 28;
+            this.BackButton.Text = "<";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // ProfileButton
             // 
@@ -162,10 +175,10 @@
             "(All Services)",
             "Netflix",
             "Disney+"});
-            this.comboBox2.Location = new System.Drawing.Point(560, 62);
+            this.comboBox2.Location = new System.Drawing.Point(538, 62);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(5);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(144, 36);
+            this.comboBox2.Size = new System.Drawing.Size(150, 36);
             this.comboBox2.TabIndex = 32;
             this.comboBox2.Text = "Service";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
@@ -195,19 +208,6 @@
             this.undoButton.Text = "Undo";
             this.undoButton.UseVisualStyleBackColor = true;
             this.undoButton.Click += new System.EventHandler(this.undoButton_Click);
-            // 
-            // BackButton
-            // 
-            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BackButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.BackButton.Location = new System.Drawing.Point(8, 12);
-            this.BackButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(36, 39);
-            this.BackButton.TabIndex = 28;
-            this.BackButton.Text = "<";
-            this.BackButton.UseVisualStyleBackColor = true;
-            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // SearchListUI
             // 

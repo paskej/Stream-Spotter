@@ -121,7 +121,7 @@ namespace StreamSpotter
             filterList = new List<Result>();
             for (int x = 0; x < movieList.Count; x++)
             {
-                if (!movieList[x].isMovie())
+                if (movieList[x].isMovie())
                     filterList.Add(movieList[x]);
             }
             return filterList.Count != 0;
@@ -132,7 +132,7 @@ namespace StreamSpotter
             filterList = new List<Result>();
             for (int x = 0; x < movieList.Count; x++)
             {
-                if (movieList[x].isMovie())
+                if (!movieList[x].isMovie())
                     filterList.Add(movieList[x]);
             }
             return filterList.Count != 0;
