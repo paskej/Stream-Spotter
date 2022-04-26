@@ -76,23 +76,6 @@ namespace StreamSpotter
             }
         }
 
-        private void profilePanel_MouseLeave(object sender, EventArgs e)
-        {
-            Point formPoint = this.Location;
-            int mousePositionX = Control.MousePosition.X - formPoint.X - profilePanel.AutoScrollPosition.X;
-            int mousePositionY = Control.MousePosition.Y - formPoint.Y - profilePanel.AutoScrollPosition.Y;// - 100;
-            if (mousePositionX < profilePanel.Location.X || mousePositionY < profilePanel.Location.Y ||
-                mousePositionX > (profilePanel.Location.X + profilePanel.Width) || mousePositionY > (profilePanel.Location.Y + profilePanel.Height))
-            {
-                profilePanel.Visible = false;
-            }
-        }
-
-        private void profileButton_Click(object sender, EventArgs e)
-        {
-            profilePanel.Visible = true;
-        }
-
         private void wishlistButton_Click(object sender, EventArgs e)
         {
             windowsController.openWishListUI(this);
@@ -132,11 +115,6 @@ namespace StreamSpotter
             {
                 System.Diagnostics.Process.Start(movie.streamingInfo.netflix.us.link);
             }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            profilePanel.Visible = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -275,6 +253,20 @@ namespace StreamSpotter
             pictureBox5.Height = this.Height;
             pictureBox5.Width = this.Width;
             pictureBox5.Location = new Point(-8, 42 - (int)(vScrollBar1.Value / 4));
+
+            //home button
+            HomeButton.Location = new Point(36, 7);
+
+            //
+            //Button wishlistButton;
+            //
+            wishlistButton.Location = new Point((this.Width - ProfileButton.Width - 102), (7));
+
+
+            //
+            //Button ProfileButton;
+            //
+            ProfileButton.Location = new Point((this.Width - ProfileButton.Width - 5 - 15), (7));
         }
 
         private void vScrollBar1_ValueChanged(object sender, EventArgs e)
