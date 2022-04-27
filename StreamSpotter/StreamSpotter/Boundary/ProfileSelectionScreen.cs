@@ -741,6 +741,15 @@ namespace StreamSpotter
 					  System.Drawing.GraphicsUnit.Point,
 					  ((byte)(0)));
 
+			//ProfileSavedLabel
+			ProfileSavedLabel.Location = new Point(this.Width/2 - ProfileSavedLabel.Width/2 - 12, this.Height/2);
+
+			ProfileSavedLabel.Font = new Font("Microsoft Sans Serif",
+					  ProfileSavedLabel.Width / 15,
+					  System.Drawing.FontStyle.Regular,
+					  System.Drawing.GraphicsUnit.Point,
+					  ((byte)(0)));
+
 			//Top Panel
 			NewProfilePanel.Width = this.Width;
 			NewProfilePanel.Height = this.Height;

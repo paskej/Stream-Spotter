@@ -245,7 +245,7 @@
 			// 
 			this.ProfileNameLabel.AutoSize = true;
 			this.ProfileNameLabel.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ProfileNameLabel.Location = new System.Drawing.Point(259, 74);
+			this.ProfileNameLabel.Location = new System.Drawing.Point(258, 69);
 			this.ProfileNameLabel.Name = "ProfileNameLabel";
 			this.ProfileNameLabel.Size = new System.Drawing.Size(177, 35);
 			this.ProfileNameLabel.TabIndex = 6;
