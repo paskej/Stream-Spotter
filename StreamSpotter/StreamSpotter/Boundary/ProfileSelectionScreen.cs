@@ -27,8 +27,13 @@ namespace StreamSpotter
 
 			InitializeComponent();
 			
+			//true
 			SwitchPanel.Visible = true;
+
+			//false
 			StreamSelectPanel.Visible = false;
+
+			//false
 			NewProfilePanel.Visible = false;
 
 			TooManyProfilesLabel.Visible = false;
@@ -584,6 +589,189 @@ namespace StreamSpotter
 			buttons[old].BackColor = default(Color);
 			buttons[old].UseVisualStyleBackColor = true;
 			buttons[selected].BackColor = Color.Green;
+
+		}
+
+		private void ProfileSelectionScreen_Load(object sender, EventArgs e)
+		{
+			formatScreen();
+		}
+
+		private void ProfileSelectionScreen_Resize(object sender, EventArgs e)
+		{
+			formatScreen();
+		}
+
+		private void formatScreen()
+		{
+			SwitchPanel.Width = this.Width;
+			SwitchPanel.Height = this.Height;
+			//resizes the NewProfile Button
+			NewProfileButton.Width = this.Width / 3;
+			NewProfileButton.Height = this.Height / 6;
+
+			//changes the location of the newProfile Button
+			NewProfileButton.Location = new Point(this.Width / 3, this.Height - NewProfileButton.Height - 70);
+
+			//resizes the delete, exit, and services buttons
+			DeleteProfileButton.Width = this.Width / 8;
+			DeleteProfileButton.Height = this.Height / 9;
+
+			ExitButton.Width = this.Width / 8;
+			ExitButton.Height = this.Height / 9;
+
+			serviceButton.Width = this.Width / 8;
+			serviceButton.Height = this.Height / 9;
+
+			//changes the location of delete, exit, and services buttons
+			DeleteProfileButton.Location = new Point(20,20);
+			ExitButton.Location = new Point(this.Width - ExitButton.Width - 30,20);
+			serviceButton.Location = new Point(this.Width - serviceButton.Width - 30, 30 + ExitButton.Height);
+
+			//changes the font size of buttons
+			DeleteProfileButton.Font = new Font("Microsoft Sans Serif",
+                      DeleteProfileButton.Width/8,
+                      System.Drawing.FontStyle.Regular,
+                      System.Drawing.GraphicsUnit.Point,
+                      ((byte)(0)));
+
+			ExitButton.Font = new Font("Microsoft Sans Serif",
+					  ExitButton.Width / 8,
+					  System.Drawing.FontStyle.Regular,
+					  System.Drawing.GraphicsUnit.Point,
+					  ((byte)(0)));
+
+			serviceButton.Font = new Font("Microsoft Sans Serif",
+					  serviceButton.Width / 8,
+					  System.Drawing.FontStyle.Regular,
+					  System.Drawing.GraphicsUnit.Point,
+					  ((byte)(0)));
+
+			NewProfileButton.Font = new Font("Microsoft Sans Serif",
+					  NewProfileButton.Width / 15,
+					  System.Drawing.FontStyle.Regular,
+					  System.Drawing.GraphicsUnit.Point,
+					  ((byte)(0)));
+
+			//resizes all Profile Buttons
+			for (int i =0; i < buttonList.Count; i++)
+			{
+				Button change = (Button) buttonList[i];
+				change.Width = this.Width / 8;
+				change.Height = this.Height / 10;
+			}
+
+			int ProfilePlaceBegin = DeleteProfileButton.Location.X + DeleteProfileButton.Width;
+			int ProfilePlaceEnd = ExitButton.Location.X;
+			int spaceBetween = ProfilePlaceEnd - ProfilePlaceBegin;
+			int buttonSpace = spaceBetween * (15 / 100);
+			int spaceBetweenButtons = spaceBetween * (5/100);
+
+			Profile1.Location = new Point((this.Width / 2) - (Profile3.Width / 2) - (Profile3.Width*2)-15, DeleteProfileButton.Location.Y + DeleteProfileButton.Height + 20);
+			Profile2.Location = new Point((this.Width / 2) - (Profile3.Width / 2) - Profile3.Width -10, DeleteProfileButton.Location.Y + DeleteProfileButton.Height + 20);
+			Profile3.Location = new Point((this.Width/2) - (Profile3.Width/2) - 5, DeleteProfileButton.Location.Y + DeleteProfileButton.Height + 20);
+			Profile4.Location = new Point((this.Width / 2) - (Profile3.Width / 2) + Profile3.Width, DeleteProfileButton.Location.Y + DeleteProfileButton.Height + 20);
+			Profile5.Location = new Point((this.Width / 2) - (Profile3.Width / 2) + (Profile3.Width * 2) + 5, DeleteProfileButton.Location.Y + DeleteProfileButton.Height + 20);
+
+			Profile6.Location = new Point(Profile1.Location.X, Profile1.Location.Y + Profile1.Height + 30);
+			Profile7.Location = new Point(Profile2.Location.X, Profile2.Location.Y + Profile2.Height + 30);
+			Profile8.Location = new Point(Profile3.Location.X, Profile3.Location.Y + Profile3.Height + 30);
+			Profile9.Location = new Point(Profile4.Location.X, Profile4.Location.Y + Profile4.Height + 30);
+			Profile10.Location = new Point(Profile5.Location.X, Profile5.Location.Y + Profile5.Height + 30);
+
+			ProfileNotCreatedLabel.Width = this.Width / 3;
+			ProfileNotCreatedLabel.Height = this.Height / 20;
+			ProfileNotCreatedLabel.Location = new Point((this.Width / 2 - ProfileNotCreatedLabel.Width / 2) -15 , 40);
+
+			ProfileNotCreatedLabel.Font = new Font("Microsoft Sans Serif",
+					  ProfileNotCreatedLabel.Width / 30,
+					  System.Drawing.FontStyle.Regular,
+					  System.Drawing.GraphicsUnit.Point,
+					  ((byte)(0)));
+
+
+			ProfileDeletedLabel.Location = new Point((this.Width / 2 - ProfileDeletedLabel.Width / 2) - 15, 40);
+
+			//Mid Panel
+
+			StreamSelectPanel.Width = this.Width;
+			StreamSelectPanel.Height = this.Height;
+
+			//SwitchButton
+			SwitchButton.Width = this.Width / 5;
+			SwitchButton.Height = this.Height / 15;
+			SwitchButton.Location = new Point(this.Width - SwitchButton.Width - 30, 20);
+
+			SwitchButton.Font = new Font("Microsoft Sans Serif",
+					  SwitchButton.Width / 14,
+					  System.Drawing.FontStyle.Regular,
+					  System.Drawing.GraphicsUnit.Point,
+					  ((byte)(0)));
+
+			//NetflixCheckedBox
+			NetflixCheckBox.Width = this.Width / 4;
+			NetflixCheckBox.Height = this.Height / 8;
+			NetflixCheckBox.Location = new Point((this.Width / 2) - NetflixCheckBox.Width - 30, this.Height / 2 - 75);
+
+
+			//DisneyCheckedBox
+			DisneyCheckBox.Width = this.Width / 4;
+			DisneyCheckBox.Height = this.Height / 8;
+			DisneyCheckBox.Location = new Point((this.Width / 2) + 30, this.Height / 2 - 75);
+
+			//saveButton
+			SaveButton.Width = this.Width / 8;
+			SaveButton.Height = this.Height / 12;
+			SaveButton.Location = new Point((this.Width / 2) - SaveButton.Width - 30, this.Height -200);
+
+			SaveButton.Font = new Font("Microsoft Sans Serif",
+					  SaveButton.Width / 8,
+					  System.Drawing.FontStyle.Regular,
+					  System.Drawing.GraphicsUnit.Point,
+					  ((byte)(0)));
+
+			//CancelButton
+			MyCancelButton.Width = this.Width/8;
+			MyCancelButton.Height = this.Height / 12;
+			MyCancelButton.Location = new Point((this.Width / 2) + 10, this.Height - 200);
+
+			MyCancelButton.Font = new Font("Microsoft Sans Serif",
+					  MyCancelButton.Width / 8,
+					  System.Drawing.FontStyle.Regular,
+					  System.Drawing.GraphicsUnit.Point,
+					  ((byte)(0)));
+
+			//Top Panel
+			NewProfilePanel.Width = this.Width;
+			NewProfilePanel.Height = this.Height;
+
+			//saveNewProfileButton
+			SaveNewProfileButton.Width = this.Width / 6;
+			SaveNewProfileButton.Height = this.Height / 12;
+			SaveNewProfileButton.Location = new Point((this.Width / 2) - SaveNewProfileButton.Width - 30, this.Height - 200);
+
+			//CancelButton
+			CancelButton.Width = this.Width / 6;
+			CancelButton.Height = this.Height / 12;
+			CancelButton.Location = new Point((this.Width / 2) + 30, this.Height - 200);
+
+			//chooseLabel
+			
+			label1.Location = new Point(this.Width / 2 - label1.Width / 2, this.Height / 2);
+
+			//TooManyProfilesLabel
+			TooManyProfilesLabel.Location = new Point(this.Width / 2 - TooManyProfilesLabel.Width / 2, (this.Height / 20) * 9);
+
+			//NameTextBox
+			NameTextBox.Width = this.Width / 3;
+			NameTextBox.Height = this.Height / 12;
+			NameTextBox.Location = new Point(this.Width / 2 - NameTextBox.Width / 2, this.Height / 3);
+
+			//ProfileNameLabel
+			ProfileNameLabel.Location = new Point(this.Width / 2 - NameTextBox.Width / 2, NameTextBox.Location.Y - 30);
+
+
+
 
 		}
 	}
