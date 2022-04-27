@@ -33,6 +33,8 @@ namespace StreamSpotter
             if (services.GetLength(0) > 0)
             {
                 ro1 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(MOVIE, services[0], title));
+                ro2 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(SERIES, services[0], title));
+                ro1 = merge.mergeLists(ro1, ro2);
                 for(int i = 1; i < services.Length; i++)
                 {
                     ro2 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(MOVIE, services[i], title));
