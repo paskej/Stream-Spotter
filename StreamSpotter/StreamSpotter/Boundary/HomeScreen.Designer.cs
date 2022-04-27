@@ -113,7 +113,7 @@
             // 
             // recommendedPanel
             // 
-            this.recommendedPanel.BackColor = System.Drawing.SystemColors.Highlight;
+            this.recommendedPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.recommendedPanel.Controls.Add(this.hScrollBar1);
             this.recommendedPanel.Location = new System.Drawing.Point(0, 400);
             this.recommendedPanel.Name = "recommendedPanel";

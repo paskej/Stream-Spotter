@@ -262,7 +262,7 @@ namespace StreamSpotter
 
             bool inList = false;
             Result[] wishlist = movieList.getWishlist();
-            if (wishlist != null)
+            if (wishlist != null && movieList.getMovie(0)!=null)
             {
                 foreach (Result r in wishlist)
                 {
@@ -347,6 +347,23 @@ namespace StreamSpotter
         public void showProfileScreen(Form currentForm)
 		{
             profileScreen = new ProfileSelectionScreen();
+            profileScreen.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
+            if (currentForm.Height < profileScreen.MinimumSize.Height)
+            {
+                profileScreen.Height = profileScreen.MinimumSize.Height;
+            }
+            else
+            {
+                profileScreen.Height = currentForm.Height;
+            }
+            if (currentForm.Width < profileScreen.MinimumSize.Width)
+            {
+                profileScreen.Width = profileScreen.MinimumSize.Width;
+            }
+            else
+            {
+                profileScreen.Width = currentForm.Width;
+            }
             profileScreen.updateFormPosition(currentForm);
             profileScreen.Show();
             currentForm.Close();
