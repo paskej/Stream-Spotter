@@ -99,7 +99,7 @@
 			this.SwitchButton.Name = "SwitchButton";
 			this.SwitchButton.Size = new System.Drawing.Size(203, 42);
 			this.SwitchButton.TabIndex = 9;
-			this.SwitchButton.Text = "Switch Profile";
+			this.SwitchButton.Text = "Switch Profile/Back";
 			this.SwitchButton.UseVisualStyleBackColor = true;
 			this.SwitchButton.Click += new System.EventHandler(this.SwitchButton_Click_1);
 			// 
