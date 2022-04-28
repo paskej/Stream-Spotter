@@ -283,5 +283,10 @@ namespace StreamSpotter
         {
             formatPage();
         }
+
+        private void MovieScreen_Resize(object sender, EventArgs e)
+        {
+            formatPage();
+        }
     }
 }

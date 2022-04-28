@@ -274,5 +274,10 @@ namespace StreamSpotter
                 }
             }
         }
+
+        private void WishlistUI_Resize(object sender, EventArgs e)
+        {
+            formatPage();
+        }
     }
 }

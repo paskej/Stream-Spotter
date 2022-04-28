@@ -300,6 +300,7 @@
             this.Load += new System.EventHandler(this.MovieScreen_Load);
             this.ResizeEnd += new System.EventHandler(this.MovieScreen_ResizeEnd);
             this.SizeChanged += new System.EventHandler(this.MovieScreen_SizeChanged);
+            this.Resize += new System.EventHandler(this.MovieScreen_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
