@@ -370,7 +370,14 @@ namespace StreamSpotter
                     foreach(string f in Directory.GetFiles(old))
                     {
                         string fileName = f.Remove(0,pathLen);
-                        File.Move(f,(n + fileName));
+                        if (fileName == "\\" + (i + 1).ToString() + ".json")
+                        {
+                            File.Move(f, (n + "\\" + i + ".json"));
+                        }
+                        else
+                        {
+                            File.Move(f, (n + fileName));
+                        }
                     }
                     Directory.Delete(old);
                     pl.list[i].setID(i);
