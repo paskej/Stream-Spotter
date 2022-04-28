@@ -289,6 +289,10 @@ namespace StreamSpotter
 					Button tempButton = (Button)buttonList[i];
 					tempButton.Text = profileCon.GetProfile(i).profileName;
 				}
+				else
+                {
+					temp.Text = "empty" + (i + 1);
+                }
 			}
 		}
 
@@ -299,9 +303,22 @@ namespace StreamSpotter
 			{
 				profileCon.RemoveProfile(currentProfile.getID());
 				ProfileDeletedLabel.Visible = true;
+				resetButttonText(currentProfile.id);
+				removeSelectedProfileButton(currentProfile.id);
 			}
-			currentProfile = profileCon.GetProfile(profileCon.currentProfileID - 1);
-			profileCon.setCurrentProfile(currentProfile.id);
+			if (currentProfile.id > 0)
+			{
+				currentProfile = profileCon.GetProfile(profileCon.currentProfileID - 1);
+				profileCon.setCurrentProfile(currentProfile.id);
+			}
+			else if(profileCon.GetProfile(currentProfile.id + 1) == null)
+            {
+				currentProfile = null;
+            }
+            else
+            {
+				currentProfile = profileCon.GetProfile(profileCon.currentProfileID + 1);
+            }
 
 		}
 
@@ -577,8 +594,11 @@ namespace StreamSpotter
 		{
 			Button[] buttons = new Button[10];
 			buttonList.CopyTo(buttons);
-			buttons[currentProfile.getID()].BackColor = default(Color);
-			buttons[currentProfile.getID()].UseVisualStyleBackColor = true;
+			if (currentProfile != null)
+			{
+				buttons[currentProfile.getID()].BackColor = default(Color);
+				buttons[currentProfile.getID()].UseVisualStyleBackColor = true;
+			}
 			buttons[selected].BackColor = Color.Green;
 
 		}
@@ -591,7 +611,22 @@ namespace StreamSpotter
 			buttons[selected].BackColor = Color.Green;
 
 		}
+		
+		private void removeSelectedProfileButton(int selected)
+        {
+			Button[] buttons = new Button[10];
+			buttonList.CopyTo(buttons);
+			buttons[selected].BackColor = default(Color);
+			buttons[selected].UseVisualStyleBackColor = true;
+			updateProfileButtonName();
+        }
 
+		private void resetButttonText(int selected)
+        {
+			Button[] buttons = new Button[10];
+			buttonList.CopyTo(buttons);
+			buttons[selected].Text = "empty" + (selected + 1);
+		}
 		private void ProfileSelectionScreen_Load(object sender, EventArgs e)
 		{
 			formatScreen();
