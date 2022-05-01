@@ -20,10 +20,15 @@ namespace StreamSpotter
 		private Profile currentProfile;
 		private ArrayList buttonList = new ArrayList();
 		private string NewName;
+        private WindowsController windowsController;
+		private Handler handler;
+
 		public ProfileSelectionScreen()
 		{
 			profileCon = winControl.profileController;
 			currentProfile = profileCon.GetProfile(profileCon.getCurrentProfile());
+			handler = new Handler();
+			handler.profile = profileCon;
 
 			InitializeComponent();
 			
@@ -215,11 +220,12 @@ namespace StreamSpotter
                     string[] services = new string[serviceArray.Count];
 					serviceArray.CopyTo(services);
                     TooManyProfilesLabel.Visible = false;
-					currentProfile = profileCon.CreateProfile(NewName, services);
+					//currentProfile = profileCon.CreateProfile(NewName, services);
 					profileCon.setCurrentProfile(currentProfile.getID());
 					winControl.currentProfile = currentProfile;
 					NewProfilePanel.Visible = false;
 					SwitchPanel.Visible = true;
+					handler.AddEntry(NewName, services, currentProfile.id);
 				}
 				else
 				{
@@ -301,10 +307,11 @@ namespace StreamSpotter
 			ProfileNotCreatedLabel.Visible = false;
 			if (currentProfile != null)
 			{
-				profileCon.RemoveProfile(currentProfile.getID());
+				//profileCon.RemoveProfile(currentProfile.getID());
 				ProfileDeletedLabel.Visible = true;
 				resetButttonText(currentProfile.id);
 				removeSelectedProfileButton(currentProfile.id);
+				handler.RemoveEntry(currentProfile.id);
 			}
 			if (currentProfile.id > 0)
 			{
@@ -818,5 +825,19 @@ namespace StreamSpotter
 
 
 		}
-	}
+
+        private void undoButton_Click(object sender, EventArgs e)
+        {
+			handler.Undo();
+			updateProfileButtonName();
+			noCurrentProfile();
+		}
+
+        private void redoButton_Click(object sender, EventArgs e)
+        {
+			handler.Redo();
+			updateProfileButtonName();
+			noCurrentProfile();
+		}
+    }
 }

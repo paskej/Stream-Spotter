@@ -8,8 +8,8 @@ namespace StreamSpotter
 {
     abstract class Command
     {
-        protected MovieList movieList;
-        public Command(MovieList ml) { movieList = ml; }
+        protected ProfileController profile;
+        public Command(ProfileController p) { profile = p; }
         public abstract void execute();
         public abstract void unexecute();
     }
@@ -18,18 +18,18 @@ namespace StreamSpotter
     // hint: you should keep a record of what was added.
     class AddCommand : Command
     {
-        private List<Result> movieList;
-        public AddCommand(MovieList pb, List<Result> e) : base(pb)
+        private Profile profileAdd;
+        public AddCommand(ProfileController p, Profile e) : base(p)
         {
-            movieList = e;
+            profileAdd = e;
         }
         public override void execute()
         {
-            // To do: receiver.action()
+            profile.CreateProfile(profileAdd.profileName, profileAdd.getServices());
         }
         public override void unexecute()
         {
-            // To do: receiver.action() 
+            profile.RemoveProfile(profileAdd.getID());
         }
 
     }
@@ -38,18 +38,18 @@ namespace StreamSpotter
     // hint: you should keep a record of what was removed.
     class RemoveCommand : Command
     {
-        private List<Result> movieList;
-        public RemoveCommand(MovieList pb, List<Result> e) : base(pb)
+        private Profile profileRemove;
+        public RemoveCommand(ProfileController p, Profile e) : base(p)
         {
-            movieList = e;
+            profileRemove = e;
         }
         public override void execute()
         {
-            // To do: receiver.action()
+            profile.RemoveProfile(profileRemove.getID());
         }
         public override void unexecute()
         {
-            // To do: receiver.action() 
+            profile.CreateProfile(profileRemove.profileName, profileRemove.getServices());
         }
     }
 }

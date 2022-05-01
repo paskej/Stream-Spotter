@@ -11,20 +11,24 @@ namespace StreamSpotter
         // Invoker
         public History com_history;
         // Receiver
-        public MovieList movieList { get; set; }
+        public ProfileController profile { get; set; }
 
         public Handler()
         {
-            movieList = new MovieList();
+            profile = new ProfileController();
             com_history = new History();
         }
-        public void AddEntry(List<Result> movies)
+        public void AddEntry(string name, string[] services, int id)
         {
-            com_history.Do(new AddCommand(new MovieList(), movies));
+            com_history.Do(new AddCommand(profile, new Profile(name, services, id)));
         }
-        public void RemoveEntry(List<Result> movies)
+        public void RemoveEntry(int id)
         {
-            com_history.Do(new RemoveCommand(movieList, movies));
+            Profile profileToRemove = profile.GetProfile(id);
+            if(profileToRemove!=null)
+            {
+                com_history.Do(new RemoveCommand(profile, profileToRemove));
+            }
         }
         public void Undo()
         {
