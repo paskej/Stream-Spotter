@@ -40,7 +40,7 @@ namespace StreamSpotter
     {
         private Profile profileRemove;
         public RemoveCommand(ProfileController p, Profile e) : base(p)
-        {
+        { 
             profileRemove = e;
         }
         public override void execute()

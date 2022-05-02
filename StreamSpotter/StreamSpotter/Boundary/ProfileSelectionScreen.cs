@@ -22,6 +22,7 @@ namespace StreamSpotter
 		private string NewName;
         private WindowsController windowsController;
 		private Handler handler;
+		private bool newProfileServices;
 
 		public ProfileSelectionScreen()
 		{
@@ -29,6 +30,7 @@ namespace StreamSpotter
 			currentProfile = profileCon.GetProfile(profileCon.getCurrentProfile());
 			handler = new Handler();
 			handler.profile = profileCon;
+			newProfileServices = false;
 
 			InitializeComponent();
 			
@@ -221,11 +223,15 @@ namespace StreamSpotter
 					string[] services = new string[serviceArray.Count];
 					serviceArray.CopyTo(services);
 					TooManyProfilesLabel.Visible = false;
-					currentProfile = new Profile(NewName, services, profileCon.getListLength());
+					currentProfile = new Profile(NewName, services, handler.profile.getListLength());
 					profileCon.setCurrentProfile(currentProfile.getID());
 					winControl.currentProfile = currentProfile;
 					NewProfilePanel.Visible = false;
 					SwitchPanel.Visible = true;
+					ProfileSavedLabel.Visible = false;
+					DisneyCheckBox.Checked = false;
+					NetflixCheckBox.Checked = false;
+					newProfileServices = true;
 					StreamSelectPanel.Visible = true;
 				}
 				else
@@ -279,13 +285,18 @@ namespace StreamSpotter
 			}
 			for (int i = 0; i < serviceArray.Count; i++)
 			{
+
 				currentProfile.AddService((string)serviceArray[i]);
 			}
 			ProfileSavedLabel.Visible = true;
 			string[] services = new string[serviceArray.Count];
 			serviceArray.CopyTo(services);
-			handler.AddEntry(currentProfile.profileName, services, currentProfile.id);
-			profileCon.UpdateProfile(currentProfile);
+			if(newProfileServices)
+            {
+				handler.AddEntry(currentProfile.profileName, services, currentProfile.id);
+			}
+			else
+				profileCon.UpdateProfile(currentProfile);
 			updateProfileButtonName();
 		}
 
@@ -570,9 +581,11 @@ namespace StreamSpotter
 
 		private void serviceButton_Click(object sender, EventArgs e)
 		{
+			newProfileServices = false;
 			SwitchPanel.Visible = true;
 			StreamSelectPanel.Visible = true;
 			NewProfilePanel.Visible = false;
+			ProfileSavedLabel.Visible = false;
 			updateCheckedBoxes();
 		}
 
