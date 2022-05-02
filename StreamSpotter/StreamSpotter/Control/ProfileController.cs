@@ -18,6 +18,7 @@ namespace StreamSpotter
 		public ProfileController()
 		{
 			db = new DatabaseAccess();
+			fullProfileList = new Profile[0];
 		}
 
 		public Profile CreateProfile(string profileName, string[] serviceList)
@@ -94,6 +95,11 @@ namespace StreamSpotter
 		{
 			listIsFull = Full;
 		}
+
+		public int getListLength()
+        {
+			return fullProfileList.Length;
+        }
 
 		public int getCurrentProfile()
 		{

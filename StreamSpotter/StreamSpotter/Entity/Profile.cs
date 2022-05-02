@@ -52,8 +52,8 @@ namespace StreamSpotter
 		public Profile(string profileName, string[] services, int id)
 		{
 			this.profileName = profileName;
-			services = new string[services.Length];
 			this.id = id;
+			this.services = new string[services.Length];
 			for(int i = 0; i < services.Length; i++)
 			{
 				this.services[i] = services[i];

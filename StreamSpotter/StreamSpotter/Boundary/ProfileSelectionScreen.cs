@@ -218,22 +218,21 @@ namespace StreamSpotter
 			{
 				if (profileCon.getListIsFull() == false)
                 {
-                    string[] services = new string[serviceArray.Count];
+					string[] services = new string[serviceArray.Count];
 					serviceArray.CopyTo(services);
-                    TooManyProfilesLabel.Visible = false;
-					//currentProfile = profileCon.CreateProfile(NewName, services);
+					TooManyProfilesLabel.Visible = false;
+					currentProfile = new Profile(NewName, services, profileCon.getListLength());
 					profileCon.setCurrentProfile(currentProfile.getID());
 					winControl.currentProfile = currentProfile;
 					NewProfilePanel.Visible = false;
 					SwitchPanel.Visible = true;
-					handler.AddEntry(NewName, services, currentProfile.id);
+					StreamSelectPanel.Visible = true;
 				}
 				else
 				{
 					TooManyProfilesLabel.Visible = true;
 				}
 				NameTextBox.Text = "";
-				updateProfileButtonName();
 			}
 			noCurrentProfile();
 			changeSelectedProfileButton(currentProfile.id, oldID);
@@ -283,7 +282,11 @@ namespace StreamSpotter
 				currentProfile.AddService((string)serviceArray[i]);
 			}
 			ProfileSavedLabel.Visible = true;
+			string[] services = new string[serviceArray.Count];
+			serviceArray.CopyTo(services);
+			handler.AddEntry(currentProfile.profileName, services, currentProfile.id);
 			profileCon.UpdateProfile(currentProfile);
+			updateProfileButtonName();
 		}
 
 		public void updateProfileButtonName()
@@ -312,6 +315,7 @@ namespace StreamSpotter
 				ProfileDeletedLabel.Visible = true;
 				resetButttonText(currentProfile.id);
 				removeSelectedProfileButton(currentProfile.id);
+
 				handler.RemoveEntry(currentProfile.id);
 			}
 			if (currentProfile.id > 0)
