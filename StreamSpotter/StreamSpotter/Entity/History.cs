@@ -43,6 +43,7 @@ namespace StreamSpotter
             {
                 Command temp = undone.Pop();
                 temp.execute();
+                
                 done.Push(temp);
             }
         }

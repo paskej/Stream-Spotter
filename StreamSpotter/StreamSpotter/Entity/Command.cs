@@ -26,6 +26,7 @@ namespace StreamSpotter
         public override void execute()
         {
             profile.CreateProfile(profileAdd.profileName, profileAdd.getServices());
+            profileAdd.id = profile.db.getProfileList().list.Length - 1;
         }
         public override void unexecute()
         {
@@ -40,7 +41,8 @@ namespace StreamSpotter
     {
         private Profile profileRemove;
         public RemoveCommand(ProfileController p, Profile e) : base(p)
-        { 
+        {
+            profile = p;
             profileRemove = e;
         }
         public override void execute()
@@ -50,6 +52,7 @@ namespace StreamSpotter
         public override void unexecute()
         {
             profile.CreateProfile(profileRemove.profileName, profileRemove.getServices());
+            profileRemove.id = profile.db.getProfileList().list.Length - 1;
         }
     }
 }
