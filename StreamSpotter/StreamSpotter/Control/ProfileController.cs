@@ -13,12 +13,13 @@ namespace StreamSpotter
 		public bool listIsFull = false;
 		public Profile[] fullProfileList;
 		public const int TOTAL_PROFILES = 10;
+		public int currNumProfiles = 0;
 		public int currentProfileID = 0;
 
 		public ProfileController()
 		{
 			db = new DatabaseAccess();
-			fullProfileList = new Profile[0];
+			fullProfileList = new Profile[TOTAL_PROFILES];
 		}
 
 		public Profile CreateProfile(string profileName, string[] serviceList)
@@ -35,6 +36,7 @@ namespace StreamSpotter
 					//this is where the profile will be added to the database
 					db.addProfile(newProfile);
 					created = newProfile;
+					currNumProfiles++;
 				}
 				else
 				{
@@ -96,9 +98,9 @@ namespace StreamSpotter
 			listIsFull = Full;
 		}
 
-		public int getListLength()
+		public int getCurrNumProfiles()
         {
-			return fullProfileList.Length;
+			return currNumProfiles;
         }
 
 		public int getCurrentProfile()
