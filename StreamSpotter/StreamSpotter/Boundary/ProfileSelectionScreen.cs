@@ -188,6 +188,7 @@ namespace StreamSpotter
 		private void NewProfileButton_Click(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
+			//StreamSelectPanel.Visible = true;
 			NewProfilePanel.Visible = true;
 			ProfileDeletedLabel.Visible = false;
 		}
