@@ -140,6 +140,7 @@ namespace StreamSpotter
                 }
 
                 searchListUI.Show();
+                searchListUI.showList();
             }
             else if (homeScreenLast)
             {
@@ -164,6 +165,7 @@ namespace StreamSpotter
                 }
 
                 homeScreen.Show();
+                homeScreen.showList();
             }
             else
             {
@@ -186,6 +188,7 @@ namespace StreamSpotter
                     wishListUI.Width = currentForm.Width;
                 }
                 wishListUI.Show();
+                wishListUI.showList();
             }
         }
         public void openWishListUI(Form currentForm)
