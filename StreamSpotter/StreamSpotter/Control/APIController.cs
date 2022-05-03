@@ -105,7 +105,8 @@ namespace StreamSpotter
 					};
 				}
 			} while (invalid);
-			
+
+			currentKey = 0;
 			//storage.AddJsonFile(movieResults);
 			return movieResults;
 

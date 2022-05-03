@@ -132,8 +132,12 @@ namespace StreamSpotter
             {
                 if (movieList[x].streamingInfo.disney != null && service.Equals("Disney+"))
                     filterList.Add(movieList[x]);
-                else if(movieList[x].streamingInfo.netflix != null && service.Equals("Netflix"))
+                else if (movieList[x].streamingInfo.netflix != null && service.Equals("Netflix"))
                     filterList.Add(movieList[x]);
+                /*else if (movieList[x].streamingInfo.hulu != null && service.Equals("Hulu"))
+                    filterList.Add(movieList[x]);*/
+                /*else if (movieList[x].streamingInfo.prime != null && service.Equals("Prime"))
+                    filterList.Add(movieList[x]);*/
             }
             return filterList.Count != 0;
         }

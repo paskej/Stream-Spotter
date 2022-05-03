@@ -97,6 +97,23 @@ namespace StreamSpotter
                     listEmptyLabel.Visible = true;
                 }
             }
+            else if (comboBox2.SelectedIndex == 3)
+            {
+                if (!windowsController.filterByService((string)comboBox2.SelectedItem))
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox2.SelectedIndex == 4)
+            {
+                if (!windowsController.filterByService((string)comboBox2.SelectedItem))
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
