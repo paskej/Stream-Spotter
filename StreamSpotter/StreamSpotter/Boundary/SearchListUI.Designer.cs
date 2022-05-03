@@ -41,6 +41,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.redoButton = new System.Windows.Forms.Button();
             this.undoButton = new System.Windows.Forms.Button();
+            this.loadingLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.listPanel.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +51,7 @@
             this.HomeButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.HomeButton.Location = new System.Drawing.Point(39, 7);
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(4);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(59, 32);
             this.HomeButton.TabIndex = 21;
@@ -72,7 +73,7 @@
             "Shortest First",
             "Longest First"});
             this.comboBox1.Location = new System.Drawing.Point(519, 50);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(114, 36);
             this.comboBox1.TabIndex = 24;
@@ -88,7 +89,7 @@
             this.panel1.Controls.Add(this.HomeButton);
             this.panel1.Controls.Add(this.SearchBar);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(638, 49);
             this.panel1.TabIndex = 25;
@@ -98,7 +99,7 @@
             this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.BackButton.Location = new System.Drawing.Point(6, 10);
-            this.BackButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(2);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(27, 32);
             this.BackButton.TabIndex = 28;
@@ -137,7 +138,7 @@
             // 
             this.SearchBar.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBar.Location = new System.Drawing.Point(206, 10);
-            this.SearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(210, 35);
             this.SearchBar.TabIndex = 27;
@@ -148,9 +149,10 @@
             // 
             this.listPanel.AutoScroll = true;
             this.listPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.listPanel.Controls.Add(this.loadingLabel);
             this.listPanel.Controls.Add(this.listEmptyLabel);
             this.listPanel.Location = new System.Drawing.Point(0, 81);
-            this.listPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listPanel.Margin = new System.Windows.Forms.Padding(2);
             this.listPanel.Name = "listPanel";
             this.listPanel.Size = new System.Drawing.Size(638, 364);
             this.listPanel.TabIndex = 26;
@@ -175,7 +177,7 @@
             "Netflix",
             "Disney+"});
             this.comboBox2.Location = new System.Drawing.Point(404, 50);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(114, 36);
             this.comboBox2.TabIndex = 32;
@@ -187,7 +189,7 @@
             this.redoButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.redoButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.redoButton.Location = new System.Drawing.Point(57, 52);
-            this.redoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.redoButton.Margin = new System.Windows.Forms.Padding(4);
             this.redoButton.Name = "redoButton";
             this.redoButton.Size = new System.Drawing.Size(49, 26);
             this.redoButton.TabIndex = 34;
@@ -200,13 +202,24 @@
             this.undoButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.undoButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.undoButton.Location = new System.Drawing.Point(6, 52);
-            this.undoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.undoButton.Margin = new System.Windows.Forms.Padding(4);
             this.undoButton.Name = "undoButton";
             this.undoButton.Size = new System.Drawing.Size(50, 26);
             this.undoButton.TabIndex = 35;
             this.undoButton.Text = "Undo";
             this.undoButton.UseVisualStyleBackColor = true;
             this.undoButton.Click += new System.EventHandler(this.undoButton_Click);
+            // 
+            // loadingLabel
+            // 
+            this.loadingLabel.AutoSize = true;
+            this.loadingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
+            this.loadingLabel.Location = new System.Drawing.Point(200, 169);
+            this.loadingLabel.Name = "loadingLabel";
+            this.loadingLabel.Size = new System.Drawing.Size(244, 32);
+            this.loadingLabel.TabIndex = 5;
+            this.loadingLabel.Text = "Loading Results...";
+            this.loadingLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // SearchListUI
             // 
@@ -220,8 +233,9 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.undoButton);
             this.Controls.Add(this.redoButton);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(700, 500);
             this.Name = "SearchListUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -250,5 +264,6 @@
         private System.Windows.Forms.Button redoButton;
         private System.Windows.Forms.Button undoButton;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.Label loadingLabel;
     }
 }

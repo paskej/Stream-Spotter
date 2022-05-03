@@ -57,7 +57,7 @@
             this.ProfileButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.ProfileButton.Location = new System.Drawing.Point(603, 11);
-            this.ProfileButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProfileButton.Margin = new System.Windows.Forms.Padding(2);
             this.ProfileButton.Name = "ProfileButton";
             this.ProfileButton.Size = new System.Drawing.Size(79, 32);
             this.ProfileButton.TabIndex = 4;
@@ -80,7 +80,7 @@
             // 
             this.SearchBar.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBar.Location = new System.Drawing.Point(222, 205);
-            this.SearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(198, 35);
             this.SearchBar.TabIndex = 25;
@@ -93,7 +93,7 @@
             this.wishlistButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.wishlistButton.Location = new System.Drawing.Point(11, 11);
-            this.wishlistButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.wishlistButton.Margin = new System.Windows.Forms.Padding(2);
             this.wishlistButton.Name = "wishlistButton";
             this.wishlistButton.Size = new System.Drawing.Size(79, 32);
             this.wishlistButton.TabIndex = 23;
@@ -117,7 +117,7 @@
             this.recommendedPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.recommendedPanel.Controls.Add(this.hScrollBar1);
             this.recommendedPanel.Location = new System.Drawing.Point(0, 325);
-            this.recommendedPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.recommendedPanel.Margin = new System.Windows.Forms.Padding(2);
             this.recommendedPanel.Name = "recommendedPanel";
             this.recommendedPanel.Size = new System.Drawing.Size(675, 122);
             this.recommendedPanel.TabIndex = 27;
@@ -142,8 +142,9 @@
             this.Controls.Add(this.SearchBar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(700, 500);
             this.Name = "HomeScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

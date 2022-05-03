@@ -18,13 +18,25 @@ namespace StreamSpotter
         {
             InitializeComponent();
             this.windowsController = windowsController;
+
+            listPanel.Controls.Add(loadingLabel);
+            loadingLabel.Visible = true;
+
+            button3.Text = (string)windowsController.currentProfile.getProfileName();
+        }
+
+        public void showList()
+        {
             if (!windowsController.showWishList(listPanel, this))
             {
+                loadingLabel.Visible = false;
                 listPanel.Controls.Add(listEmptyLabel);
                 listEmptyLabel.Visible = true;
             }
-            //Location = new Point(0, 0);
-            button3.Text = (string)windowsController.currentProfile.getProfileName();
+            else
+            {
+                loadingLabel.Visible = false;
+            }
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -171,7 +183,12 @@ namespace StreamSpotter
             //Label listEmptyLabel
             //
             listEmptyLabel.Location = new Point((int)((listPanel.Width / 2) - (listEmptyLabel.Width / 2)), (int)((listPanel.Height / 2) - (listEmptyLabel.Height / 2)) - 40);
-
+            
+            
+            //
+            //label loadingLabel
+            //
+            loadingLabel.Location = new Point((int)((listPanel.Width / 2) - (loadingLabel.Width / 2)), (int)((listPanel.Height / 2) - (loadingLabel.Height / 2)) - 40);
 
             //
             //Button button1 menu

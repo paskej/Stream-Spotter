@@ -36,6 +36,7 @@
             this.listPanel = new System.Windows.Forms.Panel();
             this.listEmptyLabel = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.loadingLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.listPanel.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +91,7 @@
             this.button3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.Highlight;
             this.button3.Location = new System.Drawing.Point(550, 10);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(79, 32);
             this.button3.TabIndex = 4;
@@ -102,6 +103,7 @@
             // 
             this.listPanel.AutoScroll = true;
             this.listPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.listPanel.Controls.Add(this.loadingLabel);
             this.listPanel.Controls.Add(this.listEmptyLabel);
             this.listPanel.Location = new System.Drawing.Point(0, 81);
             this.listPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -135,6 +137,16 @@
             this.comboBox2.TabIndex = 34;
             this.comboBox2.Text = "Service";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // loadingLabel
+            // 
+            this.loadingLabel.AutoSize = true;
+            this.loadingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.loadingLabel.Location = new System.Drawing.Point(287, 138);
+            this.loadingLabel.Name = "loadingLabel";
+            this.loadingLabel.Size = new System.Drawing.Size(233, 31);
+            this.loadingLabel.TabIndex = 6;
+            this.loadingLabel.Text = "Loading Results...";
             // 
             // WishlistUI
             // 
@@ -171,5 +183,6 @@
         private System.Windows.Forms.Label listEmptyLabel;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label loadingLabel;
     }
 }
