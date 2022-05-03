@@ -26,7 +26,14 @@ namespace StreamSpotter
 		public ProfileSelectionScreen()
 		{
 			profileCon = winControl.profileController;
-			currentProfile = profileCon.GetProfile(profileCon.getCurrentProfile());
+			if (profileCon.GetProfile(profileCon.getCurrentProfile()) == null)
+			{
+				currentProfile = winControl.currentProfile;
+			}
+			else
+			{
+				currentProfile = profileCon.GetProfile(profileCon.getCurrentProfile());
+			}
 			handler = new Handler();
 			handler.profile = profileCon;
 			newProfileServices = false;
@@ -658,20 +665,24 @@ namespace StreamSpotter
 		{
 			Button[] buttons = new Button[10];
 			buttonList.CopyTo(buttons);
-			if (currentProfile != null)
+			if (currentProfile != null && currentProfile.id != -1)
 			{
 				buttons[currentProfile.getID()].BackColor = default(Color);
 				buttons[currentProfile.getID()].UseVisualStyleBackColor = true;
+				buttons[selected].BackColor = Color.Green;
 			}
-			buttons[selected].BackColor = Color.Green;
+			
 
 		}
 		private void changeSelectedProfileButton(int selected, int old)
 		{
 			Button[] buttons = new Button[10];
 			buttonList.CopyTo(buttons);
-			buttons[old].BackColor = default(Color);
-			buttons[old].UseVisualStyleBackColor = true;
+			if (old != -1)
+			{
+				buttons[old].BackColor = default(Color);
+				buttons[old].UseVisualStyleBackColor = true;
+			}
 			buttons[selected].BackColor = Color.Green;
 
 		}

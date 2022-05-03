@@ -16,20 +16,26 @@ namespace StreamSpotter
         private Result[] recommendations;
         public HomeScreen()
         {
-            InitializeComponent();
             windowsController = WindowsController.getInstance();
-
+           
+            
             if (windowsController.profileController.GetProfile(0) == null)
 			{
-                windowsController.createProfileOnStartup();
-
+                string[] tempServices = new string[2] { "netflix", "disney" };
+                windowsController.currentProfile = new Profile("Profile", tempServices, -1);
+                
 			}
+            
+            InitializeComponent();
+            NoProfileLabel.Enabled = false;
             windowsController.showRecommendedList(recommendedPanel, this);
+            formatPage();
 
         }
         public HomeScreen(WindowsController windowsController)
         {
             InitializeComponent();
+            NoProfileLabel.Enabled = false;
             this.windowsController = windowsController;
             recommendedPanel.AutoScroll = true;
             if(windowsController.wishlistChanged == true)
@@ -54,14 +60,21 @@ namespace StreamSpotter
             //probably should move to a windows controller
             if (e.KeyChar == (char)Keys.Enter)
             {
-                if (SearchBar.TextLength == 0)
-                    MessageBox.Show("Please enter a search!");
+                if (windowsController.currentProfile.getID() == -1)
+                {
+                    NoProfileLabel.Enabled = true;
+                }
                 else
                 {
-                    //search with the api
-                    //then we load the searhlistUI
-                    windowsController = WindowsController.getInstance();
-                    windowsController.openSearchListUI(this, SearchBar.Text);
+                    if (SearchBar.TextLength == 0)
+                        MessageBox.Show("Please enter a search!");
+                    else
+                    {
+                        //search with the api
+                        //then we load the searhlistUI
+                        windowsController = WindowsController.getInstance();
+                        windowsController.openSearchListUI(this, SearchBar.Text);
+                    }
                 }
             }
         }
@@ -71,8 +84,21 @@ namespace StreamSpotter
             windowsController.openWishListUI(this);
         }
 
+        public void checkForProfile()
+		{
+            if(windowsController.currentProfile.id == -1)
+			{
+                wishlistButton.Enabled = false;
+			}
+            else
+			{
+                wishlistButton.Enabled = true;
+			}
+		}
         public void formatPage()
         {
+
+            checkForProfile();
             //
             //Profile Button
             //
