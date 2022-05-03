@@ -138,5 +138,11 @@ namespace StreamSpotter
             formatPage();
             windowsController.showRecommendedList(recommendedPanel, this);
         }
+
+        private void HomeScreen_Resize(object sender, EventArgs e)
+        {
+            formatPage();
+            windowsController.showRecommendedList(recommendedPanel, this);
+        }
     }
 }

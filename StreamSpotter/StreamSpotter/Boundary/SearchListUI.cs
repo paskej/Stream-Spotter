@@ -280,5 +280,10 @@ namespace StreamSpotter
                 windowsController.openSearchListUI(this, windowsController.getPrevSearch());
             }
         }
+
+        private void SearchListUI_Resize(object sender, EventArgs e)
+        {
+            formatPage();
+        }
     }
 }
