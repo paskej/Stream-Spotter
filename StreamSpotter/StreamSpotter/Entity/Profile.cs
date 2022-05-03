@@ -17,6 +17,7 @@ namespace StreamSpotter
 		public string[] services { get; set; }
 		public string profileName { get; set; }
 		public int id { get; set; }
+		public bool selected { get; set; }
 
 		//default constructor
 		public Profile()
@@ -24,6 +25,7 @@ namespace StreamSpotter
 			profileName = null;
 			services = new string[0];
 			id = -1;
+			selected = false;
 		}
 
 		public Profile(string profileName)
@@ -35,6 +37,7 @@ namespace StreamSpotter
 			{
 				services[i] = POSSIBLE_SERVICES[i];
 			}
+			selected = false;
 		}
 
 		public Profile(string profileName, string[] services)
@@ -46,6 +49,7 @@ namespace StreamSpotter
 			{
 				this.services[i] = services[i];
 			}
+			selected = false;
 		}
 
 		//parameterized constructor
@@ -58,6 +62,7 @@ namespace StreamSpotter
 			{
 				this.services[i] = services[i];
 			}
+			selected = false;
 		}
 
 		//attempts to add a service and if the service is added then returns true

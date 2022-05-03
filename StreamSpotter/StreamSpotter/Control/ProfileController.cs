@@ -19,6 +19,17 @@ namespace StreamSpotter
 		{
 			db = new DatabaseAccess();
 			fullProfileList = new Profile[0];
+			ProfileList pl = db.getProfileList();
+			if (pl != null && pl.list != null)
+			{
+				foreach (Profile p in db.getProfileList().list)
+				{
+					if (p.selected)
+					{
+						currentProfileID = p.id;
+					}
+				}
+			}
 		}
 
 		public Profile CreateProfile(string profileName, string[] serviceList)

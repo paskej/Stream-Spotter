@@ -159,7 +159,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(0) != null)
 			{
 				changeSelectedProfileButton(0);
+				currentProfile.selected = false;
+				profileCon.UpdateProfile(currentProfile);
 				currentProfile = profileCon.GetProfile(0);
+				currentProfile.selected = true;
+				profileCon.UpdateProfile(currentProfile);
 				winControl.changeCurrentProfile(0);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
@@ -351,7 +355,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(1) != null)
 			{
 				changeSelectedProfileButton(1);
+				currentProfile.selected = false;
+				profileCon.UpdateProfile(currentProfile);
 				currentProfile = profileCon.GetProfile(1);
+				currentProfile.selected = true;
+				profileCon.UpdateProfile(currentProfile);
 				winControl.changeCurrentProfile(1);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
@@ -369,7 +377,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(2) != null)
 			{
 				changeSelectedProfileButton(2);
+				currentProfile.selected = false;
+				profileCon.UpdateProfile(currentProfile);
 				currentProfile = profileCon.GetProfile(2);
+				currentProfile.selected = true;
+				profileCon.UpdateProfile(currentProfile);
 				winControl.changeCurrentProfile(2);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
@@ -387,7 +399,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(3) != null)
 			{
 				changeSelectedProfileButton(3);
+				currentProfile.selected = false;
+				profileCon.UpdateProfile(currentProfile);
 				currentProfile = profileCon.GetProfile(3);
+				currentProfile.selected = true;
+				profileCon.UpdateProfile(currentProfile);
 				winControl.changeCurrentProfile(3);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
@@ -405,7 +421,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(4) != null)
 			{
 				changeSelectedProfileButton(4);
+				currentProfile.selected = false;
+				profileCon.UpdateProfile(currentProfile);
 				currentProfile = profileCon.GetProfile(4);
+				currentProfile.selected = true;
+				profileCon.UpdateProfile(currentProfile);
 				winControl.changeCurrentProfile(4);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
@@ -423,7 +443,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(5) != null)
 			{
 				changeSelectedProfileButton(5);
+				currentProfile.selected = false;
+				profileCon.UpdateProfile(currentProfile);
 				currentProfile = profileCon.GetProfile(5);
+				currentProfile.selected = true;
+				profileCon.UpdateProfile(currentProfile);
 				winControl.changeCurrentProfile(5);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
@@ -441,7 +465,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(6) != null)
 			{
 				changeSelectedProfileButton(6);
+				currentProfile.selected = false;
+				profileCon.UpdateProfile(currentProfile);
 				currentProfile = profileCon.GetProfile(6);
+				currentProfile.selected = true;
+				profileCon.UpdateProfile(currentProfile);
 				winControl.changeCurrentProfile(6);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
@@ -459,7 +487,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(7) != null)
 			{
 				changeSelectedProfileButton(7);
+				currentProfile.selected = false;
+				profileCon.UpdateProfile(currentProfile);
 				currentProfile = profileCon.GetProfile(7);
+				currentProfile.selected = true;
+				profileCon.UpdateProfile(currentProfile);
 				winControl.changeCurrentProfile(7);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
@@ -477,7 +509,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(8) != null)
 			{
 				changeSelectedProfileButton(8);
+				currentProfile.selected = false;
+				profileCon.UpdateProfile(currentProfile);
 				currentProfile = profileCon.GetProfile(8);
+				currentProfile.selected = true;
+				profileCon.UpdateProfile(currentProfile);
 				winControl.changeCurrentProfile(8);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;
@@ -495,7 +531,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(9) != null)
 			{
 				changeSelectedProfileButton(9);
+				currentProfile.selected = false;
+				profileCon.UpdateProfile(currentProfile);
 				currentProfile = profileCon.GetProfile(9);
+				currentProfile.selected = true;
+				profileCon.UpdateProfile(currentProfile);
 				winControl.changeCurrentProfile(9);
 				winControl.wishlistChanged = false;
 				ProfileDeletedLabel.Visible = false;

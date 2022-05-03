@@ -113,6 +113,7 @@ namespace StreamSpotter
                 {
                     pl.list[i].setProfileName(profile.getProfileName());
                     pl.list[i].setServies(profile.getServices());
+                    pl.list[i].selected = profile.selected;
                     string text = JsonConvert.SerializeObject(pl);
                     using (var tw = new StreamWriter(path, false))
                     {
