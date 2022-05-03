@@ -17,12 +17,21 @@ namespace StreamSpotter
 		private string title;
 		private HttpClient client;
 		private HttpRequestMessage request;
-
+		private string[] keys;
+		private int currentKey;
 
 		public APIController()
 		{
 			
 			client = new HttpClient();
+
+			keys = new string[4];
+			keys[0] = "bc845cec13msh18fba8e190a0fd2p177163jsne160d9e55201";
+			keys[1] = "c59f8bd33amshfbc0ea2813f2495p12fdbajsneaf23d8c829a";
+			keys[2] = "a98a6b35fbmsh46d53f60be5bcdcp1fda1fjsn4ecde5959c3f";
+			keys[3] = "304c4fbc80msh73d17a1513320bfp14d0b6jsn1fe16b2c3fd5";
+			currentKey = 0;
+
 			request = new HttpRequestMessage
 			{
 				Method = HttpMethod.Get,
@@ -30,9 +39,10 @@ namespace StreamSpotter
 				Headers =
 	{
 		{ "x-rapidapi-host", "streaming-availability.p.rapidapi.com" },
-		{ "x-rapidapi-key", "bc845cec13msh18fba8e190a0fd2p177163jsne160d9e55201" },
+		{ "x-rapidapi-key", keys[0] },
 	},
 			};
+			
 		}
 
 		public void Change(string type, string theService, string theTitle)
@@ -50,7 +60,7 @@ namespace StreamSpotter
 				Headers =
 	{
 		{ "x-rapidapi-host", "streaming-availability.p.rapidapi.com" },
-		{ "x-rapidapi-key", "c59f8bd33amshfbc0ea2813f2495p12fdbajsneaf23d8c829a" },
+		{ "x-rapidapi-key", keys[0] },
 	},
 			};
 		}
@@ -72,82 +82,30 @@ namespace StreamSpotter
 			Change(type, theService, theTitle);
 			string movieResults = "";
 
-			try
-            {
-				movieResults = Task.Run(async () => await MakeRequestAsync()).Result;
-			}
-			catch(Exception e)
-            {
-				request = new HttpRequestMessage
-				{
-					Method = HttpMethod.Get,
-					RequestUri = new Uri("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&keyword=shrek&page=1&output_language=en&language=en"),
-					Headers =
-	{
-		{ "x-rapidapi-host", "streaming-availability.p.rapidapi.com" },
-		{ "x-rapidapi-key", "bc845cec13msh18fba8e190a0fd2p177163jsne160d9e55201" },
-	},
-				};
+			bool invalid = true;
+			do
+			{
 				try
-                {
+				{
 					movieResults = Task.Run(async () => await MakeRequestAsync()).Result;
+					invalid = false;
 				}
-				catch(Exception e1)
-                {
+				catch (Exception e)
+				{
+					currentKey++;
 					request = new HttpRequestMessage
 					{
 						Method = HttpMethod.Get,
-						RequestUri = new Uri("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&keyword=shrek&page=1&output_language=en&language=en"),
+						RequestUri = new Uri("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=" + service + "&type=" + entertainmentType + "&keyword=" + title + "&page=1&output_language=en&language=en"),
 						Headers =
 	{
 		{ "x-rapidapi-host", "streaming-availability.p.rapidapi.com" },
-		{ "x-rapidapi-key", "c59f8bd33amshfbc0ea2813f2495p12fdbajsneaf23d8c829a" },
+		{ "x-rapidapi-key", keys[currentKey] },
 	},
 					};
-                    try
-                    {
-						movieResults = Task.Run(async () => await MakeRequestAsync()).Result;
-					}
-					catch(Exception e2)
-                    {
-						request = new HttpRequestMessage
-						{
-							Method = HttpMethod.Get,
-							RequestUri = new Uri("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&keyword=shrek&page=1&output_language=en&language=en"),
-							Headers =
-	{
-		{ "x-rapidapi-host", "streaming-availability.p.rapidapi.com" },
-		{ "x-rapidapi-key", "a98a6b35fbmsh46d53f60be5bcdcp1fda1fjsn4ecde5959c3f" },
-	},
-						};
-                        try
-                        {
-							movieResults = Task.Run(async () => await MakeRequestAsync()).Result;
-						}
-						catch(Exception e3)
-						{
-							request = new HttpRequestMessage
-							{
-								Method = HttpMethod.Get,
-								RequestUri = new Uri("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&keyword=shrek&page=1&output_language=en&language=en"),
-								Headers =
-	{
-		{ "x-rapidapi-host", "streaming-availability.p.rapidapi.com" },
-		{ "x-rapidapi-key", "304c4fbc80msh73d17a1513320bfp14d0b6jsn1fe16b2c3fd5" },
-	},
-							};
-                            try
-                            {
-								movieResults = Task.Run(async () => await MakeRequestAsync()).Result;
-							}
-							catch(Exception e4)
-                            {
-								//hopefully it doesn't get to here otherwise rip
-                            }
-						}
-					}
 				}
-			}
+			} while (invalid);
+			
 			//storage.AddJsonFile(movieResults);
 			return movieResults;
 
