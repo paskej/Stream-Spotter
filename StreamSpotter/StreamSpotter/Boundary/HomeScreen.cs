@@ -32,13 +32,17 @@ namespace StreamSpotter
             InitializeComponent();
             this.windowsController = windowsController;
             recommendedPanel.AutoScroll = true;
-            if(windowsController.wishlistChanged == true)
+            ProfileButton.Text = (string)windowsController.currentProfile.getProfileName();
+        }
+
+        public void showList()
+        {
+            if (windowsController.wishlistChanged == true)
             {
                 windowsController.updateRecommendations();
                 windowsController.wishlistChanged = false;
             }
             windowsController.showRecommendedList(recommendedPanel, this);
-            ProfileButton.Text = (string)windowsController.currentProfile.getProfileName();
         }
 
         private void ProfileButton_Click(object sender, EventArgs e)

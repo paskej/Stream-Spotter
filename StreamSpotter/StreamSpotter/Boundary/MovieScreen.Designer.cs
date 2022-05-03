@@ -291,6 +291,7 @@
             this.Controls.Add(this.infoPanel);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.button4);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(700, 500);

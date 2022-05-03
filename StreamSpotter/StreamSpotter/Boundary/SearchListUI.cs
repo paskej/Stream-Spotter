@@ -21,13 +21,25 @@ namespace StreamSpotter
         {
             InitializeComponent();
             this.windowsController = windowsController;
+
+            listPanel.Controls.Add(loadingLabel);
+            loadingLabel.Visible = true;
+
+            ProfileButton.Text = (string)windowsController.currentProfile.getProfileName();
+        }
+
+        public void showList()
+        {
             if (!windowsController.showSearchList(listPanel, this))
             {
+                loadingLabel.Visible = false;
                 listPanel.Controls.Add(listEmptyLabel);
                 listEmptyLabel.Visible = true;
             }
-
-            ProfileButton.Text = (string)windowsController.currentProfile.getProfileName();
+            else
+            {
+                loadingLabel.Visible = false;
+            }
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -243,6 +255,12 @@ namespace StreamSpotter
 
 
             //
+            //label loadingLabel
+            //
+            loadingLabel.Location = new Point((int)((listPanel.Width / 2) - (loadingLabel.Width / 2)), (int)((listPanel.Height / 2) - (loadingLabel.Height / 2)) - 40);
+
+
+            //
             //ComboBox comboBox2;
             //
             comboBox2.Location = new Point((this.Width - comboBox1.Width - comboBox2.Width - 15), (panel1.Height + 1));
@@ -301,6 +319,11 @@ namespace StreamSpotter
         private void SearchListUI_Resize(object sender, EventArgs e)
         {
             formatPage();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

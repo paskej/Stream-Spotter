@@ -44,7 +44,6 @@ namespace StreamSpotter
         {
             homeScreenLast = true;
             searchScreenLast = false;
-            currentForm.Hide();
             HomeScreen homeScreen = new HomeScreen(this);
             homeScreen.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
             if (currentForm.Height < homeScreen.MinimumSize.Height)
@@ -63,8 +62,9 @@ namespace StreamSpotter
             {
                 homeScreen.Width = currentForm.Width;
             }
-
+            currentForm.Hide();
             homeScreen.Show();
+            homeScreen.showList();
         }
         public String peekPrevSearch()
         {
@@ -87,12 +87,8 @@ namespace StreamSpotter
         public void openSearchListUI(Form currentForm, string title)
         {
             currSearch = title;
-            search = new Search();
             searchScreenLast = true;
             homeScreenLast = false;
-            currentForm.Hide();
-            search.searchResult(title, currentProfile.services);
-            searchResults = search.getSearchResults();
             SearchListUI searchListUI = new SearchListUI(this);
             searchListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
             if (currentForm.Height < searchListUI.MinimumSize.Height)
@@ -111,8 +107,12 @@ namespace StreamSpotter
             {
                 searchListUI.Width = currentForm.Width;
             }
-
+            currentForm.Hide();
             searchListUI.Show();
+            search = new Search();
+            search.searchResult(title, currentProfile.services);//
+            searchResults = search.getSearchResults();
+            searchListUI.showList();
         }
 
         public void goBack(Form currentForm)
@@ -192,7 +192,6 @@ namespace StreamSpotter
         {
             searchScreenLast = false;
             homeScreenLast = false;
-            currentForm.Hide();
             WishlistUI wishListUI = new WishlistUI(this);
             wishListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
             if(currentForm.Height < wishListUI.MinimumSize.Height)
@@ -211,8 +210,9 @@ namespace StreamSpotter
             {
                 wishListUI.Width = currentForm.Width;
             }
-
+            currentForm.Hide();
             wishListUI.Show();
+            wishListUI.showList();
         }
         public void openMovieScreen(Form currentForm, int loc)
         {

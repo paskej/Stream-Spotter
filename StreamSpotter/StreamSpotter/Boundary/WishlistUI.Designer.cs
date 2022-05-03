@@ -36,6 +36,7 @@
             this.listPanel = new System.Windows.Forms.Panel();
             this.listEmptyLabel = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.loadingLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.listPanel.SuspendLayout();
             this.SuspendLayout();
@@ -102,6 +103,7 @@
             // 
             this.listPanel.AutoScroll = true;
             this.listPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.listPanel.Controls.Add(this.loadingLabel);
             this.listPanel.Controls.Add(this.listEmptyLabel);
             this.listPanel.Location = new System.Drawing.Point(0, 100);
             this.listPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -138,6 +140,16 @@
             this.comboBox2.Text = "Service";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
+            // loadingLabel
+            // 
+            this.loadingLabel.AutoSize = true;
+            this.loadingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.loadingLabel.Location = new System.Drawing.Point(287, 138);
+            this.loadingLabel.Name = "loadingLabel";
+            this.loadingLabel.Size = new System.Drawing.Size(233, 31);
+            this.loadingLabel.TabIndex = 6;
+            this.loadingLabel.Text = "Loading Results...";
+            // 
             // WishlistUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -173,5 +185,6 @@
         private System.Windows.Forms.Label listEmptyLabel;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label loadingLabel;
     }
 }

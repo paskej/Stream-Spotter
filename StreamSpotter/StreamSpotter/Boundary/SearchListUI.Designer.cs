@@ -39,6 +39,7 @@
             this.listPanel = new System.Windows.Forms.Panel();
             this.listEmptyLabel = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.loadingLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.listPanel.SuspendLayout();
             this.SuspendLayout();
@@ -146,6 +147,7 @@
             // 
             this.listPanel.AutoScroll = true;
             this.listPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.listPanel.Controls.Add(this.loadingLabel);
             this.listPanel.Controls.Add(this.listEmptyLabel);
             this.listPanel.Location = new System.Drawing.Point(0, 100);
             this.listPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -221,5 +223,6 @@
         private System.Windows.Forms.Button wishlistButton;
         private System.Windows.Forms.Button ProfileButton;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.Label loadingLabel;
     }
 }
