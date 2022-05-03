@@ -20,7 +20,6 @@ namespace StreamSpotter
 		private Profile currentProfile;
 		private ArrayList buttonList = new ArrayList();
 		private string NewName;
-        private WindowsController windowsController;
 		private Handler handler;
 		private bool newProfileServices;
 
@@ -342,7 +341,7 @@ namespace StreamSpotter
             {
 				currentProfile = profileCon.GetProfile(profileCon.currentProfileID + 1);
             }
-
+			updateProfileButtonName();
 		}
 
 		private void Profile2_Click(object sender, EventArgs e)

@@ -31,6 +31,7 @@ namespace StreamSpotter
             if (done.Count != 0) 
             {
                 Command temp = done.Pop();
+                temp.unexecute();
                 undone.Push(temp);
             }
         }
@@ -41,6 +42,8 @@ namespace StreamSpotter
             if (undone.Count != 0)
             {
                 Command temp = undone.Pop();
+                temp.execute();
+                
                 done.Push(temp);
             }
         }

@@ -69,13 +69,14 @@
             // 
             // StreamSelectPanel
             // 
+            this.StreamSelectPanel.Controls.Add(this.NewProfilePanel);
             this.StreamSelectPanel.Controls.Add(this.ProfileSavedLabel);
             this.StreamSelectPanel.Controls.Add(this.SwitchButton);
             this.StreamSelectPanel.Controls.Add(this.DisneyCheckBox);
             this.StreamSelectPanel.Controls.Add(this.NetflixCheckBox);
             this.StreamSelectPanel.Controls.Add(this.MyCancelButton);
             this.StreamSelectPanel.Controls.Add(this.SaveButton);
-            this.StreamSelectPanel.Location = new System.Drawing.Point(0, 0);
+            this.StreamSelectPanel.Location = new System.Drawing.Point(83, 286);
             this.StreamSelectPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.StreamSelectPanel.Name = "StreamSelectPanel";
             this.StreamSelectPanel.Size = new System.Drawing.Size(907, 558);
@@ -161,7 +162,7 @@
             this.NewProfilePanel.Controls.Add(this.label1);
             this.NewProfilePanel.Controls.Add(this.ProfileNameLabel);
             this.NewProfilePanel.Controls.Add(this.NameTextBox);
-            this.NewProfilePanel.Location = new System.Drawing.Point(0, 0);
+            this.NewProfilePanel.Location = new System.Drawing.Point(59, 262);
             this.NewProfilePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NewProfilePanel.Name = "NewProfilePanel";
             this.NewProfilePanel.Size = new System.Drawing.Size(907, 556);
@@ -237,7 +238,6 @@
             // SwitchPanel
             // 
             this.SwitchPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.SwitchPanel.Controls.Add(this.NewProfilePanel);
             this.SwitchPanel.Controls.Add(this.StreamSelectPanel);
             this.SwitchPanel.Controls.Add(this.ProfileNotCreatedLabel);
             this.SwitchPanel.Controls.Add(this.ExitButton);
@@ -446,27 +446,29 @@
             // 
             // undoButton
             // 
-            this.undoButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.undoButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.undoButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.undoButton.Location = new System.Drawing.Point(16, 98);
-            this.undoButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.undoButton.Location = new System.Drawing.Point(26, 104);
+            this.undoButton.Margin = new System.Windows.Forms.Padding(5);
             this.undoButton.Name = "undoButton";
-            this.undoButton.Size = new System.Drawing.Size(65, 32);
+            this.undoButton.Size = new System.Drawing.Size(54, 51);
             this.undoButton.TabIndex = 37;
-            this.undoButton.Text = "Undo";
+            this.undoButton.Text = "↶";
+            this.undoButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.undoButton.UseVisualStyleBackColor = true;
             this.undoButton.Click += new System.EventHandler(this.undoButton_Click);
             // 
             // redoButton
             // 
-            this.redoButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.redoButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.redoButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.redoButton.Location = new System.Drawing.Point(83, 98);
-            this.redoButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.redoButton.Location = new System.Drawing.Point(84, 104);
+            this.redoButton.Margin = new System.Windows.Forms.Padding(5);
             this.redoButton.Name = "redoButton";
-            this.redoButton.Size = new System.Drawing.Size(65, 32);
+            this.redoButton.Size = new System.Drawing.Size(56, 51);
             this.redoButton.TabIndex = 36;
-            this.redoButton.Text = "Redo";
+            this.redoButton.Text = "↷";
+            this.redoButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.redoButton.UseVisualStyleBackColor = true;
             this.redoButton.Click += new System.EventHandler(this.redoButton_Click);
             // 
