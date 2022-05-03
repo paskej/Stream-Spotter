@@ -101,7 +101,7 @@
             // listPanel
             // 
             this.listPanel.AutoScroll = true;
-            this.listPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.listPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.listPanel.Controls.Add(this.listEmptyLabel);
             this.listPanel.Location = new System.Drawing.Point(0, 100);
             this.listPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(909, 558);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);

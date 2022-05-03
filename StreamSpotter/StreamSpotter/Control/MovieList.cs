@@ -303,6 +303,7 @@ namespace StreamSpotter
         }
         public void printList()
         {
+            panel.MouseDown -= new System.Windows.Forms.MouseEventHandler(MovieSelect);
             panel.Controls.Clear();
             Point point;
 
