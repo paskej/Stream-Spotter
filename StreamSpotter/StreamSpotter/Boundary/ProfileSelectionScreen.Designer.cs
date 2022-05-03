@@ -75,10 +75,10 @@
 			this.StreamSelectPanel.Controls.Add(this.NetflixCheckBox);
 			this.StreamSelectPanel.Controls.Add(this.MyCancelButton);
 			this.StreamSelectPanel.Controls.Add(this.SaveButton);
-			this.StreamSelectPanel.Location = new System.Drawing.Point(0, 175);
+			this.StreamSelectPanel.Location = new System.Drawing.Point(0, 0);
 			this.StreamSelectPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.StreamSelectPanel.Name = "StreamSelectPanel";
-			this.StreamSelectPanel.Size = new System.Drawing.Size(907, 383);
+			this.StreamSelectPanel.Size = new System.Drawing.Size(907, 558);
 			this.StreamSelectPanel.TabIndex = 5;
 			// 
 			// ProfileSavedLabel
@@ -164,10 +164,10 @@
 			this.NewProfilePanel.Controls.Add(this.label1);
 			this.NewProfilePanel.Controls.Add(this.ProfileNameLabel);
 			this.NewProfilePanel.Controls.Add(this.NameTextBox);
-			this.NewProfilePanel.Location = new System.Drawing.Point(0, 205);
+			this.NewProfilePanel.Location = new System.Drawing.Point(0, 2);
 			this.NewProfilePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.NewProfilePanel.Name = "NewProfilePanel";
-			this.NewProfilePanel.Size = new System.Drawing.Size(907, 351);
+			this.NewProfilePanel.Size = new System.Drawing.Size(907, 554);
 			this.NewProfilePanel.TabIndex = 12;
 			this.NewProfilePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.NewProfilePanel_Paint);
 			// 
