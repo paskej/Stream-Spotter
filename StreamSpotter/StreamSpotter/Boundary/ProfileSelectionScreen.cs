@@ -791,6 +791,29 @@ namespace StreamSpotter
 
 			ProfileDeletedLabel.Location = new Point((this.Width / 2 - ProfileDeletedLabel.Width / 2) - 15, 40);
 
+			///undoButton
+			undoButton.Width = this.Width / 17;
+			undoButton.Height = this.Width / 17;
+
+			undoButton.Location = new Point(20, 20 + DeleteProfileButton.Height + 10);
+
+			undoButton.Font = new Font("Microsoft Sans Serif",
+					  undoButton.Width / 2,
+					  System.Drawing.FontStyle.Regular,
+					  System.Drawing.GraphicsUnit.Point,
+					  ((byte)(0)));
+
+			//redoButton
+			redoButton.Width = this.Width / 17;
+			redoButton.Height = this.Width / 17;
+
+			redoButton.Font = new Font("Microsoft Sans Serif",
+					  redoButton.Width / 2,
+					  System.Drawing.FontStyle.Regular,
+					  System.Drawing.GraphicsUnit.Point,
+					  ((byte)(0)));
+
+			redoButton.Location = new Point(20 + DeleteProfileButton.Width - redoButton.Width, 20 + DeleteProfileButton.Height + 10);
 			//Mid Panel
 
 			StreamSelectPanel.Width = this.Width;
