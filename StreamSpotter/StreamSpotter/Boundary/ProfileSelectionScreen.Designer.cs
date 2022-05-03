@@ -69,14 +69,13 @@
             // 
             // StreamSelectPanel
             // 
-            this.StreamSelectPanel.Controls.Add(this.NewProfilePanel);
             this.StreamSelectPanel.Controls.Add(this.ProfileSavedLabel);
             this.StreamSelectPanel.Controls.Add(this.SwitchButton);
             this.StreamSelectPanel.Controls.Add(this.DisneyCheckBox);
             this.StreamSelectPanel.Controls.Add(this.NetflixCheckBox);
             this.StreamSelectPanel.Controls.Add(this.MyCancelButton);
             this.StreamSelectPanel.Controls.Add(this.SaveButton);
-            this.StreamSelectPanel.Location = new System.Drawing.Point(83, 286);
+            this.StreamSelectPanel.Location = new System.Drawing.Point(0, 0);
             this.StreamSelectPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.StreamSelectPanel.Name = "StreamSelectPanel";
             this.StreamSelectPanel.Size = new System.Drawing.Size(907, 558);
@@ -162,7 +161,7 @@
             this.NewProfilePanel.Controls.Add(this.label1);
             this.NewProfilePanel.Controls.Add(this.ProfileNameLabel);
             this.NewProfilePanel.Controls.Add(this.NameTextBox);
-            this.NewProfilePanel.Location = new System.Drawing.Point(59, 262);
+            this.NewProfilePanel.Location = new System.Drawing.Point(0, 0);
             this.NewProfilePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NewProfilePanel.Name = "NewProfilePanel";
             this.NewProfilePanel.Size = new System.Drawing.Size(907, 556);
@@ -238,6 +237,7 @@
             // SwitchPanel
             // 
             this.SwitchPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SwitchPanel.Controls.Add(this.NewProfilePanel);
             this.SwitchPanel.Controls.Add(this.StreamSelectPanel);
             this.SwitchPanel.Controls.Add(this.ProfileNotCreatedLabel);
             this.SwitchPanel.Controls.Add(this.ExitButton);
