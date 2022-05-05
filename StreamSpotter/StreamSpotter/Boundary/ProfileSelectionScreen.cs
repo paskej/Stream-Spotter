@@ -314,7 +314,18 @@ namespace StreamSpotter
 			serviceArray.CopyTo(services);
 			if(newProfileServices)
             {
-				handler.AddEntry(currentProfile.profileName, services, currentProfile.id);
+				bool match = false;
+				foreach(Profile p in profileCon.db.getProfileList().list)
+				{
+					if (p.getProfileName() == currentProfile.getProfileName())
+					{
+						match = true;
+					}
+				}
+				if (!match)
+				{
+					handler.AddEntry(currentProfile.profileName, services, currentProfile.id);
+				}
 			}
 			else
 				profileCon.UpdateProfile(currentProfile);
