@@ -371,6 +371,7 @@ namespace StreamSpotter
             profileScreen.updateFormPosition(currentForm);
             profileScreen.Show();
             //currentForm.Close();
+            currentForm.Visible = false;
 
         }
 

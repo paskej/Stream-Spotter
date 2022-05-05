@@ -179,5 +179,10 @@ namespace StreamSpotter
             formatPage();
             windowsController.showRecommendedList(recommendedPanel, this);
         }
+
+        private void HomeScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

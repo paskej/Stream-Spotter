@@ -314,7 +314,22 @@ namespace StreamSpotter
 			serviceArray.CopyTo(services);
 			if(newProfileServices)
             {
-				handler.AddEntry(currentProfile.profileName, services, currentProfile.id);
+				bool match = false;
+				ProfileList pl = profileCon.db.getProfileList();
+				if (pl != null && pl.list != null)
+				{
+					foreach (Profile p in profileCon.db.getProfileList().list)
+					{
+						if (p.getProfileName() == currentProfile.getProfileName())
+						{
+							match = true;
+						}
+					}
+				}
+				if (!match)
+				{
+					handler.AddEntry(currentProfile.profileName, services, currentProfile.id);
+				}
 			}
 			else
 				profileCon.UpdateProfile(currentProfile);
@@ -968,5 +983,10 @@ namespace StreamSpotter
 			updateProfileButtonName();
 			noCurrentProfile();
 		}
+
+        private void ProfileSelectionScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+			Application.Exit();
+        }
     }
 }

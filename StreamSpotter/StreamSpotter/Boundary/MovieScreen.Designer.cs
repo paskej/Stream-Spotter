@@ -298,6 +298,7 @@
             this.Name = "MovieScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MovieScreen_FormClosed);
             this.Load += new System.EventHandler(this.MovieScreen_Load);
             this.ResizeEnd += new System.EventHandler(this.MovieScreen_ResizeEnd);
             this.SizeChanged += new System.EventHandler(this.MovieScreen_SizeChanged);
