@@ -37,9 +37,9 @@
             this.wishlistButton = new System.Windows.Forms.Button();
             this.SearchBar = new System.Windows.Forms.TextBox();
             this.listPanel = new System.Windows.Forms.Panel();
+            this.loadingLabel = new System.Windows.Forms.Label();
             this.listEmptyLabel = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.loadingLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.listPanel.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +49,7 @@
             this.HomeButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.HomeButton.Location = new System.Drawing.Point(52, 9);
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(5);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(79, 39);
             this.HomeButton.TabIndex = 21;
@@ -155,6 +155,13 @@
             this.listPanel.Size = new System.Drawing.Size(851, 448);
             this.listPanel.TabIndex = 26;
             // 
+            // loadingLabel
+            // 
+            this.loadingLabel.Location = new System.Drawing.Point(0, 0);
+            this.loadingLabel.Name = "loadingLabel";
+            this.loadingLabel.Size = new System.Drawing.Size(100, 23);
+            this.loadingLabel.TabIndex = 0;
+            // 
             // listEmptyLabel
             // 
             this.listEmptyLabel.AutoSize = true;
@@ -178,7 +185,7 @@
             "Hulu",
             "Prime"});
             this.comboBox2.Location = new System.Drawing.Point(539, 62);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(5);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(151, 36);
             this.comboBox2.TabIndex = 32;

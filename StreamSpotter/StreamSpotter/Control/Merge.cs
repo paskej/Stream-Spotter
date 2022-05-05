@@ -84,6 +84,14 @@ namespace StreamSpotter
             {
                 r1.streamingInfo.disney = r2.streamingInfo.disney;
             }
+            /*if (r1.streamingInfo.hulu == null && r2.streamingInfo.hulu != null)
+            {
+                r1.streamingInfo.hulu = r2.streamingInfo.hulu;
+            }
+            if (r1.streamingInfo.prime == null && r2.streamingInfo.prime != null)
+            {
+                r1.streamingInfo.prime = r2.streamingInfo.prime;
+            }*/
             return r1;
         }
     }

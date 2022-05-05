@@ -13,7 +13,7 @@ namespace StreamSpotter
 	}
 	public class Profile
 	{
-		private readonly string[] POSSIBLE_SERVICES = { "netflix", "disney" };
+		private readonly string[] POSSIBLE_SERVICES = { "netflix", "disney" };//, "hulu" , "prime" };
 		public string[] services { get; set; }
 		public string profileName { get; set; }
 		public int id { get; set; }
