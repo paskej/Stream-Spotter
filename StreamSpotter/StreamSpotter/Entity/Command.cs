@@ -21,6 +21,7 @@ namespace StreamSpotter
     {
         private Profile profileAdd;
         private Result[] wishlist;
+        private Result[] recommended;
         private string[] services;
         private bool done;
         public AddCommand(ProfileController p, Profile e) : base(p)
@@ -39,6 +40,10 @@ namespace StreamSpotter
                     profile.db.addToWishlist(profileAdd.id, profileAdd.id.ToString(), r);
                 }
             }
+            if(recommended != null)
+            {
+                profile.db.importRecommendations(profileAdd.id, recommended);
+            }
             done = true;
         }
         public override void unexecute()
@@ -49,6 +54,10 @@ namespace StreamSpotter
             for (int i = 0; i < temp.Length; i++)
             {
                 services[i] = temp[i];
+            }
+            if(profile.db.getRecommendations(profileAdd.id) != null)
+            {
+                recommended = profile.db.getRecommendations(profileAdd.id);
             }
             profile.RemoveProfile(profileAdd.getID());
             done = false;
@@ -79,6 +88,7 @@ namespace StreamSpotter
     {
         public Profile profileRemove;
         private Result[] wishlist;
+        private Result[] recommended;
         private string[] services;
         private bool done;
         public RemoveCommand(ProfileController p, Profile e) : base(p)
@@ -97,6 +107,10 @@ namespace StreamSpotter
             {
                 services[i] = temp[i];
             }
+            if (profile.db.getRecommendations(profileRemove.id) != null)
+            {
+                recommended = profile.db.getRecommendations(profileRemove.id);
+            }
             profile.RemoveProfile(profileRemove.getID());
             done = true;
             
@@ -111,6 +125,10 @@ namespace StreamSpotter
                 {
                     profile.db.addToWishlist(profileRemove.id, profileRemove.id.ToString(), r);
                 }
+            }
+            if (recommended != null)
+            {
+                profile.db.importRecommendations(profileRemove.id, recommended);
             }
             done = false;
         }
