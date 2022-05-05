@@ -27,7 +27,7 @@ namespace StreamSpotter
 			}
             
             InitializeComponent();
-            NoProfileLabel.Enabled = false;
+            NoProfileLabel.Visible = false;
             windowsController.showRecommendedList(recommendedPanel, this);
             formatPage();
 
@@ -35,8 +35,8 @@ namespace StreamSpotter
         public HomeScreen(WindowsController windowsController)
         {
             InitializeComponent();
-            NoProfileLabel.Enabled = false;
-            this.windowsController = windowsController;
+            NoProfileLabel.Visible = false;
+            this.windowsController = WindowsController.getInstance();
             recommendedPanel.AutoScroll = true;
             ProfileButton.Text = (string)windowsController.currentProfile.getProfileName();
         }
@@ -66,7 +66,7 @@ namespace StreamSpotter
             {
                 if (windowsController.currentProfile.getID() == -1)
                 {
-                    NoProfileLabel.Enabled = true;
+                    NoProfileLabel.Visible = true;
                 }
                 else
                 {
@@ -155,6 +155,11 @@ namespace StreamSpotter
             //label4 recommended
             //
             label4.Location = new Point(10, (this.Height / 2) + 50);
+
+            //
+            //NoProfileLabel
+            //
+            NoProfileLabel.Location = new Point(this.Width / 2 - NoProfileLabel.Width / 2, SearchBar.Location.Y + SearchBar.Height);
         }
 
         private void HomeScreen_ResizeEnd(object sender, EventArgs e)

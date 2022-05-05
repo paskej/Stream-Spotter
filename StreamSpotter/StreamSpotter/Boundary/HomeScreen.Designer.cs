@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeScreen));
 			this.label3 = new System.Windows.Forms.Label();
 			this.ProfileButton = new System.Windows.Forms.Button();
@@ -107,7 +106,7 @@
 			this.logoPictureBox.BackgroundImage = global::StreamSpotter.Properties.Resources.Logo;
 			this.logoPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.logoPictureBox.Location = new System.Drawing.Point(320, -26);
-			this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4);
 			this.logoPictureBox.Name = "logoPictureBox";
 			this.logoPictureBox.Size = new System.Drawing.Size(240, 222);
 			this.logoPictureBox.TabIndex = 26;
@@ -136,11 +135,12 @@
 			this.NoProfileLabel.Enabled = false;
 			this.NoProfileLabel.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.NoProfileLabel.ForeColor = System.Drawing.Color.Firebrick;
-			this.NoProfileLabel.Location = new System.Drawing.Point(215, 289);
+			this.NoProfileLabel.Location = new System.Drawing.Point(220, 289);
 			this.NoProfileLabel.Name = "NoProfileLabel";
 			this.NoProfileLabel.Size = new System.Drawing.Size(440, 39);
 			this.NoProfileLabel.TabIndex = 28;
 			this.NoProfileLabel.Text = "Please create a profile to search";
+			this.NoProfileLabel.Visible = false;
 			// 
 			// HomeScreen
 			// 
@@ -169,6 +169,7 @@
 			this.recommendedPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
+
         }
 
         #endregion
