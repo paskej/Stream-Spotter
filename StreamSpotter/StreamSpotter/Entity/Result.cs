@@ -19,7 +19,6 @@ namespace StreamSpotter
         public Hulu hulu { get; set; }
         public Prime prime { get; set; }
     }
-
     public class Netflix
     {
         public Us us { get; set; }
@@ -36,7 +35,10 @@ namespace StreamSpotter
     {
         public Us us { get; set; }
     }
-
+    public class Hulu
+    {
+        public Us us { get; set; }
+    }
     public class Us
     {
         public string link { get; set; }

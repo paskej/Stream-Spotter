@@ -267,6 +267,7 @@ namespace StreamSpotter
             //Button ProfileButton;
             //
             ProfileButton.Location = new Point((this.Width - ProfileButton.Width - 5 - 15), (7));
+            ProfileButton.Text = windowsController.currentProfile.profileName;
         }
 
         private void vScrollBar1_ValueChanged(object sender, EventArgs e)

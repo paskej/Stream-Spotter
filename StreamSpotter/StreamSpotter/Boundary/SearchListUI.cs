@@ -286,6 +286,7 @@ namespace StreamSpotter
             //Button ProfileButton;
             //
             ProfileButton.Location = new Point((this.Width - ProfileButton.Width - 5 - 15), (10));
+            ProfileButton.Text = windowsController.currentProfile.profileName;
 
             //
             //Button ProfileButton;

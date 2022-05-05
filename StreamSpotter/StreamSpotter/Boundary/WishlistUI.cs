@@ -220,7 +220,7 @@ namespace StreamSpotter
             //Button button3 profile
             //
             button3.Location = new Point((this.Width - button3.Width - 5 - 15),(10));
-
+            button3.Text = windowsController.currentProfile.profileName;
 
             //
             //ComboBox comboBox2 service

@@ -43,7 +43,7 @@ namespace StreamSpotter
 
 				if (fullProfileList.Length < TOTAL_PROFILES)
 				{
-					Profile newProfile = new Profile(profileName, new string[0]);
+					Profile newProfile = new Profile(profileName, serviceList);
 					//this is where the profile will be added to the database
 					db.addProfile(newProfile);
 					created = newProfile;

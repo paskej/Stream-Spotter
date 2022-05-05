@@ -20,7 +20,7 @@ namespace StreamSpotter
             //check if there are any profiles made
             //if no profiles are stored then open the create profile form
 
-            Application.Run(new ProfileSelectionScreen());
+            Application.Run(new HomeScreen());
 
             //string movie;
             //APIController apiController = new APIController();
