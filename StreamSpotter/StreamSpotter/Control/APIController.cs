@@ -92,6 +92,7 @@ namespace StreamSpotter
 				}
 				catch (Exception e)
 				{
+					
 					currentKey++;
 					request = new HttpRequestMessage
 					{

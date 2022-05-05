@@ -44,7 +44,8 @@ namespace StreamSpotter
         {
             homeScreenLast = true;
             searchScreenLast = false;
-            HomeScreen homeScreen = new HomeScreen(this);
+            currentForm.Hide();
+            HomeScreen homeScreen = new HomeScreen();
             homeScreen.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
             if (currentForm.Height < homeScreen.MinimumSize.Height)
             {
@@ -369,7 +370,7 @@ namespace StreamSpotter
             }
             profileScreen.updateFormPosition(currentForm);
             profileScreen.Show();
-            currentForm.Close();
+            //currentForm.Close();
 
         }
 
