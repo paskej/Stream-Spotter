@@ -166,8 +166,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(0) != null)
 			{
 				changeSelectedProfileButton(0);
-				currentProfile.selected = false;
-				profileCon.UpdateProfile(currentProfile);
+				if (currentProfile != null)
+				{
+					currentProfile.selected = false;
+					profileCon.UpdateProfile(currentProfile);
+				}
 				currentProfile = profileCon.GetProfile(0);
 				currentProfile.selected = true;
 				profileCon.UpdateProfile(currentProfile);
@@ -233,7 +236,7 @@ namespace StreamSpotter
 					string[] services = new string[serviceArray.Count];
 					serviceArray.CopyTo(services);
 					TooManyProfilesLabel.Visible = false;
-					currentProfile = new Profile(NewName, services, handler.profile.getCurrNumProfiles());
+					currentProfile = new Profile(NewName, services, handler.profile.db.getProfileList().list.Length);
 					profileCon.setCurrentProfile(currentProfile.getID());
 					winControl.currentProfile = currentProfile;
 					NewProfilePanel.Visible = false;
@@ -293,9 +296,9 @@ namespace StreamSpotter
 				}
 				currentProfile.removeService("disney");
 			}
+
 			for (int i = 0; i < serviceArray.Count; i++)
 			{
-
 				currentProfile.AddService((string)serviceArray[i]);
 			}
 			ProfileSavedLabel.Visible = true;
@@ -339,7 +342,7 @@ namespace StreamSpotter
 
 				handler.RemoveEntry(currentProfile.id);
 			}
-			if (currentProfile.id > 0)
+			if (currentProfile != null && currentProfile.id > 0)
 			{
 				currentProfile = profileCon.GetProfile(profileCon.currentProfileID - 1);
 				profileCon.setCurrentProfile(currentProfile.id);
@@ -362,8 +365,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(1) != null)
 			{
 				changeSelectedProfileButton(1);
-				currentProfile.selected = false;
-				profileCon.UpdateProfile(currentProfile);
+				if (currentProfile != null)
+				{
+					currentProfile.selected = false;
+					profileCon.UpdateProfile(currentProfile);
+				}
 				currentProfile = profileCon.GetProfile(1);
 				currentProfile.selected = true;
 				profileCon.UpdateProfile(currentProfile);
@@ -384,8 +390,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(2) != null)
 			{
 				changeSelectedProfileButton(2);
-				currentProfile.selected = false;
-				profileCon.UpdateProfile(currentProfile);
+				if (currentProfile != null)
+				{
+					currentProfile.selected = false;
+					profileCon.UpdateProfile(currentProfile);
+				}
 				currentProfile = profileCon.GetProfile(2);
 				currentProfile.selected = true;
 				profileCon.UpdateProfile(currentProfile);
@@ -406,8 +415,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(3) != null)
 			{
 				changeSelectedProfileButton(3);
-				currentProfile.selected = false;
-				profileCon.UpdateProfile(currentProfile);
+				if (currentProfile != null)
+				{
+					currentProfile.selected = false;
+					profileCon.UpdateProfile(currentProfile);
+				}
 				currentProfile = profileCon.GetProfile(3);
 				currentProfile.selected = true;
 				profileCon.UpdateProfile(currentProfile);
@@ -428,8 +440,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(4) != null)
 			{
 				changeSelectedProfileButton(4);
-				currentProfile.selected = false;
-				profileCon.UpdateProfile(currentProfile);
+				if (currentProfile != null)
+				{
+					currentProfile.selected = false;
+					profileCon.UpdateProfile(currentProfile);
+				}
 				currentProfile = profileCon.GetProfile(4);
 				currentProfile.selected = true;
 				profileCon.UpdateProfile(currentProfile);
@@ -450,8 +465,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(5) != null)
 			{
 				changeSelectedProfileButton(5);
-				currentProfile.selected = false;
-				profileCon.UpdateProfile(currentProfile);
+				if (currentProfile != null)
+				{
+					currentProfile.selected = false;
+					profileCon.UpdateProfile(currentProfile);
+				}
 				currentProfile = profileCon.GetProfile(5);
 				currentProfile.selected = true;
 				profileCon.UpdateProfile(currentProfile);
@@ -472,8 +490,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(6) != null)
 			{
 				changeSelectedProfileButton(6);
-				currentProfile.selected = false;
-				profileCon.UpdateProfile(currentProfile);
+				if (currentProfile != null)
+				{
+					currentProfile.selected = false;
+					profileCon.UpdateProfile(currentProfile);
+				}
 				currentProfile = profileCon.GetProfile(6);
 				currentProfile.selected = true;
 				profileCon.UpdateProfile(currentProfile);
@@ -494,8 +515,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(7) != null)
 			{
 				changeSelectedProfileButton(7);
-				currentProfile.selected = false;
-				profileCon.UpdateProfile(currentProfile);
+				if (currentProfile != null)
+				{
+					currentProfile.selected = false;
+					profileCon.UpdateProfile(currentProfile);
+				}
 				currentProfile = profileCon.GetProfile(7);
 				currentProfile.selected = true;
 				profileCon.UpdateProfile(currentProfile);
@@ -516,8 +540,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(8) != null)
 			{
 				changeSelectedProfileButton(8);
-				currentProfile.selected = false;
-				profileCon.UpdateProfile(currentProfile);
+				if (currentProfile != null)
+				{
+					currentProfile.selected = false;
+					profileCon.UpdateProfile(currentProfile);
+				}
 				currentProfile = profileCon.GetProfile(8);
 				currentProfile.selected = true;
 				profileCon.UpdateProfile(currentProfile);
@@ -538,8 +565,11 @@ namespace StreamSpotter
 			if (profileCon.GetProfile(9) != null)
 			{
 				changeSelectedProfileButton(9);
-				currentProfile.selected = false;
-				profileCon.UpdateProfile(currentProfile);
+				if (currentProfile != null)
+				{
+					currentProfile.selected = false;
+					profileCon.UpdateProfile(currentProfile);
+				}
 				currentProfile = profileCon.GetProfile(9);
 				currentProfile.selected = true;
 				profileCon.UpdateProfile(currentProfile);
