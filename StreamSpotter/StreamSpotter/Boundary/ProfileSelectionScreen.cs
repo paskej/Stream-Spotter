@@ -983,5 +983,10 @@ namespace StreamSpotter
 			updateProfileButtonName();
 			noCurrentProfile();
 		}
+
+        private void ProfileSelectionScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+			Application.Exit();
+        }
     }
 }
