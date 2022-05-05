@@ -35,10 +35,6 @@ namespace StreamSpotter
     {
         public Us us { get; set; }
     }
-    public class Hulu
-    {
-        public Us us { get; set; }
-    }
     public class Us
     {
         public string link { get; set; }

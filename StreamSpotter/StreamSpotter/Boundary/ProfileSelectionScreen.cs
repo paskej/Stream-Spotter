@@ -100,6 +100,14 @@ namespace StreamSpotter
 			{
 				serviceArray.Add("disney");
 			}
+			if (huluCheckBox.Checked == true)
+            {
+				serviceArray.Add("hulu");
+            }
+			if (primeCheckBox.Checked == true)
+			{
+				serviceArray.Add("prime");
+			}
 			if (NetflixCheckBox.Checked == false)
 			{
 				for (int i = 0; i < serviceArray.Count; i++)
@@ -117,6 +125,26 @@ namespace StreamSpotter
 					if ((string)serviceArray[i] == "disney")
 					{
 						serviceArray.Remove("disney");
+					}
+				}
+			}
+			if (huluCheckBox.Checked == false)
+			{
+				for (int i = 0; i < serviceArray.Count; i++)
+				{
+					if ((string)serviceArray[i] == "hulu")
+					{
+						serviceArray.Remove("hulu");
+					}
+				}
+			}
+			if (primeCheckBox.Checked == false)
+			{
+				for (int i = 0; i < serviceArray.Count; i++)
+				{
+					if ((string)serviceArray[i] == "prime")
+					{
+						serviceArray.Remove("prime");
 					}
 				}
 			}
@@ -282,6 +310,20 @@ namespace StreamSpotter
 					serviceArray.Add("disney");
 				}
 			}
+			if (huluCheckBox.Checked == true)
+			{
+				if (!serviceArray.Contains("hulu"))
+				{
+					serviceArray.Add("hulu");
+				}
+			}
+			if (primeCheckBox.Checked == true)
+			{
+				if (!serviceArray.Contains("prime"))
+				{
+					serviceArray.Add("prime");
+				}
+			}
 			if (NetflixCheckBox.Checked == false)
 			{
 				for (int i = 0; i < serviceArray.Count; i++)
@@ -304,7 +346,28 @@ namespace StreamSpotter
 				}
 				currentProfile.removeService("disney");
 			}
-
+			if (huluCheckBox.Checked == false)
+			{
+				for (int i = 0; i < serviceArray.Count; i++)
+				{
+					if ((string)serviceArray[i] == "hulu")
+					{
+						serviceArray.Remove("hulu");
+					}
+				}
+				currentProfile.removeService("hulu");
+			}
+			if (primeCheckBox.Checked == false)
+			{
+				for (int i = 0; i < serviceArray.Count; i++)
+				{
+					if ((string)serviceArray[i] == "prime")
+					{
+						serviceArray.Remove("prime");
+					}
+				}
+				currentProfile.removeService("prime");
+			}
 			for (int i = 0; i < serviceArray.Count; i++)
 			{
 				currentProfile.AddService((string)serviceArray[i]);
@@ -626,7 +689,7 @@ namespace StreamSpotter
 		{
 			if (currentProfile.getServices() != null)
 			{
-				bool netflix = false, disney = false;
+				bool netflix = false, disney = false, hulu = false, prime = false;
 				for (int i = 0; i < currentProfile.getServices().Length; i++)
 				{
 					if (currentProfile.getServices()[i] == "netflix")
@@ -637,9 +700,19 @@ namespace StreamSpotter
 					{
 						disney = true;
 					}
+					if (currentProfile.getServices()[i] == "hulu")
+					{
+						disney = true;
+					}
+					if (currentProfile.getServices()[i] == "prime")
+					{
+						disney = true;
+					}
 				}
 				NetflixCheckBox.Checked = netflix;
 				DisneyCheckBox.Checked = disney;
+				huluCheckBox.Checked = hulu;
+				primeCheckBox.Checked = prime;
 			}
 		}
 
