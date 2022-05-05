@@ -103,7 +103,7 @@ namespace StreamSpotter
             //Profile Button
             //
             ProfileButton.Location = new Point((this.Width - ProfileButton.Width - 5 - 15), (10));
-
+            ProfileButton.Text = windowsController.currentProfile.profileName;
 
             //
             //wishlist button

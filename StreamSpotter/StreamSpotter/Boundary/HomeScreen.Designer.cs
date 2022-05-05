@@ -61,7 +61,7 @@
 			this.ProfileButton.Name = "ProfileButton";
 			this.ProfileButton.Size = new System.Drawing.Size(105, 39);
 			this.ProfileButton.TabIndex = 4;
-			this.ProfileButton.Text = "Profile";
+			this.ProfileButton.Text = windowsController.currentProfile.profileName;
 			this.ProfileButton.UseVisualStyleBackColor = true;
 			this.ProfileButton.Click += new System.EventHandler(this.ProfileButton_Click);
 			// 
