@@ -170,7 +170,7 @@ namespace StreamSpotter
             }
             else
             {
-                WishlistUI wishListUI = new WishlistUI(this);
+                WishlistUI wishListUI = new WishlistUI();
                 wishListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
                 if (currentForm.Height < wishListUI.MinimumSize.Height)
                 {
@@ -196,7 +196,7 @@ namespace StreamSpotter
         {
             searchScreenLast = false;
             homeScreenLast = false;
-            WishlistUI wishListUI = new WishlistUI(this);
+            WishlistUI wishListUI = new WishlistUI();
             wishListUI.Location = new System.Drawing.Point(currentForm.Location.X, currentForm.Location.Y);
             if(currentForm.Height < wishListUI.MinimumSize.Height)
             {
