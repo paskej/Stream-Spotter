@@ -315,11 +315,15 @@ namespace StreamSpotter
 			if(newProfileServices)
             {
 				bool match = false;
-				foreach(Profile p in profileCon.db.getProfileList().list)
+				ProfileList pl = profileCon.db.getProfileList();
+				if (pl != null && pl.list != null)
 				{
-					if (p.getProfileName() == currentProfile.getProfileName())
+					foreach (Profile p in profileCon.db.getProfileList().list)
 					{
-						match = true;
+						if (p.getProfileName() == currentProfile.getProfileName())
+						{
+							match = true;
+						}
 					}
 				}
 				if (!match)
