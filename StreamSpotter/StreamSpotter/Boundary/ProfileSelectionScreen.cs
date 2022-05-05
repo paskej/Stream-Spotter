@@ -280,6 +280,8 @@ namespace StreamSpotter
 					ProfileSavedLabel.Visible = false;
 					DisneyCheckBox.Checked = false;
 					NetflixCheckBox.Checked = false;
+					huluCheckBox.Checked = false;
+					primeCheckBox.Checked = false;
 					newProfileServices = true;
 					StreamSelectPanel.Visible = true;
 				}
@@ -717,11 +719,11 @@ namespace StreamSpotter
 					}
 					if (currentProfile.getServices()[i] == "hulu")
 					{
-						disney = true;
+						hulu = true;
 					}
 					if (currentProfile.getServices()[i] == "prime")
 					{
-						disney = true;
+						prime = true;
 					}
 				}
 				NetflixCheckBox.Checked = netflix;
@@ -1071,5 +1073,15 @@ namespace StreamSpotter
         {
 			Application.Exit();
         }
+
+        private void huluCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+			huluCheckBox.Checked = true;
+        }
+
+        private void primeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+			primeCheckBox.Checked = true;
+		}
     }
 }
