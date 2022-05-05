@@ -39,7 +39,7 @@ namespace StreamSpotter
     {
         public string link { get; set; }
         public int added { get; set; }
-        public int leaving { get; set; }
+        public long leaving { get; set; }
     }
     public class Backdropurls
     {

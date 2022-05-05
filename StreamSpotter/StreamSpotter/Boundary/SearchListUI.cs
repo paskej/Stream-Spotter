@@ -326,5 +326,10 @@ namespace StreamSpotter
         {
 
         }
+
+        private void SearchListUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

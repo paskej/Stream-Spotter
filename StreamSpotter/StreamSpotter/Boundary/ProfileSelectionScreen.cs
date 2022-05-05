@@ -377,7 +377,22 @@ namespace StreamSpotter
 			serviceArray.CopyTo(services);
 			if(newProfileServices)
             {
-				handler.AddEntry(currentProfile.profileName, services, currentProfile.id);
+				bool match = false;
+				ProfileList pl = profileCon.db.getProfileList();
+				if (pl != null && pl.list != null)
+				{
+					foreach (Profile p in profileCon.db.getProfileList().list)
+					{
+						if (p.getProfileName() == currentProfile.getProfileName())
+						{
+							match = true;
+						}
+					}
+				}
+				if (!match)
+				{
+					handler.AddEntry(currentProfile.profileName, services, currentProfile.id);
+				}
 			}
 			else
 				profileCon.UpdateProfile(currentProfile);
@@ -963,6 +978,16 @@ namespace StreamSpotter
 			DisneyCheckBox.Height = this.Height / 8;
 			DisneyCheckBox.Location = new Point((this.Width / 2) + 30, this.Height / 2 - 75);
 
+			//DisneyCheckedBox
+			huluCheckBox.Width = this.Width / 4;
+			huluCheckBox.Height = this.Height / 8;
+			huluCheckBox.Location = new Point((this.Width / 2) - NetflixCheckBox.Width - 30, this.Height / 2 - 135);
+
+			//DisneyCheckedBox
+			primeCheckBox.Width = this.Width / 4;
+			primeCheckBox.Height = this.Height / 8;
+			primeCheckBox.Location = new Point((this.Width / 2) + 30, this.Height / 2 - 135);
+
 			//saveButton
 			SaveButton.Width = this.Width / 8;
 			SaveButton.Height = this.Height / 12;
@@ -1041,5 +1066,10 @@ namespace StreamSpotter
 			updateProfileButtonName();
 			noCurrentProfile();
 		}
+
+        private void ProfileSelectionScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+			Application.Exit();
+        }
     }
 }
