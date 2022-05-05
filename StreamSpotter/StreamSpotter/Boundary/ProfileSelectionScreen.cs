@@ -236,7 +236,15 @@ namespace StreamSpotter
 					string[] services = new string[serviceArray.Count];
 					serviceArray.CopyTo(services);
 					TooManyProfilesLabel.Visible = false;
-					currentProfile = new Profile(NewName, services, handler.profile.db.getProfileList().list.Length);
+					ProfileList pl = handler.profile.db.getProfileList();
+					if (pl != null && pl.list != null)
+					{
+						currentProfile = new Profile(NewName, services, pl.list.Length);
+					}
+					else
+					{
+						currentProfile = new Profile(NewName, services, 0);
+					}
 					profileCon.setCurrentProfile(currentProfile.getID());
 					winControl.currentProfile = currentProfile;
 					NewProfilePanel.Visible = false;
