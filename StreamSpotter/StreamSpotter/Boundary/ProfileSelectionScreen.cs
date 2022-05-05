@@ -1083,5 +1083,15 @@ namespace StreamSpotter
         {
 			primeCheckBox.Checked = true;
 		}
+
+        private void ProfileSelectionScreen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+			Application.Exit();
+        }
+
+        private void ProfileSelectionScreen_FormClosed_1(object sender, FormClosedEventArgs e)
+        {
+			Application.Exit();
+        }
     }
 }

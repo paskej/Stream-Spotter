@@ -184,5 +184,10 @@ namespace StreamSpotter
         {
             Application.Exit();
         }
+
+        private void HomeScreen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

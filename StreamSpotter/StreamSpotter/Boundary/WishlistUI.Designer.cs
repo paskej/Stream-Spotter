@@ -167,6 +167,7 @@
             this.Name = "WishlistUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "WishlistUI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WishlistUI_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WishlistUI_FormClosed);
             this.Load += new System.EventHandler(this.WishlistUI_Load);
             this.ResizeEnd += new System.EventHandler(this.WishlistUI_ResizeEnd);

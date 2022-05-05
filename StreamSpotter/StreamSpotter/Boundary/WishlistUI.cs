@@ -317,5 +317,10 @@ namespace StreamSpotter
         {
             Application.Exit();
         }
+
+        private void WishlistUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

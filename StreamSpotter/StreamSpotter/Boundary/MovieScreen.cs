@@ -294,5 +294,10 @@ namespace StreamSpotter
         {
             Application.Exit();
         }
+
+        private void MovieScreen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

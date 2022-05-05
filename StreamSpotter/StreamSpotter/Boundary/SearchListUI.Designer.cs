@@ -71,7 +71,7 @@
             "Shortest First",
             "Longest First"});
             this.comboBox1.Location = new System.Drawing.Point(519, 50);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(114, 36);
             this.comboBox1.TabIndex = 24;
@@ -87,7 +87,7 @@
             this.panel1.Controls.Add(this.HomeButton);
             this.panel1.Controls.Add(this.SearchBar);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(638, 49);
             this.panel1.TabIndex = 25;
@@ -97,7 +97,7 @@
             this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackButton.ForeColor = System.Drawing.SystemColors.Highlight;
             this.BackButton.Location = new System.Drawing.Point(6, 10);
-            this.BackButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(2);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(27, 32);
             this.BackButton.TabIndex = 28;
@@ -136,7 +136,7 @@
             // 
             this.SearchBar.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBar.Location = new System.Drawing.Point(206, 10);
-            this.SearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(210, 35);
             this.SearchBar.TabIndex = 27;
@@ -150,7 +150,7 @@
             this.listPanel.Controls.Add(this.loadingLabel);
             this.listPanel.Controls.Add(this.listEmptyLabel);
             this.listPanel.Location = new System.Drawing.Point(0, 81);
-            this.listPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listPanel.Margin = new System.Windows.Forms.Padding(2);
             this.listPanel.Name = "listPanel";
             this.listPanel.Size = new System.Drawing.Size(638, 364);
             this.listPanel.TabIndex = 26;
@@ -205,11 +205,12 @@
             this.Controls.Add(this.listPanel);
             this.Controls.Add(this.comboBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(700, 500);
             this.Name = "SearchListUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "SearchListUI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SearchListUI_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SearchListUI_FormClosed);
             this.Load += new System.EventHandler(this.SearchListUI_Load);
             this.ResizeEnd += new System.EventHandler(this.SearchListUI_ResizeEnd);
