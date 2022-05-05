@@ -363,6 +363,7 @@ namespace StreamSpotter
             Point point;
 
             panel.MouseDown += new System.Windows.Forms.MouseEventHandler(RecommendedMovieSelect);
+            panel.AutoScroll = true;
 
             //adds the list to the panel
             int num = 0;
