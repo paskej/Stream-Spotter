@@ -304,6 +304,22 @@ namespace StreamSpotter
             }
         }
 
+        public void importRecommendations(int profileID, Result[] rec)
+        {
+            string recPath = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\recommendations.json";
+            FileStream file = File.Create(recPath);
+            file.Close();
+            RootObject ro = new RootObject();
+            ro.results = rec;
+            string text = JsonConvert.SerializeObject(ro);
+            using (StreamWriter tw = new StreamWriter(recPath, false))
+            {
+                tw.WriteLine(text);
+                tw.Close();
+            }
+
+        }
+
         public Result[] getRecommendations(int profileID)
         {
             string recPath = BASE_PATH + "\\Wishlists\\Profiles\\" + profileID + "\\recommendations.json";
