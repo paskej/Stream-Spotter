@@ -210,6 +210,7 @@
             this.Name = "SearchListUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "SearchListUI";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SearchListUI_FormClosed);
             this.Load += new System.EventHandler(this.SearchListUI_Load);
             this.ResizeEnd += new System.EventHandler(this.SearchListUI_ResizeEnd);
             this.Resize += new System.EventHandler(this.SearchListUI_Resize);
