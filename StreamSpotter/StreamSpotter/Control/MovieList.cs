@@ -10,8 +10,8 @@ namespace StreamSpotter
 {
     public class MovieList
     {
-        private const int boxHeight = 160;
-        private const int boxWidth = 80;
+        private const int BOX_HEIGHT = 160;
+        private const int BOX_WIDTH = 80;
 
         private List<Result> movieList;
         private List<Result> filterList;
@@ -316,7 +316,7 @@ namespace StreamSpotter
                 Label title = new Label();
                 title.Text = movie.title;
                 title.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                point = new Point(140, num * boxHeight + 10);
+                point = new Point(140, num * BOX_HEIGHT + 10);
                 title.Location = point;
                 title.Width = 400;
                 title.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
@@ -325,25 +325,25 @@ namespace StreamSpotter
                 Label description = new Label();
                 description.Text = movie.overview;
                 description.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                point = new Point(140, num * boxHeight + 40);
+                point = new Point(140, num * BOX_HEIGHT + 40);
                 description.Location = point;
-                description.Size = new System.Drawing.Size(400, boxHeight - 40);
+                description.Size = new System.Drawing.Size(400, BOX_HEIGHT - 40);
                 description.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 panel.Controls.Add(description);
 
                 //Panel poster = new Panel();
                 //poster.BackColor = System.Drawing.SystemColors.GrayText;
-                //point = new Point(20, num * boxHeight + 10);
+                //point = new Point(20, num * BOX_HEIGHT + 10);
                 //poster.Location = point;
-                //poster.Size = new System.Drawing.Size(100, boxHeight - 20);
+                //poster.Size = new System.Drawing.Size(100, BOX_HEIGHT - 20);
                 //poster.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 //panel.Controls.Add(poster);
 
                 PictureBox poster = new PictureBox();
                 poster.BackColor = System.Drawing.SystemColors.GrayText;
-                point = new Point(20, num * boxHeight + 10);
+                point = new Point(20, num * BOX_HEIGHT + 10);
                 poster.Location = point;
-                poster.Size = new System.Drawing.Size(100, boxHeight - 20);
+                poster.Size = new System.Drawing.Size(100, BOX_HEIGHT - 20);
                 poster.MouseDown += new System.Windows.Forms.MouseEventHandler(MovieSelect);
                 poster.ImageLocation = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png";
                 if(movie.posterURLs.original != null)
