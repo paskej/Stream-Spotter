@@ -100,27 +100,52 @@ namespace StreamSpotter
                 return filterList[index];
             return null;
         }
+        /*******************************************************************************************************
+         * Passes the getCurrentWishlist command to the WishlistTracker
+         * RETURN: wishlist that was gathered from the WishlistTracker
+         *******************************************************************************************************/
         public Result[] getWishlist()
         {
             return wishlistTracker.getCurrentWishlist();
         }
+        /*******************************************************************************************************
+         * Passes the addToCurrentWishlist command to WishlistTracker
+         * PARAMS: Result result, the Result to be added to the current wishlist
+         *******************************************************************************************************/
         public void addToWishlist(Result result)
         {
             wishlistTracker.addToCurrentWishlist(result);
         }
+        /*******************************************************************************************************
+         * Passes the removeFromCurrentWishlist command to the WishlistTracker
+         * PARAMS: Result result, the Result to be removed from the current wishlist
+         *******************************************************************************************************/
         public void removeFromWishlist(Result result)
         {
             wishlistTracker.removeFromCurrentWishlist(result.imdbID);
         }
+        /*******************************************************************************************************
+         * Passes the changeCurrentWishlist command to WishListTracker
+         * PARAMS: int profileID, ID of the profile to change to
+         *                 string listName, name of the wishlist to change to
+         *******************************************************************************************************/
         public void changeCurrentWishlist(int profileID, string listName)
         {
             wishlistTracker.changeCurrentWishlist(profileID, listName);
         }
+        /*******************************************************************************************************
+         * Passes the updateRecommendations command to WishlistTracker
+         * PARAMS: int profileID, ID of the profile to update recommendations for
+         *******************************************************************************************************/
         public void updateRecommendations(int profileID)
         {
             wishlistTracker.updateRecommendations(profileID);
         }
-
+        /*******************************************************************************************************
+         * Passes the getRecommendations command to the WishlistTracker
+         * PARAMS: int profileID, ID of the profile to retrieve stored recommendations for
+         * RETURN: Array of Results gathered from the WishListTracker
+         *******************************************************************************************************/
         public Result[] getRecommendations(int profileID)
         {
             return wishlistTracker.getRecommendations(profileID);

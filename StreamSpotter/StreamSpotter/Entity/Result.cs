@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+    /*******************************************************************************************************
+     * Stores all of the movie/series' details, like release date, title, description, where to find it, etc.
+     * Due to the API passing the Results to us, formatting could not be changed.
+     *******************************************************************************************************/
     public class RootObject
     {
         public Result[] results { get; set; }
@@ -106,6 +110,11 @@ namespace StreamSpotter
         }
         public Result() { }
 
+        /*******************************************************************************************************
+         * Determines whether the Result is a moive by checking if the season cound is above 0. 
+         * if seasons = 0, it is a movie, if not it is a series
+         * RETURN: true if the Result is a movie
+         *******************************************************************************************************/
         public bool isMovie()
         {
             bool movie = false;

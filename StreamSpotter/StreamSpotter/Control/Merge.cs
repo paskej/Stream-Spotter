@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+        /*******************************************************************************************************
+         * Merge is used to combine two different RootObject classes (list of Results). This includes combining
+         * duplicate Results from different services into one Result.
+         *******************************************************************************************************/
     public class Merge
     {
+        /*******************************************************************************************************
+         * Merge two different root objects together
+         * PARAMS: RootObject ro1 
+         *         RootObject ro2
+         * RETURN: The result of combining both of the parameter RootObjects
+         *******************************************************************************************************/
         public RootObject mergeLists(RootObject ro1, RootObject ro2)
         {
             int length1 = ro1.results.Length;
@@ -27,8 +37,13 @@ namespace StreamSpotter
             return combineRoots(ro1, ro2);
 
         }
-
-        RootObject deleteResult(RootObject ro, int index)
+        /*******************************************************************************************************
+         * Deletes a result from the RootObject given at the given index
+         * PARAMS: RootObject ro, RootObject to be deleted from
+         *         int index, index of the Result to be deleted
+         * RETURN: RootObject which is the outcome of deleting the Result
+         *******************************************************************************************************/
+        private RootObject deleteResult(RootObject ro, int index)
         {
             int length = ro.results.Length;
             RootObject finish = new RootObject();
@@ -53,7 +68,12 @@ namespace StreamSpotter
             }
             return finish;
         }
-        
+        /*******************************************************************************************************
+         * Combines both RootObjects into one big RootObject
+         * PARAMS: RootObject ro1, RootObject which will be at the front of the new RootObject
+         *         RootObject ro2, RootObject which will be at the back of the new RootObject
+         * RETURN: RootObject which contains all of the Results in both parameter RootObjects
+         *******************************************************************************************************/
         RootObject combineRoots(RootObject ro1, RootObject ro2)
         {
             int length1 = ro1.results.Length;
@@ -73,7 +93,12 @@ namespace StreamSpotter
             }
             return temp;
         }
-
+        /*******************************************************************************************************
+         * Combines the StreamingInfo attributes of two given Results.
+         * PARAMS: Result r1
+         *         Result r2
+         * RETURN: Result that has all StreamingInfo elements from both parameter Results
+         *******************************************************************************************************/
         Result combineStreamingInfo(Result r1, Result r2)
         {
             if(r1.streamingInfo.netflix == null && r2.streamingInfo.netflix != null)

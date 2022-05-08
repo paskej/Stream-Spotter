@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+	/*******************************************************************************************************
+     * Used to store different profiles in the database, and 'remember' settings between program uses
+     *******************************************************************************************************/
 	public class ProfileList
 	{
 		public Profile[] list { get; set; }
@@ -65,8 +68,11 @@ namespace StreamSpotter
 			selected = false;
 		}
 
-		//attempts to add a service and if the service is added then returns true
-		//if service is not a searchable service then it returns false
+		/*******************************************************************************************************
+         * Adds the service to the profile's list of services based on if it is POSSIBLE_SERVICES
+		 * PARAMS: string serviceName, name of the service to be added
+		 * RETURN: Boolean representing if the service was able to be added
+         *******************************************************************************************************/
 		public bool AddService(string serviceName)
 		{
 			if (serviceName != null)
@@ -96,7 +102,11 @@ namespace StreamSpotter
 			}
 			return false;
 		}
-
+		/*******************************************************************************************************
+         * Determine whether a service in in the profile's list
+		 * PARAMS: string serviceName, service to be checked for
+		 * RETURN: boolean representing whether the service is in the list
+         *******************************************************************************************************/
 		private bool inServices(string serviceName)
         {
 			for (int i = 0; i < services.Length; i++)
@@ -150,18 +160,18 @@ namespace StreamSpotter
 		{
 			return services;
 		}
-
+		/*******************************************************************************************************
+         * sets the Profile's list of services to the new list of services
+		 * PARAMS: string[] services2, list of services to be changed to
+         *******************************************************************************************************/
 		public void setServies(string[] services2)
 		{
-			//if (services2 != null)
-			//{
-				services = new string[services2.Length];
-				for (int i = 0; i < services2.Length; i++)
-				{
+			services = new string[services2.Length];
+			for (int i = 0; i < services2.Length; i++)
+			{
 
-					this.services[i] = services2[i];
-				}
-			//}
+				this.services[i] = services2[i];
+			}
 		}
 
 		public int getID()

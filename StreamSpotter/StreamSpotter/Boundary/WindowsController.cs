@@ -7,6 +7,10 @@ using System.Windows.Forms;
 
 namespace StreamSpotter
 {
+        /*******************************************************************************************************
+         * WindowsController controls which screen is being displayed. WindowsController also tracks current 
+         * profiles whether their wishilist was changed.
+         *******************************************************************************************************/
     public class WindowsController
     {
         private MovieList movieList;
@@ -32,6 +36,9 @@ namespace StreamSpotter
             prevSearch = new Stack<String>();
             wishlistChanged = false;
         }
+        /*******************************************************************************************************
+         * Returns the instance of WindowsController. If there is no instance, make one.
+         *******************************************************************************************************/
         public static WindowsController getInstance()
         {
             if(instance == null)
@@ -335,13 +342,6 @@ namespace StreamSpotter
             movieList.changeCurrentWishlist(currentID, currentID.ToString());
             movieList.removeFromWishlist(movie);
         }
-        public void changeCurrentWishlist(int profileID, string listName)
-        {
-            if (movieList != null)
-            {
-                movieList.changeCurrentWishlist(profileID, listName);
-            }
-        }
         public void changeCurrentProfile(int profileID)
         {
             profileController.setCurrentProfile(profileID);
@@ -451,12 +451,16 @@ namespace StreamSpotter
             profileScreen.Show();
             profileScreen.createNewProfileOnStart();
         }
-
+        /*******************************************************************************************************
+         * Passes the updateRecommendations command to the movie list using the current profile.
+         *******************************************************************************************************/
         public void updateRecommendations()
         {
             movieList.updateRecommendations(profileController.currentProfileID);
         }
-
+        /*******************************************************************************************************
+         * Retrieves the recommendations of the current profile from the movieList.
+         *******************************************************************************************************/
         public Result[] getRecommendations()
         {
             return movieList.getRecommendations(profileController.currentProfileID);
