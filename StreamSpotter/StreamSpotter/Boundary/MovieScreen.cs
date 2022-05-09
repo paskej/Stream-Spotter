@@ -10,12 +10,20 @@ using System.Windows.Forms;
 
 namespace StreamSpotter
 {
+    /*******************************************************************************************************
+     * SearchListUI displays the movie that was selected and displays details on the movie
+     *******************************************************************************************************/
     public partial class MovieScreen : Form
     {
         private Result movie;
         private WindowsController windowsController;
         private bool inWishlist;
         private static int BUTTON_CHANGE = 30;
+
+        /*******************************************************************************************************
+         * Constructor to initialize the objects
+         * PARAMS: Result movie, WindowsController windowsController, bool inWishlist
+         *******************************************************************************************************/
         public MovieScreen(Result movie, WindowsController windowsController, bool inWishlist)
         {
             this.movie = movie;
@@ -45,17 +53,26 @@ namespace StreamSpotter
                 pictureBox1.ImageLocation = movie.posterURLs.original;
             }
         }
-
+        /*******************************************************************************************************
+        * Method to pop up the home screen
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void HomeButton_Click(object sender, EventArgs e)
         {
             windowsController.openHomeScreen(this);
         }
-
+        /*******************************************************************************************************
+        * Method to go back to the search list screen
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void BackButton_Click(object sender, EventArgs e)
         {
             windowsController.goBack(this);
         }
-
+        /*******************************************************************************************************
+        * Method to add and remove movie from the users wishlist
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void button3_Click(object sender, EventArgs e)
         {
             if (inWishlist)
@@ -75,12 +92,18 @@ namespace StreamSpotter
                 inWishlist = true;
             }
         }
-
+        /*******************************************************************************************************
+        * Method to pop up the users wishlist
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void wishlistButton_Click(object sender, EventArgs e)
         {
             windowsController.openWishListUI(this);
 		}
-
+        /*******************************************************************************************************
+        * Method to show the netflix icon
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             if (movie.streamingInfo.netflix != null)
@@ -88,7 +111,10 @@ namespace StreamSpotter
                 System.Diagnostics.Process.Start(movie.streamingInfo.netflix.us.link);
             }
         }
-
+        /*******************************************************************************************************
+        * Method to show the diney+ icon
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             if (movie.streamingInfo.disney != null)
@@ -96,7 +122,10 @@ namespace StreamSpotter
                 System.Diagnostics.Process.Start(movie.streamingInfo.disney.us.link);
             }
         }
-
+        /*******************************************************************************************************
+        * Method to show netflix icon
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void pictureBox4_LoadCompleted(object sender, AsyncCompletedEventArgs e)
         {
             if (movie.streamingInfo.netflix == null)
@@ -104,7 +133,10 @@ namespace StreamSpotter
                 pictureBox4.Visible = false;
             }
         }
-
+        /*******************************************************************************************************
+        * Method to give the icons a link
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void button1_Click(object sender, EventArgs e)
         {
             if (movie.streamingInfo.disney != null)
@@ -115,18 +147,35 @@ namespace StreamSpotter
             {
                 System.Diagnostics.Process.Start(movie.streamingInfo.netflix.us.link);
             }
+            else if (movie.streamingInfo.hulu != null)
+            {
+                System.Diagnostics.Process.Start(movie.streamingInfo.hulu.us.link);
+            }
+            else if (movie.streamingInfo.prime != null)
+            {
+                System.Diagnostics.Process.Start(movie.streamingInfo.prime.us.link);
+            }
         }
-
+        /*******************************************************************************************************
+        * Method to pop up the profile screen
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void button2_Click(object sender, EventArgs e)
         {
             windowsController.showProfileScreen(this);
         }
-
+        /*******************************************************************************************************
+        * Method to pop up the users wishlist
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void button1_Click_1(object sender, EventArgs e)
         {
             windowsController.openWishListUI(this);
         }
-
+        /*******************************************************************************************************
+        * Method to format the screen when resized
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void MovieScreen_ResizeEnd(object sender, EventArgs e)
         {
             //pictureBox1.Height = (int)((this.Height - pictureBox1.Location.Y) * 0.7);
@@ -135,7 +184,10 @@ namespace StreamSpotter
 
             
         }
-
+        /*******************************************************************************************************
+        * Method to format the screen when resized
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void MovieScreen_Load(object sender, EventArgs e)
         {
             pictureBox5.ImageLocation = movie.backdropURLs.original;
@@ -170,6 +222,9 @@ namespace StreamSpotter
         //
         //calculating placements and sizes
         //
+        /*******************************************************************************************************
+        * Method to format the screen when resized
+        *******************************************************************************************************/
         private void formatPage()
         {
             //title
@@ -269,32 +324,50 @@ namespace StreamSpotter
             ProfileButton.Location = new Point((this.Width - ProfileButton.Width - 5 - 15), (7));
             ProfileButton.Text = windowsController.currentProfile.profileName;
         }
-
+        /*******************************************************************************************************
+        * Method to format the screen when resized
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void vScrollBar1_ValueChanged(object sender, EventArgs e)
         {
             formatPage();
         }
-
+        /*******************************************************************************************************
+        * Method to format the screen when resized
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
             formatPage();
         }
-
+        /*******************************************************************************************************
+        * Method to format the screen when resized
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void MovieScreen_SizeChanged(object sender, EventArgs e)
         {
             formatPage();
         }
-
+        /*******************************************************************************************************
+        * Method to format the screen when resized
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void MovieScreen_Resize(object sender, EventArgs e)
         {
             formatPage();
         }
-
+        /*******************************************************************************************************
+         * Method to close the form
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
         private void MovieScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
-
+        /*******************************************************************************************************
+         * Method to close the form
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
         private void MovieScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();

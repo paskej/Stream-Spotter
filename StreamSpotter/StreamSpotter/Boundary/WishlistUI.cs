@@ -10,10 +10,15 @@ using System.Windows.Forms;
 
 namespace StreamSpotter
 {
+    /*******************************************************************************************************
+     * WishListUI displays the list of movies and shows in the users wislist
+     *******************************************************************************************************/
     public partial class WishlistUI : Form
     {
         private WindowsController windowsController;
-
+        /*******************************************************************************************************
+         * Constructor to initialize the objects
+         *******************************************************************************************************/
         public WishlistUI()
         {
             InitializeComponent();
@@ -24,7 +29,9 @@ namespace StreamSpotter
 
             button3.Text = (string)windowsController.currentProfile.getProfileName();
         }
-
+        /*******************************************************************************************************
+        * Method to show the list of search results
+        *******************************************************************************************************/
         public void showList()
         {
             if (!windowsController.showWishList(listPanel, this))
@@ -38,20 +45,29 @@ namespace StreamSpotter
                 loadingLabel.Visible = false;
             }
         }
-
+        /*******************************************************************************************************
+        * Method to pop up the home screen
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void HomeButton_Click(object sender, EventArgs e)
         {
             windowsController.openHomeScreen(this);
         }
 
-
+        /*******************************************************************************************************
+        * Method to pop up the profile screen
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void button3_Click(object sender, EventArgs e)
         {
             WindowsController winController = WindowsController.getInstance();
             winController.showProfileScreen(this);
         }
 
-
+        /*******************************************************************************************************
+        * Method to filter by the type of specified service
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             listEmptyLabel.Visible = false;
@@ -97,7 +113,10 @@ namespace StreamSpotter
             }
         }
 
-
+        /*******************************************************************************************************
+        * Method to filter by what was selected in the filter textbox
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             listEmptyLabel.Visible = false;
@@ -166,7 +185,9 @@ namespace StreamSpotter
                 }
             }
         }
-
+        /*******************************************************************************************************
+        * Method to format the current screen when resized
+        *******************************************************************************************************/
         public void formatPage()
         {
             //
@@ -228,17 +249,26 @@ namespace StreamSpotter
             comboBox2.Location = new Point((this.Width - comboBox1.Width - comboBox2.Width - 15), (panel1.Height + 1));
 
         }
-
+        /*******************************************************************************************************
+        * Method to format the current screen when resized
+        * * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void WishlistUI_Load(object sender, EventArgs e)
         {
             formatPage();
         }
-
+        /*******************************************************************************************************
+        * Method to format the current screen when resized
+        * * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void WishlistUI_ResizeEnd(object sender, EventArgs e)
         {
             formatPage();
         }
-
+        /*******************************************************************************************************
+        * Method to filter by what was selected in the filter textbox
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             listEmptyLabel.Visible = false;
@@ -307,17 +337,26 @@ namespace StreamSpotter
                 }
             }
         }
-
+        /*******************************************************************************************************
+        * Method to format the current screen when resized
+        * * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void WishlistUI_Resize(object sender, EventArgs e)
         {
             formatPage();
         }
-
+        /*******************************************************************************************************
+         * Method to close the form
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
         private void WishlistUI_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
-
+        /*******************************************************************************************************
+         * Method to close the form
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
         private void WishlistUI_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();

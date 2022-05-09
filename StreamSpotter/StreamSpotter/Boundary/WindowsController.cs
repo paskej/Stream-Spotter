@@ -25,6 +25,9 @@ namespace StreamSpotter
         private String currSearch;
         private Stack<String> prevSearch;
         public bool wishlistChanged;
+        /*******************************************************************************************************
+         * Constructor to initialize the objects
+         *******************************************************************************************************/
         private WindowsController()
         {
             search = new Search();
@@ -47,6 +50,9 @@ namespace StreamSpotter
             }
             return instance;
         }
+        /*******************************************************************************************************
+         * Method to open the home screen
+         *******************************************************************************************************/
         public void openHomeScreen(Form currentForm)
         {
             homeScreenLast = true;
@@ -74,24 +80,43 @@ namespace StreamSpotter
             homeScreen.Show();
             homeScreen.showList();
         }
+        /*******************************************************************************************************
+         * Method to see if there was a previous search
+         * RETURN: string
+         *******************************************************************************************************/
         public String peekPrevSearch()
         {
             if(prevSearch.Count() != 0)
                 return prevSearch.Peek();
             return null;
         }
+        /*******************************************************************************************************
+         * Method to get the previous search
+         * RETURN: string
+         *******************************************************************************************************/
         public String getPrevSearch()
         {
             return prevSearch.Pop();
         }
+        /*******************************************************************************************************
+         * Method to push a previous search to the stack
+         * PARAM: String previousSearch
+         *******************************************************************************************************/
         public void setPrevSearch(String previousSearch)
         {
             prevSearch.Push(previousSearch);
         }
+        /*******************************************************************************************************
+         * Method to get the current searched movie/show
+         * RETURN: string
+         *******************************************************************************************************/
         public String getCurrSearch()
         {
             return currSearch;
         }
+        /*******************************************************************************************************
+         * Method to open the search list screen using the title of the movie/show
+         *******************************************************************************************************/
         public void openSearchListUI(Form currentForm, string title)
         {
             currSearch = title;
@@ -122,7 +147,10 @@ namespace StreamSpotter
             searchResults = search.getSearchResults();
             searchListUI.showList();
         }
-
+        /*******************************************************************************************************
+         * Method to go back to the previous screen when the user is currently viewing the details of a movie/show
+         * PARAM: Form currentForm
+         *******************************************************************************************************/
         public void goBack(Form currentForm)
         {
             currentForm.Hide();
@@ -199,6 +227,10 @@ namespace StreamSpotter
                 wishListUI.showList();
             }
         }
+        /*******************************************************************************************************
+         * Method to open the current users wishlist in the wishlist screen
+         * PARAM: Form currentForm
+         *******************************************************************************************************/
         public void openWishListUI(Form currentForm)
         {
             searchScreenLast = false;
@@ -225,6 +257,10 @@ namespace StreamSpotter
             wishListUI.Show();
             wishListUI.showList();
         }
+        /*******************************************************************************************************
+         * Method to open the selected movies screen
+         * PARAM: Form currentForm, int loc
+         *******************************************************************************************************/
         public void openMovieScreen(Form currentForm, int loc)
         {
             int listIndex = loc / 160;
@@ -266,7 +302,10 @@ namespace StreamSpotter
                 movieScreen.Show();
             }
         }
-
+        /*******************************************************************************************************
+         * Method to open the selected reccommended movies screen
+         * PARAM: Form currentForm, int loc
+         *******************************************************************************************************/
         public void openRecMovieScreen(Form currentForm, Panel panel, int loc)
         {
             int listIndex = loc / ((int)(panel.Height / 1.5));
@@ -308,6 +347,11 @@ namespace StreamSpotter
                 movieScreen.Show();
             }
         }
+        /*******************************************************************************************************
+         * Method to show the list of search reults by calling the movielist
+         * PARAM: Panel listPanel, Form form
+         * RETURN: bool
+         *******************************************************************************************************/
         public bool showSearchList(Panel listPanel, Form form)
         {
             movieList = new MovieList(listPanel, form, this);
@@ -315,6 +359,11 @@ namespace StreamSpotter
             movieList.printList();
             return listNull;
         }
+        /*******************************************************************************************************
+         * Method to show the list of recommended results by calling the movielist
+         * PARAM: Panel listPanel, Form form
+         * RETURN: bool
+         *******************************************************************************************************/
         public bool showRecommendedList(Panel listPanel, Form form)
         {
             movieList = new MovieList(listPanel, form, this);
@@ -322,6 +371,11 @@ namespace StreamSpotter
             movieList.printRecommendedList();
             return listNull;
         }
+        /*******************************************************************************************************
+         * Method to show the list of wish results by calling the movielist
+         * PARAM: Panel listPanel, Form form
+         * RETURN: bool
+         *******************************************************************************************************/
         public bool showWishList(Panel listPanel, Form form)
         {
             movieList = new MovieList(listPanel, form, this);
@@ -329,25 +383,41 @@ namespace StreamSpotter
             movieList.printList();
             return listNull;
         }
+        /*******************************************************************************************************
+         * Method to add a movie/show to the users wishlist
+         * PARAM: Result movie
+         * RETURN: bool
+         *******************************************************************************************************/
         public void addMovieToWishlist(Result movie)
         {
             int currentID = currentProfile.getID();
             movieList.changeCurrentWishlist(currentID, currentID.ToString());
             movieList.addToWishlist(movie);
         }
-
+        /*******************************************************************************************************
+         * Method to remove a movie/show to the users wishlist
+         * PARAM: Result movie
+         * RETURN: bool
+         *******************************************************************************************************/
         public void removeMovieFromWishlist(Result movie)
         {
             int currentID = currentProfile.getID();
             movieList.changeCurrentWishlist(currentID, currentID.ToString());
             movieList.removeFromWishlist(movie);
         }
+        /*******************************************************************************************************
+         * Method to change the current profile
+         * PARAM: int profileID
+         *******************************************************************************************************/
         public void changeCurrentProfile(int profileID)
         {
             profileController.setCurrentProfile(profileID);
             currentProfile = profileController.GetProfile(profileID);
         }
-
+        /*******************************************************************************************************
+         * Method to open the profile screen
+         * PARAM: Form currentForm
+         *******************************************************************************************************/
         public void showProfileScreen(Form currentForm)
 		{
             profileScreen = new ProfileSelectionScreen();
@@ -374,75 +444,107 @@ namespace StreamSpotter
             currentForm.Visible = false;
 
         }
-
+        /*******************************************************************************************************
+         * Method to unfilter the lists
+         * RETURN: bool
+         *******************************************************************************************************/
         public bool unFilter()
         {
             bool notEmpty = movieList.noFilter();
             movieList.printList();
             return notEmpty;
         }
-
+        /*******************************************************************************************************
+         * Method to filter by the specified service
+         * PARAM: string service
+         * RETURN: bool
+         *******************************************************************************************************/
         public bool filterByService(string service)
         {
             bool notEmpty = movieList.filterByStreamingService(service);
             movieList.printList();
             return notEmpty;
         }
-
+        /*******************************************************************************************************
+         * Method to filter and show only movies
+         * RETURN: bool
+         *******************************************************************************************************/
         public bool filterByMovie()
         {
             bool notEmpty = movieList.filterByMovie();
             movieList.printList();
             return notEmpty;
         }
-
+        /*******************************************************************************************************
+         * Method to filter and show only shows
+         * RETURN: bool
+         *******************************************************************************************************/
         public bool filterByShow()
         {
             bool notEmpty = movieList.filterByShow();
             movieList.printList();
             return notEmpty;
         }
-
+        /*******************************************************************************************************
+         * Method to filter from highest to lowest rating
+         * RETURN: bool
+         *******************************************************************************************************/
         public bool filterByRating()
         {
             bool notEmpty = movieList.filterByRating();
             movieList.printList();
             return notEmpty;
         }
-
+        /*******************************************************************************************************
+         * Method to filter from newest to oldest movie/show
+         * RETURN: bool
+         *******************************************************************************************************/
         public bool filterByNewest()
         {
             bool notEmpty = movieList.filterByNewest();
             movieList.printList();
             return notEmpty;
         }
-
+        /*******************************************************************************************************
+         * Method to filter from oldest to newest movie/show
+         * RETURN: bool
+         *******************************************************************************************************/
         public bool filterByOldest()
         {
             bool notEmpty = movieList.filterByOldest();
             movieList.printList();
             return notEmpty;
         }
-
+        /*******************************************************************************************************
+         * Method to filter from shortest to longest movie/show
+         * RETURN: bool
+         *******************************************************************************************************/
         public bool filterByShorter()
         {
             bool notEmpty = movieList.filterByShorter();
             movieList.printList();
             return notEmpty;
         }
-
+        /*******************************************************************************************************
+         * Method to filter from longest to shortest movie/show
+         * RETURN: bool
+         *******************************************************************************************************/
         public bool filterByLonger()
         {
             bool notEmpty = movieList.filterByLonger();
             movieList.printList();
             return notEmpty;
         }
-
+        /*******************************************************************************************************
+         * Method to show the list
+         *******************************************************************************************************/
         public void printList()
         {
             movieList.printList();
         }
-
+        /*******************************************************************************************************
+         * Method to create a new profile upon first start up of the program and launch the profile screen
+         *******************************************************************************************************/
         public void createProfileOnStartup()
 		{
             //change to start in program.cs.
