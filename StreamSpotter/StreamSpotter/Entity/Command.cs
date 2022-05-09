@@ -6,17 +6,34 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+    /*******************************************************************************************************
+     * Command is an abstract class for classes that use executing and unexecuting and the profile controller
+     *******************************************************************************************************/
     abstract class Command
     {
         protected ProfileController profile;
+        /*******************************************************************************************************
+         * Constructor the set the profile controller
+         * PARAMS: ProfileController p
+         *******************************************************************************************************/
         public Command(ProfileController p) { profile = p; }
+        /*******************************************************************************************************
+         * Abstract method to execute the command
+         *******************************************************************************************************/
         public abstract void execute();
+        /*******************************************************************************************************
+         * Abstract method to unexecute the command
+         *******************************************************************************************************/
         public abstract void unexecute();
+        /*******************************************************************************************************
+         * Abstract method to update the profiles in the profile controller
+         *******************************************************************************************************/
         public abstract void update();
     }
 
-    // wrap adding a new entry to the phonebook as a command
-    // hint: you should keep a record of what was added.
+    /*******************************************************************************************************
+     * AddCommand implements the Command class to add a profile
+     *******************************************************************************************************/
     class AddCommand : Command
     {
         private Profile profileAdd;
@@ -24,11 +41,18 @@ namespace StreamSpotter
         private Result[] recommended;
         private string[] services;
         private bool done;
+        /*******************************************************************************************************
+         * Constructor the set the profile controller and store the profile to add
+         * PARAMS: ProfileController p, Profile e
+         *******************************************************************************************************/
         public AddCommand(ProfileController p, Profile e) : base(p)
         {
             profileAdd = e;
             done = false;
         }
+        /*******************************************************************************************************
+         * Method to execute adding the profile to the list of profiles
+         *******************************************************************************************************/
         public override void execute()
         {
             profile.CreateProfile(profileAdd.profileName, profileAdd.getServices());
@@ -46,6 +70,9 @@ namespace StreamSpotter
             }
             done = true;
         }
+        /*******************************************************************************************************
+         * Method to unexecute adding the profile to the list of profiles
+         *******************************************************************************************************/
         public override void unexecute()
         {
             wishlist = profile.db.getWishlist(profileAdd.id, profileAdd.id.ToString());
@@ -62,7 +89,9 @@ namespace StreamSpotter
             profile.RemoveProfile(profileAdd.getID());
             done = false;
         }
-
+        /*******************************************************************************************************
+         * Method to update the profiles in the profile controller
+         *******************************************************************************************************/
         public override void update()
         {
             if (done)
@@ -82,8 +111,9 @@ namespace StreamSpotter
 
     }
 
-    // wrap removing an entry from the phonebook as a command
-    // hint: you should keep a record of what was removed.
+    /*******************************************************************************************************
+     * RemoveCommand implements the Command class to remove a profile
+     *******************************************************************************************************/
     class RemoveCommand : Command
     {
         public Profile profileRemove;
@@ -91,6 +121,10 @@ namespace StreamSpotter
         private Result[] recommended;
         private string[] services;
         private bool done;
+        /*******************************************************************************************************
+         * Constructor the set the profile controller and store the profile to remove
+         * PARAMS: ProfileController p, Profile e
+         *******************************************************************************************************/
         public RemoveCommand(ProfileController p, Profile e) : base(p)
         {
             profile = p;
@@ -98,6 +132,9 @@ namespace StreamSpotter
             wishlist = profile.db.getWishlist(profileRemove.id, profileRemove.id.ToString());
             done = false;
         }
+        /*******************************************************************************************************
+         * Method to execute removing the profile to the list of profiles
+         *******************************************************************************************************/
         public override void execute()
         {
             wishlist = profile.db.getWishlist(profileRemove.id, profileRemove.id.ToString());
@@ -115,6 +152,9 @@ namespace StreamSpotter
             done = true;
             
         }
+        /*******************************************************************************************************
+         * Method to unexecute removing the profile to the list of profiles
+         *******************************************************************************************************/
         public override void unexecute()
         {
             profile.CreateProfile(profileRemove.profileName, profileRemove.getServices());
@@ -132,6 +172,9 @@ namespace StreamSpotter
             }
             done = false;
         }
+        /*******************************************************************************************************
+         * Method to update the profiles in the profile controller
+         *******************************************************************************************************/
         public override void update()
         {
             if (!done)

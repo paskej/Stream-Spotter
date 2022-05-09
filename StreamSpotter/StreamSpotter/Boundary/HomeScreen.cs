@@ -10,9 +10,15 @@ using System.Windows.Forms;
 
 namespace StreamSpotter
 {
+    /*******************************************************************************************************
+     * HomeScreen shows our main home page
+     *******************************************************************************************************/
     public partial class HomeScreen : Form
     {
         private WindowsController windowsController;
+        /*******************************************************************************************************
+         * Constructor to initialize the objects
+         *******************************************************************************************************/
         public HomeScreen()
         {
             windowsController = WindowsController.getInstance();
@@ -31,6 +37,10 @@ namespace StreamSpotter
             formatPage();
 
         }
+        /*******************************************************************************************************
+         * Constructor to initialize the objects
+         * PARAMS: WindowsController windowsController
+         *******************************************************************************************************/
         public HomeScreen(WindowsController windowsController)
         {
             InitializeComponent();
@@ -39,7 +49,9 @@ namespace StreamSpotter
             recommendedPanel.AutoScroll = true;
             ProfileButton.Text = (string)windowsController.currentProfile.getProfileName();
         }
-
+        /*******************************************************************************************************
+         * Method to show the recommended list
+         *******************************************************************************************************/
         public void showList()
         {
             if (windowsController.wishlistChanged == true)
@@ -49,7 +61,10 @@ namespace StreamSpotter
             }
             windowsController.showRecommendedList(recommendedPanel, this);
         }
-
+        /*******************************************************************************************************
+         * Method to pop up the profile screen
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
         private void ProfileButton_Click(object sender, EventArgs e)
         {
 
@@ -57,7 +72,10 @@ namespace StreamSpotter
             winController.showProfileScreen(this);
             winController.profileScreen.updateCheckedBoxes();
         }
-
+        /*******************************************************************************************************
+         * Method to pop up the search screen using the search
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
         private void SearchBar_KeyPress(object sender, KeyPressEventArgs e)
         {
             //probably should move to a windows controller
@@ -81,12 +99,17 @@ namespace StreamSpotter
                 }
             }
         }
-
+        /*******************************************************************************************************
+         * Method to pop up the users wishlist
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
         private void wishlistButton_Click(object sender, EventArgs e)
         {
             windowsController.openWishListUI(this);
         }
-
+        /*******************************************************************************************************
+         * Method to check the current profile
+         *******************************************************************************************************/
         public void checkForProfile()
 		{
             if(windowsController.currentProfile.id == -1)
@@ -98,6 +121,9 @@ namespace StreamSpotter
                 wishlistButton.Enabled = true;
 			}
 		}
+        /*******************************************************************************************************
+         * Method to format the page if resized
+         *******************************************************************************************************/
         public void formatPage()
         {
 
@@ -160,30 +186,45 @@ namespace StreamSpotter
             //
             NoProfileLabel.Location = new Point(this.Width / 2 - NoProfileLabel.Width / 2, SearchBar.Location.Y + SearchBar.Height);
         }
-
+        /*******************************************************************************************************
+         * Method to resize the screen
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
         private void HomeScreen_ResizeEnd(object sender, EventArgs e)
         {
             formatPage();
             windowsController.showRecommendedList(recommendedPanel, this);
         }
-
+        /*******************************************************************************************************
+         * Method to load the screen
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
         private void HomeScreen_Load(object sender, EventArgs e)
         {
             formatPage();
             windowsController.showRecommendedList(recommendedPanel, this);
         }
-
+        /*******************************************************************************************************
+         * Method to resize the screen
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
         private void HomeScreen_Resize(object sender, EventArgs e)
         {
             formatPage();
             windowsController.showRecommendedList(recommendedPanel, this);
         }
-
+        /*******************************************************************************************************
+         * Method to close the form
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
         private void HomeScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
-
+        /*******************************************************************************************************
+         * Method to close the form
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
         private void HomeScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();

@@ -6,18 +6,25 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+    /*******************************************************************************************************
+     * History stores the commands that were executed and allows to unexecute them
+     *******************************************************************************************************/
     class History
     {
         private Stack<Command> done, undone;
-
+        /*******************************************************************************************************
+         * Constructor to initialize the stacks
+         *******************************************************************************************************/
         public History()
         {
             done = new Stack<Command>();
             undone = new Stack<Command>();
         }
 
-        // execute command and store it on the done commands list;
-        //   old undone commands are permanently deleted
+        /*******************************************************************************************************
+         * Method to do the command
+         * PARAMS: Command new_cmd
+         *******************************************************************************************************/
         public void Do(Command new_cmd)
         {
             new_cmd.execute();
@@ -49,7 +56,9 @@ namespace StreamSpotter
             done.Push(new_cmd);
         }
 
-        // undoes last executed command; precondition: at least one command to undo
+        /*******************************************************************************************************
+         * Method to undo the last command
+         *******************************************************************************************************/
         public void Undo()
         {
             if (done.Count != 0) 
@@ -84,7 +93,9 @@ namespace StreamSpotter
             }
         }
 
-        // redoes last undone command; precondition: at least one command to redo
+        /*******************************************************************************************************
+         * Method to redo the last command that was undone
+         *******************************************************************************************************/
         public void Redo()
         {
             if (undone.Count != 0)
