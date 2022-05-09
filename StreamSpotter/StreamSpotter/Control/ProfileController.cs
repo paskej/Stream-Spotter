@@ -16,6 +16,9 @@ namespace StreamSpotter
 		public int currNumProfiles = 0;
 		public int currentProfileID = 0;
 
+		/*******************************************************************************************************
+				 * Constructor for the ProfileController
+		 *******************************************************************************************************/
 		public ProfileController()
 		{
 			db = new DatabaseAccess();
@@ -33,6 +36,9 @@ namespace StreamSpotter
 			}
 		}
 
+		/*******************************************************************************************************
+         * creates a profile and adds it to the database
+         *******************************************************************************************************/
 		public Profile CreateProfile(string profileName, string[] serviceList)
 		{
 			Profile created;
@@ -65,6 +71,9 @@ namespace StreamSpotter
 			return created;
 		}
 
+		/*******************************************************************************************************
+         * removes a profile from the database
+         *******************************************************************************************************/
 		public void RemoveProfile(int profileID)
 		{
 			if (profileID > -1 && profileID < 10)
@@ -74,11 +83,17 @@ namespace StreamSpotter
 			}
 		}
 
+		/*******************************************************************************************************
+         * updates the information stored inside of the profile passed in
+         *******************************************************************************************************/
 		public void UpdateProfile(Profile profile)
 		{
 			db.updateProfile(profile);
 		}
 
+		/*******************************************************************************************************
+         * returns the profile associated with the ID passed in
+         *******************************************************************************************************/
 		public Profile GetProfile(int profileID)
 		{
 			ProfileList list = db.getProfileList();
@@ -99,26 +114,41 @@ namespace StreamSpotter
 			return found;
 		}
 
+		/*******************************************************************************************************
+         * returns true if the list is full
+         *******************************************************************************************************/
 		public bool getListIsFull()
 		{
 			return listIsFull;
 		}
 
+		/*******************************************************************************************************
+         * sets if the list is full
+         *******************************************************************************************************/
 		public void setListIsFull(bool Full)
 		{
 			listIsFull = Full;
 		}
 
+		/*******************************************************************************************************
+         * returns the current number of profiles stored in the database
+         *******************************************************************************************************/
 		public int getCurrNumProfiles()
         {
 			return currNumProfiles;
         }
 
+		/*******************************************************************************************************
+         * returns the ID of the current profile
+         *******************************************************************************************************/
 		public int getCurrentProfile()
 		{
 			return currentProfileID;
 		}
 
+		/*******************************************************************************************************
+         * sets the ID of the current profile
+         *******************************************************************************************************/
 		public void setCurrentProfile(int id)
 		{
 			currentProfileID = id;
