@@ -20,6 +20,11 @@ namespace StreamSpotter
 		private string[] keys;
 		private int currentKey;
 
+		/// <summary>
+		/// Constructor for APIController. Sets up the HTTP client and
+		/// creates a default HTTP request message along with all available
+		/// API keys.
+		/// </summary>
 		public APIController()
 		{
 			
@@ -45,6 +50,13 @@ namespace StreamSpotter
 			
 		}
 
+		/// <summary>
+		/// Creats a new HTTP Request message that will be used to send
+		/// the API a request. Sets all needed API information here.
+		/// </summary>
+		/// <param name="type"></param>
+		/// <param name="theService"></param>
+		/// <param name="theTitle"></param>
 		public void Change(string type, string theService, string theTitle)
 		{
 			entertainmentType = type;
@@ -65,6 +77,11 @@ namespace StreamSpotter
 			};
 		}
 
+		/// <summary>
+		/// Asynchronous call to the API that requests the results of
+		/// a search.
+		/// </summary>
+		/// <returns></returns>
 		public async Task<string> MakeRequestAsync()
 		{
 
@@ -77,6 +94,17 @@ namespace StreamSpotter
 
 		}
 
+		/// <summary>
+		/// Takes a type of result (movie or show), the service to search,
+		/// and the title for the search as a synchronous call. It then 
+		/// makes an ascynchronous call that acts like 
+		/// synchronous call to the outside program and returns the result
+		/// as a string.
+		/// </summary>
+		/// <param name="type"></param>
+		/// <param name="theService"></param>
+		/// <param name="theTitle"></param>
+		/// <returns>json string of results</returns>
 		public string FindMovieSync(string type, string theService, string theTitle)
 		{
 			Change(type, theService, theTitle);
@@ -87,9 +115,15 @@ namespace StreamSpotter
 			{
 				try
 				{
+					//-------------------------------------------------
+					// Calls asynchronous function as a synchronous function
+					//-------------------------------------------------
 					movieResults = Task.Run(async () => await MakeRequestAsync()).Result;
 					invalid = false;
 				}
+				//-------------------------------------------------
+				// If the call to the API fails, use the next API key
+				//-------------------------------------------------
 				catch (Exception e)
 				{
 					
