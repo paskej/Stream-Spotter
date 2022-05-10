@@ -16,7 +16,7 @@ namespace StreamSpotter
         /*******************************************************************************************************
          * WindowsController controls which screen is being displayed. WindowsController also tracks current 
          * profiles whether their wishilist was changed. WindowsController is also a singleton, to it is shared
-         * throughout the entire program
+         * throughout the entire program.
          *******************************************************************************************************/
     public class WindowsController
     {

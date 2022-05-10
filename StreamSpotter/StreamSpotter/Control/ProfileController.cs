@@ -13,6 +13,10 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+	// -------------------------------------------------------------------
+	// ProfileController changes data stored inside of the Profile class.
+	// The ProfileController also sends and retrieves Profiles to and from the DatabaseAcess class
+	// -------------------------------------------------------------------
 	public class ProfileController
 	{
 		public DatabaseAccess db;
