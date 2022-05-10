@@ -149,7 +149,16 @@ namespace StreamSpotter
             }
             else if (movie.streamingInfo.hulu != null)
             {
-                System.Diagnostics.Process.Start(movie.streamingInfo.hulu.us.link);
+                string text = movie.streamingInfo.hulu.us.link;
+                if (!movie.isMovie())
+                {
+                    text = text.Remove(28, 6);
+                }
+                else
+                {
+                    text = text.Remove(27, 5);
+                }
+                System.Diagnostics.Process.Start(text);
             }
             else if (movie.streamingInfo.prime != null)
             {

@@ -8,7 +8,8 @@ navigate to ".\StreamSpotter\StreamSpotter\bin\Release". You should see a .exe f
 is in the bin folder, and can then move the bin folder anywhere in your file system.
 
 Known bugs:
-*Some hulu results bring you to a hulu 404 error screen. We believe this is a fault of the API and not our program.
+*When in the movie screen, if the program is in it's smallest state, the title and description may not be formatted correctly.
+ This stayed like this because we did not have enough time to adjust the formatting, and
 
 Design Deficiency:
 *Cannot use both sets of filters at the same time
