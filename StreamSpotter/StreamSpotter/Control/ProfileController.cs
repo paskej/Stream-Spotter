@@ -97,6 +97,7 @@ namespace StreamSpotter
 		/*******************************************************************************************************
          * returns the profile associated with the ID passed in
          * PARAM: int profileID
+         * RETURNS: Profile coresponding to profileID
          *******************************************************************************************************/
 		public Profile GetProfile(int profileID)
 		{
@@ -120,6 +121,7 @@ namespace StreamSpotter
 
 		/*******************************************************************************************************
          * returns true if the list is full
+         * RETURNS: if list is full
          *******************************************************************************************************/
 		public bool getListIsFull()
 		{
@@ -137,6 +139,7 @@ namespace StreamSpotter
 
 		/*******************************************************************************************************
          * returns the current number of profiles stored in the database
+         * RETURNS: current number of profiles
          *******************************************************************************************************/
 		public int getCurrNumProfiles()
         {
@@ -145,6 +148,7 @@ namespace StreamSpotter
 
 		/*******************************************************************************************************
          * returns the ID of the current profile
+         * RETURNS: current profile ID
          *******************************************************************************************************/
 		public int getCurrentProfile()
 		{

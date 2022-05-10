@@ -7,17 +7,25 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+
 	public class APIStorage
 	{
 		private const int MOST_RECENT = 0;
 		private const int MAX_HISTORY_LENGTH = 5;
 		private ArrayList jsonlist;
 
+		/*******************************************************************************************************
+         * Constructor
+         *******************************************************************************************************/
 		public APIStorage()
 		{
 			jsonlist = new ArrayList();
 		}
 
+		/*******************************************************************************************************
+         * Method to add a json file to the database
+         * PARAMS: string file
+         *******************************************************************************************************/
 		public void AddJsonFile(string file)
 		{
 			if(jsonlist.Count < MAX_HISTORY_LENGTH)
@@ -31,6 +39,10 @@ namespace StreamSpotter
 			}
 		}
 
+		/*******************************************************************************************************
+         * Method to return the most recent JSON file
+         * RETURN: contents of json as a string
+         *******************************************************************************************************/
 		public string getMostRecent()
 		{
 			return (string)jsonlist[MOST_RECENT];
