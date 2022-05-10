@@ -43,7 +43,15 @@ namespace StreamSpotter
             {
                 pictureBox2.Visible = false;
             }
-            if(inWishlist)
+            if (movie.streamingInfo.hulu == null)
+            {
+                pictureBox6.Visible = false;
+            }
+            if (movie.streamingInfo.prime == null)
+            {
+                pictureBox7.Visible = false;
+            }
+            if (inWishlist)
             {
                 button3.Width = button3.Width + BUTTON_CHANGE;
                 button3.Text = "Remove from Wishlist";
@@ -101,7 +109,7 @@ namespace StreamSpotter
             windowsController.openWishListUI(this);
 		}
         /*******************************************************************************************************
-        * Method to show the netflix icon
+        * Method to open netflix when the netflix icon is pressed
         * PARAMS: object sender, EventArgs e
         *******************************************************************************************************/
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -112,7 +120,7 @@ namespace StreamSpotter
             }
         }
         /*******************************************************************************************************
-        * Method to show the diney+ icon
+        * Method to open disney+ when the diney+ icon is clicked
         * PARAMS: object sender, EventArgs e
         *******************************************************************************************************/
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -122,6 +130,29 @@ namespace StreamSpotter
                 System.Diagnostics.Process.Start(movie.streamingInfo.disney.us.link);
             }
         }
+        /*******************************************************************************************************
+        * Method to open hulu when the hulu icon is clicked
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            if (movie.streamingInfo.hulu != null)
+            {
+                System.Diagnostics.Process.Start(movie.streamingInfo.hulu.us.link);
+            }
+        }
+        /*******************************************************************************************************
+        * Method to open prime when the prime icon is clicked
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            if (movie.streamingInfo.prime != null)
+            {
+                System.Diagnostics.Process.Start(movie.streamingInfo.prime.us.link);
+            }
+        }
+
         /*******************************************************************************************************
         * Method to show netflix icon
         * PARAMS: object sender, EventArgs e
@@ -134,9 +165,38 @@ namespace StreamSpotter
             }
         }
         /*******************************************************************************************************
-        * Method to give the icons a link
+        * Method to show disney icon
         * PARAMS: object sender, EventArgs e
         *******************************************************************************************************/
+        private void pictureBox2_LoadCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (movie.streamingInfo.disney == null)
+            {
+                pictureBox2.Visible = false;
+            }
+        }
+        /*******************************************************************************************************
+        * Method to show hulu icon
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
+        private void pictureBox6_LoadCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (movie.streamingInfo.hulu == null)
+            {
+                pictureBox6.Visible = false;
+            }
+        }
+        /*******************************************************************************************************
+        * Method to show prime icon
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
+        private void pictureBox7_LoadCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (movie.streamingInfo.prime == null)
+            {
+                pictureBox7.Visible = false;
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if (movie.streamingInfo.disney != null)
@@ -282,13 +342,38 @@ namespace StreamSpotter
             //disney icon
             pictureBox2.Height = iconHeight;
             pictureBox2.Width = iconHeight;
-            if(movie.streamingInfo.netflix == null)
+            if (movie.streamingInfo.netflix == null)
             {
-                pictureBox2.Location = new Point((this.Width * 3 / 32), (95 + titleHeight + discriptionHeight));
+                pictureBox2.Location = new Point(pictureBox4.Location.X, (95 + titleHeight + discriptionHeight));
             }
             else
             {
-                pictureBox2.Location = new Point((this.Width * 5 / 32), (95 + titleHeight + discriptionHeight));
+                pictureBox2.Location = new Point(pictureBox4.Location.X + (this.Width * 2 / 32), (95 + titleHeight + discriptionHeight));
+            }
+
+
+            //hulu icon
+            pictureBox6.Height = iconHeight;
+            pictureBox6.Width = iconHeight;
+            if (movie.streamingInfo.disney == null)
+            {
+                pictureBox6.Location = new Point(pictureBox2.Location.X, (95 + titleHeight + discriptionHeight));
+            }
+            else
+            {
+                pictureBox6.Location = new Point(pictureBox2.Location.X + (this.Width * 2 / 32), (95 + titleHeight + discriptionHeight));
+            }
+
+            //amazon prime icon
+            pictureBox7.Height = iconHeight;
+            pictureBox7.Width = iconHeight;
+            if (movie.streamingInfo.hulu == null)
+            {
+                pictureBox7.Location = new Point(pictureBox6.Location.X, (95 + titleHeight + discriptionHeight));
+            }
+            else
+            {
+                pictureBox7.Location = new Point(pictureBox6.Location.X + (this.Width * 2 / 32), (95 + titleHeight + discriptionHeight));
             }
 
             //scroll bar
@@ -381,5 +466,6 @@ namespace StreamSpotter
         {
             Application.Exit();
         }
+
     }
 }
