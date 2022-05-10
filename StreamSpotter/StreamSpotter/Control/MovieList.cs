@@ -404,7 +404,7 @@ namespace StreamSpotter
             {
                 Label title = new Label();
                 title.Text = movie.title;
-                title.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 point = new Point(140, num * BOX_HEIGHT + 10);
                 title.Location = point;
                 title.Width = 400;
@@ -413,7 +413,7 @@ namespace StreamSpotter
 
                 Label description = new Label();
                 description.Text = movie.overview;
-                description.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                description.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 point = new Point(140, num * BOX_HEIGHT + 40);
                 description.Location = point;
                 description.Size = new System.Drawing.Size(400, BOX_HEIGHT - 40);
