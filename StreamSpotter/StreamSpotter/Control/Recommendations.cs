@@ -34,7 +34,7 @@ namespace StreamSpotter
         public Result[] getRecommendations(Result[] wishlist, string[] services)
         {
             Result[] recommendations = null;
-            if(wishlist == null)
+            if(wishlist == null || services == null)
             {
 
             }

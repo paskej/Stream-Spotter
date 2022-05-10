@@ -20,22 +20,51 @@ namespace StreamSpotter
          *******************************************************************************************************/
         public RootObject mergeLists(RootObject ro1, RootObject ro2)
         {
-            int length1 = ro1.results.Length;
-            int length2 = ro2.results.Length;
-            for(int i = 0; i < length1; i++)
+            if (ro1 != null && ro2 != null)
             {
-                for(int j = 0; j < length2; j++)
+                if(ro1.results == null && ro2.results == null)
                 {
-                    if(ro1.results[i].imdbID == ro2.results[j].imdbID)
+                    return ro1;
+                }
+                if (ro1.results == null && ro2.results != null)
+                {
+                    return ro2;
+                }
+                else if (ro1.results != null && ro2.results == null)
+                {
+                    return ro1;
+                }
+                else
+                {
+                    int length1 = ro1.results.Length;
+                    int length2 = ro2.results.Length;
+                    for (int i = 0; i < length1; i++)
                     {
-                        ro1.results[i] = combineStreamingInfo(ro1.results[i], ro2.results[j]);
-                        ro2 = deleteResult(ro2, j);
-                        length2 = ro2.results.Length;
+                        for (int j = 0; j < length2; j++)
+                        {
+                            if (ro1.results[i].imdbID == ro2.results[j].imdbID)
+                            {
+                                ro1.results[i] = combineStreamingInfo(ro1.results[i], ro2.results[j]);
+                                ro2 = deleteResult(ro2, j);
+                                length2 = ro2.results.Length;
+                            }
+                        }
                     }
+                    return combineRoots(ro1, ro2);
                 }
             }
-            return combineRoots(ro1, ro2);
-
+            else if(ro1 != null && ro2 == null)
+            {
+                return ro1;
+            }
+            else if(ro2 != null && ro1 == null)
+            {
+                return ro2;
+            }
+            else
+            {
+                return null;
+            }
         }
         /*******************************************************************************************************
          * Deletes a result from the RootObject given at the given index
