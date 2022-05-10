@@ -13,7 +13,10 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
-
+	/*******************************************************************************************************
+     * Stores recent searches so that lists of results can be passed to Merge in order to make one large
+	 * list of results.
+     *******************************************************************************************************/
 	public class APIStorage
 	{
 		private const int MOST_RECENT = 0;
