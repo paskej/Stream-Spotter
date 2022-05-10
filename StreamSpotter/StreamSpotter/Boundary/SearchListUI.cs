@@ -300,7 +300,7 @@ namespace StreamSpotter
             //
             //Button wishlistButton;
             //
-            wishlistButton.Location = new Point((this.Width - ProfileButton.Width - 102), (10));
+            wishlistButton.Location = new Point((this.Width - ProfileButton.Width - 110), (10));
 
 
             //

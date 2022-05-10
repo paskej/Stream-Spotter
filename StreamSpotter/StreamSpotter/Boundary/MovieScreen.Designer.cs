@@ -119,7 +119,7 @@
 			this.HomeButton.Location = new System.Drawing.Point(53, 10);
 			this.HomeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.HomeButton.Name = "HomeButton";
-			this.HomeButton.Size = new System.Drawing.Size(79, 39);
+			this.HomeButton.Size = new System.Drawing.Size(90, 39);
 			this.HomeButton.TabIndex = 22;
 			this.HomeButton.Text = "Home";
 			this.HomeButton.UseVisualStyleBackColor = true;

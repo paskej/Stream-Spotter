@@ -51,7 +51,7 @@
 			this.HomeButton.Location = new System.Drawing.Point(69, 11);
 			this.HomeButton.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
 			this.HomeButton.Name = "HomeButton";
-			this.HomeButton.Size = new System.Drawing.Size(90, 39);
+			this.HomeButton.Size = new System.Drawing.Size(102, 39);
 			this.HomeButton.TabIndex = 21;
 			this.HomeButton.Text = "Home";
 			this.HomeButton.UseVisualStyleBackColor = true;
@@ -123,7 +123,7 @@
 			this.wishlistButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.wishlistButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.wishlistButton.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.wishlistButton.Location = new System.Drawing.Point(631, 9);
+			this.wishlistButton.Location = new System.Drawing.Point(615, 9);
 			this.wishlistButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
 			this.wishlistButton.Name = "wishlistButton";
 			this.wishlistButton.Size = new System.Drawing.Size(116, 39);
