@@ -16,6 +16,9 @@ using System.Net.Http;
 
 namespace StreamSpotter
 {
+	// -------------------------------------------------------------------
+	// APIController prepares the information required to communicate with the API
+	// -------------------------------------------------------------------
 	public class APIController
 	{
 		private string entertainmentType;

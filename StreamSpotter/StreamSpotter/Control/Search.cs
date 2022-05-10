@@ -13,6 +13,10 @@ using Newtonsoft.Json;
 
 namespace StreamSpotter
 {
+    // -------------------------------------------------------------------
+    // Search sends the necesary information required to get results from the API.
+    // It also retrieves any results sent by the API.
+    // -------------------------------------------------------------------
     class Search
     {
         private const int MOVIE_DATA_TYPES = 4;
