@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+	/*******************************************************************************************************
+     * IOManager is a console version of our system to see if our api search results worked originally
+     *******************************************************************************************************/
 	class IOManager
 	{
 		private bool end;
@@ -21,12 +24,17 @@ namespace StreamSpotter
 		private string title;
 		private string searchResults;
 		private APIController apiController;
+		/*******************************************************************************************************
+         * Constructor to initialize objects
+         *******************************************************************************************************/
 		public IOManager()
 		{
 			end = false;
 			apiController = new APIController();
 		}
-
+		/*******************************************************************************************************
+         * Method to run the console program
+         *******************************************************************************************************/
 		public void run()
 		{
 			while(end == false)

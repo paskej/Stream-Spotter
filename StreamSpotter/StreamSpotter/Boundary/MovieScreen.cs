@@ -17,7 +17,7 @@ using System.Windows.Forms;
 namespace StreamSpotter
 {
     /*******************************************************************************************************
-     * SearchListUI displays the movie that was selected and displays details on the movie
+     * MovieScreen displays the movie that was selected and displays details on the movie
      *******************************************************************************************************/
     public partial class MovieScreen : Form
     {

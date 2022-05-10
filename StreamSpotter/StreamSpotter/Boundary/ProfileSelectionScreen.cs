@@ -18,6 +18,9 @@ using System.Threading;
 
 namespace StreamSpotter
 {
+	/*******************************************************************************************************
+     * ProfileSelectionScreen displays the saved profiles of the program and their saved services
+     *******************************************************************************************************/
 	public partial class ProfileSelectionScreen : Form
 	{
 		private WindowsController winControl = WindowsController.getInstance();
