@@ -21,8 +21,8 @@ namespace StreamSpotter
          *******************************************************************************************************/
         public WishlistUI()
         {
-            InitializeComponent();
             this.windowsController = WindowsController.getInstance();
+            InitializeComponent();
 
             listPanel.Controls.Add(loadingLabel);
             loadingLabel.Visible = true;
