@@ -6,6 +6,12 @@ using System.Windows.Forms;
 
 namespace StreamSpotter
 {
+    //---------------------------------------------------------------
+    // Name:    404 Brain Not Found
+    // Project: Stream Spotter
+    // Purpose: Allows users with streaming services to find movies and shows
+    // they want to watch without knowing what service it may be on
+    //---------------------------------------------------------------------
     static class Program
     {
         /// <summary>
