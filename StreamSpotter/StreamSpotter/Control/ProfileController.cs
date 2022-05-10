@@ -38,6 +38,7 @@ namespace StreamSpotter
 
 		/*******************************************************************************************************
          * creates a profile and adds it to the database
+         * PARAMS: string profileName, string[] serviceList
          *******************************************************************************************************/
 		public Profile CreateProfile(string profileName, string[] serviceList)
 		{
@@ -73,6 +74,7 @@ namespace StreamSpotter
 
 		/*******************************************************************************************************
          * removes a profile from the database
+         * PARAM: int profileID
          *******************************************************************************************************/
 		public void RemoveProfile(int profileID)
 		{
@@ -85,6 +87,7 @@ namespace StreamSpotter
 
 		/*******************************************************************************************************
          * updates the information stored inside of the profile passed in
+         * PARAM: Profile profile
          *******************************************************************************************************/
 		public void UpdateProfile(Profile profile)
 		{
@@ -93,6 +96,7 @@ namespace StreamSpotter
 
 		/*******************************************************************************************************
          * returns the profile associated with the ID passed in
+         * PARAM: int profileID
          *******************************************************************************************************/
 		public Profile GetProfile(int profileID)
 		{
@@ -124,6 +128,7 @@ namespace StreamSpotter
 
 		/*******************************************************************************************************
          * sets if the list is full
+         * PARAM: bool Full
          *******************************************************************************************************/
 		public void setListIsFull(bool Full)
 		{
