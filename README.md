@@ -7,6 +7,9 @@ program, navigate to "Build" -> "Configuration Manager" and change "Active solut
 navigate to ".\StreamSpotter\StreamSpotter\bin\Release". You should see a .exe file in this folder. You can delete the Debug folder if it
 is in the bin folder, and can then move the bin folder anywhere in your file system.
 
+Tests Instructions: To run the tests, simply build the program, and navigate to "Test" -> "Run All Tests" in the toolbar on the top of the
+screen.
+
 Known bugs:
 *When in the movie screen, if the program is in it's smallest state, the title and description may not be formatted correctly.
  This stayed like this because we did not have enough time to adjust the formatting.
@@ -17,3 +20,4 @@ Design Deficiency:
 *Cannot use both sets of filters at the same time
 *Program assumes the user is connected to the internet and does not check if they are not.
 *All users have 400 calls total, which could result in users running out of calls if there are multiple people using the program.
+
