@@ -123,13 +123,13 @@
 			// 
 			// SwitchButton
 			// 
-			this.SwitchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SwitchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SwitchButton.Location = new System.Drawing.Point(585, 14);
 			this.SwitchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.SwitchButton.Name = "SwitchButton";
 			this.SwitchButton.Size = new System.Drawing.Size(203, 42);
 			this.SwitchButton.TabIndex = 9;
-			this.SwitchButton.Text = "Switch Profile/Back";
+			this.SwitchButton.Text = "Back";
 			this.SwitchButton.UseVisualStyleBackColor = true;
 			this.SwitchButton.Click += new System.EventHandler(this.SwitchButton_Click_1);
 			// 
@@ -315,7 +315,7 @@
 			this.ExitButton.Name = "ExitButton";
 			this.ExitButton.Size = new System.Drawing.Size(75, 31);
 			this.ExitButton.TabIndex = 22;
-			this.ExitButton.Text = "Exit";
+			this.ExitButton.Text = "Home";
 			this.ExitButton.UseVisualStyleBackColor = true;
 			this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
 			// 
