@@ -26,8 +26,9 @@ namespace StreamSpotter
         //need to do show list upon start up somehow
         public SearchListUI(WindowsController windowsController)
         {
+            
+            this.windowsController = WindowsController.getInstance();
             InitializeComponent();
-            this.windowsController = windowsController;
 
             listPanel.Controls.Add(loadingLabel);
             loadingLabel.Visible = true;
@@ -299,7 +300,7 @@ namespace StreamSpotter
             //
             //Button wishlistButton;
             //
-            wishlistButton.Location = new Point((this.Width - ProfileButton.Width - 102), (10));
+            wishlistButton.Location = new Point((this.Width - ProfileButton.Width - 110), (10));
 
 
             //
