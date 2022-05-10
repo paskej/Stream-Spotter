@@ -30,11 +30,12 @@ namespace StreamSpotter
 			
 			client = new HttpClient();
 
-			keys = new string[4];
+			keys = new string[5];
 			keys[0] = "bc845cec13msh18fba8e190a0fd2p177163jsne160d9e55201";
 			keys[1] = "c59f8bd33amshfbc0ea2813f2495p12fdbajsneaf23d8c829a";
 			keys[2] = "a98a6b35fbmsh46d53f60be5bcdcp1fda1fjsn4ecde5959c3f";
 			keys[3] = "304c4fbc80msh73d17a1513320bfp14d0b6jsn1fe16b2c3fd5";
+			keys[4] = "caa3e586bamsh32546b6ad7ffb10p152ce9jsn604b15f84c0c";
 			currentKey = 0;
 
 			request = new HttpRequestMessage
