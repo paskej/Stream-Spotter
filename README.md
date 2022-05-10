@@ -9,8 +9,11 @@ is in the bin folder, and can then move the bin folder anywhere in your file sys
 
 Known bugs:
 *When in the movie screen, if the program is in it's smallest state, the title and description may not be formatted correctly.
- This stayed like this because we did not have enough time to adjust the formatting, and
+ This stayed like this because we did not have enough time to adjust the formatting.
+*When the program runs out of calls, there is no check to prevent the program from crashing. This was not added because we haven't
+been able to consistently reproduce this scenario.
 
 Design Deficiency:
 *Cannot use both sets of filters at the same time
 *Program assumes the user is connected to the internet and does not check if they are not.
+*All users have 400 calls total, which could result in users running out of calls if there are multiple people using the program.
