@@ -1,4 +1,10 @@
-﻿using System;
+﻿//---------------------------------------------------------------
+// Name:    404 Brain Not Found
+// Project: Stream Spotter
+// Purpose: Allows users with streaming services to find movies and shows
+// they want to watch without knowing what service it may be on
+//---------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,6 +12,9 @@ using System.Windows.Forms;
 
 namespace StreamSpotter
 {
+    
+    
+
     static class Program
     {
         /// <summary>
@@ -20,7 +29,7 @@ namespace StreamSpotter
             //check if there are any profiles made
             //if no profiles are stored then open the create profile form
 
-            Application.Run(new ProfileSelectionScreen());
+            Application.Run(new HomeScreen());
 
             //string movie;
             //APIController apiController = new APIController();

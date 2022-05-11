@@ -1,4 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿//---------------------------------------------------------------
+// Name:    404 Brain Not Found
+// Project: Stream Spotter
+// Purpose: Allows users with streaming services to find movies and shows
+// they want to watch without knowing what service it may be on
+//---------------------------------------------------------------------
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,6 +15,11 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+    /*******************************************************************************************************
+     * Recommendations gets a wishlist's favorite genre and result type (movie or series) and makes 
+     * appropriate calls to the API to get a list of recommendations based off of those favorites and the
+     * profile's services.
+     *******************************************************************************************************/
     public class Recommendations
     {
         private static int LIST_LENGTH = 27;
@@ -19,10 +30,17 @@ namespace StreamSpotter
             apic = new APIController();
             merge = new Merge();
         }
+        /*******************************************************************************************************
+         * Generates a list of Results that the user with the given wishlist and services might be interested 
+         * in watching
+         * PARAMS: Result[] wishlist, The current profile's wishlist, used for getting favorite genre and type
+         *                 string[] services, The current profile's services, used to make calls to the API
+         *  RETURN: Array of Results that the user might want to watch or track
+         *******************************************************************************************************/
         public Result[] getRecommendations(Result[] wishlist, string[] services)
         {
             Result[] recommendations = null;
-            if(wishlist == null)
+            if(wishlist == null || services == null)
             {
 
             }
@@ -47,9 +65,14 @@ namespace StreamSpotter
             }
             return recommendations;
         }
-
+        /*******************************************************************************************************
+         * Finds the favorite genre of the given wishlist using the Results' genre attribute
+         * PARAMS: Result[] wishlist, list of Results used to determine the favorite genre
+         * RETURN: int representing the favorite genre
+         *******************************************************************************************************/
         private int getFavoriteGenre(Result[] wishlist)
         {
+            //Using Points to both track the genre number and count the amount of times that genre has appeared
             Point[] counts = new Point[LIST_LENGTH];
             counts[0] = new Point(1, 0);
             counts[1] = new Point(2, 0);
@@ -102,7 +125,11 @@ namespace StreamSpotter
             }
             return counts[favorite].X;
         }
-
+        /*******************************************************************************************************
+         * Translates a genre's number into a string usable to search on the API
+         * PARAMS: int num, the number to be translated
+         * RETURN: string of the genre's name
+         *******************************************************************************************************/
         private string translateGenre(int num)
         {
             string s = "";
@@ -195,7 +222,11 @@ namespace StreamSpotter
             }
             return s;
         }
-
+        /*******************************************************************************************************
+         * Finds the given wishlist's favorite type using the Results' isMovie() method
+         * PARAMS: Result[] wishlist, wishlist to have favorite type determined
+         * RETURN: string of favorite type (either "movie" or "series"
+         *******************************************************************************************************/
         private string getFavoriteType(Result[] wishlist)
         {
             int movie = 0, series = 0;

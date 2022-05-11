@@ -1,4 +1,10 @@
-﻿using System;
+﻿//---------------------------------------------------------------
+// Name:    404 Brain Not Found
+// Project: Stream Spotter
+// Purpose: Allows users with streaming services to find movies and shows
+// they want to watch without knowing what service it may be on
+//---------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
@@ -7,16 +13,20 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+	/*******************************************************************************************************
+     * Used to store different profiles in the database, and 'remember' settings between program uses
+     *******************************************************************************************************/
 	public class ProfileList
 	{
 		public Profile[] list { get; set; }
 	}
 	public class Profile
 	{
-		private readonly string[] POSSIBLE_SERVICES = { "netflix", "disney" };
+		private readonly string[] POSSIBLE_SERVICES = { "netflix", "disney", "hulu" , "prime" };
 		public string[] services { get; set; }
 		public string profileName { get; set; }
 		public int id { get; set; }
+		public bool selected { get; set; }
 
 		//default constructor
 		public Profile()
@@ -24,6 +34,7 @@ namespace StreamSpotter
 			profileName = null;
 			services = new string[0];
 			id = -1;
+			selected = false;
 		}
 
 		public Profile(string profileName)
@@ -35,6 +46,7 @@ namespace StreamSpotter
 			{
 				services[i] = POSSIBLE_SERVICES[i];
 			}
+			selected = false;
 		}
 
 		public Profile(string profileName, string[] services)
@@ -46,22 +58,27 @@ namespace StreamSpotter
 			{
 				this.services[i] = services[i];
 			}
+			selected = false;
 		}
 
 		//parameterized constructor
 		public Profile(string profileName, string[] services, int id)
 		{
 			this.profileName = profileName;
-			services = new string[services.Length];
 			this.id = id;
+			this.services = new string[services.Length];
 			for(int i = 0; i < services.Length; i++)
 			{
 				this.services[i] = services[i];
 			}
+			selected = false;
 		}
 
-		//attempts to add a service and if the service is added then returns true
-		//if service is not a searchable service then it returns false
+		/*******************************************************************************************************
+         * Adds the service to the profile's list of services based on if it is POSSIBLE_SERVICES
+		 * PARAMS: string serviceName, name of the service to be added
+		 * RETURN: Boolean representing if the service was able to be added
+         *******************************************************************************************************/
 		public bool AddService(string serviceName)
 		{
 			if (serviceName != null)
@@ -91,7 +108,11 @@ namespace StreamSpotter
 			}
 			return false;
 		}
-
+		/*******************************************************************************************************
+         * Determine whether a service in in the profile's list
+		 * PARAMS: string serviceName, service to be checked for
+		 * RETURN: boolean representing whether the service is in the list
+         *******************************************************************************************************/
 		private bool inServices(string serviceName)
         {
 			for (int i = 0; i < services.Length; i++)
@@ -145,18 +166,18 @@ namespace StreamSpotter
 		{
 			return services;
 		}
-
+		/*******************************************************************************************************
+         * sets the Profile's list of services to the new list of services
+		 * PARAMS: string[] services2, list of services to be changed to
+         *******************************************************************************************************/
 		public void setServies(string[] services2)
 		{
-			//if (services2 != null)
-			//{
-				services = new string[services2.Length];
-				for (int i = 0; i < services2.Length; i++)
-				{
+			services = new string[services2.Length];
+			for (int i = 0; i < services2.Length; i++)
+			{
 
-					this.services[i] = services2[i];
-				}
-			//}
+				this.services[i] = services2[i];
+			}
 		}
 
 		public int getID()

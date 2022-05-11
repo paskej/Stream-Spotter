@@ -1,4 +1,10 @@
-﻿using System;
+﻿//---------------------------------------------------------------
+// Name:    404 Brain Not Found
+// Project: Stream Spotter
+// Purpose: Allows users with streaming services to find movies and shows
+// they want to watch without knowing what service it may be on
+//---------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+	/*******************************************************************************************************
+     * IOManager is a console version of our system to see if our api search results worked originally
+     *******************************************************************************************************/
 	class IOManager
 	{
 		private bool end;
@@ -15,12 +24,17 @@ namespace StreamSpotter
 		private string title;
 		private string searchResults;
 		private APIController apiController;
+		/*******************************************************************************************************
+         * Constructor to initialize objects
+         *******************************************************************************************************/
 		public IOManager()
 		{
 			end = false;
 			apiController = new APIController();
 		}
-
+		/*******************************************************************************************************
+         * Method to run the console program
+         *******************************************************************************************************/
 		public void run()
 		{
 			while(end == false)

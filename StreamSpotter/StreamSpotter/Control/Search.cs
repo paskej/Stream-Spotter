@@ -1,4 +1,10 @@
-﻿using System;
+﻿//---------------------------------------------------------------
+// Name:    404 Brain Not Found
+// Project: Stream Spotter
+// Purpose: Allows users with streaming services to find movies and shows
+// they want to watch without knowing what service it may be on
+//---------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +13,10 @@ using Newtonsoft.Json;
 
 namespace StreamSpotter
 {
+    // -------------------------------------------------------------------
+    // Search sends the necesary information required to get results from the API.
+    // It also retrieves any results sent by the API.
+    // -------------------------------------------------------------------
     class Search
     {
         private const int MOVIE_DATA_TYPES = 4;
@@ -17,7 +27,9 @@ namespace StreamSpotter
         private APIController apiController;
         private Merge merge;
 
-
+        /// <summary>
+        /// Search class constructor. Sets up all needed objects.
+        /// </summary>
         public Search()
         {
             storage = new APIStorage();
@@ -26,12 +38,21 @@ namespace StreamSpotter
         }
 
         //for searching results
-
+        /// <summary>
+        /// Interfaces with APIController to search all relevent streaming
+        /// services for movies and series that match the specified 
+        /// title.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="services"></param>
         public void searchResult(string title, string[] services)
         {
             RootObject ro1, ro2;
             if (services.GetLength(0) > 0)
             {
+                //-----------------------------------------------------
+                // Searches for movies, then series, then merges both lists into one
+                //-----------------------------------------------------
                 ro1 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(MOVIE, services[0], title));
                 ro2 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(SERIES, services[0], title));
                 ro1 = merge.mergeLists(ro1, ro2);
@@ -43,6 +64,9 @@ namespace StreamSpotter
                     ro1 = merge.mergeLists(ro1, ro2);
                 }
             }
+            //-----------------------------------------------------
+            // By default, just searching Netflix
+            //-----------------------------------------------------
             else
             {
                 ro1 = JsonConvert.DeserializeObject<RootObject>(apiController.FindMovieSync(MOVIE, "netflix", title));
@@ -52,6 +76,13 @@ namespace StreamSpotter
             storage.AddJsonFile(JsonConvert.SerializeObject(ro1));
         }
 
+        /// <summary>
+        /// Determines what streaming service the Result is on and then
+        /// navigates to the path of the link and returns it as a string.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="ro"></param>
+        /// <returns>streaming link as a string</returns>
         public string getStreamingLink(int index, RootObject ro)
         {
             if(ro.results[index].streamingInfo.netflix != null)
@@ -62,50 +93,31 @@ namespace StreamSpotter
             {
                 return ro.results[index].streamingInfo.disney.us.link;
             }
+            else if(ro.results[index].streamingInfo.hulu != null)
+            {
+                return ro.results[index].streamingInfo.hulu.us.link;
+            }
+            else if(ro.results[index].streamingInfo.prime != null)
+            {
+                return ro.results[index].streamingInfo.prime.us.link;
+            }
             else
             {
                 return "null";
             }
         }
 
+        /// <summary>
+        /// Gets a json of the most recent search and then converts it
+        /// into a list of Result.
+        /// </summary>
+        /// <returns>The most recent search results as a list of Result</returns>
         public Result[] getSearchResults()
         {
             string searchResult = storage.getMostRecent();
             RootObject ro = JsonConvert.DeserializeObject<RootObject>(searchResult);
             Result[] results = ro.results;
             return results;
-        }
-
-        //for getting the searched item and send to the api
-        //How data is returned:
-        //[title, description, poster url, netflix url]
-        public string[,] getSearchResult()
-        {
-            string searchResult = storage.getMostRecent();
-            RootObject ro = JsonConvert.DeserializeObject<RootObject>(searchResult);
-            int numOfResults = ro.results.Length;
-            string[,] formattedSearchResults = new string[numOfResults, MOVIE_DATA_TYPES];
-
-            for (int i = 0; i < numOfResults; i++)
-            {
-                int j = 0;
-                formattedSearchResults[i, j++] = ro.results[i].title;
-                formattedSearchResults[i, j++] = ro.results[i].overview;
-
-                if(ro.results[i].posterURLs.original != null)
-                {
-                    formattedSearchResults[i, j++] = ro.results[i].posterURLs.original;
-
-                }
-                else
-                {
-                    formattedSearchResults[i, j++] = "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDk1MzYxOTUwMjk1NDAw/the-true-importance-of-tumbleweeds.jpg";
-                }
-
-                formattedSearchResults[i, j++] = getStreamingLink(i, ro);
-            }
-
-            return formattedSearchResults;
         }
     }
 }

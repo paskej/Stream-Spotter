@@ -1,4 +1,10 @@
-﻿using System;
+﻿//---------------------------------------------------------------
+// Name:    404 Brain Not Found
+// Project: Stream Spotter
+// Purpose: Allows users with streaming services to find movies and shows
+// they want to watch without knowing what service it may be on
+//---------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +12,10 @@ using System.Threading.Tasks;
 
 namespace StreamSpotter
 {
+    /*******************************************************************************************************
+     * Stores all of the movie/series' details, like release date, title, description, where to find it, etc.
+     * Due to the API passing the Results to us, formatting could not be changed.
+     *******************************************************************************************************/
     public class RootObject
     {
         public Result[] results { get; set; }
@@ -16,8 +26,9 @@ namespace StreamSpotter
     {
         public Netflix netflix { get; set; }
         public Disney disney { get; set; }
+        public Hulu hulu { get; set; }
+        public Prime prime { get; set; }
     }
-
     public class Netflix
     {
         public Us us { get; set; }
@@ -26,12 +37,19 @@ namespace StreamSpotter
     {
         public Us us { get; set; }
     }
-
+    public class Hulu
+    {
+        public Us us { get; set; }
+    }
+    public class Prime
+    {
+        public Us us { get; set; }
+    }
     public class Us
     {
         public string link { get; set; }
         public int added { get; set; }
-        public int leaving { get; set; }
+        public long leaving { get; set; }
     }
     public class Backdropurls
     {
@@ -98,6 +116,11 @@ namespace StreamSpotter
         }
         public Result() { }
 
+        /*******************************************************************************************************
+         * Determines whether the Result is a moive by checking if the season cound is above 0. 
+         * if seasons = 0, it is a movie, if not it is a series
+         * RETURN: true if the Result is a movie
+         *******************************************************************************************************/
         public bool isMovie()
         {
             bool movie = false;

@@ -30,13 +30,14 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileSelectionScreen));
 			this.StreamSelectPanel = new System.Windows.Forms.Panel();
+			this.primeCheckBox = new System.Windows.Forms.CheckBox();
+			this.huluCheckBox = new System.Windows.Forms.CheckBox();
 			this.ProfileSavedLabel = new System.Windows.Forms.Label();
 			this.SwitchButton = new System.Windows.Forms.Button();
 			this.DisneyCheckBox = new System.Windows.Forms.CheckBox();
 			this.NetflixCheckBox = new System.Windows.Forms.CheckBox();
 			this.MyCancelButton = new System.Windows.Forms.Button();
 			this.SaveButton = new System.Windows.Forms.Button();
-			this.SwitchPanel = new System.Windows.Forms.Panel();
 			this.NewProfilePanel = new System.Windows.Forms.Panel();
 			this.TooManyProfilesLabel = new System.Windows.Forms.Label();
 			this.CancelButton = new System.Windows.Forms.Button();
@@ -44,6 +45,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.ProfileNameLabel = new System.Windows.Forms.Label();
 			this.NameTextBox = new System.Windows.Forms.TextBox();
+			this.SwitchPanel = new System.Windows.Forms.Panel();
 			this.ProfileNotCreatedLabel = new System.Windows.Forms.Label();
 			this.ExitButton = new System.Windows.Forms.Button();
 			this.NewProfileButton = new System.Windows.Forms.Button();
@@ -60,13 +62,17 @@
 			this.Profile1 = new System.Windows.Forms.Button();
 			this.DeleteProfileButton = new System.Windows.Forms.Button();
 			this.serviceButton = new System.Windows.Forms.Button();
+			this.undoButton = new System.Windows.Forms.Button();
+			this.redoButton = new System.Windows.Forms.Button();
 			this.StreamSelectPanel.SuspendLayout();
-			this.SwitchPanel.SuspendLayout();
 			this.NewProfilePanel.SuspendLayout();
+			this.SwitchPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// StreamSelectPanel
 			// 
+			this.StreamSelectPanel.Controls.Add(this.primeCheckBox);
+			this.StreamSelectPanel.Controls.Add(this.huluCheckBox);
 			this.StreamSelectPanel.Controls.Add(this.ProfileSavedLabel);
 			this.StreamSelectPanel.Controls.Add(this.SwitchButton);
 			this.StreamSelectPanel.Controls.Add(this.DisneyCheckBox);
@@ -79,38 +85,62 @@
 			this.StreamSelectPanel.Size = new System.Drawing.Size(907, 558);
 			this.StreamSelectPanel.TabIndex = 5;
 			// 
+			// primeCheckBox
+			// 
+			this.primeCheckBox.AutoSize = true;
+			this.primeCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.primeCheckBox.Location = new System.Drawing.Point(437, 103);
+			this.primeCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.primeCheckBox.Name = "primeCheckBox";
+			this.primeCheckBox.Size = new System.Drawing.Size(116, 36);
+			this.primeCheckBox.TabIndex = 14;
+			this.primeCheckBox.Text = "Prime";
+			this.primeCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// huluCheckBox
+			// 
+			this.huluCheckBox.AutoSize = true;
+			this.huluCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.huluCheckBox.Location = new System.Drawing.Point(227, 103);
+			this.huluCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.huluCheckBox.Name = "huluCheckBox";
+			this.huluCheckBox.Size = new System.Drawing.Size(100, 36);
+			this.huluCheckBox.TabIndex = 13;
+			this.huluCheckBox.Text = "Hulu";
+			this.huluCheckBox.UseVisualStyleBackColor = true;
+			// 
 			// ProfileSavedLabel
 			// 
 			this.ProfileSavedLabel.AutoSize = true;
-			this.ProfileSavedLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileSavedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ProfileSavedLabel.ForeColor = System.Drawing.Color.Green;
 			this.ProfileSavedLabel.Location = new System.Drawing.Point(269, 231);
 			this.ProfileSavedLabel.Name = "ProfileSavedLabel";
-			this.ProfileSavedLabel.Size = new System.Drawing.Size(269, 29);
+			this.ProfileSavedLabel.Size = new System.Drawing.Size(274, 25);
 			this.ProfileSavedLabel.TabIndex = 10;
 			this.ProfileSavedLabel.Text = "Services have been saved!";
 			this.ProfileSavedLabel.Click += new System.EventHandler(this.label2_Click);
 			// 
 			// SwitchButton
 			// 
-			this.SwitchButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SwitchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SwitchButton.Location = new System.Drawing.Point(585, 14);
 			this.SwitchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.SwitchButton.Name = "SwitchButton";
 			this.SwitchButton.Size = new System.Drawing.Size(203, 42);
 			this.SwitchButton.TabIndex = 9;
-			this.SwitchButton.Text = "Switch Profile/Back";
+			this.SwitchButton.Text = "Back";
 			this.SwitchButton.UseVisualStyleBackColor = true;
 			this.SwitchButton.Click += new System.EventHandler(this.SwitchButton_Click_1);
 			// 
 			// DisneyCheckBox
 			// 
 			this.DisneyCheckBox.AutoSize = true;
-			this.DisneyCheckBox.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.DisneyCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.DisneyCheckBox.Location = new System.Drawing.Point(437, 158);
 			this.DisneyCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.DisneyCheckBox.Name = "DisneyCheckBox";
-			this.DisneyCheckBox.Size = new System.Drawing.Size(144, 43);
+			this.DisneyCheckBox.Size = new System.Drawing.Size(147, 36);
 			this.DisneyCheckBox.TabIndex = 8;
 			this.DisneyCheckBox.Text = "Disney+";
 			this.DisneyCheckBox.UseVisualStyleBackColor = true;
@@ -118,18 +148,18 @@
 			// NetflixCheckBox
 			// 
 			this.NetflixCheckBox.AutoSize = true;
-			this.NetflixCheckBox.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.NetflixCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.NetflixCheckBox.Location = new System.Drawing.Point(227, 158);
 			this.NetflixCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.NetflixCheckBox.Name = "NetflixCheckBox";
-			this.NetflixCheckBox.Size = new System.Drawing.Size(138, 43);
+			this.NetflixCheckBox.Size = new System.Drawing.Size(124, 36);
 			this.NetflixCheckBox.TabIndex = 7;
 			this.NetflixCheckBox.Text = "Netflix";
 			this.NetflixCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// MyCancelButton
 			// 
-			this.MyCancelButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.MyCancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.MyCancelButton.Location = new System.Drawing.Point(437, 351);
 			this.MyCancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.MyCancelButton.Name = "MyCancelButton";
@@ -141,7 +171,7 @@
 			// 
 			// SaveButton
 			// 
-			this.SaveButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SaveButton.Location = new System.Drawing.Point(275, 351);
 			this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.SaveButton.Name = "SaveButton";
@@ -151,37 +181,11 @@
 			this.SaveButton.UseVisualStyleBackColor = true;
 			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
 			// 
-			// SwitchPanel
-			// 
-			this.SwitchPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.SwitchPanel.Controls.Add(this.NewProfilePanel);
-			this.SwitchPanel.Controls.Add(this.StreamSelectPanel);
-			this.SwitchPanel.Controls.Add(this.ProfileNotCreatedLabel);
-			this.SwitchPanel.Controls.Add(this.ExitButton);
-			this.SwitchPanel.Controls.Add(this.NewProfileButton);
-			this.SwitchPanel.Controls.Add(this.Profile10);
-			this.SwitchPanel.Controls.Add(this.Profile9);
-			this.SwitchPanel.Controls.Add(this.Profile8);
-			this.SwitchPanel.Controls.Add(this.Profile7);
-			this.SwitchPanel.Controls.Add(this.ProfileDeletedLabel);
-			this.SwitchPanel.Controls.Add(this.Profile6);
-			this.SwitchPanel.Controls.Add(this.Profile5);
-			this.SwitchPanel.Controls.Add(this.Profile4);
-			this.SwitchPanel.Controls.Add(this.Profile3);
-			this.SwitchPanel.Controls.Add(this.Profile2);
-			this.SwitchPanel.Controls.Add(this.Profile1);
-			this.SwitchPanel.Controls.Add(this.DeleteProfileButton);
-			this.SwitchPanel.Controls.Add(this.serviceButton);
-			this.SwitchPanel.Location = new System.Drawing.Point(0, 0);
-			this.SwitchPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.SwitchPanel.MinimumSize = new System.Drawing.Size(907, 560);
-			this.SwitchPanel.Name = "SwitchPanel";
-			this.SwitchPanel.Size = new System.Drawing.Size(907, 560);
-			this.SwitchPanel.TabIndex = 11;
-			this.SwitchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SwitchPanel_Paint_1);
-			// 
 			// NewProfilePanel
 			// 
+			this.NewProfilePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.NewProfilePanel.Controls.Add(this.TooManyProfilesLabel);
 			this.NewProfilePanel.Controls.Add(this.CancelButton);
 			this.NewProfilePanel.Controls.Add(this.SaveNewProfileButton);
@@ -191,18 +195,18 @@
 			this.NewProfilePanel.Location = new System.Drawing.Point(0, 0);
 			this.NewProfilePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.NewProfilePanel.Name = "NewProfilePanel";
-			this.NewProfilePanel.Size = new System.Drawing.Size(907, 556);
+			this.NewProfilePanel.Size = new System.Drawing.Size(907, 554);
 			this.NewProfilePanel.TabIndex = 12;
 			this.NewProfilePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.NewProfilePanel_Paint);
 			// 
 			// TooManyProfilesLabel
 			// 
 			this.TooManyProfilesLabel.AutoSize = true;
-			this.TooManyProfilesLabel.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TooManyProfilesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.TooManyProfilesLabel.ForeColor = System.Drawing.Color.Firebrick;
 			this.TooManyProfilesLabel.Location = new System.Drawing.Point(12, 177);
 			this.TooManyProfilesLabel.Name = "TooManyProfilesLabel";
-			this.TooManyProfilesLabel.Size = new System.Drawing.Size(784, 35);
+			this.TooManyProfilesLabel.Size = new System.Drawing.Size(778, 29);
 			this.TooManyProfilesLabel.TabIndex = 10;
 			this.TooManyProfilesLabel.Text = "Too many profiles, please remove an old profile to add a new one";
 			// 
@@ -233,10 +237,10 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.Location = new System.Drawing.Point(137, 230);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(675, 31);
+			this.label1.Size = new System.Drawing.Size(735, 29);
 			this.label1.TabIndex = 7;
 			this.label1.Text = "Choose which streaming services you own on the Profile page";
 			this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -244,10 +248,10 @@
 			// ProfileNameLabel
 			// 
 			this.ProfileNameLabel.AutoSize = true;
-			this.ProfileNameLabel.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ProfileNameLabel.Location = new System.Drawing.Point(258, 69);
+			this.ProfileNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileNameLabel.Location = new System.Drawing.Point(259, 69);
 			this.ProfileNameLabel.Name = "ProfileNameLabel";
-			this.ProfileNameLabel.Size = new System.Drawing.Size(177, 35);
+			this.ProfileNameLabel.Size = new System.Drawing.Size(173, 29);
 			this.ProfileNameLabel.TabIndex = 6;
 			this.ProfileNameLabel.Text = "Profile Name:";
 			// 
@@ -261,14 +265,45 @@
 			this.NameTextBox.TabIndex = 5;
 			this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
 			// 
+			// SwitchPanel
+			// 
+			this.SwitchPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.SwitchPanel.Controls.Add(this.NewProfilePanel);
+			this.SwitchPanel.Controls.Add(this.StreamSelectPanel);
+			this.SwitchPanel.Controls.Add(this.ProfileNotCreatedLabel);
+			this.SwitchPanel.Controls.Add(this.ExitButton);
+			this.SwitchPanel.Controls.Add(this.NewProfileButton);
+			this.SwitchPanel.Controls.Add(this.Profile10);
+			this.SwitchPanel.Controls.Add(this.Profile9);
+			this.SwitchPanel.Controls.Add(this.Profile8);
+			this.SwitchPanel.Controls.Add(this.Profile7);
+			this.SwitchPanel.Controls.Add(this.ProfileDeletedLabel);
+			this.SwitchPanel.Controls.Add(this.Profile6);
+			this.SwitchPanel.Controls.Add(this.Profile5);
+			this.SwitchPanel.Controls.Add(this.Profile4);
+			this.SwitchPanel.Controls.Add(this.Profile3);
+			this.SwitchPanel.Controls.Add(this.Profile2);
+			this.SwitchPanel.Controls.Add(this.Profile1);
+			this.SwitchPanel.Controls.Add(this.DeleteProfileButton);
+			this.SwitchPanel.Controls.Add(this.serviceButton);
+			this.SwitchPanel.Controls.Add(this.undoButton);
+			this.SwitchPanel.Controls.Add(this.redoButton);
+			this.SwitchPanel.Location = new System.Drawing.Point(0, 0);
+			this.SwitchPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.SwitchPanel.MinimumSize = new System.Drawing.Size(907, 560);
+			this.SwitchPanel.Name = "SwitchPanel";
+			this.SwitchPanel.Size = new System.Drawing.Size(907, 560);
+			this.SwitchPanel.TabIndex = 11;
+			this.SwitchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SwitchPanel_Paint_1);
+			// 
 			// ProfileNotCreatedLabel
 			// 
 			this.ProfileNotCreatedLabel.AutoSize = true;
-			this.ProfileNotCreatedLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileNotCreatedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ProfileNotCreatedLabel.ForeColor = System.Drawing.Color.Firebrick;
 			this.ProfileNotCreatedLabel.Location = new System.Drawing.Point(152, 27);
 			this.ProfileNotCreatedLabel.Name = "ProfileNotCreatedLabel";
-			this.ProfileNotCreatedLabel.Size = new System.Drawing.Size(503, 28);
+			this.ProfileNotCreatedLabel.Size = new System.Drawing.Size(461, 25);
 			this.ProfileNotCreatedLabel.TabIndex = 25;
 			this.ProfileNotCreatedLabel.Text = "The profile you have clicked hasn\'t been created yet";
 			this.ProfileNotCreatedLabel.Click += new System.EventHandler(this.label2_Click_1);
@@ -280,7 +315,7 @@
 			this.ExitButton.Name = "ExitButton";
 			this.ExitButton.Size = new System.Drawing.Size(75, 31);
 			this.ExitButton.TabIndex = 22;
-			this.ExitButton.Text = "Exit";
+			this.ExitButton.Text = "Home";
 			this.ExitButton.UseVisualStyleBackColor = true;
 			this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
 			// 
@@ -342,11 +377,11 @@
 			// ProfileDeletedLabel
 			// 
 			this.ProfileDeletedLabel.AutoSize = true;
-			this.ProfileDeletedLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileDeletedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ProfileDeletedLabel.ForeColor = System.Drawing.Color.Firebrick;
 			this.ProfileDeletedLabel.Location = new System.Drawing.Point(197, 27);
 			this.ProfileDeletedLabel.Name = "ProfileDeletedLabel";
-			this.ProfileDeletedLabel.Size = new System.Drawing.Size(405, 56);
+			this.ProfileDeletedLabel.Size = new System.Drawing.Size(375, 50);
 			this.ProfileDeletedLabel.TabIndex = 24;
 			this.ProfileDeletedLabel.Text = "The profile you were on has been deleted,\r\n please choose a new profile\r\n";
 			this.ProfileDeletedLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -440,29 +475,57 @@
 			this.serviceButton.UseVisualStyleBackColor = true;
 			this.serviceButton.Click += new System.EventHandler(this.serviceButton_Click);
 			// 
+			// undoButton
+			// 
+			this.undoButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.undoButton.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.undoButton.Location = new System.Drawing.Point(27, 103);
+			this.undoButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+			this.undoButton.Name = "undoButton";
+			this.undoButton.Size = new System.Drawing.Size(53, 50);
+			this.undoButton.TabIndex = 37;
+			this.undoButton.Text = "↶";
+			this.undoButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.undoButton.UseVisualStyleBackColor = true;
+			this.undoButton.Click += new System.EventHandler(this.undoButton_Click);
+			// 
+			// redoButton
+			// 
+			this.redoButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.redoButton.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.redoButton.Location = new System.Drawing.Point(84, 103);
+			this.redoButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+			this.redoButton.Name = "redoButton";
+			this.redoButton.Size = new System.Drawing.Size(56, 50);
+			this.redoButton.TabIndex = 36;
+			this.redoButton.Text = "↷";
+			this.redoButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.redoButton.UseVisualStyleBackColor = true;
+			this.redoButton.Click += new System.EventHandler(this.redoButton_Click);
+			// 
 			// ProfileSelectionScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.ClientSize = new System.Drawing.Size(909, 558);
+			this.ClientSize = new System.Drawing.Size(911, 566);
 			this.Controls.Add(this.SwitchPanel);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.MinimumSize = new System.Drawing.Size(927, 605);
+			this.MinimumSize = new System.Drawing.Size(926, 603);
 			this.Name = "ProfileSelectionScreen";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
 			this.Text = "Profile Selection";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProfileSelectionScreen_FormClosing);
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProfileSelectionScreen_FormClosed_1);
 			this.Load += new System.EventHandler(this.ProfileSelectionScreen_Load);
 			this.Resize += new System.EventHandler(this.ProfileSelectionScreen_Resize);
 			this.StreamSelectPanel.ResumeLayout(false);
 			this.StreamSelectPanel.PerformLayout();
-			this.SwitchPanel.ResumeLayout(false);
-			this.SwitchPanel.PerformLayout();
 			this.NewProfilePanel.ResumeLayout(false);
 			this.NewProfilePanel.PerformLayout();
+			this.SwitchPanel.ResumeLayout(false);
+			this.SwitchPanel.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -500,5 +563,9 @@
 		private System.Windows.Forms.Label ProfileSavedLabel;
 		private System.Windows.Forms.Label ProfileNotCreatedLabel;
 		private System.Windows.Forms.Button serviceButton;
-	}
+        private System.Windows.Forms.Button redoButton;
+        private System.Windows.Forms.Button undoButton;
+        private System.Windows.Forms.CheckBox primeCheckBox;
+        private System.Windows.Forms.CheckBox huluCheckBox;
+    }
 }

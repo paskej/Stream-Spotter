@@ -1,4 +1,10 @@
-﻿using System;
+﻿//---------------------------------------------------------------
+// Name:    404 Brain Not Found
+// Project: Stream Spotter
+// Purpose: Allows users with streaming services to find movies and shows
+// they want to watch without knowing what service it may be on
+//---------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,36 +16,64 @@ using System.Windows.Forms;
 
 namespace StreamSpotter
 {
+    /*******************************************************************************************************
+     * WishListUI displays the list of movies and shows in the users wislist
+     *******************************************************************************************************/
     public partial class WishlistUI : Form
     {
         private WindowsController windowsController;
-
-        public WishlistUI(WindowsController windowsController)
+        /*******************************************************************************************************
+         * Constructor to initialize the objects
+         *******************************************************************************************************/
+        public WishlistUI()
         {
+            this.windowsController = WindowsController.getInstance();
             InitializeComponent();
-            this.windowsController = windowsController;
+
+            listPanel.Controls.Add(loadingLabel);
+            loadingLabel.Visible = true;
+
+            button3.Text = (string)windowsController.currentProfile.getProfileName();
+        }
+        /*******************************************************************************************************
+        * Method to show the list of search results
+        *******************************************************************************************************/
+        public void showList()
+        {
             if (!windowsController.showWishList(listPanel, this))
             {
+                loadingLabel.Visible = false;
                 listPanel.Controls.Add(listEmptyLabel);
                 listEmptyLabel.Visible = true;
             }
-            //Location = new Point(0, 0);
-            button3.Text = (string)windowsController.currentProfile.getProfileName();
+            else
+            {
+                loadingLabel.Visible = false;
+            }
         }
-
+        /*******************************************************************************************************
+        * Method to pop up the home screen
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void HomeButton_Click(object sender, EventArgs e)
         {
             windowsController.openHomeScreen(this);
         }
 
-
+        /*******************************************************************************************************
+        * Method to pop up the profile screen
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void button3_Click(object sender, EventArgs e)
         {
             WindowsController winController = WindowsController.getInstance();
             winController.showProfileScreen(this);
         }
 
-
+        /*******************************************************************************************************
+        * Method to filter by the type of specified service
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             listEmptyLabel.Visible = false;
@@ -67,9 +101,28 @@ namespace StreamSpotter
                     listEmptyLabel.Visible = true;
                 }
             }
+            else if (comboBox2.SelectedIndex == 3)
+            {
+                if (!windowsController.filterByService((string)comboBox2.SelectedItem))
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
+            else if (comboBox2.SelectedIndex == 4)
+            {
+                if (!windowsController.filterByService((string)comboBox2.SelectedItem))
+                {
+                    listPanel.Controls.Add(listEmptyLabel);
+                    listEmptyLabel.Visible = true;
+                }
+            }
         }
 
-
+        /*******************************************************************************************************
+        * Method to filter by what was selected in the filter textbox
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             listEmptyLabel.Visible = false;
@@ -138,7 +191,9 @@ namespace StreamSpotter
                 }
             }
         }
-
+        /*******************************************************************************************************
+        * Method to format the current screen when resized
+        *******************************************************************************************************/
         public void formatPage()
         {
             //
@@ -171,7 +226,12 @@ namespace StreamSpotter
             //Label listEmptyLabel
             //
             listEmptyLabel.Location = new Point((int)((listPanel.Width / 2) - (listEmptyLabel.Width / 2)), (int)((listPanel.Height / 2) - (listEmptyLabel.Height / 2)) - 40);
-
+            
+            
+            //
+            //label loadingLabel
+            //
+            loadingLabel.Location = new Point((int)((listPanel.Width / 2) - (loadingLabel.Width / 2)), (int)((listPanel.Height / 2) - (loadingLabel.Height / 2)) - 40);
 
             //
             //Button button1 menu
@@ -187,7 +247,7 @@ namespace StreamSpotter
             //Button button3 profile
             //
             button3.Location = new Point((this.Width - button3.Width - 5 - 15),(10));
-
+            
 
             //
             //ComboBox comboBox2 service
@@ -195,17 +255,26 @@ namespace StreamSpotter
             comboBox2.Location = new Point((this.Width - comboBox1.Width - comboBox2.Width - 15), (panel1.Height + 1));
 
         }
-
+        /*******************************************************************************************************
+        * Method to format the current screen when resized
+        * * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void WishlistUI_Load(object sender, EventArgs e)
         {
             formatPage();
         }
-
+        /*******************************************************************************************************
+        * Method to format the current screen when resized
+        * * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void WishlistUI_ResizeEnd(object sender, EventArgs e)
         {
             formatPage();
         }
-
+        /*******************************************************************************************************
+        * Method to filter by what was selected in the filter textbox
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             listEmptyLabel.Visible = false;
@@ -274,10 +343,29 @@ namespace StreamSpotter
                 }
             }
         }
-
+        /*******************************************************************************************************
+        * Method to format the current screen when resized
+        * * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
         private void WishlistUI_Resize(object sender, EventArgs e)
         {
             formatPage();
+        }
+        /*******************************************************************************************************
+         * Method to close the form
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
+        private void WishlistUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+        /*******************************************************************************************************
+         * Method to close the form
+         * PARAMS: object sender, EventArgs e
+         *******************************************************************************************************/
+        private void WishlistUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
