@@ -8,7 +8,7 @@ using System.Collections;
 namespace UnitTests
 {
 	[TestClass]
-	class ProfileControllerTests
+	public class ProfileControllerTests
 	{
 		ProfileController profileController;
 		Profile pro1;
@@ -40,12 +40,13 @@ namespace UnitTests
 			}
 
 
-			Assert.Equals(pro1, found);
+			Assert.AreEqual(pro1, found);
 		}
 
 		[TestMethod]
 		public void RemoveProfile_True()
 		{
+			profileController = new ProfileController();
 			string name = "theName";
 			string[] serv = new string[2];
 			serv[0] = "netflix";
@@ -59,19 +60,21 @@ namespace UnitTests
 		[TestMethod]
 		public void GetProfile_True()
 		{
+			profileController = new ProfileController();
 			string name = "theName";
 			string[] serv = new string[2];
 			serv[0] = "netflix";
 			serv[1] = "disney";
 
-			//pro1 = profileController.CreateProfile(name, serv);
+			pro1 = profileController.CreateProfile(name, serv);
 
-			Assert.Equals(pro1, profileController.GetProfile(0));
+			Assert.AreEqual(pro1.profileName, profileController.GetProfile(0).profileName);
 		}
 
 		[TestMethod]
 		public void getProfile_null_True()
 		{
+			profileController = new ProfileController();
 			Assert.IsNull(profileController.GetProfile(8));
 		}
 
