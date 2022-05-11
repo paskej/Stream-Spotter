@@ -31,7 +31,9 @@ namespace StreamSpotter
 		private string NewName;
 		private Handler handler;
 		private bool newProfileServices;
-
+		/*******************************************************************************************************
+         * Constructor to initialize the objects
+         *******************************************************************************************************/
 		public ProfileSelectionScreen()
 		{
 			profileCon = winControl.profileController;
@@ -88,17 +90,26 @@ namespace StreamSpotter
 			updateProfileButtonName();
 			noCurrentProfile();
 		}
-
+		/*******************************************************************************************************
+        * Method to get checkbox change
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void checkBox1_CheckedChanged(object sender, EventArgs e)
 		{
 			NetflixCheckBox.Checked = true;
 		}
-
+		/*******************************************************************************************************
+        * Method to get checkbox change
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void checkBox2_CheckedChanged(object sender, EventArgs e)
 		{
 			DisneyCheckBox.Checked = true;
 		}
-
+		/*******************************************************************************************************
+        * Method to save checkbox info
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void button1_Click(object sender, EventArgs e)
 		{
 			if (NetflixCheckBox.Checked == true)
@@ -159,7 +170,10 @@ namespace StreamSpotter
 			}
 			this.Close();
 		}
-
+		/*******************************************************************************************************
+        * Method to close the form
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void button2_Click(object sender, EventArgs e)
 		{
 			this.Close();
@@ -175,13 +189,19 @@ namespace StreamSpotter
 
 
 		}
-
+		/*******************************************************************************************************
+        * Method to open the stream select panel
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void Profile1_Click(object sender, EventArgs e)
 		{
 			StreamSelectPanel.Visible = true;
 			SwitchPanel.Visible = false;
 		}
-
+		/*******************************************************************************************************
+        * Method to switch profile
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void SwitchButton_Click_1(object sender, EventArgs e)
 		{
 			noCurrentProfile();
@@ -196,7 +216,10 @@ namespace StreamSpotter
 		{
 
 		}
-
+		/*******************************************************************************************************
+        * Method to update profiles and add a new profile
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void Profile1_Click_1(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
@@ -222,13 +245,19 @@ namespace StreamSpotter
 			}
 			
 		}
-
+		/*******************************************************************************************************
+        * Method to go back to home screen
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void ExitButton_Click(object sender, EventArgs e)
 		{
 			winControl.currentProfile = currentProfile;
 			winControl.openHomeScreen(this);
 		}
-
+		/*******************************************************************************************************
+        * Method to go back to main profile panel
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void CancelButton_Click(object sender, EventArgs e)
 		{
 			noCurrentProfile();
@@ -236,7 +265,10 @@ namespace StreamSpotter
 			NewProfilePanel.Visible = false;
 			SwitchPanel.Visible = true;
 		}
-
+		/*******************************************************************************************************
+        * Method to open new profile panel
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void NewProfileButton_Click(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
@@ -249,12 +281,18 @@ namespace StreamSpotter
 		{
 
 		}
-
+		/*******************************************************************************************************
+        * Method to get the name changed
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void NameTextBox_TextChanged(object sender, EventArgs e)
 		{
 			NewName = (string)NameTextBox.Text;
 		}
-
+		/*******************************************************************************************************
+        * Method to add a new profile
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void button1_Click_1(object sender, EventArgs e)
 		{
 			int oldID = 0;
@@ -303,7 +341,10 @@ namespace StreamSpotter
 			noCurrentProfile();
 			changeSelectedProfileButton(currentProfile.id, oldID);
 		}
-
+		/*******************************************************************************************************
+        * Method to save users streaming services
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void SaveButton_Click(object sender, EventArgs e)
 		{
 			noCurrentProfile();
@@ -409,7 +450,10 @@ namespace StreamSpotter
 				profileCon.UpdateProfile(currentProfile);
 			updateProfileButtonName();
 		}
-
+		/*******************************************************************************************************
+        * Method to update the button names
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		public void updateProfileButtonName()
 		{
 			for (int i = 0; i < buttonList.Count; i++)
@@ -426,7 +470,10 @@ namespace StreamSpotter
                 }
 			}
 		}
-
+		/*******************************************************************************************************
+        * Method to delete a profile
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void DeleteProfileButton_Click(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
@@ -454,7 +501,10 @@ namespace StreamSpotter
             }
 			updateProfileButtonName();
 		}
-
+		/*******************************************************************************************************
+        * Method to update button
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void Profile2_Click(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
@@ -480,7 +530,10 @@ namespace StreamSpotter
 				ProfileNotCreatedLabel.Visible = true;
 			}
 		}
-
+		/*******************************************************************************************************
+        * Method to update button
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void Profile3_Click(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
@@ -505,7 +558,10 @@ namespace StreamSpotter
 				ProfileNotCreatedLabel.Visible = true;
 			}
 		}
-
+		/*******************************************************************************************************
+        * Method to update button
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void Profile4_Click(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
@@ -530,7 +586,10 @@ namespace StreamSpotter
 				ProfileNotCreatedLabel.Visible = true;
 			}
 		}
-
+		/*******************************************************************************************************
+        * Method to update button
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void Profile5_Click(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
@@ -555,7 +614,10 @@ namespace StreamSpotter
 				ProfileNotCreatedLabel.Visible = true;
 			}
 		}
-
+		/*******************************************************************************************************
+        * Method to update button
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void Profile6_Click(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
@@ -580,7 +642,10 @@ namespace StreamSpotter
 				ProfileNotCreatedLabel.Visible = true;
 			}
 		}
-
+		/*******************************************************************************************************
+        * Method to update button
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void Profile7_Click(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
@@ -605,7 +670,10 @@ namespace StreamSpotter
 				ProfileNotCreatedLabel.Visible = true;
 			}
 		}
-
+		/*******************************************************************************************************
+        * Method to update button
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void Profile8_Click(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
@@ -630,7 +698,10 @@ namespace StreamSpotter
 				ProfileNotCreatedLabel.Visible = true;
 			}
 		}
-
+		/*******************************************************************************************************
+        * Method to update button
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void Profile9_Click(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
@@ -655,7 +726,10 @@ namespace StreamSpotter
 				ProfileNotCreatedLabel.Visible = true;
 			}
 		}
-
+		/*******************************************************************************************************
+        * Method to update button
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void Profile10_Click(object sender, EventArgs e)
 		{
 			ProfileNotCreatedLabel.Visible = false;
@@ -680,7 +754,10 @@ namespace StreamSpotter
 				ProfileNotCreatedLabel.Visible = true;
 			}
 		}
-
+		/*******************************************************************************************************
+        * Method to go back to main profile screen
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void MyCancelButton_Click(object sender, EventArgs e)
 		{
 			noCurrentProfile();
@@ -703,14 +780,18 @@ namespace StreamSpotter
 		{
 
 		}
-
+		/*******************************************************************************************************
+        * Method to create a new profile upon startup
+        *******************************************************************************************************/
 		public void createNewProfileOnStart()
 		{
 			NewProfilePanel.Visible = true;
 			//add a boolean to check if it is first time starting
 			//Then make it so that the user cannot exit until they have created a profile.
 		}
-
+		/*******************************************************************************************************
+        * Method to setup ceckboxes
+        *******************************************************************************************************/
 		public void updateCheckedBoxes()
 		{
 			if (currentProfile.getServices() != null)
@@ -761,7 +842,10 @@ namespace StreamSpotter
 		{
 
 		}
-
+		/*******************************************************************************************************
+        * Method to open users services panel
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void serviceButton_Click(object sender, EventArgs e)
 		{
 			newProfileServices = false;
@@ -771,7 +855,9 @@ namespace StreamSpotter
 			ProfileSavedLabel.Visible = false;
 			updateCheckedBoxes();
 		}
-
+		/*******************************************************************************************************
+        * Method to check if there is no profiles
+        *******************************************************************************************************/
 		private void noCurrentProfile()
 		{
 			if(currentProfile == null)
@@ -798,6 +884,10 @@ namespace StreamSpotter
 				changeSelectedProfileButton(currentProfile.id);
 			}
 		}
+		/*******************************************************************************************************
+        * Method to change the currently selected profile
+        * PARAMS: int selected
+        *******************************************************************************************************/
 		private void changeSelectedProfileButton(int selected)
 		{
 			Button[] buttons = new Button[10];
@@ -811,6 +901,10 @@ namespace StreamSpotter
 			
 
 		}
+		/*******************************************************************************************************
+        * Method to change the currently selected profile button
+        * PARAMS: int selected, int old
+        *******************************************************************************************************/
 		private void changeSelectedProfileButton(int selected, int old)
 		{
 			Button[] buttons = new Button[10];
@@ -823,7 +917,10 @@ namespace StreamSpotter
 			buttons[selected].BackColor = Color.Green;
 
 		}
-		
+		/*******************************************************************************************************
+        * Method to remove the currently selected profile
+        * PARAMS: int selected
+        *******************************************************************************************************/
 		private void removeSelectedProfileButton(int selected)
         {
 			Button[] buttons = new Button[10];
@@ -832,23 +929,35 @@ namespace StreamSpotter
 			buttons[selected].UseVisualStyleBackColor = true;
 			updateProfileButtonName();
         }
-
+		/*******************************************************************************************************
+        * Method to reset button text
+        * PARAMS: int selected
+        *******************************************************************************************************/
 		private void resetButttonText(int selected)
         {
 			Button[] buttons = new Button[10];
 			buttonList.CopyTo(buttons);
 			buttons[selected].Text = "empty" + (selected + 1);
 		}
+		/*******************************************************************************************************
+        * Method to format the screen when resized
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void ProfileSelectionScreen_Load(object sender, EventArgs e)
 		{
 			formatScreen();
 		}
-
+		/*******************************************************************************************************
+        * Method to format the screen when resized
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
 		private void ProfileSelectionScreen_Resize(object sender, EventArgs e)
 		{
 			formatScreen();
 		}
-
+		/*******************************************************************************************************
+        * Method to format the screen when resized
+        *******************************************************************************************************/
 		private void formatScreen()
 		{
 			SwitchPanel.Width = this.Width;
@@ -1063,42 +1172,63 @@ namespace StreamSpotter
 
 
 		}
-
-        private void undoButton_Click(object sender, EventArgs e)
+		/*******************************************************************************************************
+        * Method to undo last action
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
+		private void undoButton_Click(object sender, EventArgs e)
         {
 			handler.Undo();
 			updateProfileButtonName();
 			noCurrentProfile();
 		}
-
-        private void redoButton_Click(object sender, EventArgs e)
+		/*******************************************************************************************************
+        * Method to redo last action
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
+		private void redoButton_Click(object sender, EventArgs e)
         {
 			handler.Redo();
 			updateProfileButtonName();
 			noCurrentProfile();
 		}
-
-        private void ProfileSelectionScreen_FormClosed(object sender, FormClosedEventArgs e)
+		/*******************************************************************************************************
+        * Method to close the form
+        * PARAMS: object sender, FormClosedEventArgs e
+        *******************************************************************************************************/
+		private void ProfileSelectionScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
 			Application.Exit();
         }
-
-        private void huluCheckBox_CheckedChanged(object sender, EventArgs e)
+		/*******************************************************************************************************
+        * Method to get if the checkbox was changed
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
+		private void huluCheckBox_CheckedChanged(object sender, EventArgs e)
         {
 			huluCheckBox.Checked = true;
         }
-
-        private void primeCheckBox_CheckedChanged(object sender, EventArgs e)
+		/*******************************************************************************************************
+        * Method to get if the checkbox was changed
+        * PARAMS: object sender, EventArgs e
+        *******************************************************************************************************/
+		private void primeCheckBox_CheckedChanged(object sender, EventArgs e)
         {
 			primeCheckBox.Checked = true;
 		}
-
-        private void ProfileSelectionScreen_FormClosing(object sender, FormClosingEventArgs e)
+		/*******************************************************************************************************
+        * Method to close the form
+        * PARAMS: object sender, FormClosingEventArgs e
+        *******************************************************************************************************/
+		private void ProfileSelectionScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
 			Application.Exit();
         }
-
-        private void ProfileSelectionScreen_FormClosed_1(object sender, FormClosedEventArgs e)
+		/*******************************************************************************************************
+        * Method to close the form
+        * PARAMS: object sender, FormClosedEventArgs e
+        *******************************************************************************************************/
+		private void ProfileSelectionScreen_FormClosed_1(object sender, FormClosedEventArgs e)
         {
 			Application.Exit();
         }
