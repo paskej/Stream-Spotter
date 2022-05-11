@@ -45,5 +45,14 @@ namespace UnitTests
             wt.changeCurrentWishlist(2, "List2");
             Assert.AreEqual(wt.getCurrentWishlist()[0].title, db.getWishlist(2, "List2")[0].title, "Change wishlist twice failed");
         }
+
+        [TestMethod]
+        public void ChangeWishlistsNULL()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            WishlistTracker wt = new WishlistTracker();
+            wt.changeCurrentWishlist(1, null);
+            Assert.AreEqual(wt.getCurrentWishlist(), null, "Failed to change to null wishlist");
+        }
     }
 }
